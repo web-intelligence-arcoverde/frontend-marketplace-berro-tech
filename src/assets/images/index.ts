@@ -1,1 +1,5 @@
-export const IMAGES = {};
+import Logo from "../images/logo.png";
+
+export const IMAGES = {
+  Logo,
+};
