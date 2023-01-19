@@ -1,12 +1,5 @@
-import Image from "next/image";
-import { IMAGES } from "../assets/images";
-
 const Home = () => {
-  return (
-    <>
-      <Image src={IMAGES.Logo} alt="" />
-    </>
-  );
+  return <>Home</>;
 };
 
 export default Home;
