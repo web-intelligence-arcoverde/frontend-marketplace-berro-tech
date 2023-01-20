@@ -1,5 +1,11 @@
+import Header from "@/components/organisms/Header";
+
 const Home = () => {
-  return <>Home</>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Home;
