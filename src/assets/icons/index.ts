@@ -1,3 +1,6 @@
-import Search from "./icon-search.svg";
+import Search from "./search.svg";
+import Message from "./message.svg";
+import Star from "./star.svg";
+import Alert from "./alert.svg";
 
-export const ICONS = { Search };
+export const ICONS = { Search, Message, Star, Alert };
