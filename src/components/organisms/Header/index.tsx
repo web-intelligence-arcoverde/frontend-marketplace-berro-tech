@@ -18,8 +18,8 @@ const Header = () => {
           onClick={console.log}
         />
         <Nav>
-          {NavigationHeader.map((item) => (
-            <li>
+          {NavigationHeader.map((item,index) => (
+            <li key={index}>
               <Image src={item.icon} alt={item.name} />
             </li>
           ))}
