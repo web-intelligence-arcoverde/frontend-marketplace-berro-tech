@@ -1,11 +1,5 @@
-import { ReactNode } from "react";
+import { ButtonProps } from "@/types";
 import { CardButton } from "./style";
-
-interface ButtonProps {
-  children: ReactNode;
-  onClick: () => void;
-  padding?: string;
-}
 
 const Button = ({ children, onClick, padding }: ButtonProps) => {
   return (
