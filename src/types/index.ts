@@ -7,6 +7,7 @@ export interface InputProps {
   placeholder: string;
   name: string;
   required?: boolean;
+  width?:string
 }
 export interface ButtonProps {
   children: ReactNode;

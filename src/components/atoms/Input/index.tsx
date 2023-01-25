@@ -7,10 +7,11 @@ const Input = ({
   name,
   value,
   onChange,
-  required ,
+  required,
+  width,
 }: InputProps) => {
   return (
-    <CardInput>
+    <CardInput width={width}>
       <input
         type={type}
         placeholder={placeholder}
