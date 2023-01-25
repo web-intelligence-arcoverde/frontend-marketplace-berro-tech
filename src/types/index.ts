@@ -7,7 +7,7 @@ export interface InputProps {
   placeholder: string;
   name: string;
   required?: boolean;
-  width?:string
+  width?: string;
 }
 export interface ButtonProps {
   children: ReactNode;
@@ -17,18 +17,23 @@ export interface ButtonProps {
 
 export interface UserProps {
   id: number;
-  office: "admin" | "user";
+  office?: "admin" | "user";
   fullName: string;
   email: string;
   state: string;
   city: string;
   district: string;
   address: string;
-  numberAddress?: number;
-  phone: number;
+  numberAddress: string;
+  phone: string;
   saleScore?: number;
   shopingScore?: number;
   totalScore: number;
+}
+export interface RegisterUserProps extends UserProps{
+  cep:string
+  password:string
+  confirmPassword:string
 }
 
 export interface ProductProps {
@@ -52,3 +57,5 @@ export interface ProductProps {
   age: string;
   price: number;
 }
+
+

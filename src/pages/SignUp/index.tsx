@@ -1,21 +1,10 @@
 import { Button } from "@/components";
 import Input from "@/components/atoms/Input";
+import { registerUser } from "@/mock";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 const SignUp = () => {
-  const [form, setForm] = useState({
-    email: "",
-    fullName: "",
-    cep:"",
-    city: "",
-    state: "",
-    address: "",
-    numberAdress: "",
-    district: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [form, setForm] = useState(registerUser);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -24,19 +13,7 @@ const SignUp = () => {
 
   const submitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setForm({
-      email: "",
-      fullName: "",
-      cep:"",
-      city: "",
-      state: "",
-      address: "",
-      numberAdress: "",
-      district: "",
-      phone: "",
-      password: "",
-      confirmPassword: "",
-    });
+    setForm(registerUser);
     console.log("Formulário enviado", form);
   };
 
@@ -76,13 +53,13 @@ const SignUp = () => {
           value={form.fullName}
           onChange={handleChange}
         />
-         <Input
-            name="cep"
-            type="number"
-            placeholder="CEP"
-            value={form.cep}
-            onChange={handleChange}
-          />
+        <Input
+          name="cep"
+          type="number"
+          placeholder="CEP"
+          value={form.cep}
+          onChange={handleChange}
+        />
 
         <div style={{ display: "flex", gap: "5px" }}>
           <Input
@@ -111,10 +88,10 @@ const SignUp = () => {
           />
           <Input
             width="150px"
-            name="numberAdress"
-            type="number"
+            name="numberAddress"
+            type="text"
             placeholder="Número "
-            value={form.numberAdress}
+            value={form.numberAddress}
             onChange={handleChange}
           />
         </div>
