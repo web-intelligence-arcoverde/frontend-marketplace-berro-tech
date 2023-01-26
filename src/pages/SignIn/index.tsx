@@ -1,5 +1,6 @@
 import { Button } from "@/components";
-import Input from "@/components/atoms/Input";
+import { Input } from "@/components/atoms/Input/style";
+
 import { ChangeEvent, FormEvent, useState } from "react";
 
 const SignIn = () => {

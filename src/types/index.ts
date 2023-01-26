@@ -1,14 +1,5 @@
-import { ChangeEvent, ReactNode } from "react";
+import { ReactNode } from "react";
 
-export interface InputProps {
-  type: string;
-  onChange: ChangeEvent<HTMLInputElement> | any;
-  value: string;
-  placeholder: string;
-  name: string;
-  required?: boolean;
-  width?: string;
-}
 export interface ButtonProps {
   children: ReactNode;
   onClick: () => void;
@@ -29,11 +20,6 @@ export interface UserProps {
   saleScore?: number;
   shopingScore?: number;
   totalScore: number;
-}
-export interface RegisterUserProps extends UserProps{
-  cep:string
-  password:string
-  confirmPassword:string
 }
 
 export interface ProductProps {
@@ -57,5 +43,3 @@ export interface ProductProps {
   age: string;
   price: number;
 }
-
-
