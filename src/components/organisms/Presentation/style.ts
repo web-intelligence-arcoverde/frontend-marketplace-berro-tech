@@ -41,11 +41,13 @@ export const DescriptionPresentation = styled.div`
     color: ${COLORS.primary_text_color};
     font-weight: 800;
     font-size: 40px;
+    line-height: 60px;
   }
   p {
     color: ${COLORS.third_text_color};
     font-weight: 800px;
     font-size: 18px;
+    line-height: 36px;
   }
   #background {
     position: absolute;

@@ -1,5 +1,4 @@
 import { IMAGES } from "@/assets";
-import Image from "next/image";
 import { DescriptionPresentation, Intro, StyledImage } from "./style";
 
 const Presentation = () => {
