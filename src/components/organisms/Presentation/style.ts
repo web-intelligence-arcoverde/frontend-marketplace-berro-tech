@@ -36,6 +36,7 @@ export const DescriptionPresentation = styled.div`
     font-size: 16px;
     font-weight: 600;
     background-color: ${COLORS.third_color};
+    border-radius: 5px;
   }
   h1 {
     color: ${COLORS.primary_text_color};
