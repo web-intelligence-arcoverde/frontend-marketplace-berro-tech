@@ -1,24 +1,49 @@
 import { Button } from "@/components";
-import Input from "@/components/atoms/Input";
-import { registerUser } from "@/mock";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useForm } from "react-hook-form";
+
+import Link from "next/link";
+import { Input } from "@/components/atoms/Input/style";
 
 const SignUp = () => {
-  const [form, setForm] = useState(registerUser);
+  // const [form, setForm] = useState(registerUser);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setForm((prevForm) => ({ ...prevForm, [name]: value }));
+  // const handleChange = (event: ChangeEvent<HTMLinputElement>) => {
+  //   const { name, value } = event.target;
+  //   setForm((prevForm) => ({ ...prevForm, [name]: value }));
+  // };
+
+  const { register, handleSubmit, setValue, setFocus } = useForm();
+
+  const onSubmit = (e: any) => {
+    console.log(e);
   };
 
-  const submitForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setForm(registerUser);
-    console.log("Formulário enviado", form);
+  // const submitForm = (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setForm(registerUser);
+  //   console.log("Formulário enviado", form);
+  // };
+
+  const checkCEP = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const cep = e.target.value.replace(/\D/g, "");
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((res) => res.json())
+      .then((data) => {
+        setValue("cep", data.cep);
+        setValue("address", data.logradouro);
+        setValue("city", data.localidade);
+        setValue("state", data.uf);
+        setValue("district", data.bairro);
+        setFocus("addressNumber");
+   
+      });
   };
 
   return (
-    <div
+    <Link
+      href=""
+      passHref
+      legacyBehavior
       style={{
         display: "flex",
         flexDirection: "column",
@@ -28,7 +53,8 @@ const SignUp = () => {
       }}
     >
       <form
-        onSubmit={submitForm}
+        autoComplete="off"
+        onSubmit={handleSubmit(onSubmit)}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -39,94 +65,74 @@ const SignUp = () => {
       >
         <h2>Cadastrar</h2>
         <Input
-          name="email"
+          {...register("email")}
           type="email"
           placeholder="Digite seu E-mail"
           required
-          value={form.email}
-          onChange={handleChange}
         />
         <Input
-          name="fullName"
+          {...register("fullName")}
           type="text"
           placeholder="Digite seu nome"
-          value={form.fullName}
-          onChange={handleChange}
         />
         <Input
-          name="cep"
-          type="number"
+          {...register("cep")}
+          type="text"
           placeholder="CEP"
-          value={form.cep}
-          onChange={handleChange}
+          onBlur={checkCEP}
         />
 
         <div style={{ display: "flex", gap: "5px" }}>
           <Input
-            name="city"
+            {...register("city")}
             type="text"
             placeholder="Cidade"
-            value={form.city}
-            onChange={handleChange}
           />
           <Input
+            {...register("state")}
             width="150px"
             name="state"
             type="text"
             placeholder="Estado"
-            value={form.state}
-            onChange={handleChange}
           />
         </div>
         <div style={{ display: "flex", gap: "5px" }}>
           <Input
-            name="address"
+            {...register("address")}
             type="text"
             placeholder="Endereço "
-            value={form.address}
-            onChange={handleChange}
           />
           <Input
+            {...register("addressNumber")}
             width="150px"
-            name="numberAddress"
             type="text"
             placeholder="Número "
-            value={form.numberAddress}
-            onChange={handleChange}
           />
         </div>
         <Input
-          name="district"
+          {...register("district")}
           type="text"
           placeholder="Bairro "
-          value={form.district}
-          onChange={handleChange}
         />
         <Input
-          name="phone"
+          {...register("phone")}
           type="tel"
           placeholder="Ex: (87) 991054786 "
-          value={form.phone}
-          onChange={handleChange}
         />
         <Input
-          name="password"
+          {...register("password")}
           type="password"
           placeholder="Digite sua senha"
-          value={form.password}
-          onChange={handleChange}
         />
         <Input
-          name="confirmPassword"
+          {...register("confirmPassword")}
           type="password"
           placeholder="Confirme sua senha "
-          value={form.confirmPassword}
-          onChange={handleChange}
         />
 
-        <Button onClick={console.log}>Cadastrar</Button>
+        <Button onClick={()=>{onSubmit}}>Cadastrar</Button>
       </form>
-    </div>
+    </Link>
   );
 };
 

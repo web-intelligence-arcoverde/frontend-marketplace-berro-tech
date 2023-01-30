@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContainerHeader = styled.header`
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 30px 24px 50px;
+  padding: 16px 30px 16px 50px;
 `;
 
 export const Navigation = styled.nav`

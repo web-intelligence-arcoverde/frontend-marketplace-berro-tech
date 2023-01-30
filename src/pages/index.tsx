@@ -1,10 +1,11 @@
-import Header from "@/components/organisms/Header";
+import { Header, Presentation } from "@/components/organisms";
 import { Main } from "./style";
 
 const Home = () => {
   return (
     <Main>
       <Header />
+      <Presentation />
     </Main>
   );
 };
