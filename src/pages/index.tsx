@@ -1,12 +1,11 @@
-import Header from "@/components/organisms/Header";
-import SignUp from "./SignUp";
+import { Header, Presentation } from "@/components/organisms";
 import { Main } from "./style";
 
 const Home = () => {
   return (
     <Main>
       <Header />
-      <SignUp/>
+      <Presentation />
     </Main>
   );
 };
