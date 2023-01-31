@@ -1,3 +1,4 @@
+import { ProductCard } from "@/components";
 import { Header, Presentation } from "@/components/organisms";
 import { Main } from "./style";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <Main>
       <Header />
       <Presentation />
+      <ProductCard />
     </Main>
   );
 };
