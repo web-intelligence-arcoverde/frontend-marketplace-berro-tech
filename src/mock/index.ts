@@ -1,5 +1,5 @@
-import { RegisterUserProps } from "./../types/index";
-import { ICONS } from "@/assets";
+import { ICONS, IMAGES } from "@/assets";
+import { CardProps } from "@/types";
 
 export const NavigationHeader = [
   { name: "favorito", icon: ICONS.Star },
@@ -7,21 +7,17 @@ export const NavigationHeader = [
   { name: "alerta", icon: ICONS.Alert },
 ];
 
-export const registerUser: RegisterUserProps = {
-  id: 0,
-  office: "user",
-  email: "",
-  fullName: "",
-  cep: "",
-  city: "",
-  state: "",
-  address: "",
-  numberAddress:"",
-  district: "",
-  phone: '',
-  password: "",
-  confirmPassword: "",
-  saleScore: 0,
-  shopingScore: 0,
-  totalScore: 0,
-};
+export const MocksCard: CardProps[] = [
+  {
+    photo: IMAGES.Frame1,
+    breed: "senepol",
+    quantity: 3,
+    name: "Garrote Senepol",
+    city: "Campina Grande",
+    state: "Paraiba",
+    country: "Brasil",
+    sex: "Macho",
+    age: "3 anos",
+    rank: "Genética",
+  },
+];
