@@ -1,8 +1,8 @@
-import {IMAGES} from '@/assets';
-import {Button, Logo, Search} from '@/components/atoms';
-import {NavigationHeader} from '@/mock';
-import Image from 'next/image';
-import {CardAvatar, ContainerHeader, Flex, Nav, Navigation} from './style';
+import { IMAGES } from "@/assets";
+import { Button, Logo, Search } from "@/components/atoms";
+import { NavigationHeader } from "@/mock";
+import Image from "next/image";
+import { CardAvatar, ContainerHeader, Flex, Nav, Navigation } from "./style";
 
 const Header = () => {
   return (
@@ -12,11 +12,9 @@ const Header = () => {
         <Search />
       </Flex>
       <Navigation>
-        <Button
-          padding='8px 46px'
-          children='Vender animal'
-          onClick={console.log}
-        />
+        <Button padding="8px 46px" onClick={console.log}>
+          Vender animal
+        </Button>
         <Nav>
           {NavigationHeader.map((item, index) => (
             <li key={index}>
@@ -25,7 +23,7 @@ const Header = () => {
           ))}
         </Nav>
         <CardAvatar>
-          <Image src={IMAGES.Avatar} alt='foto perfil' />
+          <Image src={IMAGES.Avatar} alt="foto perfil" />
         </CardAvatar>
       </Navigation>
     </ContainerHeader>
