@@ -17,7 +17,6 @@ export const StyledImage = styled(Image)`
 `;
 
 export const DescriptionPresentation = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -27,7 +26,7 @@ export const DescriptionPresentation = styled.div`
 
   h1,
   p {
-    width: 500px;
+    width: 440px;
   }
   h6 {
     width: fit-content;

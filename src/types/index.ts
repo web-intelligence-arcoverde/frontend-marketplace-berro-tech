@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 export interface ButtonProps {
@@ -42,4 +43,17 @@ export interface ProductProps {
   document: string;
   age: string;
   price: number;
+}
+
+export interface CardProps {
+  photo: StaticImageData;
+  breed: string;
+  quantity: number;
+  name: string;
+  city: string;
+  state: string;
+  country: string;
+  sex: string;
+  age: string;
+  rank: string;
 }

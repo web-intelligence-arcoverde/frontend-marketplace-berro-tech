@@ -1,50 +1,87 @@
 import styled from "styled-components";
-import { COLORS } from "@/common/colors";
+import { COLORS } from "@/common";
 
 export const Card = styled.div`
-  width: 50%;
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
-  border: 1px solid ${COLORS.gray_color_70};
+  width: 100%;
+  max-width: 400px;
+  margin: 50px;
   img {
-    object-fit: contain;
-    width: 100%;
+    width: 400px;
+    border-radius: 5px 5px 0px 0px;
   }
 `;
-export const TitleCard = styled.div`
-  width: 100%;
+
+export const Flex = styled.div`
   display: flex;
-  padding: 5px 20px 2px 20px;
-  border-bottom: 1px solid ${COLORS.gray_color_70};
-  flex-direction: column;
-  font-size: 20px;
-  color: ${COLORS.black_color_50};
-  h5 {
-    font-weight: 500;
-  }
-  p {
-    font-weight: 700;
-    text-align: end;
-  }
-`;
-export const DetailsCard = styled.div`
-  width: 100%;
-  padding: 18px;
-  display: flex;
-  flex-wrap: wrap;
-`;
-export const DescriptionDetails = styled.div`
-  width: 50%;
-  display: flex;
-  gap: 2px;
+  justify-content: space-between;
+  padding: 0 24px 0;
   align-items: center;
-  img {
-    width: auto;
-  }
+  border-left: solid 1px ${COLORS.gray_color_13};
+  border-right: solid 1px ${COLORS.gray_color_13};
   p {
-    font-weight: 400;
+    color: ${COLORS.gray_color_07};
     font-size: 16px;
-    color: ${COLORS.black_color_50};
+    margin-top: 24px;
+  }
+  h6 {
+    color: ${COLORS.gray_color_010};
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 24px;
+  }
+  h4 {
+    color: ${COLORS.gray_color_06};
+    font-size: 18px;
+    font-weight: 600;
+    margin: 12px 0;
+  }
+  p,
+  h6,
+  h5,
+  h4 {
+    ::first-letter {
+      text-transform: uppercase;
+    }
+  }
+`;
+
+export const Location = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  color: ${COLORS.blue_color};
+  font-weight: 400px;
+  font-size: 16px;
+  img {
+    width: 16px;
+    border-radius: 0;
+    margin-right: 6px;
+  }
+`;
+
+export const LastContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  border: solid 1px ${COLORS.gray_color_13};
+
+  h6,
+  h5 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  h6 {
+    color: ${COLORS.gray_color_010};
+  }
+  h5 {
+    color: ${COLORS.gray_color_70};
   }
 `;
