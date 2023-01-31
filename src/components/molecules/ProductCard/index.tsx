@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Card, CardContainer, Flex, LastContainer, Location } from "./style";
+import { Card, CardContainer, Flex, LastContainer } from "./style";
 import { ICONS } from "@/assets";
 import { CardProps } from "@/types";
+import { CardNameLocation } from "@/components";
 
 const ProductCard= ({name,photo,breed,quantity,country,state,city,age,sex,rank}:CardProps) => {
   return (
@@ -14,18 +15,7 @@ const ProductCard= ({name,photo,breed,quantity,country,state,city,age,sex,rank}:
           <span>{quantity > 1 ? "restantes" : "restante"}</span>
         </h6>
       </Flex>
-      <Flex>
-        <h4>{name}</h4>
-      </Flex>
-      <Flex>
-        <Location>
-          {" "}
-          <Image src={ICONS.Location} alt="icone de localização" />
-          {city}, {state},{" "}
-          {country}
-        </Location>
-      </Flex>
-
+      <CardNameLocation name={name} city={city} state={state} country={country} />
       <LastContainer>
         <CardContainer>
           <h5>Sexo</h5>

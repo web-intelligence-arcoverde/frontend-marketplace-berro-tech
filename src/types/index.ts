@@ -57,3 +57,9 @@ export interface CardProps {
   age: string;
   rank: string;
 }
+export interface CardNameLocationProps {
+  name: string;
+  city: string;
+  state: string;
+  country: string;
+}
