@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { Card, CardContainer, Flex, LastContainer } from "./style";
 import { ICONS } from "@/assets";
-import { CardProps } from "@/types";
+import { CardProductProps } from "@/types";
 import { CardNameLocation } from "@/components";
 
-const ProductCard= ({name,photo,breed,quantity,country,state,city,age,sex,rank}:CardProps) => {
+const ProductCard= ({name,photo,breed,quantity,country,state,city,age,sex,rank}:CardProductProps) => {
   return (
     <Card>
       <Image src={photo} alt={`foto de um${breed}`} />
