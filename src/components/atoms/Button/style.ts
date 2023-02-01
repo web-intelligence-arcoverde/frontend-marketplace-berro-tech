@@ -5,9 +5,7 @@ interface CardButtonProps {
     padding?: string;
   }
 
-export const CardButton = styled.div<CardButtonProps>`
-  width: 100%;
-  button {
+export const CardButton = styled.button<CardButtonProps>`
     width: 100%;
     font-weight: 500;
     height: 42px;
@@ -16,5 +14,4 @@ export const CardButton = styled.div<CardButtonProps>`
     border: none;
     border-radius: 8px;
     padding: ${(props) => (props.padding ? props.padding : "12px")};
-  }
 `;

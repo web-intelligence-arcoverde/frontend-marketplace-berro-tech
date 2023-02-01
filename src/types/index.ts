@@ -5,6 +5,7 @@ export interface ButtonProps {
   children: ReactNode;
   onClick: () => void;
   padding?: string;
+  className?:string
 }
 
 export interface UserProps {

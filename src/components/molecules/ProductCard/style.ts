@@ -47,6 +47,19 @@ export const Flex = styled.div`
   }
 `;
 
+export const Location = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  color: ${COLORS.blue_color};
+  font-weight: 400px;
+  font-size: 16px;
+  img {
+    width: 16px;
+    border-radius: 0;
+    margin-right: 6px;
+  }
+`;
 
 export const LastContainer = styled.div`
   display: flex;
