@@ -1,5 +1,4 @@
-import { IMAGES } from "@/assets";
-import { DescriptionPresentation, Intro, StyledImage } from "./style";
+import { DescriptionPresentation, Intro } from "./style";
 
 const Presentation = () => {
   return (
@@ -12,7 +11,6 @@ const Presentation = () => {
           tranquilidade e segurança.
         </p>
       </DescriptionPresentation>
-      <StyledImage src={IMAGES.BovinoPresentation} alt="imagem do bovino" />
     </Intro>
   );
 };
