@@ -7,6 +7,7 @@ const Home = () => {
     <Main>
       <Header />
       <Presentation />
+      <SellerCard />
     </Main>
   );
 };
