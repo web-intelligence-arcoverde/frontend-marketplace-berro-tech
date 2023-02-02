@@ -40,4 +40,5 @@ export const COLORS = {
   gray_color_13: "#F2F1F7",
 
   blue_color: "#1B5DE0",
+  auxiliars_green:"#25D366"
 };
