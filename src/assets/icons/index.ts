@@ -1,6 +1,7 @@
 import Search from "./search.svg";
 import Message from "./message.svg";
 import Star from "./star.svg";
+import FullStar from "./fill-star.svg";
 import Alert from "./alert.svg";
 import Location from "./location.svg";
 import Share from "./share.svg";
@@ -16,4 +17,5 @@ export const ICONS = {
   Share,
   Whatsapp,
   ShareDots,
+  FullStar,
 };
