@@ -1,32 +1,20 @@
-import { ICONS, IMAGES } from "@/assets";
-import { Button, CardNameLocation } from "@/components";
-import Image from "next/image";
+import { IMAGES } from "@/assets";
+import { CardNameLocation, CardContact } from "@/components";
 import React from "react";
-import { ContactContainer, Container } from "./style";
+import {  Container, ImageSeller } from "./style";
 
 const SellerCard = () => {
   return (
     <Container>
-      <Image
-        className="img-Seller"
-        src={IMAGES.Seller}
-        alt="imagem do vendedor"
-      />
+      <ImageSeller src={IMAGES.Seller} alt="imagem do vendedor" />
       <CardNameLocation
+        isAvaliation
         name={"Brenno Guedes"}
         city={"Campina Grande"}
-        state={" Paraíba"}
+        state={"Paraíba"}
         country={"Brasil"}
       />
-      <ContactContainer>
-        <Button className="contat-button" onClick={(): void => {}}>
-          <Image src={ICONS.Whatsapp} alt="Icone whatsapp" />
-          Entrar em contato
-        </Button>
-        <Button className="share-button" onClick={(): void => {}}>
-          <Image src={ICONS.ShareDots} alt="Icone compartilhar" />
-        </Button>
-      </ContactContainer>
+      <CardContact />
     </Container>
   );
 };

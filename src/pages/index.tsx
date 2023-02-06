@@ -1,11 +1,14 @@
-import {Header, Presentation} from '@/components/organisms';
+
+import { Header, Presentation, PresentationInfo } from "@/components/organisms";
 import {Main} from '../style';
+
 
 const Home = () => {
   return (
     <Main>
       <Header />
       <Presentation />
+      <PresentationInfo />
     </Main>
   );
 };
