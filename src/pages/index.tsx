@@ -1,5 +1,7 @@
+
 import { Header, Presentation, PresentationInfo } from "@/components/organisms";
-import { Main } from "./style";
+import {Main} from '../style';
+
 
 const Home = () => {
   return (
