@@ -1,5 +1,4 @@
-import {  SellerCard } from "@/components";
-import { Header, Presentation } from "@/components/organisms";
+import { Header, Presentation, PresentationInfo } from "@/components/organisms";
 import { Main } from "./style";
 
 const Home = () => {
@@ -7,7 +6,7 @@ const Home = () => {
     <Main>
       <Header />
       <Presentation />
-      <SellerCard />
+      <PresentationInfo />
     </Main>
   );
 };
