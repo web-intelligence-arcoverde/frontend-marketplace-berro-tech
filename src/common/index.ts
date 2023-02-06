@@ -42,6 +42,8 @@ export const COLORS = {
   blue_light_1:"#FBFCFE",
   blue_dark: "#001540",
   
+
   auxiliars_green:"#25D366",
+
   blue_background_opacity:"rgba(27, 93, 224, 0.05)"
 };
