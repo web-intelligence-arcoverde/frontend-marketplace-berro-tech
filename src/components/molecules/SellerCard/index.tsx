@@ -1,19 +1,13 @@
-import { IMAGES } from "@/assets";
-import { CardNameLocation, CardContact } from "@/components";
-import React from "react";
-import {  Container, ImageSeller } from "./style";
+import {IMAGES} from '@/assets';
+import {CardContact} from '@/components';
+import React from 'react';
+import {Container, ImageSeller} from './style';
 
 const SellerCard = () => {
   return (
     <Container>
-      <ImageSeller src={IMAGES.Seller} alt="imagem do vendedor" />
-      <CardNameLocation
-        isAvaliation
-        name={"Brenno Guedes"}
-        city={"Campina Grande"}
-        state={"Paraíba"}
-        country={"Brasil"}
-      />
+      <ImageSeller src={IMAGES.Seller} alt='imagem do vendedor' />
+
       <CardContact />
     </Container>
   );
