@@ -1,23 +1,22 @@
-import { ICONS, IMAGES } from "@/assets";
-import { CardProps } from "@/types";
+import {ICONS, IMAGES} from '@/assets';
 
 export const NavigationHeader = [
-  { name: "favorito", icon: ICONS.Star },
-  { name: "mensagens", icon: ICONS.Message },
-  { name: "alerta", icon: ICONS.Alert },
+  {name: 'favorito', icon: ICONS.Star},
+  {name: 'mensagens', icon: ICONS.Message},
+  {name: 'alerta', icon: ICONS.Alert},
 ];
 
-export const MocksCard: CardProps[] = [
+export const MocksCard: any[] = [
   {
     photo: IMAGES.Frame1,
-    breed: "senepol",
+    breed: 'senepol',
     quantity: 3,
-    name: "Garrote Senepol",
-    city: "Campina Grande",
-    state: "Paraiba",
-    country: "Brasil",
-    sex: "Macho",
-    age: "3 anos",
-    rank: "Genética",
+    name: 'Garrote Senepol',
+    city: 'Campina Grande',
+    state: 'Paraiba',
+    country: 'Brasil',
+    sex: 'Macho',
+    age: '3 anos',
+    rank: 'Genética',
   },
 ];

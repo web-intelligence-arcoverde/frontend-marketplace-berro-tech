@@ -1,6 +1,5 @@
-import {  SellerCard } from "@/components";
-import { Header, Presentation } from "@/components/organisms";
-import { Main } from "./style";
+import {Header, Presentation} from '@/components/organisms';
+import {Main} from '../style';
 
 const Home = () => {
   return (
