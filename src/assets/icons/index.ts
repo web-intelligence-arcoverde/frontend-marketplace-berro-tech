@@ -6,6 +6,7 @@ import Location from "./location.svg";
 import Share from "./share.svg";
 import ShareDots from "./share-dots.svg";
 import Whatsapp from "./whatsapp.svg";
+import Close from './close.svg'
 
 export const ICONS = {
   Search,
@@ -16,4 +17,5 @@ export const ICONS = {
   Share,
   Whatsapp,
   ShareDots,
+  Close
 };

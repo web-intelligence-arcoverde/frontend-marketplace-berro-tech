@@ -5,4 +5,5 @@ export interface ButtonProps {
   onClick: () => void;
   padding?: string;
   className?:string
+  maxWidth?:string
 }
