@@ -13,11 +13,6 @@ export const IMAGES = {
   Logo,
   Avatar,
   BackgroundPresentation,
-  Frame1,
-  Frame2,
-  Frame3,
-  Frame4,
-  Frame5,
-  Frame6,
+
   Seller,
 };
