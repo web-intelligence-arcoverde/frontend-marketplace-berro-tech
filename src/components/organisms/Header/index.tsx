@@ -4,17 +4,17 @@ import { NavigationHeader } from "@/mock";
 import Image from "next/image";
 import { CardAvatar, ContainerHeader, Flex, Nav, Navigation } from "./style";
 
-const Header = () => {
+interface HeaderProps {
+  isLogged:boolean
+}
+
+const Header = ({isLogged}: HeaderProps) => {
   return (
     <ContainerHeader>
       <Flex>
         <Logo />
-        <Search />
       </Flex>
       <Navigation>
-        <Button padding="8px 46px" onClick={console.log}>
-          Vender animal
-        </Button>
         <Nav>
           {NavigationHeader.map((item, index) => (
             <li key={index}>
@@ -22,9 +22,16 @@ const Header = () => {
             </li>
           ))}
         </Nav>
-        <CardAvatar>
-          <Image src={IMAGES.Avatar} alt="foto perfil" />
-        </CardAvatar>
+        <Search />
+        {isLogged ? (
+          <CardAvatar>
+            <Image src={IMAGES.Avatar} alt="foto perfil" />
+          </CardAvatar>
+        ) : (
+          <Button maxWidth="120px" padding="0px 30px" onClick={console.log}>
+           Entrar
+          </Button>
+        )}
       </Navigation>
     </ContainerHeader>
   );

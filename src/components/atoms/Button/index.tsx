@@ -1,9 +1,9 @@
 import { ButtonProps } from "@/types";
 import { CardButton } from "./style";
 
-const Button = ({ children, onClick, padding, className }: ButtonProps) => {
+const Button = ({ children, onClick, padding, className,maxWidth }: ButtonProps) => {
   return (
-    <CardButton onClick={onClick} className={className} padding={padding}>
+    <CardButton maxWidth={maxWidth} onClick={onClick} className={className} padding={padding}>
       {children}
     </CardButton>
   );
