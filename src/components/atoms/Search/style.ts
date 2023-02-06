@@ -19,13 +19,16 @@ export const CardSearch = styled.form<CardSearchProps>`
   input {
     height: 42px;
     border: solid 1px ${COLORS.gray_color_70};
-    padding-left: 45px;
+    padding: 0 25px 0 45px;
     font-size: 16px;
     font-weight: 500;
     width: ${(props) => (props.width ? props.width : "100%")};
     border-radius: ${(props) => (props.borderInput ? props.borderInput : "5px")};
     border-right: ${(props) => (props.borderRight ? props.borderRight : "")};
     transition: all 0s;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
     ::placeholder {
       color: ${COLORS.black_color_70};
