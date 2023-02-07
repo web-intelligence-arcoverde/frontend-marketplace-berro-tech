@@ -1,4 +1,4 @@
-import { IUserOffice } from "./SubTypes/IUserOffice";
+import {IUserOffice} from './SubTypes/IUserOffice';
 
 export interface UserProps {
   id: number;
