@@ -10,6 +10,7 @@ import Whatsapp from './whatsapp.svg';
 import Document from './document.svg';
 import Phone from './phone.svg';
 import ArrowDown from './arrow-down.svg';
+import SearchBlue from './search_blue.svg'
 import Close from './close.svg'
 import Menu from './menu.svg'
 import Logo from './logo.svg'
@@ -29,5 +30,6 @@ export const ICONS = {
   ArrowDown,
   Close,
   Menu,
-  Logo
+  Logo,
+  SearchBlue
 };
