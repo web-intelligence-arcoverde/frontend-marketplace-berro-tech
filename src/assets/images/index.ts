@@ -8,6 +8,5 @@ export const IMAGES = {
   Logo,
   Avatar,
   BackgroundPresentation,
-
   Seller,
 };
