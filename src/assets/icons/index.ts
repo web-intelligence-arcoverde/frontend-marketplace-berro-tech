@@ -13,6 +13,7 @@ import FullStar from './fill-star.svg';
 import Document from './document.svg';
 import Phone from './phone.svg';
 import ArrowDown from './arrow-down.svg';
+import SearchBlue from './search_blue.svg'
 
 export const ICONS = {
   Search,
@@ -30,4 +31,5 @@ export const ICONS = {
   Document,
   Phone,
   ArrowDown,
+  SearchBlue
 };
