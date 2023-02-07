@@ -21,25 +21,8 @@ const SignIn = () => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '500px',
-        margin: 'auto',
-        height: '70vh',
-      }}
-    >
-      <form
-        onSubmit={submitForm}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '500px',
-          margin: 'auto',
-          gap: '5px',
-        }}
-      >
+    <div>
+      <form onSubmit={submitForm}>
         <h2>Entrar</h2>
         <Input
           name='email'

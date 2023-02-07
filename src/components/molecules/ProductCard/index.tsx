@@ -1,21 +1,29 @@
-import Image from "next/image";
-import { Card, CardContainer, Flex, LastContainer } from "./style";
-import { ICONS } from "@/assets";
-import { CardProductProps } from "@/types";
-import { CardNameLocation } from "@/components";
+import Image from 'next/image';
+import {Card, CardContainer, Flex, LastContainer} from './style';
+import {CardProductProps} from '@/types';
 
-const ProductCard= ({name,photo,breed,quantity,country,state,city,age,sex,rank}:CardProductProps) => {
+const ProductCard = ({
+  name,
+  photo,
+  breed,
+  quantity,
+  country,
+  state,
+  city,
+  age,
+  sex,
+  rank,
+}: CardProductProps) => {
   return (
     <Card>
       <Image src={photo} alt={`foto de um${breed}`} />
       <Flex>
         <p>{breed}</p>
         <h6>
-          {quantity}{" "}
-          <span>{quantity > 1 ? "restantes" : "restante"}</span>
+          {quantity} <span>{quantity > 1 ? 'restantes' : 'restante'}</span>
         </h6>
       </Flex>
-      <CardNameLocation name={name} city={city} state={state} country={country} />
+      {/* <CardNameLocation name={name} city={city} state={state} country={country} /> */}
       <LastContainer>
         <CardContainer>
           <h5>Sexo</h5>
@@ -30,7 +38,6 @@ const ProductCard= ({name,photo,breed,quantity,country,state,city,age,sex,rank}:
           <h6>{rank}</h6>
         </CardContainer>
       </LastContainer>
-
     </Card>
   );
 };

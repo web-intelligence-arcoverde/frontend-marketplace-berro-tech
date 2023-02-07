@@ -1,19 +1,23 @@
-import { IMAGES } from "@/assets";
-import { CardProductProps } from "@/types";
+import {ICONS} from '@/assets';
 
-export const NavigationHeader = ["Início", "Negócios"];
+export const NavigationHeader = [
+  {name: 'favorito', icon: ICONS.Star},
+  {name: 'mensagens', icon: ICONS.Message},
+  {name: 'alerta', icon: ICONS.Alert},
+];
 
-export const MocksCard: CardProductProps[] = [
+export const MocksCard: any[] = [
   {
-    photo: IMAGES.Frame1,
-    breed: "senepol",
+    photo:
+      'https://www.petz.com.br/blog/wp-content/uploads/2022/05/diferenca-entre-boi-e-touro-topo.jpg',
+    breed: 'senepol',
     quantity: 3,
-    name: "Garrote Senepol",
-    city: "Campina Grande",
-    state: "Paraiba",
-    country: "Brasil",
-    sex: "Macho",
-    age: "3 anos",
-    rank: "Genética",
+    name: 'Garrote Senepol',
+    city: 'Campina Grande',
+    state: 'Paraiba',
+    country: 'Brasil',
+    sex: 'Macho',
+    age: '3 anos',
+    rank: 'Genética',
   },
 ];

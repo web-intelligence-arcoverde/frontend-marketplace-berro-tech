@@ -3,4 +3,5 @@ export interface CardNameLocationProps {
   city: string;
   state: string;
   country: string;
+  isAvaliation?:boolean
 }

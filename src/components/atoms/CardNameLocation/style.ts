@@ -1,9 +1,7 @@
-import styled from 'styled-components';
-import { COLORS } from '@/common';
+import styled from "styled-components";
+import { COLORS } from "@/common";
 
-export const Container = styled.div`
-  
-`;
+export const Container = styled.div``;
 
 export const Location = styled.div`
   display: flex;
