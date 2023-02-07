@@ -1,4 +1,4 @@
-import {ICONS, IMAGES} from '@/assets';
+import {ICONS} from '@/assets';
 
 export const NavigationHeader = [
   {name: 'favorito', icon: ICONS.Star},

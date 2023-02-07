@@ -1,5 +1,5 @@
 import {Header, Presentation, PresentationInfo} from '@/components/organisms';
-import {useAppSelector, useAppDispatch} from '@/hooks/useSelectorHook';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 import {Main} from '@/style';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <Main>
-      <Header />
+      <Header isLogged={false} />
       <Presentation />
       <PresentationInfo />
     </Main>

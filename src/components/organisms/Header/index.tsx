@@ -1,30 +1,65 @@
 import { IMAGES } from "@/assets";
 import { Button, Logo, Search } from "@/components/atoms";
-import { NavigationHeader } from "@/mock";
 import Image from "next/image";
-import { CardAvatar, ContainerHeader, Flex, Nav, Navigation } from "./style";
+import { useState } from "react";
+import {
+  ButtonMenu,
+  CardAvatar,
+  CardNav,
+  ContainerHeader,
+  Flex,
+  Nav,
+  Navigation,
+  Row,
+} from "./style";
 
-const Header = () => {
+interface HeaderProps {
+  isLogged: boolean;
+}
+
+const Header = ({ isLogged }: HeaderProps) => {
+  const [optionComponent, setOptionComponent] = useState("inicio");
+
   return (
     <ContainerHeader>
       <Flex>
         <Logo />
-        <Search />
       </Flex>
       <Navigation>
-        <Button padding="8px 46px" onClick={console.log}>
-          Vender animal
-        </Button>
-        <Nav>
-          {NavigationHeader.map((item, index) => (
-            <li key={index}>
-              <Image src={item.icon} alt={item.name} />
+        <CardNav>
+          <Nav>
+            <li
+              id={optionComponent === "inicio" ? "brightness" : ""}
+              onClick={() => setOptionComponent("inicio")}
+            >
+              Início
             </li>
-          ))}
-        </Nav>
-        <CardAvatar>
-          <Image src={IMAGES.Avatar} alt="foto perfil" />
-        </CardAvatar>
+            {optionComponent === "inicio" && <Row />}
+          </Nav>
+          <Nav>
+            <li
+              id={optionComponent === "negocios" ? "brightness" : ""}
+              onClick={() => setOptionComponent("negocios")}
+            >
+              Negócios
+            </li>
+            {optionComponent === "negocios" && <Row />}
+          </Nav>
+        </CardNav>
+        {/* TODO Button do menu esperando o redux  */}
+        {/* <ButtonMenu>
+          <Image src={ICONS.Menu} alt="icone do menu" />
+        </ButtonMenu> */}
+        <Search />
+        {isLogged ? (
+          <CardAvatar>
+            <Image src={IMAGES.Avatar} alt="foto perfil" />
+          </CardAvatar>
+        ) : (
+          <Button maxWidth="120px" padding="0 30px" onClick={console.log}>
+            Entrar
+          </Button>
+        )}
       </Navigation>
     </ContainerHeader>
   );
