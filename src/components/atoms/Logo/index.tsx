@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { IMAGES } from "../../../assets/images";
+import { ICONS } from "../../../assets/icons";
 
 const Logo = () => {
-  return <Image width={180} src={IMAGES.Logo} alt="logo berro tech" />;
+  return <Image src={ICONS.Logo} alt="logo berro tech" />;
 };
 
 export default Logo;

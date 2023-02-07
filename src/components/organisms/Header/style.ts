@@ -41,10 +41,11 @@ export const CardAvatar = styled.div`
   cursor: pointer;
 
   img {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     border-radius: 5px;
     border: solid 2px ${COLORS.white_color_100};
+    margin-top: 4px;
   }
 `;
 

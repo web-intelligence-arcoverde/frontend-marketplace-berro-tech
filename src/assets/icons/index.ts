@@ -8,6 +8,7 @@ import ShareDots from "./share-dots.svg";
 import Whatsapp from "./whatsapp.svg";
 import Close from './close.svg'
 import Menu from './menu.svg'
+import Logo from './logo.svg'
 
 export const ICONS = {
   Search,
@@ -19,5 +20,6 @@ export const ICONS = {
   Whatsapp,
   ShareDots,
   Close,
-  Menu
+  Menu,
+  Logo
 };
