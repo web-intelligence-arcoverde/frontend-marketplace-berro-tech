@@ -1,13 +1,9 @@
-import { ICONS, IMAGES } from "@/assets";
-import { CardProps } from "@/types";
+import { IMAGES } from "@/assets";
+import { CardProductProps } from "@/types";
 
-export const NavigationHeader = [
-  { name: "favorito", icon: ICONS.Star },
-  { name: "mensagens", icon: ICONS.Message },
-  { name: "alerta", icon: ICONS.Alert },
-];
+export const NavigationHeader = ["Início", "Negócios"];
 
-export const MocksCard: CardProps[] = [
+export const MocksCard: CardProductProps[] = [
   {
     photo: IMAGES.Frame1,
     breed: "senepol",

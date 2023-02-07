@@ -4,7 +4,7 @@ import { Main } from "./style";
 const Home = () => {
   return (
     <Main>
-      <Header isLogged = {false} />
+      <Header isLogged = {true} />
       <Presentation />
     </Main>
   );
