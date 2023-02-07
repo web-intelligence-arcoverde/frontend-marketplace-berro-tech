@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <Main>
-      <Header isLogged = {true} />
+      <Header isLogged = {false} />
       <Presentation />
       <PresentationInfo />
     </Main>
