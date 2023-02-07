@@ -25,7 +25,7 @@ const Search = () => {
   };
   return (
     <CardSearch
-      width={isFocused ? "400px" : "200px"}
+      width={isFocused ? "400px" : "250px"}
       borderInput={search ? "8px 0 0 8px" : "8px"}
       borderRight={search && 'none'}
     >

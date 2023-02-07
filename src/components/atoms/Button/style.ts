@@ -8,11 +8,12 @@ interface CardButtonProps {
 
 export const CardButton = styled.button<CardButtonProps>`
     width: 100%;
-    font-weight: 500;
-    height: 40px;
+    font-weight: 600;
+    height: 48px;
     background-color: ${COLORS.secondary_color};
     color: ${COLORS.white_color_100};
     border: none;
+    font-size: 15px;
     border-radius: 5px;
     padding: ${(props) => (props.padding ? props.padding : "12px")};
     max-width: ${(props) => (props.maxWidth ? props.maxWidth : "")};

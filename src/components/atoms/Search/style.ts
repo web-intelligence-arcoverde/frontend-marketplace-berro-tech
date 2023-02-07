@@ -17,7 +17,7 @@ export const CardSearch = styled.form<CardSearchProps>`
   align-items: center;
 
   input {
-    height: 42px;
+    height: 48px;
     border: solid 1px ${COLORS.gray_color_70};
     padding: 0 25px 0 45px;
     font-size: 16px;
@@ -37,8 +37,10 @@ export const CardSearch = styled.form<CardSearchProps>`
 
   button {
     width: 52px;
-    height: 40px;
+    height: 46px;
     border: none;
+    border-radius: 0 5px 5px 0;
+    transition: all 0s;
     img {
       position: inherit;
     }

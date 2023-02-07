@@ -11,6 +11,7 @@ import Document from './document.svg';
 import Phone from './phone.svg';
 import ArrowDown from './arrow-down.svg';
 import Close from './close.svg'
+import Menu from './menu.svg'
 
 export const ICONS = {
   Search,
@@ -25,5 +26,6 @@ export const ICONS = {
   Document,
   Phone,
   ArrowDown,
-  Close
+  Close,
+  Menu
 };

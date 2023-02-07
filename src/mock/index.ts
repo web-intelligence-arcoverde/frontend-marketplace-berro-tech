@@ -1,4 +1,5 @@
 import {ICONS, IMAGES} from '@/assets';
+import { CardProductProps } from "@/types";
 
 export const NavigationHeader = [
   {name: 'favorito', icon: ICONS.Star},
@@ -6,7 +7,7 @@ export const NavigationHeader = [
   {name: 'alerta', icon: ICONS.Alert},
 ];
 
-export const MocksCard: any[] = [
+export const MocksCard: CardProductProps[] = [
   {
     photo:
       'https://www.petz.com.br/blog/wp-content/uploads/2022/05/diferenca-entre-boi-e-touro-topo.jpg',
