@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export interface CardProductProps {
-  photo: StaticImageData;
+  photo: StaticImageData | string;
   breed: string;
   quantity: number;
   name: string;
