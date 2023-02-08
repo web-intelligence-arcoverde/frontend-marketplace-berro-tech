@@ -10,8 +10,8 @@ export const CardButton = styled.button<CardButtonProps>`
   width: 100%;
   font-weight: 600;
   height: 48px;
-  background-color: ${COLORS.secondary_color};
-  color: ${COLORS.white_color_100};
+  background-color: ${COLORS.primary_color};
+  color: ${COLORS.primary_text_color};
   border: none;
   font-size: 15px;
   border-radius: 5px;

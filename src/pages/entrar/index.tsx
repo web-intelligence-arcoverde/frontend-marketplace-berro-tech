@@ -1,4 +1,5 @@
 import { Button, LayoutInit, MiniContainer } from "@/components";
+import InputUser from "@/components/atoms/Input/InputUser";
 import { Input } from "@/components/atoms/Input/style";
 
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -28,7 +29,7 @@ const SignIn = () => {
         lastButton="Criar conta"
       >
         <form onSubmit={submitForm}>
-          <Input
+          <InputUser
             name="email"
             type="email"
             placeholder="E-mail"
@@ -36,7 +37,7 @@ const SignIn = () => {
             value={form.email}
             onChange={handleChange}
           />
-          <Input
+          <InputUser
             name="password"
             type="password"
             placeholder="Senha"

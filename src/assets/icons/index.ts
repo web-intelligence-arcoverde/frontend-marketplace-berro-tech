@@ -17,6 +17,8 @@ import SearchBlue from "./search_blue.svg";
 import SimboloBackground from "./simbolo-background.svg";
 import Hands from "./hands.svg";
 import User from "./user.svg";
+import EyeOff from "./eye-off.svg";
+import EyeOn from './eye-on.svg'
 
 export const ICONS = {
   Search,
@@ -38,4 +40,6 @@ export const ICONS = {
   SimboloBackground,
   Hands,
   User,
+  EyeOff,
+  EyeOn
 };

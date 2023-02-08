@@ -37,9 +37,7 @@ const MiniContainer = ({
       <CardChildren>{children}</CardChildren>
       <Row />
       <CardButton>
-        <Button onClick={() => {}}>
-          <Image src={ICONS.User} alt="icone de usuário" /> {lastButton}
-        </Button>
+        <Button onClick={() => {}}>{lastButton}</Button>
       </CardButton>
     </Container>
   );
