@@ -2,7 +2,7 @@ import { ICONS } from "@/assets";
 import Image from "next/image";
 import { useState } from "react";
 
-import { CardInputUser, Input } from "./style";
+import { CardInputUser, Input, TextLabel } from "./style";
 
 interface InputUserProps {
   name: string;
@@ -28,10 +28,10 @@ const InputUser = ({
   return (
     <CardInputUser>
       <div>
-        <label>{name}</label>
+        <TextLabel>{name}</TextLabel>
         <Input
           name={name}
-          type={showPassword ? 'text':type}
+          type={showPassword ? "text" : type}
           onChange={onChange}
           value={value}
           placeholder={placeholder}

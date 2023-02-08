@@ -1,8 +1,8 @@
 import { Button, LayoutInit, MiniContainer } from "@/components";
 import InputUser from "@/components/atoms/Input/InputUser";
-import { Input } from "@/components/atoms/Input/style";
 
 import { ChangeEvent, FormEvent, useState } from "react";
+import { FormLogin, LostPassword } from "./style";
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -27,8 +27,9 @@ const SignIn = () => {
         title="Bem-vindo de volta "
         subTitle="Escolha como entrar"
         lastButton="Criar conta"
+        lastButtonLink="criar-conta"
       >
-        <form onSubmit={submitForm}>
+        <FormLogin onSubmit={submitForm}>
           <InputUser
             name="email"
             type="email"
@@ -44,8 +45,9 @@ const SignIn = () => {
             value={form.password}
             onChange={handleChange}
           />
+          <LostPassword href="">Esqueci minha senha</LostPassword>
           <Button onClick={console.log}>Entrar</Button>
-        </form>
+        </FormLogin>
       </MiniContainer>
     </LayoutInit>
   );

@@ -16,6 +16,9 @@ export const Input = styled.input<InputProps>`
     color: ${COLORS.gray_color_010};
   }
 `;
+export const TextLabel = styled.label`
+text-transform: capitalize;
+`
 
 export const CardInputUser = styled.div`
   display: flex;

@@ -38,13 +38,6 @@ export const Row = styled.div`
 
 export const CardButton = styled.div`
   padding: 24px 24px 0 24px;
-  button{
-    background-color: ${COLORS.background_color};
-    color: ${COLORS.third_text_color};
-    display: flex;
-  
-  }
-
 `;
 
 export const CardChildren = styled.div`

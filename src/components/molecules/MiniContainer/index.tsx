@@ -9,13 +9,14 @@ import {
   CardChildren,
 } from "./style";
 import { ICONS } from "@/assets";
-import { Button } from "@/components/atoms";
+import { Button, ButtonLink } from "@/components/atoms";
 
 interface MiniContainerProps {
   title: string;
   subTitle: string;
   children: ReactNode;
   lastButton: string;
+  lastButtonLink:string
 }
 
 const MiniContainer = ({
@@ -23,6 +24,7 @@ const MiniContainer = ({
   subTitle,
   children,
   lastButton,
+  lastButtonLink
 }: MiniContainerProps) => {
   return (
     <Container>
@@ -37,7 +39,7 @@ const MiniContainer = ({
       <CardChildren>{children}</CardChildren>
       <Row />
       <CardButton>
-        <Button onClick={() => {}}>{lastButton}</Button>
+        <ButtonLink link={lastButtonLink}>{lastButton}</ButtonLink>
       </CardButton>
     </Container>
   );
