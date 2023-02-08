@@ -1,12 +1,18 @@
 import { ICONS } from "@/assets";
 import Image from "next/image";
+import { ReactNode } from "react";
+import { ContainerChildren, Main } from "./style";
 
-const LayoutInit = ({ children }) => {
+interface LayoutInitProps {
+  children: ReactNode;
+}
+
+const LayoutInit = ({ children }: LayoutInitProps) => {
   return (
-    <main>
+    <Main>
       <Image src={ICONS.SimboloBackground} alt="simbolo berro tech" />
-      {children}
-    </main>
+      <ContainerChildren>{children}</ContainerChildren>
+    </Main>
   );
 };
 
