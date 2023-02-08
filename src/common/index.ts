@@ -31,6 +31,7 @@ export const COLORS = {
   black_color_70: '#282828',
 
   white_color_100: '#fff',
+  white_color_10: '#FCFCFA',
 
   gray_color_70: '#D1D1D1',
   gray_color_06: '#605E70',

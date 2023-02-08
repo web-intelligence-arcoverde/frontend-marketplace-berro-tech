@@ -1,4 +1,4 @@
-import {Header, Presentation, PresentationInfo} from '@/components';
+import {BussinessHighlight, Header, Presentation, PresentationInfo} from '@/components';
 import {useAppSelector, useAppDispatch} from '@/hooks/useSelectorHook';
 import {Main} from '@/style';
 
@@ -11,6 +11,7 @@ const Home = () => {
       <Header isLogged = {false} />
       <Presentation />
       <PresentationInfo />
+      <BussinessHighlight />
     </Main>
   );
 };

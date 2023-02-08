@@ -1,17 +1,24 @@
-import Logo from "./logo.png";
-import Avatar from "./avatar.jpg";
-import BackgroundPresentation from "./background-presentation.png";
-import Seller from "./seller-image.png";
-import Frame1 from "./frame_1.png";
-import Frame2 from "./frame_2.png";
-import Frame3 from "./frame_3.png";
-import Frame4 from "./frame_4.png";
-import Frame5 from "./frame_5.png";
-import Frame6 from "./frame_6.png";
+import Logo from './logo.png';
+import Avatar from './avatar.jpg';
+import BackgroundPresentation from './background-presentation.png';
+import GadoOne from './gado-1.png';
+import GadoTwo from './gado-2.png';
+import GadoThree from './gado-3.png';
+import GadoFour from './gado-4.png';
+import GadoFive from './gado-5.png';
+import GadoSix from './gado-6.png';
+
+import Seller from './seller-image.png';
 
 export const IMAGES = {
   Logo,
   Avatar,
   BackgroundPresentation,
   Seller,
+  GadoOne,
+  GadoTwo,
+  GadoThree,
+  GadoFour,
+  GadoFive,
+  GadoSix,
 };

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import {Card, CardContainer, Flex, LastContainer} from './style';
 import {CardProductProps} from '@/types';
 
-const ProductCard = ({
+export const ProductCard = ({
   name,
   photo,
   breed,
@@ -42,4 +42,3 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
