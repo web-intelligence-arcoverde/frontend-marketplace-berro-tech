@@ -15,6 +15,7 @@ import Phone from './phone.svg';
 import ArrowDown from './arrow-down.svg';
 import SearchBlue from './search_blue.svg';
 import SimboloBackground from './simbolo-background.svg';
+import Hands from './hands.svg'
 
 export const ICONS = {
   Search,
@@ -33,5 +34,6 @@ export const ICONS = {
   Phone,
   ArrowDown,
   SearchBlue,
-  SimboloBackground
+  SimboloBackground,
+  Hands
 };

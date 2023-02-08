@@ -1,4 +1,4 @@
-import { Button, LayoutInit } from "@/components";
+import { Button, LayoutInit, MiniContainer } from "@/components";
 import { Input } from "@/components/atoms/Input/style";
 
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -22,25 +22,31 @@ const SignIn = () => {
 
   return (
     <LayoutInit>
-      <form onSubmit={submitForm}>
-        <h2>Entrar</h2>
-        <Input
-          name="email"
-          type="email"
-          placeholder="E-mail"
-          required
-          value={form.email}
-          onChange={handleChange}
-        />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Senha"
-          value={form.password}
-          onChange={handleChange}
-        />
-        <Button onClick={console.log}>Entrar</Button>
-      </form>
+      <MiniContainer
+        title="Bem-vindo de volta "
+        subTitle="Escolha como entrar"
+        lastButton="Criar conta"
+      >
+        <form onSubmit={submitForm}>
+          <h2>Entrar</h2>
+          <Input
+            name="email"
+            type="email"
+            placeholder="E-mail"
+            required
+            value={form.email}
+            onChange={handleChange}
+          />
+          <Input
+            name="password"
+            type="password"
+            placeholder="Senha"
+            value={form.password}
+            onChange={handleChange}
+          />
+          <Button onClick={console.log}>Entrar</Button>
+        </form>
+      </MiniContainer>
     </LayoutInit>
   );
 };
