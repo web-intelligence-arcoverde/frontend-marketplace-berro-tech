@@ -4,9 +4,14 @@ import { CardButtonLink } from "./style";
 interface ButtonLinkProps {
   children: ReactNode;
   link: string;
+  id?: string;
 }
 
-const ButtonLink = ({ children, link }: ButtonLinkProps) => {
-  return <CardButtonLink href={link}>{children}</CardButtonLink>;
+const ButtonLink = ({ children, link, id }: ButtonLinkProps) => {
+  return (
+    <CardButtonLink id={id} href={link}>
+      {children}
+    </CardButtonLink>
+  );
 };
 export default ButtonLink;
