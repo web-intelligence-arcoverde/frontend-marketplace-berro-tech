@@ -17,7 +17,7 @@ interface MiniContainerProps {
   children: ReactNode;
   lastButton: string;
   lastButtonLink: string;
-  loginWithEmail: boolean;
+  loginWithEmail?: boolean;
 }
 
 const MiniContainer = ({

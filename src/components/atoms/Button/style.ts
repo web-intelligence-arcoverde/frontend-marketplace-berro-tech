@@ -5,6 +5,7 @@ import { COLORS } from "@/common";
 interface CardButtonProps {
   padding?: string;
   maxWidth?: string;
+  disabled?: boolean;
 }
 
 export const CardButton = styled.button<CardButtonProps>`
@@ -22,6 +23,7 @@ export const CardButton = styled.button<CardButtonProps>`
   align-items: center;
   justify-content: center;
   gap: 12px;
+  filter: ${({ disabled }) => disabled && "brightness(75%);"};
 `;
 
 export const CardButtonLink = styled(Link)`

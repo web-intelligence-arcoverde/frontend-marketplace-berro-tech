@@ -5,3 +5,4 @@ export {default as CardContact} from './CardContact';
 export {default as Avaliation} from './Avaliation';
 export {default as ButtonLink} from './Button/ButtonLink'
 export {default as ButtonAuthentication} from './Button/ButtonAuthentication'
+export {default as InputUser} from './Input/InputUser'

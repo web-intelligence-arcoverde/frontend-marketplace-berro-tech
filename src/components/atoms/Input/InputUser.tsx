@@ -11,6 +11,7 @@ interface InputUserProps {
   value: string;
   onChange: any;
   required?: boolean;
+  nameLabel:string
 }
 
 const InputUser = ({
@@ -20,6 +21,7 @@ const InputUser = ({
   value,
   placeholder,
   required,
+  nameLabel
 }: InputUserProps) => {
   const [showPassword, setShowPassord] = useState(false);
   const handleChangeIcon = () => {
@@ -28,7 +30,7 @@ const InputUser = ({
   return (
     <CardInputUser>
       <div>
-        <TextLabel>{name}</TextLabel>
+        <TextLabel>{nameLabel}</TextLabel>
         <Input
           name={name}
           type={showPassword ? "text" : type}

@@ -2,10 +2,10 @@ import { ICONS } from "@/assets";
 import {
   Button,
   ButtonAuthentication,
+  InputUser,
   LayoutInit,
   MiniContainer,
 } from "@/components";
-import InputUser from "@/components/atoms/Input/InputUser";
 import Image from "next/image";
 
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -42,6 +42,7 @@ const SignIn = () => {
         {loginWithEmail ? (
           <FormLogin onSubmit={submitForm}>
             <InputUser
+              nameLabel="E-mail"
               name="email"
               type="email"
               placeholder="E-mail"
@@ -50,7 +51,8 @@ const SignIn = () => {
               onChange={handleChange}
             />
             <InputUser
-              name="password"
+              nameLabel="Senha"
+              name="senha"
               type="password"
               placeholder="Senha"
               value={form.password}
