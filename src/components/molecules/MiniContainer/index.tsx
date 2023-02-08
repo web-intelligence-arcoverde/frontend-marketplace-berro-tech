@@ -16,7 +16,8 @@ interface MiniContainerProps {
   subTitle: string;
   children: ReactNode;
   lastButton: string;
-  lastButtonLink:string
+  lastButtonLink: string;
+  loginWithEmail: boolean;
 }
 
 const MiniContainer = ({
@@ -24,7 +25,8 @@ const MiniContainer = ({
   subTitle,
   children,
   lastButton,
-  lastButtonLink
+  lastButtonLink,
+  loginWithEmail,
 }: MiniContainerProps) => {
   return (
     <Container>
@@ -39,7 +41,10 @@ const MiniContainer = ({
       <CardChildren>{children}</CardChildren>
       <Row />
       <CardButton>
-        <ButtonLink link={lastButtonLink}>{lastButton}</ButtonLink>
+        <ButtonLink link={lastButtonLink}>
+          {!loginWithEmail && <Image src={ICONS.User} alt="icone do usuário" />}{" "}
+          {lastButton}
+        </ButtonLink>
       </CardButton>
     </Container>
   );

@@ -1,5 +1,7 @@
+import { ICONS } from "@/assets";
 import { Button, ButtonLink, LayoutInit, MiniContainer } from "@/components";
 import InputUser from "@/components/atoms/Input/InputUser";
+import Image from "next/image";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FormLogin, LostPassword } from "./style";
@@ -26,6 +28,7 @@ const SignIn = () => {
   return (
     <LayoutInit>
       <MiniContainer
+      loginWithEmail = {loginWithEmail}
         title="Bem-vindo de volta "
         subTitle="Escolha como entrar"
         lastButton="Criar conta"
@@ -58,6 +61,7 @@ const SignIn = () => {
                 setLoginWithEmail(true);
               }}
             >
+              <Image src={ICONS.Email} alt='icone de email' />
               Entrar com Email
             </Button>
           </FormLogin>

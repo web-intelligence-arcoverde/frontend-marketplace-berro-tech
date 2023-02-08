@@ -19,6 +19,7 @@ import Hands from "./hands.svg";
 import User from "./user.svg";
 import EyeOff from "./eye-off.svg";
 import EyeOn from './eye-on.svg'
+import Email from './email.svg'
 
 export const ICONS = {
   Search,
@@ -41,5 +42,6 @@ export const ICONS = {
   Hands,
   User,
   EyeOff,
-  EyeOn
+  EyeOn,
+  Email
 };

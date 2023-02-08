@@ -1,4 +1,4 @@
-import  Link  from 'next/link';
+import Link from "next/link";
 import styled from "styled-components";
 import { COLORS } from "@/common";
 
@@ -18,6 +18,10 @@ export const CardButton = styled.button<CardButtonProps>`
   border-radius: 5px;
   padding: ${(props) => (props.padding ? props.padding : "12px")};
   max-width: ${(props) => (props.maxWidth ? props.maxWidth : "")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 `;
 
 export const CardButtonLink = styled(Link)`
@@ -32,5 +36,5 @@ export const CardButtonLink = styled(Link)`
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 16px;
 `;
