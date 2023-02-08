@@ -9,7 +9,7 @@ import {
   CardChildren,
 } from "./style";
 import { ICONS } from "@/assets";
-import { Button, ButtonLink } from "@/components/atoms";
+import { ButtonLink } from "@/components/atoms";
 
 interface MiniContainerProps {
   title: string;
@@ -42,7 +42,7 @@ const MiniContainer = ({
       <Row />
       <CardButton>
         <ButtonLink link={lastButtonLink}>
-          {!loginWithEmail && <Image src={ICONS.User} alt="icone do usuário" />}{" "}
+          {!loginWithEmail && <Image src={ICONS.User} alt="icone do usuário" />}
           {lastButton}
         </ButtonLink>
       </CardButton>

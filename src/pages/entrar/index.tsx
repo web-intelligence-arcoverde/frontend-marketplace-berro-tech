@@ -1,5 +1,10 @@
 import { ICONS } from "@/assets";
-import { Button, ButtonLink, LayoutInit, MiniContainer } from "@/components";
+import {
+  Button,
+  ButtonAuthentication,
+  LayoutInit,
+  MiniContainer,
+} from "@/components";
 import InputUser from "@/components/atoms/Input/InputUser";
 import Image from "next/image";
 
@@ -28,7 +33,7 @@ const SignIn = () => {
   return (
     <LayoutInit>
       <MiniContainer
-      loginWithEmail = {loginWithEmail}
+        loginWithEmail={loginWithEmail}
         title="Bem-vindo de volta "
         subTitle="Escolha como entrar"
         lastButton="Criar conta"
@@ -61,9 +66,17 @@ const SignIn = () => {
                 setLoginWithEmail(true);
               }}
             >
-              <Image src={ICONS.Email} alt='icone de email' />
+              <Image src={ICONS.Email} alt="icone de email" />
               Entrar com Email
             </Button>
+            <ButtonAuthentication>
+              <Image src={ICONS.Google} alt="icone de google" /> Entrar com
+              Google
+            </ButtonAuthentication>
+            <ButtonAuthentication>
+              <Image src={ICONS.Facebook} alt="icone de facebook" />
+              Entrar com Facebook
+            </ButtonAuthentication>
           </FormLogin>
         )}
       </MiniContainer>

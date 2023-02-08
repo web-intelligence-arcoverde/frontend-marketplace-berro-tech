@@ -36,5 +36,20 @@ export const CardButtonLink = styled(Link)`
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
+`;
+
+export const CardButtonAuthentication = styled.button`
+  display: flex;
+  width: 100%;
+  font-weight: 600;
+  height: 56px;
+  background-color: transparent;
+  color: ${COLORS.gray_color_07};
+  border: 2px solid ${COLORS.gray_color_13};
+  font-size: 15px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 `;
