@@ -1,4 +1,4 @@
-import {Header, Presentation, PresentationInfo} from '@/components/organisms';
+import {Header, Presentation, PresentationInfo} from '@/components';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 import {Main} from '@/style';
 

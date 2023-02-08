@@ -1,8 +1,8 @@
-import React from "react";
-import { Container, Figure, StyledImage, TextContainer } from "./style";
-import { PresentationInfoCardProps } from "@/types";
+import React from 'react';
+import {Container, Figure, StyledImage, TextContainer} from './style';
+import {PresentationInfoCardProps} from '@/types';
 
-const PresentationInfoCard = ({
+export const PresentationInfoCard = ({
   icon,
   iconName,
   title,
@@ -20,5 +20,3 @@ const PresentationInfoCard = ({
     </Container>
   );
 };
-
-export default PresentationInfoCard;
