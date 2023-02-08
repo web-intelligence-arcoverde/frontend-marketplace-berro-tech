@@ -28,7 +28,6 @@ const SignIn = () => {
         lastButton="Criar conta"
       >
         <form onSubmit={submitForm}>
-          <h2>Entrar</h2>
           <Input
             name="email"
             type="email"

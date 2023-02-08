@@ -5,6 +5,7 @@ export const Container = styled.div`
   border: solid 1px ${COLORS.gray_color_13};
   border-radius: 5px;
   padding-bottom: 24px;
+  width: 500px;
 `;
 
 export const Header = styled.header`
@@ -33,15 +34,21 @@ export const Row = styled.div`
   height: 2px;
   width: 100%;
   background-color: ${COLORS.gray_color_13};
-  margin-bottom: 18px;
 `;
 
 export const CardButton = styled.div`
-  padding: 0 24px;
+  padding: 24px 24px 0 24px;
+  button{
+    background-color: ${COLORS.background_color};
+    color: ${COLORS.third_text_color};
+    display: flex;
+  
+  }
+
 `;
 
 export const CardChildren = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 24px;
+  padding: 24px;
 `;
