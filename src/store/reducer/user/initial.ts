@@ -1,7 +1,7 @@
 type CounterState = {
-  value: number;
+  token: string;
 };
 
 export const initialState: CounterState = {
-  value: 0,
+  token: '',
 };
