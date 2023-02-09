@@ -15,7 +15,7 @@ export const BREAKPOINTS = {
   lg: '1200px',
   lgg: '1300px',
   xg: '1370px',
-  xxg:'1440px',
+  xxg: '1440px',
 };
 
 export const COLORS = {

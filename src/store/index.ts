@@ -1,15 +1,20 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
+import createSagaMiddleware from '@redux-saga/core';
 
-import {counterReducer} from './reducer/counter/reducer';
+import logger from 'redux-logger';
 
-import kenyeReducer from './reducer/kenye/reducer';
+import {rootSaga} from './reducer/rootSagas';
+import {rootReducer} from './reducer/rootReducer';
+
+let sagaMiddleware = createSagaMiddleware();
+const middleware = [sagaMiddleware, logger];
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    kenye: kenyeReducer,
-  },
+  reducer: rootReducer,
+  middleware,
 });
+
+sagaMiddleware.run(rootSaga);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

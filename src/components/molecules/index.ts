@@ -1,3 +1,5 @@
-export { ProductCard } from "./ProductCard";
-export { default as SellerCard } from "./SellerCard";
-export { default as PresentationInfoCard } from "./PresentationInfoCard";
+export {ProductCard} from './ProductCard';
+export {SellerCard} from './SellerCard';
+export {PresentationInfoCard} from './PresentationInfoCard';
+export {default as LayoutInit} from './LayoutInit';
+export {default as MiniContainer} from './MiniContainer';

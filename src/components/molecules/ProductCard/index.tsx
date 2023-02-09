@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Card, CattleCard, Flex, CattleInfoContainer } from "./style";
-import { CardProductProps } from "@/types";
-import { CardNameLocation } from "@/components";
+import Image from 'next/image';
+import {Card, CattleCard, Flex, CattleInfoContainer} from './style';
+import {CardProductProps} from '@/types';
+import {CardNameLocation} from '@/components';
 
 export const ProductCard = ({
   name,
@@ -21,7 +21,7 @@ export const ProductCard = ({
       <Flex>
         <p>{breed}</p>
         <h6>
-          {quantity} <span>{quantity > 1 ? "restantes" : "restante"}</span>
+          {quantity} <span>{quantity > 1 ? 'restantes' : 'restante'}</span>
         </h6>
       </Flex>
       <CardNameLocation

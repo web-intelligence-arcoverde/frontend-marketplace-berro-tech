@@ -1,13 +1,10 @@
-import { COLORS } from "@/common";
-import Image from "next/image";
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: ${COLORS.white_color_100};
-  padding-bottom: 128px;
 `;
 export const CardsContainer = styled.div`
   display: flex;

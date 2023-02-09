@@ -1,4 +1,3 @@
-import Logo from './logo.png';
 import Avatar from './avatar.jpg';
 import BackgroundPresentation from './background-presentation.png';
 import GadoOne from './gado-1.png';
@@ -11,7 +10,6 @@ import GadoSix from './gado-6.png';
 import Seller from './seller-image.png';
 
 export const IMAGES = {
-  Logo,
   Avatar,
   BackgroundPresentation,
   Seller,

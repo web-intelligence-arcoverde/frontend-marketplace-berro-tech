@@ -1,138 +1,130 @@
-import { Button } from "@/components";
-import { useForm } from "react-hook-form";
-
-import Link from "next/link";
-import { Input } from "@/components/atoms/Input/style";
+import {Button, InputUser, LayoutInit, MiniContainer} from '@/components';
+import {ChangeEvent, FormEvent, useState} from 'react';
+import {emailRegex} from './regex';
+import {CardStep, FormRegister} from './style';
 
 const SignUp = () => {
-  // const [form, setForm] = useState(registerUser);
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    password: '',
+    repeatPassword: '',
+  });
+  const [currentStep, setCurrentStep] = useState(1);
+  const [disabled, setDisabled] = useState(true);
+  const totalStep = 2;
 
-  // const handleChange = (event: ChangeEvent<HTMLinputElement>) => {
-  //   const { name, value } = event.target;
-  //   setForm((prevForm) => ({ ...prevForm, [name]: value }));
-  // };
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = event.target;
+    setForm((prevForm: any) => ({...prevForm, [name]: value}));
 
-  const { register, handleSubmit, setValue, setFocus } = useForm();
-
-  const onSubmit = (e: any) => {
-    console.log(e);
+    if (!emailRegex.test(form.email) || !form.name || !form.phone) {
+      return setDisabled(true);
+    } else {
+      return setDisabled(false);
+    }
+  };
+  const handleNextStep = () => {
+    setCurrentStep(currentStep + 1);
   };
 
-  // const submitForm = (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setForm(registerUser);
-  //   console.log("Formulário enviado", form);
-  // };
-
-  const checkCEP = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const cep = e.target.value.replace(/\D/g, "");
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((res) => res.json())
-      .then((data) => {
-        setValue("cep", data.cep);
-        setValue("address", data.logradouro);
-        setValue("city", data.localidade);
-        setValue("state", data.uf);
-        setValue("district", data.bairro);
-        setFocus("addressNumber");
-   
-      });
+  const submitForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setForm({
+      name: '',
+      phone: '',
+      email: '',
+      password: '',
+      repeatPassword: '',
+    });
+    console.log('Formulário enviado', form);
   };
 
   return (
-    <Link
-      href=""
-      passHref
-      legacyBehavior
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "500px",
-        margin: "auto",
-        height: "70vh",
-      }}
-    >
-      <form
-        autoComplete="off"
-        onSubmit={handleSubmit(onSubmit)}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "500px",
-          margin: "auto",
-          gap: "5px",
-        }}
+    <LayoutInit>
+      <MiniContainer
+        title='Seja bem-vindo'
+        subTitle='Preencha os campos para criar sua conta'
+        lastButton='Já tenho uma conta'
+        lastButtonLink='entrar'
       >
-        <h2>Cadastrar</h2>
-        <Input
-          {...register("email")}
-          type="email"
-          placeholder="Digite seu E-mail"
-          required
-        />
-        <Input
-          {...register("fullName")}
-          type="text"
-          placeholder="Digite seu nome"
-        />
-        <Input
-          {...register("cep")}
-          type="text"
-          placeholder="CEP"
-          onBlur={checkCEP}
-        />
-
-        <div style={{ display: "flex", gap: "5px" }}>
-          <Input
-            {...register("city")}
-            type="text"
-            placeholder="Cidade"
-          />
-          <Input
-            {...register("state")}
-            width="150px"
-            name="state"
-            type="text"
-            placeholder="Estado"
-          />
-        </div>
-        <div style={{ display: "flex", gap: "5px" }}>
-          <Input
-            {...register("address")}
-            type="text"
-            placeholder="Endereço "
-          />
-          <Input
-            {...register("addressNumber")}
-            width="150px"
-            type="text"
-            placeholder="Número "
-          />
-        </div>
-        <Input
-          {...register("district")}
-          type="text"
-          placeholder="Bairro "
-        />
-        <Input
-          {...register("phone")}
-          type="tel"
-          placeholder="Ex: (87) 991054786 "
-        />
-        <Input
-          {...register("password")}
-          type="password"
-          placeholder="Digite sua senha"
-        />
-        <Input
-          {...register("confirmPassword")}
-          type="password"
-          placeholder="Confirme sua senha "
-        />
-
-        <Button onClick={()=>{onSubmit}}>Cadastrar</Button>
-      </form>
-    </Link>
+        <FormRegister autoComplete='off' onSubmit={submitForm}>
+          {currentStep == 1 && (
+            <>
+              <CardStep>
+                Etapa {currentStep} de {totalStep}
+              </CardStep>
+              <InputUser
+                nameLabel='Nome'
+                name='name'
+                type='text'
+                placeholder='Seu nome completo'
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
+              <InputUser
+                nameLabel='Email'
+                name='email'
+                type='email'
+                placeholder='Seu melhor email'
+                required
+                value={form.email}
+                onChange={handleChange}
+              />
+              <InputUser
+                nameLabel='Telefone'
+                name='phone'
+                type='tel'
+                required
+                maxLength={15}
+                placeholder='(_ _) _ _ _ _ _-_ _ _ _'
+                value={form.phone
+                  .replace(/\D/g, '')
+                  .replace(/(\d{2})(\d)/, '($1) $2')
+                  .replace(/(\d{5})(\d)/, '$1-$2')
+                  .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')}
+                onChange={handleChange}
+              />
+              <Button
+                disabled={disabled}
+                type='button'
+                onClick={handleNextStep}
+              >
+                Próximo
+              </Button>
+            </>
+          )}
+          {currentStep == 2 && (
+            <>
+              <CardStep>
+                Etapa {currentStep} de {totalStep}
+              </CardStep>
+              <InputUser
+                nameLabel='Senha'
+                name='password'
+                type='password'
+                placeholder='No mínimo 8 dígitos'
+                required
+                value={form.password}
+                onChange={handleChange}
+              />
+              <InputUser
+                nameLabel='Repita a senha'
+                name='repeatPassword'
+                type='password'
+                required
+                placeholder='A mesma senha de cima'
+                value={form.repeatPassword}
+                onChange={handleChange}
+              />
+              <Button onClick={() => {}}>Criar conta</Button>
+            </>
+          )}
+        </FormRegister>
+      </MiniContainer>
+    </LayoutInit>
   );
 };
 

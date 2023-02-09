@@ -3,7 +3,7 @@ import {CardContact} from '@/components';
 import React from 'react';
 import {Container, ImageSeller} from './style';
 
-const SellerCard = () => {
+export const SellerCard = () => {
   return (
     <Container>
       <ImageSeller src={IMAGES.Seller} alt='imagem do vendedor' />
@@ -12,5 +12,3 @@ const SellerCard = () => {
     </Container>
   );
 };
-
-export default SellerCard;

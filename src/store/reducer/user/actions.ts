@@ -1,0 +1,8 @@
+import {createAction} from '@reduxjs/toolkit';
+
+interface ISignIn {
+  email: string;
+  password: string;
+}
+
+export const signIn = createAction<ISignIn>('user/sign-in');
