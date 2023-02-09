@@ -1,6 +1,7 @@
-import Image from 'next/image';
-import {Card, CardContainer, Flex, LastContainer} from './style';
-import {CardProductProps} from '@/types';
+import Image from "next/image";
+import { Card, CattleCard, Flex, CattleInfoContainer } from "./style";
+import { CardProductProps } from "@/types";
+import { CardNameLocation } from "@/components";
 
 export const ProductCard = ({
   name,
@@ -16,29 +17,33 @@ export const ProductCard = ({
 }: CardProductProps) => {
   return (
     <Card>
-      <Image src={photo} alt={`foto de um${breed}`} />
+      <Image src={photo} alt={`foto de um ${breed}`} />
       <Flex>
         <p>{breed}</p>
         <h6>
-          {quantity} <span>{quantity > 1 ? 'restantes' : 'restante'}</span>
+          {quantity} <span>{quantity > 1 ? "restantes" : "restante"}</span>
         </h6>
       </Flex>
-      {/* <CardNameLocation name={name} city={city} state={state} country={country} /> */}
-      <LastContainer>
-        <CardContainer>
+      <CardNameLocation
+        name={name}
+        city={city}
+        state={state}
+        country={country}
+      />
+      <CattleInfoContainer>
+        <CattleCard>
           <h5>Sexo</h5>
           <h6>{sex}</h6>
-        </CardContainer>
-        <CardContainer>
+        </CattleCard>
+        <CattleCard>
           <h5>Idade</h5>
           <h6>{age}</h6>
-        </CardContainer>
-        <CardContainer>
-          <h5>Classfica...</h5>
+        </CattleCard>
+        <CattleCard>
+          <h5>Classficado</h5>
           <h6>{rank}</h6>
-        </CardContainer>
-      </LastContainer>
+        </CattleCard>
+      </CattleInfoContainer>
     </Card>
   );
 };
-

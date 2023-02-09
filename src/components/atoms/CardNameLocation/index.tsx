@@ -5,7 +5,7 @@ import { Location, Flex } from "./style";
 import { CardNameLocationProps } from "@/types";
 import { Avaliation } from "@/components";
 
-const CardNameLocation = ({
+export const CardNameLocation = ({
   name,
   city,
   state,
@@ -28,4 +28,4 @@ const CardNameLocation = ({
   );
 };
 
-export default CardNameLocation;
+

@@ -2,13 +2,15 @@ import styled from "styled-components";
 import { COLORS } from "@/common";
 
 export const Card = styled.div`
+  background: ${COLORS.white_color_100};
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 400px;
-  margin: 50px;
+  max-width: 390px;
+  border-radius: 5px;
   img {
-    width: 400px;
+    max-width: 100%;
+    object-fit: cover;
     border-radius: 5px 5px 0px 0px;
   }
 `;
@@ -47,38 +49,38 @@ export const Flex = styled.div`
   }
 `;
 
-export const Location = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  color: ${COLORS.blue_color};
-  font-weight: 400px;
-  font-size: 16px;
-  img {
-    width: 16px;
-    border-radius: 0;
-    margin-right: 6px;
-  }
-`;
-
-export const LastContainer = styled.div`
+export const CattleInfoContainer = styled.div`
   display: flex;
   justify-content: center;
+  & :first-child{
+    border-radius: 0 0 0 5px;
+  }
+  & :last-child{
+    border-radius: 0 0 5px 0;
+  }
 `;
-export const CardContainer = styled.div`
+export const CattleCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
   padding: 16px;
   border: solid 1px ${COLORS.gray_color_13};
-
+  
   h6,
   h5 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     font-size: 14px;
     font-weight: 400;
   }
   h6 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     color: ${COLORS.gray_color_010};
   }
   h5 {

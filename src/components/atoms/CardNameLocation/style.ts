@@ -11,8 +11,7 @@ export const Location = styled.div`
   font-weight: 400px;
   font-size: 16px;
   img {
-    width: 16px;
-    border-radius: 0;
+    max-width: 16px;
     margin-right: 6px;
   }
 `;

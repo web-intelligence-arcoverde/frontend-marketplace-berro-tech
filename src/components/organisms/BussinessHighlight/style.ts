@@ -5,6 +5,13 @@ export const Container = styled.section`
   background: ${COLORS.white_color_10};
   padding: 112px;
 `;
+export const ProductCardsContainer = styled.div`
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+`;
 export const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
