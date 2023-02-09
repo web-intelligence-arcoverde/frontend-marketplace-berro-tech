@@ -1,5 +1,6 @@
 import { Button, InputUser, LayoutInit, MiniContainer } from "@/components";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { emailRegex } from "./regex";
 import { CardStep, FormRegister } from "./style";
 
 const SignUp = () => {
@@ -11,15 +12,20 @@ const SignUp = () => {
     repeatPassword: "",
   });
   const [currentStep, setCurrentStep] = useState(1);
+  const [disabled, setDisabled] = useState(true);
   const totalStep = 2;
-  
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setForm((prevForm: any) => ({ ...prevForm, [name]: value }));
+    
+    if (!emailRegex.test(form.email) || !form.name || !form.phone) {
+      return setDisabled(true);
+    } else {
+      return setDisabled(false);
+    }
   };
-  const handleNextStep = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleNextStep = () => {
     setCurrentStep(currentStep + 1);
   };
 
@@ -81,7 +87,11 @@ const SignUp = () => {
                   .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")}
                 onChange={handleChange}
               />
-              <Button type="submit" onClick={()=>{handleNextStep}}>
+              <Button
+                disabled={disabled}
+                type="button"
+                onClick={handleNextStep}
+              >
                 Próximo
               </Button>
             </>
