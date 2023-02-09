@@ -1,13 +1,13 @@
-import React from "react";
-import { CardsContainer, Container, ImageArrowDown } from "./style";
-import { ICONS } from "@/assets";
-import PresentationInfoCard from "../../molecules/PresentationInfoCard";
-import { PresentationInfoCardMock } from "@/mock";
+import React from 'react';
+import {CardsContainer, Container, ImageArrowDown} from './style';
+import {ICONS} from '@/assets';
+import {PresentationInfoCard} from '@/components';
+import {PresentationInfoCardMock} from '@/mock';
 
-const PresentationInfo = () => {
+export const PresentationInfo = () => {
   return (
     <Container>
-      <ImageArrowDown src={ICONS?.ArrowDown} alt={"Icone seta para baixo"} />
+      <ImageArrowDown src={ICONS.ArrowDown} alt={'Icone seta para baixo'} />
       <CardsContainer>
         {PresentationInfoCardMock?.map((item, index) => (
           <PresentationInfoCard
@@ -22,5 +22,3 @@ const PresentationInfo = () => {
     </Container>
   );
 };
-
-export default PresentationInfo;
