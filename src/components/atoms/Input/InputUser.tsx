@@ -11,7 +11,8 @@ interface InputUserProps {
   value: string;
   onChange: any;
   required?: boolean;
-  nameLabel:string
+  nameLabel:string;
+  maxLength?:number
 }
 
 const InputUser = ({
@@ -21,7 +22,8 @@ const InputUser = ({
   value,
   placeholder,
   required,
-  nameLabel
+  nameLabel,
+  maxLength
 }: InputUserProps) => {
   const [showPassword, setShowPassord] = useState(false);
   const handleChangeIcon = () => {
@@ -38,6 +40,7 @@ const InputUser = ({
           value={value}
           placeholder={placeholder}
           required={required}
+          maxLength={maxLength}
         />
       </div>
       {type === "password" && (

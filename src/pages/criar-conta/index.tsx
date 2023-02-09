@@ -12,16 +12,16 @@ const SignUp = () => {
   });
   const [currentStep, setCurrentStep] = useState(1);
   const totalStep = 2;
+  
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setForm((prevForm: any) => ({ ...prevForm, [name]: value }));
   };
-  const handleNextStep = () => {
+  const handleNextStep = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setCurrentStep(currentStep + 1);
   };
-
-  
 
   const submitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const SignUp = () => {
         lastButton="Já tenho uma conta"
         lastButtonLink="entrar"
       >
-        <FormRegister onSubmit={submitForm}>
+        <FormRegister autoComplete="off" onSubmit={submitForm}>
           {currentStep == 1 && (
             <>
               <CardStep>
@@ -72,11 +72,16 @@ const SignUp = () => {
                 name="phone"
                 type="tel"
                 required
+                maxLength={15}
                 placeholder="(_ _) _ _ _ _ _-_ _ _ _"
-                value={form.phone}
+                value={form.phone
+                  .replace(/\D/g, "")
+                  .replace(/(\d{2})(\d)/, "($1) $2")
+                  .replace(/(\d{5})(\d)/, "$1-$2")
+                  .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")}
                 onChange={handleChange}
               />
-              <Button  type="button" onClick={handleNextStep}>
+              <Button type="submit" onClick={()=>{handleNextStep}}>
                 Próximo
               </Button>
             </>

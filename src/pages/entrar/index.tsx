@@ -40,7 +40,7 @@ const SignIn = () => {
         lastButtonLink="criar-conta"
       >
         {loginWithEmail ? (
-          <FormLogin onSubmit={submitForm}>
+          <FormLogin autoComplete="off" onSubmit={submitForm}>
             <InputUser
               nameLabel="E-mail"
               name="email"
