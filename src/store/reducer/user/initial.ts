@@ -1,7 +1,5 @@
-type CounterState = {
-  token: string;
-};
+import {UserState} from './types';
 
-export const initialState: CounterState = {
+export const initialState: UserState = {
   token: '',
 };
