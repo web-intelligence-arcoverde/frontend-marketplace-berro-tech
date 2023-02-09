@@ -1,6 +1,5 @@
 import {IMAGES} from '@/assets';
-import {Button, Logo, Search} from '@/components/atoms';
-import {useAppDispatch} from '@/hooks/useSelectorHook';
+import {ButtonLink, Logo, Search} from '@/components/atoms';
 import Image from 'next/image';
 import {useState} from 'react';
 import {
@@ -14,16 +13,12 @@ import {
   Row,
 } from './style';
 
-import {signIn} from '@/store/reducer/user/actions';
-
 interface HeaderProps {
   isLogged: boolean;
 }
 
 const Header = ({isLogged}: HeaderProps) => {
   const [optionComponent, setOptionComponent] = useState('inicio');
-
-  const dispatch = useAppDispatch();
 
   return (
     <ContainerHeader>
@@ -61,13 +56,9 @@ const Header = ({isLogged}: HeaderProps) => {
             <Image src={IMAGES.Avatar} alt='foto perfil' />
           </CardAvatar>
         ) : (
-          <Button
-            maxWidth='120px'
-            padding='0 30px'
-            onClick={() => dispatch(signIn({email: '23434', password: '234'}))}
-          >
+          <ButtonLink id='to-enter' link='entrar'>
             Entrar
-          </Button>
+          </ButtonLink>
         )}
       </Navigation>
     </ContainerHeader>

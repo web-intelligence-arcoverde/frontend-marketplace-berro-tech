@@ -6,4 +6,6 @@ export interface ButtonProps {
   padding?: string;
   className?:string
   maxWidth?:string
+  type?:"button" | "submit" | "reset" | undefined
+  disabled?:boolean
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import {Container, Figure, StyledImage, TextContainer} from './style';
 import {PresentationInfoCardProps} from '@/types';
 
