@@ -1,10 +1,8 @@
-import React from "react";
 import { ProductCard } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
-
 import { Container, TitleContainer, ProductCardsContainer } from "./style";
 
-const BussinessHighlight = () => {
+export const BussinessHighlight = () => {
   return (
     <Container>
       <TitleContainer>
@@ -31,5 +29,3 @@ const BussinessHighlight = () => {
     </Container>
   );
 };
-
-export default BussinessHighlight;

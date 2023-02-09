@@ -52,10 +52,10 @@ export const Flex = styled.div`
 export const CattleInfoContainer = styled.div`
   display: flex;
   justify-content: center;
-  & :first-child{
+  & :first-child {
     border-radius: 0 0 0 5px;
   }
-  & :last-child{
+  & :last-child {
     border-radius: 0 0 5px 0;
   }
 `;
@@ -66,7 +66,7 @@ export const CattleCard = styled.div`
   width: 100%;
   padding: 16px;
   border: solid 1px ${COLORS.gray_color_13};
-  
+
   h6,
   h5 {
     overflow: hidden;
@@ -84,6 +84,6 @@ export const CattleCard = styled.div`
     color: ${COLORS.gray_color_010};
   }
   h5 {
-    color: ${COLORS.gray_color_70};
+    color: ${COLORS.gray_color_010};
   }
 `;

@@ -30,6 +30,4 @@ export const TitleContainer = styled.div`
     font-size: 16px;
     color: ${COLORS.gray_color_07};
   }
-
-
 `;

@@ -7,7 +7,7 @@ interface LayoutInitProps {
   children: ReactNode;
 }
 
-const LayoutInit = ({ children }: LayoutInitProps) => {
+export const LayoutInit = ({ children }: LayoutInitProps) => {
   return (
     <Main>
       <Image src={ICONS.SimboloBackground} alt="simbolo berro tech" />
@@ -15,5 +15,3 @@ const LayoutInit = ({ children }: LayoutInitProps) => {
     </Main>
   );
 };
-
-export default LayoutInit;

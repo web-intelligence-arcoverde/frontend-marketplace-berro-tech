@@ -15,7 +15,7 @@ export const Intro = styled.section`
     url(${IMAGES.BackgroundPresentation?.src});
 
   background-size: contain;
-  background-position: right ;
+  background-position: right;
 `;
 
 export const DescriptionPresentation = styled.div`

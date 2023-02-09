@@ -1,21 +1,11 @@
 import { ICONS } from "@/assets";
+import { InputUserProps } from "@/types/IInputUserProps";
 import Image from "next/image";
 import { useState } from "react";
 
 import { CardInputUser, Input, TextLabel } from "./style";
 
-interface InputUserProps {
-  name: string;
-  type: string;
-  placeholder: string;
-  value: string;
-  onChange: any;
-  required?: boolean;
-  nameLabel:string;
-  maxLength?:number
-}
-
-const InputUser = ({
+export const InputUser = ({
   name,
   type,
   onChange,
@@ -23,7 +13,7 @@ const InputUser = ({
   placeholder,
   required,
   nameLabel,
-  maxLength
+  maxLength,
 }: InputUserProps) => {
   const [showPassword, setShowPassord] = useState(false);
   const handleChangeIcon = () => {
@@ -55,5 +45,3 @@ const InputUser = ({
     </CardInputUser>
   );
 };
-
-export default InputUser;

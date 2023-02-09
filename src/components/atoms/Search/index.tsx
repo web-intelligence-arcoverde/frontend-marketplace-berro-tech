@@ -3,7 +3,7 @@ import { ICONS } from "@/assets";
 import { CardSearch, IconLupa } from "./style";
 import { ChangeEvent, MouseEventHandler, useState } from "react";
 
-const Search = () => {
+export const Search = () => {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
@@ -27,7 +27,7 @@ const Search = () => {
     <CardSearch
       width={isFocused ? "400px" : "250px"}
       borderInput={search ? "8px 0 0 8px" : "8px"}
-      borderRight={search && 'none'}
+      borderRight={search && "none"}
     >
       <IconLupa src={ICONS.Search} alt="icone lupa" />
       <input
@@ -46,5 +46,3 @@ const Search = () => {
     </CardSearch>
   );
 };
-
-export default Search;

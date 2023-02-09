@@ -1,3 +1,4 @@
-export {default as Header} from './Header';
-export {default as Presentation} from './Presentation';
-export {PresentationInfo} from './PresentationInfo';
+export { Header } from "./Header";
+export { Presentation } from "./Presentation";
+export { PresentationInfo } from "./PresentationInfo";
+export {BussinessHighlight} from "./BussinessHighlight"

@@ -1,7 +1,7 @@
-import {ButtonProps} from '@/types';
-import {CardButton} from './style';
+import { ButtonProps } from "@/types";
+import { CardButton } from "./style";
 
-const Button = ({
+export const Button = ({
   children,
   onClick,
   padding,
@@ -23,4 +23,3 @@ const Button = ({
     </CardButton>
   );
 };
-export default Button;

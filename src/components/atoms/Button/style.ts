@@ -1,7 +1,6 @@
-import Link from 'next/link';
-import styled from 'styled-components';
-import {COLORS} from '@/common';
-
+import Link from "next/link";
+import styled from "styled-components";
+import { COLORS } from "@/common";
 interface CardButtonProps {
   padding?: string;
   maxWidth?: string;
@@ -17,13 +16,13 @@ export const CardButton = styled.button<CardButtonProps>`
   border: none;
   font-size: 15px;
   border-radius: 5px;
-  padding: ${(props) => (props.padding ? props.padding : '12px')};
-  max-width: ${(props) => (props.maxWidth ? props.maxWidth : '')};
+  padding: ${(props) => (props.padding ? props.padding : "12px")};
+  max-width: ${(props) => (props.maxWidth ? props.maxWidth : "")};
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  filter: ${({disabled}) => disabled && 'brightness(75%);'};
+  filter: ${({ disabled }) => disabled && "brightness(75%);"};
 `;
 
 export const CardButtonLink = styled(Link)`

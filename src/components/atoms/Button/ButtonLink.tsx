@@ -7,11 +7,10 @@ interface ButtonLinkProps {
   id?: string;
 }
 
-const ButtonLink = ({ children, link, id }: ButtonLinkProps) => {
+export const ButtonLink = ({ children, link, id }: ButtonLinkProps) => {
   return (
     <CardButtonLink id={id} href={link}>
       {children}
     </CardButtonLink>
   );
 };
-export default ButtonLink;

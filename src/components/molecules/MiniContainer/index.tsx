@@ -9,7 +9,7 @@ import {
   CardChildren,
 } from "./style";
 import { ICONS } from "@/assets";
-import { ButtonLink } from "@/components/atoms";
+import { ButtonLink } from "@/components";
 
 interface MiniContainerProps {
   title: string;
@@ -20,7 +20,7 @@ interface MiniContainerProps {
   loginWithEmail?: boolean;
 }
 
-const MiniContainer = ({
+export const MiniContainer = ({
   title,
   subTitle,
   children,
@@ -50,4 +50,3 @@ const MiniContainer = ({
   );
 };
 
-export default MiniContainer;

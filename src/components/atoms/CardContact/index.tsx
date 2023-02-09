@@ -1,11 +1,10 @@
-import React from "react";
-import Button from "../Button";
 import { Container } from "./style";
 import Image from "next/image";
 import { ICONS } from "@/assets/icons";
 import { CardContactProps } from "@/types";
+import { Button } from "@/components";
 
-const CardContact = ({ link, onClickDots }: CardContactProps) => {
+export const CardContact = ({ link, onClickDots }: CardContactProps) => {
   return (
     <Container>
       <a href={link}>
@@ -18,5 +17,3 @@ const CardContact = ({ link, onClickDots }: CardContactProps) => {
     </Container>
   );
 };
-
-export default CardContact;

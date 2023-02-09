@@ -17,8 +17,8 @@ export const Input = styled.input<InputProps>`
   }
 `;
 export const TextLabel = styled.label`
-text-transform: capitalize;
-`
+  text-transform: capitalize;
+`;
 
 export const CardInputUser = styled.div`
   display: flex;
@@ -28,11 +28,11 @@ export const CardInputUser = styled.div`
   padding: 16px;
   color: ${COLORS.gray_color_010};
   background-color: ${COLORS.white_color_50};
- justify-content: space-between;
- height: 85px;
+  justify-content: space-between;
+  height: 85px;
 
- button{
-  background: none;
-  border: none;
- }
+  button {
+    background: none;
+    border: none;
+  }
 `;

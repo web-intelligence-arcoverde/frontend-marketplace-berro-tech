@@ -1,9 +1,9 @@
-export {default as Logo} from './Logo';
-export {default as Button} from './Button';
-export {default as Search} from './Search';
-export {default as CardContact} from './CardContact';
-export * from './Avaliation';
-export {default as ButtonLink} from './Button/ButtonLink';
-export {default as ButtonAuthentication} from './Button/ButtonAuthentication';
-export {default as InputUser} from './Input/InputUser';
-export * from './CardNameLocation';
+export {Logo} from './Logo';
+export {Button} from './Button';
+export {Search} from './Search';
+export {CardContact} from './CardContact';
+export {Avaliation} from './Avaliation';
+export {ButtonLink} from './Button/ButtonLink';
+export {ButtonAuthentication} from './Button/ButtonAuthentication';
+export {InputUser} from './Input/InputUser';
+export {CardNameLocation} from './CardNameLocation';

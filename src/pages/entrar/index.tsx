@@ -42,10 +42,10 @@ const SignIn = () => {
         {loginWithEmail ? (
           <FormLogin autoComplete='off' onSubmit={submitForm}>
             <InputUser
-              nameLabel='E-mail'
+              nameLabel='Email'
               name='email'
               type='email'
-              placeholder='E-mail'
+              placeholder='Seu melhor email'
               required
               value={form.email}
               onChange={handleChange}
@@ -54,7 +54,7 @@ const SignIn = () => {
               nameLabel='Senha'
               name='password'
               type='password'
-              placeholder='Senha'
+              placeholder='No mínimo 8 dígitos'
               value={form.password}
               onChange={handleChange}
             />

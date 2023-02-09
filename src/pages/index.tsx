@@ -1,5 +1,10 @@
-import {Header, Presentation, PresentationInfo} from '@/components';
-import {Main} from '@/style';
+import {
+  Header,
+  Presentation,
+  PresentationInfo,
+  BussinessHighlight,
+} from "@/components";
+import { Main } from "@/style";
 
 const Home = () => {
   return (
@@ -7,6 +12,7 @@ const Home = () => {
       <Header isLogged={false} />
       <Presentation />
       <PresentationInfo />
+      <BussinessHighlight />
     </Main>
   );
 };
