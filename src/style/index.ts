@@ -4,5 +4,12 @@ import {BREAKPOINTS} from '@/common';
 export const Main = styled.main`
   width: 100%;
   max-width: ${BREAKPOINTS.xxg};
-  margin: 0 auto;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 `;
