@@ -10,6 +10,7 @@ export const Card = styled.div`
   border-radius: 5px;
   img {
     max-width: 100%;
+    max-height: 290px;
     object-fit: cover;
     border-radius: 5px 5px 0px 0px;
   }

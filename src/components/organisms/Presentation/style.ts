@@ -13,9 +13,8 @@ export const Intro = styled.section`
     ),
     linear-gradient(80.03deg, #f8f3df 12.55%, rgba(248, 243, 223, 0) 37.36%),
     url(${IMAGES.BackgroundPresentation?.src});
-
-  background-size: contain;
-  background-position: right;
+  background-size: cover;
+  background-position: center ;
 `;
 
 export const DescriptionPresentation = styled.div`
