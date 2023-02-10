@@ -1,8 +1,12 @@
+import {Header} from '@/components';
+import {Main} from '@/style';
+
 const Business = () => {
   return (
-    <div>
+    <Main>
+      <Header />
       <h2>Negocios</h2>
-    </div>
+    </Main>
   );
 };
 

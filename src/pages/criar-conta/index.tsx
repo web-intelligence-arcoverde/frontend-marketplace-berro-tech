@@ -1,7 +1,7 @@
 import {Button, InputUser, LayoutInit, MiniContainer} from '@/components';
 import {ChangeEvent, FormEvent, useState} from 'react';
-import {emailRegex} from './regex';
-import {CardStep, FormRegister} from './style';
+import {emailRegex} from '@/util';
+import {CardStep, FormRegister} from '@/style/criar-conta-style';
 
 const SignUp = () => {
   const [form, setForm] = useState({

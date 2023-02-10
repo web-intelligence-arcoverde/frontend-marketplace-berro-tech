@@ -1,18 +1,22 @@
-import Image from "next/image";
-import { ICONS } from "@/assets";
-import { CardSearch, IconLupa } from "./style";
-import { ChangeEvent, MouseEventHandler, useState } from "react";
+import Image from 'next/image';
+import {ICONS} from '@/assets';
+import {CardSearch, IconLupa} from './style';
+import {ChangeEvent, MouseEventHandler, useState} from 'react';
 
-export const Search = () => {
-  const [search, setSearch] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
+interface ISearch {
+  isFocused: boolean;
+  setIsFocused: (state: boolean) => boolean;
+}
+
+export const Search = ({isFocused, setIsFocused}: ISearch) => {
+  const [search, setSearch] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  const ClearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
-    setSearch("");
+  const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
+    setSearch('');
     event.preventDefault();
   };
 
@@ -25,22 +29,22 @@ export const Search = () => {
   };
   return (
     <CardSearch
-      width={isFocused ? "400px" : "250px"}
-      borderInput={search ? "8px 0 0 8px" : "8px"}
-      borderRight={search && "none"}
+      width={isFocused ? '400px' : '250px'}
+      borderInput={search ? '8px 0 0 8px' : '8px'}
+      borderRight={search && 'none'}
     >
-      <IconLupa src={ICONS.Search} alt="icone lupa" />
+      <IconLupa src={ICONS.Search} alt='icone lupa' />
       <input
-        type="text"
-        placeholder="Buscar"
+        type='text'
+        placeholder='Buscar'
         value={search}
         onChange={handleChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
       />
       {search && (
-        <button onClick={ClearInput}>
-          <Image src={ICONS.Close} alt="icone X" />
+        <button onClick={clearInput}>
+          <Image src={ICONS.Close} alt='icone X' />
         </button>
       )}
     </CardSearch>
