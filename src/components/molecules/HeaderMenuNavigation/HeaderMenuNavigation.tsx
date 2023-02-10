@@ -6,7 +6,10 @@ export const HeaderMenuNavigation = () => {
   const router = useRouter();
 
   let optionInit = router.asPath === '/';
-  let optionBussiness = router.asPath === 'negocios';
+  let optionBussiness = router.asPath === '/negocios';
+
+  console.log(router.asPath);
+  console.log(optionBussiness);
 
   const handleClick = (routerPath: any) => {
     router.push(routerPath);
@@ -15,18 +18,15 @@ export const HeaderMenuNavigation = () => {
   return (
     <ContainerNavigation>
       <ItemNavigation>
-        <li
-          id={optionInit ? 'brightness' : ''}
-          onClick={() => handleClick('/')}
-        >
+        <li id={optionInit && 'brightness'} onClick={() => handleClick('/')}>
           Início
         </li>
         {optionInit && <Row />}
       </ItemNavigation>
       <ItemNavigation>
         <li
-          id={optionBussiness ? 'brightness' : ''}
-          onClick={() => handleClick('negocios')}
+          id={optionBussiness && 'brightness'}
+          onClick={() => handleClick('/negocios')}
         >
           Negócios
         </li>
