@@ -22,7 +22,7 @@ import EyeOn from './eye-on.svg';
 import Email from './email.svg';
 import Facebook from './facebook.svg';
 import Google from './google.svg';
-
+import LogoCopyright from './logo-copyright.svg';
 export const ICONS = {
   Search,
   Message,
@@ -39,9 +39,8 @@ export const ICONS = {
   Document,
   Phone,
   ArrowDown,
-
+  LogoCopyright,
   SearchBlue,
-
   SimboloBackground,
   Hands,
   User,
