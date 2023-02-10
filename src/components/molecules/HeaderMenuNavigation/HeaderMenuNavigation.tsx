@@ -8,8 +8,8 @@ export const HeaderMenuNavigation = () => {
   let optionInit = router.asPath === '/';
   let optionBussiness = router.asPath === '/negocios';
 
-  console.log(router.asPath);
-  console.log(optionBussiness);
+  let styleInit = optionInit ? 'brightness' : '';
+  let styleBussiness = optionBussiness ? 'brightness' : '';
 
   const handleClick = (routerPath: any) => {
     router.push(routerPath);
@@ -18,16 +18,13 @@ export const HeaderMenuNavigation = () => {
   return (
     <ContainerNavigation>
       <ItemNavigation>
-        <li id={optionInit && 'brightness'} onClick={() => handleClick('/')}>
+        <li id={styleInit} onClick={() => handleClick('/')}>
           Início
         </li>
         {optionInit && <Row />}
       </ItemNavigation>
       <ItemNavigation>
-        <li
-          id={optionBussiness && 'brightness'}
-          onClick={() => handleClick('/negocios')}
-        >
+        <li id={styleBussiness} onClick={() => handleClick('/negocios')}>
           Negócios
         </li>
         {optionBussiness && <Row />}
