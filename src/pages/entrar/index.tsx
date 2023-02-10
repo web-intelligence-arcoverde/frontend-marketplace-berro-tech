@@ -9,7 +9,7 @@ import {
 import Image from 'next/image';
 
 import {ChangeEvent, FormEvent, useState} from 'react';
-import {FormLogin, LostPassword} from './style';
+import {FormLogin, LostPassword} from '@/style/entrar-style';
 
 const SignIn = () => {
   const [loginWithEmail, setLoginWithEmail] = useState(false);

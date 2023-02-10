@@ -3,13 +3,13 @@ import {
   Presentation,
   PresentationInfo,
   BussinessHighlight,
-} from "@/components";
-import { Main } from "@/style";
+} from '@/components';
+import {Main} from '@/style';
 
 const Home = () => {
   return (
     <Main>
-      <Header isLogged={false} />
+      <Header />
       <Presentation />
       <PresentationInfo />
       <BussinessHighlight />
