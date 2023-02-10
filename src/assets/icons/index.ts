@@ -23,6 +23,8 @@ import Email from './email.svg';
 import Facebook from './facebook.svg';
 import Google from './google.svg';
 import LogoCopyright from './logo-copyright.svg';
+import ArrowUp from './arrow-up.svg'
+
 export const ICONS = {
   Search,
   Message,
@@ -49,4 +51,5 @@ export const ICONS = {
   Email,
   Facebook,
   Google,
+  ArrowUp
 };

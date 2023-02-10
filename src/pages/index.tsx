@@ -3,8 +3,9 @@ import {
   Presentation,
   PresentationInfo,
   BussinessHighlight,
-} from '@/components';
-import {Main, Container} from '@/style';
+  Footer,
+} from "@/components";
+import { Main, Container } from "@/style";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <Presentation />
         <PresentationInfo />
         <BussinessHighlight />
+        <Footer />
       </Main>
     </Container>
   );

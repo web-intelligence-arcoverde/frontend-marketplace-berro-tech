@@ -38,6 +38,7 @@ export const COLORS = {
   gray_color_05: "#4D4B5C",
   gray_color_06: '#605E70',
   gray_color_07: '#737185',
+  gray_color_08: '#888599',
   gray_color_010: '#9C99AD',
   gray_color_13: '#F2F1F7',
 
