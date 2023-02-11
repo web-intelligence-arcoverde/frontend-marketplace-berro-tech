@@ -5,13 +5,12 @@ import { COLORS } from '@/common';
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: ${COLORS.white_color_100};
-  padding-bottom: 128px;
+  background: ${COLORS.light._05};
+  padding: 0 100px 128px 100px;
 `;
 export const CardsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 16px;
 `;
 

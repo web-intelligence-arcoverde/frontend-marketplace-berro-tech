@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 9px;
   h5 {
-    color: ${COLORS.gray_color_010};
+    color: ${COLORS.gray._04};
     font-weight: 500;
     font-size: 16px;
   }

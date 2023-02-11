@@ -8,3 +8,4 @@ export {ButtonAuthentication} from './Button/ButtonAuthentication';
 export {InputUser} from './Input/InputUser';
 export {CardNameLocation} from './CardNameLocation';
 export {LogoCopyright} from './LogoCopyright'
+export {Tabs} from './Tabs';

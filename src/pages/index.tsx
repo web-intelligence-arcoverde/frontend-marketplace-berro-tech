@@ -4,6 +4,8 @@ import {
   PresentationInfo,
   BussinessHighlight,
   Footer,
+  MainSearch,
+  SecuritySection,
 } from "@/components";
 import { Main, Container } from "@/style";
 
@@ -15,6 +17,8 @@ const Home = () => {
         <Presentation />
         <PresentationInfo />
         <BussinessHighlight />
+        <MainSearch />
+        <SecuritySection />
         <Footer />
       </Main>
     </Container>

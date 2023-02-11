@@ -8,7 +8,7 @@ export const FormLogin = styled.form`
 `;
 
 export const LostPassword = styled.a`
-color: ${COLORS.blue_color};
+color: ${COLORS.sub_brand._02};
 font-size: 14px;
 text-align: end;
 position: relative;

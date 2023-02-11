@@ -24,6 +24,7 @@ import Facebook from './facebook.svg';
 import Google from './google.svg';
 import LogoCopyright from './logo-copyright.svg';
 import ArrowUp from './arrow-up.svg'
+import SecurityShield from './security-shield.svg';
 
 export const ICONS = {
   Search,
@@ -51,5 +52,6 @@ export const ICONS = {
   Email,
   Facebook,
   Google,
+  SecurityShield,
   ArrowUp
 };

@@ -5,8 +5,8 @@ import Image from 'next/image';
 export const Container = styled.div`
   border-radius: 5px;
   width: fit-content;
-  background: ${COLORS.white_color_100};
-  border: 1.5px solid ${COLORS.gray_color_13};
+  background: ${COLORS.light._05};
+  border: 1.5px solid ${COLORS.light._02};
   border-radius: 5px;
 `;
 

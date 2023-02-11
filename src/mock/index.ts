@@ -118,3 +118,26 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
 ];
+
+export const tabs = [
+  {
+    title: "Principais buscas",
+    content: '',
+  },
+  {
+    title: "Classificação",
+    content: '',
+  },
+  {
+    title: "Genética",
+    content: '',
+  },
+  {
+    title: "Raça",
+    content: '',
+  },
+  {
+    title: "Sexo",
+    content: '',
+  },
+];
