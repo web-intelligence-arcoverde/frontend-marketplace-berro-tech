@@ -16,16 +16,16 @@ export const ItemNavigation = styled.ul`
   li {
     font-size: 16px;
     font-weight: 600;
-    color: ${COLORS.third_text_color};
+    color: ${COLORS.brand_dark._02};
   }
   #brightness {
-    color: ${COLORS.primary_text_color};
+    color: ${COLORS.brand_dark._01};
   }
 `;
 
 export const Row = styled.li`
   width: 16px;
   height: 2px;
-  background-color: ${COLORS.primary_text_color};
+  background-color: ${COLORS.brand_dark._01};
   align-self: flex-start;
 `;

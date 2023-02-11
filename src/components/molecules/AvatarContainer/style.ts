@@ -8,7 +8,7 @@ export const CardAvatar = styled.div`
     width: 46px;
     height: 46px;
     border-radius: 5px;
-    border: solid 2px ${COLORS.white_color_100};
+    border: solid 2px ${COLORS.light._05};
     margin-top: 4px;
   }
 `;
