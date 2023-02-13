@@ -8,8 +8,8 @@ export const Navigation = styled.nav`
   #to-enter {
     width: 200px;
     height: 48px;
-    background-color: ${COLORS.secondary_color};
-    color: ${COLORS.white_color_100};
+    background-color: ${COLORS.brand_dark._03};
+    color: ${COLORS.light._05};
     font-weight: 500;
   }
 `;

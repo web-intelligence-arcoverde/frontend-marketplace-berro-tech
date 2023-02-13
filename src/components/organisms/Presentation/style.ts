@@ -32,20 +32,20 @@ export const DescriptionPresentation = styled.div`
   h6 {
     width: fit-content;
     padding: 12px 20px;
-    color: ${COLORS.blue_color};
+    color: ${COLORS.sub_brand._02};
     font-size: 16px;
     font-weight: 600;
-    background-color: ${COLORS.blue_background_opacity};
+    background-color: ${COLORS.opacity.blue_05};
     border-radius: 5px;
   }
   h1 {
-    color: ${COLORS.primary_text_color};
+    color: ${COLORS.brand_dark._01};
     font-weight: 800;
     font-size: 40px;
     line-height: 60px;
   }
   p {
-    color: ${COLORS.third_text_color};
+    color: ${COLORS.brand_dark._02};
     font-weight: 800px;
     font-size: 18px;
     line-height: 36px;

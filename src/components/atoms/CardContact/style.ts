@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLORS } from "@/common/index";
 
 export const Container = styled.div`
-  border-top: 1.5px solid ${COLORS.gray_color_13};
+  border-top: 1.5px solid ${COLORS.gray._02};
   padding: 24px;
   display: flex;
   width: 100%;
@@ -20,16 +20,16 @@ export const Container = styled.div`
     margin: 0;
     gap: 15px;
     border-radius: 5px;
-    background: ${COLORS.auxiliars_green};
+    background: ${COLORS.auxiliary.green_confirm};
     font-weight: 600;
     font-size: 16px;
-    color: ${COLORS.white_color_100};
+    color: ${COLORS.light._05};
   }
   
   button {
     width: fit-content;
     border-radius: 5px;
-    border: 1.5px solid ${COLORS.gray_color_13};
-    background: ${COLORS.white_color_100};
+    border: 1.5px solid ${COLORS.gray._02};
+    background: ${COLORS.light._05};
   }
 `;

@@ -6,3 +6,4 @@ export type { CardContactProps } from "./ICardContactProps";
 export type { CardNameLocationProps } from "./ICardNameLocationProps";
 export type { PresentationInfoCardProps } from "./IPresentationInfoCardProps";
 export type { AvaliationProps } from "./IAvaliation";
+export type { TabsProps } from "./ITabs";

@@ -11,8 +11,8 @@ export const CardButton = styled.button<CardButtonProps>`
   width: 100%;
   font-weight: 600;
   height: 56px;
-  background-color: ${COLORS.primary_color};
-  color: ${COLORS.primary_text_color};
+  background-color: ${COLORS.brand_light._01};
+  color: ${COLORS.brand_dark._01};
   border: none;
   font-size: 15px;
   border-radius: 5px;
@@ -30,8 +30,8 @@ export const CardButtonLink = styled(Link)`
   width: 100%;
   font-weight: 600;
   height: 56px;
-  background-color: ${COLORS.background_color};
-  color: ${COLORS.third_text_color};
+  background-color: ${COLORS.brand_light._03};
+  color: ${COLORS.brand_dark._02};
   border: none;
   font-size: 15px;
   border-radius: 5px;
@@ -46,8 +46,8 @@ export const CardButtonAuthentication = styled.button`
   font-weight: 600;
   height: 56px;
   background-color: transparent;
-  color: ${COLORS.gray_color_07};
-  border: 2px solid ${COLORS.gray_color_13};
+  color: ${COLORS.gray._02};
+  border: 2px solid ${COLORS.light._02};
   font-size: 15px;
   border-radius: 5px;
   justify-content: center;

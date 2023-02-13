@@ -5,7 +5,7 @@ export const ContainerFooter = styled.footer`
   display: flex;
   flex-direction: column;
   padding: 66px 100px 26px 100px;
-  background-color: ${COLORS.white_color_50};
+  background-color: ${COLORS.light._04};
   gap: 16px;
   min-height: 200px;
   @media (max-width: ${BREAKPOINTS.sm}) {
@@ -19,7 +19,7 @@ export const CardCopyright = styled.ul`
   display: flex;
   gap: 32px;
   a {
-    color: ${COLORS.gray_color_08};
+    color: ${COLORS.gray._03};
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
     flex-wrap: wrap;
@@ -27,7 +27,7 @@ export const CardCopyright = styled.ul`
     font-size: 13px;
     justify-content: center;
     gap: 28px 30px;
-    border-top: 2px solid ${COLORS.gray_color_13};
+    border-top: 2px solid ${COLORS.light._02};
     padding: 50px 20px 0 20px;
   }
 `;

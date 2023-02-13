@@ -9,9 +9,9 @@ export const FormRegister = styled.form`
 
 export const CardStep = styled.span`
   font-weight: 400;
-  color: ${COLORS.gray_color_07};
+  color: ${COLORS.gray._02};
   padding: 6px 12px;
-  border: 1px solid ${COLORS.gray_color_13};
+  border: 1px solid ${COLORS.light._02};
   border-radius:5px;
   width: fit-content;
 `;

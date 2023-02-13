@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLORS } from "@/common";
 
 export const Card = styled.div`
-  background: ${COLORS.white_color_100};
+  background: ${COLORS.light._05};
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,21 +21,21 @@ export const Flex = styled.div`
   justify-content: space-between;
   padding: 0 24px 0;
   align-items: center;
-  border-left: solid 1px ${COLORS.gray_color_13};
-  border-right: solid 1px ${COLORS.gray_color_13};
+  border-left: solid 1px ${COLORS.light._02};
+  border-right: solid 1px ${COLORS.light._02};
   p {
-    color: ${COLORS.gray_color_07};
+    color: ${COLORS.gray._02};
     font-size: 16px;
     margin-top: 24px;
   }
   h6 {
-    color: ${COLORS.gray_color_010};
+    color: ${COLORS.gray._04};
     font-weight: 400;
     font-size: 14px;
     margin-top: 24px;
   }
   h4 {
-    color: ${COLORS.gray_color_06};
+    color: ${COLORS.gray._01};
     font-size: 18px;
     font-weight: 600;
     margin: 12px 0;
@@ -66,7 +66,7 @@ export const CattleCard = styled.div`
   gap: 8px;
   width: 100%;
   padding: 16px;
-  border: solid 1px ${COLORS.gray_color_13};
+  border: solid 1px ${COLORS.light._02};
 
   h6,
   h5 {
@@ -82,9 +82,9 @@ export const CattleCard = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    color: ${COLORS.gray_color_010};
+    color: ${COLORS.gray._04};
   }
   h5 {
-    color: ${COLORS.gray_color_010};
+    color: ${COLORS.gray._04};
   }
 `;

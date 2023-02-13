@@ -18,7 +18,7 @@ export const CardSearch = styled.form<CardSearchProps>`
 
   input {
     height: 48px;
-    border: solid 1px ${COLORS.gray_color_13};
+    border: solid 1px ${COLORS.light._02};
     padding: 0 25px 0 45px;
     font-size: 16px;
     font-weight: 500;
@@ -32,7 +32,7 @@ export const CardSearch = styled.form<CardSearchProps>`
     white-space: nowrap;
 
     ::placeholder {
-      color: ${COLORS.black_color_70};
+      color: ${COLORS.gray._02};
     }
   }
 

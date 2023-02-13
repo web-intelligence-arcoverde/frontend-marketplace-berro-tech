@@ -10,9 +10,9 @@ export const BussinessHighlight = () => {
         <a href="./">Veja mais opções</a>
       </TitleContainer>
       <ProductCardsContainer>
-        {BussinessHighlightProductMock.map((item) => (
+        {BussinessHighlightProductMock.map((item , index) => (
           <ProductCard
-            key={item.name}
+            key={`${item.name} ${index}`}
             photo={item.photo}
             breed={item.breed}
             quantity={item.quantity}

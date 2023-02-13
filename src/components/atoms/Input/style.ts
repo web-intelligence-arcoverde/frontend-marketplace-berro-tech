@@ -11,9 +11,9 @@ export const Input = styled.input<InputProps>`
   font-weight: 500;
   width: ${(props) => (props.width ? props.width : "100%")};
   font-size: 16px;
-  background-color: ${COLORS.white_color_50};
+  background-color: ${COLORS.light._04};
   ::placeholder {
-    color: ${COLORS.gray_color_010};
+    color: ${COLORS.gray._04};
   }
 `;
 export const TextLabel = styled.label`
@@ -23,11 +23,11 @@ export const TextLabel = styled.label`
 export const CardInputUser = styled.div`
   display: flex;
   align-items: center;
-  border: 1.5px solid ${COLORS.gray_color_13};
+  border: 1.5px solid ${COLORS.light._02};
   border-radius: 5px;
   padding: 16px;
-  color: ${COLORS.gray_color_010};
-  background-color: ${COLORS.white_color_50};
+  color: ${COLORS.gray._04};
+  background-color: ${COLORS.light._04};
   justify-content: space-between;
   height: 85px;
 

@@ -5,13 +5,13 @@ import { COLORS } from "@/common";
 export const Container = styled.div`
   display: flex;
   padding: 24px;
-  background: ${COLORS.blue_light_1};
-  border: 1px solid rgba(27, 93, 224, 0.08);
+  background: ${COLORS.sub_brand._04};
+  border: 1px solid ${COLORS.opacity.blue_08};
   border-radius: 5px;
   gap: 24px;
 `;
 export const Figure = styled.figure`
-  background: ${COLORS.white_color_100};
+  background: ${COLORS.light._05};
   padding: 28px;
   border: 1px solid rgba(27, 93, 224, 0.08);
   border-radius: 5px;
@@ -23,11 +23,11 @@ export const TextContainer = styled.div`
   h5 {
     font-weight: 600;
     font-size: 16px;
-    color: ${COLORS.blue_dark};
+    color: ${COLORS.sub_brand._01};
   }
   p {
     font-size: 16px;
-    color: ${COLORS.blue_dark};
+    color: ${COLORS.sub_brand._01};
     font-weight: 400;
   }
 `;
