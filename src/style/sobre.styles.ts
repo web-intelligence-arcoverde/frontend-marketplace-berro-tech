@@ -1,4 +1,3 @@
-import { StyledImage } from "./../../components/molecules/PresentationInfoCard/style";
 import styled from "styled-components";
 import { BREAKPOINTS, COLORS } from "@/common";
 import Image from "next/image";

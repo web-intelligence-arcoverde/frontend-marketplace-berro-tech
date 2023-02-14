@@ -33,8 +33,8 @@ export const LayoutSection = ({
         </CardTitle>
         <p>{helperText}</p>
         <CardSteps>
-          {MocksSteps.map((step) => (
-            <CattleInfoContainer>
+          {MocksSteps.map((step, index) => (
+            <CattleInfoContainer key={index}>
               <CattleCard>
                 <h5>{step.pass}</h5>
                 <h6>{step.value}</h6>
