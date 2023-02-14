@@ -14,7 +14,7 @@ const About = () => {
   return (
     <Container>
       <Main>
-        <Header />
+        {/* <Header /> */}
         <Presentation>
           <ContainerPresentation>
             <h1>

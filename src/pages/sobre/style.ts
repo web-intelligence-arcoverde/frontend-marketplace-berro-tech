@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import Image from "next/image";
 
 export const Presentation = styled.section`
@@ -48,5 +48,19 @@ export const ContainerPresentation = styled.div`
   }
   img {
     margin-left: 10px;
+  }
+
+  @media(max-width:${BREAKPOINTS.sm}){
+    padding: 0;
+    flex-direction: column;
+
+    h1{
+      width: 100%;
+      justify-content: center;
+      font-size: 28px;
+      line-height: 42px;
+      padding: 20px 20px 35px 20px;
+      margin: 0 auto;
+    }
   }
 `;

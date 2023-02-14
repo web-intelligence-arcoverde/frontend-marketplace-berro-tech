@@ -1,4 +1,4 @@
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -14,7 +14,7 @@ export const Container = styled.li`
     line-height: 45px;
   }
   :first-child {
-    background-color: ${COLORS.brand_light._04};
+    background: ${COLORS.brand_light._04}
   }
   :last-child {
     border: none;
@@ -38,9 +38,29 @@ export const Container = styled.li`
       flex-direction: column-reverse;
     }
   }
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    flex-direction: column !important;
+    width: 100%;
+    padding:56px 20px;
+    #arrow {
+      transform: rotate(90deg) !important;
+    }
+    p {
+      line-height: 32px;
+      margin: 20px 0 30px 0;
+    }
+    :nth-child(3) {
+    footer {
+     display: none;
+    }
+  }
+  }
 `;
 export const FirstCard = styled.div`
   width: 35%;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    width: 100%;
+  }
 `;
 
 export const CardTitle = styled.aside`
@@ -61,9 +81,14 @@ export const CardChildren = styled.div`
   width: 60%;
   color: ${COLORS.dark._04};
   line-height: 45px;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    line-height: 32px;
+    width: 100%;
+  }
 `;
 export const CardSteps = styled.footer`
   display: flex;
   margin-top: 120px;
   display: none;
+
 `;
