@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 
 export const Container = styled.section`
   background: ${COLORS.light._05};
@@ -10,6 +10,12 @@ export const Container = styled.section`
   display: flex;
   justify-content: space-between;
   gap: 136px;
+  @media (max-Width:${BREAKPOINTS.md}) {
+    padding: 0;
+    flex-direction: column;
+    height: auto;
+    gap: 100px;
+  }
 `;
 export const DescriptionContainer = styled.div`
   width: 592px;
@@ -28,6 +34,26 @@ export const DescriptionContainer = styled.div`
     font-size: 40px;
     color: ${COLORS.brand_dark._01};
   }
+  figure{
+    display: none;
+  }
+  @media (max-Width:${BREAKPOINTS.md}) {
+    width: 100%;
+    align-items: flex-start;
+    padding: 20px;
+    height: auto;
+    h2{
+      margin-top: 112px;
+    }
+    figure{
+      display:inline ;
+      background: ${COLORS.opacity.blue_01};
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 28px;
+      width: fit-content;
+    }
+  }
 `;
 export const StampContainer = styled.div`
   width: 448px;
@@ -41,6 +67,13 @@ export const StampContainer = styled.div`
     border-radius: 5px;
     padding: 28px;
     width: fit-content;
+  }
+  @media (max-Width:${BREAKPOINTS.md}) {
+    width: 100%;
+    padding: 28px;
+    figure{
+      display: none;
+    }
   }
 `;
 export const LinkContainer = styled.a`
@@ -60,5 +93,8 @@ justify-content: space-between;
   width: fit-content;
   transform: rotate(270deg);
  }
-
+ @media (max-Width:${BREAKPOINTS.md}) {
+  justify-content: center;
+  gap: 20px;
+}
 `;

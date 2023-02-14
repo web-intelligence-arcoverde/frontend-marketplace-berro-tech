@@ -1,11 +1,12 @@
 import { TabsProps } from "@/types";
 import React, { useState } from "react";
+import { Container } from "./style";
 
 export const Tabs = ({ tabs, initialTab = 0 }:TabsProps) => {
   const [selectedTab, setSelectedTab] = useState(initialTab);
 
   return (
-    <div>
+    <Container>
       <div className="tabs">
         {tabs.map((tab, index) => (
           <div
@@ -20,6 +21,6 @@ export const Tabs = ({ tabs, initialTab = 0 }:TabsProps) => {
       <div className="tab-content">
         {tabs[selectedTab].content}
       </div>
-    </div>
+    </Container>
   );
 };

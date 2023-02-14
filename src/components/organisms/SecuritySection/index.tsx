@@ -7,6 +7,9 @@ export const SecuritySection = () => {
   return (
     <Container>
       <DescriptionContainer>
+       <figure>
+          <Image src={ICONS.SecurityShield} alt='iconde de escudo' />
+        </figure>
         <p>Prezamos pela facilidade e segurança na nossa plataforma, acreditamos que com informações claras e uma comunicação rápida, qualquer negócio pode se tornar um bom negócio</p>
         <h2>Com a gente, você pode comprar e vender de forma segura e sem burocracia</h2>
       </DescriptionContainer>
