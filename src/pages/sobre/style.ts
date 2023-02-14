@@ -6,8 +6,21 @@ export const Presentation = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
 `;
+
+export const ListSections = styled.ul`
+display: flex;
+flex-direction: column;
+
+`
+export const PrintImage = styled(Image)`
+width: 100%;
+border: 1px solid ${COLORS.light._02};
+border-top: 4px solid ${COLORS.brand_light._01};
+border-radius:5px;
+object-fit: cover;
+`
+
 export const StyleImage = styled(Image)`
   width: 100%;
 `;

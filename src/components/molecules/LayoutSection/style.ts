@@ -2,31 +2,54 @@ import { COLORS } from "@/common";
 import Image from "next/image";
 import styled from "styled-components";
 
-interface Props {
-  changeSide?: boolean;
-  direction?: boolean;
-}
-
-export const Container = styled.section<Props>`
+export const Container = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 100px;
-  flex-direction: ${({ changeSide }) => (changeSide ? "row" : "row-reverse")};
- 
+  border-bottom: 2px solid ${COLORS.light._02};
+  /* background-color: ${COLORS.light._02}; */
+
   p {
     color: ${COLORS.dark._04};
     line-height: 45px;
   }
+  :first-child {
+    background-color: ${COLORS.brand_light._04};
+  }
+  :last-child {
+    border: none;
+  }
+  :nth-child(even) {
+    flex-direction: row-reverse;
+
+    #arrow {
+      transform: rotate(180deg);
+    }
+  }
+  :nth-child(3) {
+    footer {
+      display: block;
+      display: flex;
+    }
+  }
+  :nth-child(3),
+  :nth-child(4) {
+    aside {
+      flex-direction: column-reverse;
+    }
+  }
 `;
-export const CardTitle = styled.div<Props>`
-  display: flex;
-  flex-direction: ${({ direction }) =>
-    direction ? "column" : "column-reverse"};
+export const FirstCard = styled.div`
+  width: 35%;
 `;
 
-export const Arrow = styled(Image)<Props>`
+export const CardTitle = styled.aside`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Arrow = styled(Image)`
   margin: 20px 0;
-  transform: rotate(${({ changeSide }) => (changeSide ? "0deg" : "180deg")});
 `;
 
 export const Title = styled.h1`
@@ -39,7 +62,8 @@ export const CardChildren = styled.div`
   color: ${COLORS.dark._04};
   line-height: 45px;
 `;
-export const CardSteps = styled.div`
+export const CardSteps = styled.footer`
   display: flex;
   margin-top: 120px;
+  display: none;
 `;

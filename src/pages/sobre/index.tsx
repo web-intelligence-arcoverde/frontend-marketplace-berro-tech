@@ -3,7 +3,13 @@ import { Footer, Header, LayoutSection } from "@/components";
 import { MocksAbout } from "@/mock";
 import { Main, Container } from "@/style";
 import Image from "next/image";
-import { ContainerPresentation, Presentation, StyleImage } from "./style";
+import {
+  ContainerPresentation,
+  Presentation,
+  StyleImage,
+  ListSections,
+  PrintImage,
+} from "./style";
 const About = () => {
   return (
     <Container>
@@ -23,20 +29,19 @@ const About = () => {
 
           <StyleImage src={IMAGES.ManField} alt="homem no campo" />
         </Presentation>
-        {MocksAbout.map((section, index) => (
-          <LayoutSection
-            key={index}
-            title={section?.title}
-            changeSide={index % 2 === 0}
-            helperText={section?.helperText}
-            direction={index > 1 ? true : false}
-          >
-            {section?.image && <Image src={section?.image} alt="print" />}
-            {section?.text}
-            {section?.continuationText}
-            
-          </LayoutSection>
-        ))}
+        <ListSections>
+          {MocksAbout.map((section, index) => (
+            <LayoutSection
+              key={index}
+              title={section?.title}
+              helperText={section?.helperText}
+            >
+              {section?.image && <PrintImage src={section?.image} alt="print" />}
+              {section?.text}
+              {section?.continuationText}
+            </LayoutSection>
+          ))}
+        </ListSections>
         <Footer />
       </Main>
     </Container>
