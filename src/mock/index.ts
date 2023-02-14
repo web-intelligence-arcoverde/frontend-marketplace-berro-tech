@@ -150,6 +150,7 @@ export const MocksAbout = [
       "Facilisis eu magna suspendisse quis. At enim eget urna amet urna arcu. Nunc sit imperdiet elit urna vestibulum donec ut proin. Amet molestie platea libero lorem quam faucibus eu. Viverra diam justo sit accumsan bibendum volutpat. Mus molestie commodo volutpat feugiat quisque mauris mauris",
     helperText: "",
     image: "",
+    image_mobile: "",
   },
   {
     title: "O que fazemos",
@@ -157,6 +158,7 @@ export const MocksAbout = [
     continuationText: "",
     helperText: "",
     image: "",
+    image_mobile: "",
   },
   {
     title: "Publique seus animais para venda",
@@ -165,6 +167,7 @@ export const MocksAbout = [
     helperText:
       "Em três passos, você publica seus animais para outros produtores entrarem em contato",
     image: IMAGES.PrintPublishing,
+    image_mobile: IMAGES.PrintPublishingMobile,
   },
   {
     title: "Entre em contato com quem vende",
@@ -172,6 +175,7 @@ export const MocksAbout = [
     continuationText: "",
     helperText: "",
     image: IMAGES.PrintProduct,
+    image_mobile: IMAGES.PrintProductMobile,
   },
 ];
 

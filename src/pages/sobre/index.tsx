@@ -9,12 +9,14 @@ import {
   StyleImage,
   ListSections,
   PrintImage,
+  PrintImageMobile,
+  StyledImageMobile,
 } from "./style";
 const About = () => {
   return (
     <Container>
       <Main>
-        {/* <Header /> */}
+        <Header />
         <Presentation>
           <ContainerPresentation>
             <h1>
@@ -28,6 +30,7 @@ const About = () => {
           </ContainerPresentation>
 
           <StyleImage src={IMAGES.ManField} alt="homem no campo" />
+          <StyledImageMobile src={IMAGES.ManFieldMobile} alt="homem no campo" />
         </Presentation>
         <ListSections>
           {MocksAbout.map((section, index) => (
@@ -36,7 +39,12 @@ const About = () => {
               title={section?.title}
               helperText={section?.helperText}
             >
-              {section?.image && <PrintImage src={section?.image} alt="print" />}
+              {section?.image && (
+                <PrintImage src={section?.image} alt="print" />
+              )}
+              {section?.image && (
+                <PrintImageMobile src={section?.image_mobile} alt="print" />
+              )}
               {section?.text}
               {section?.continuationText}
             </LayoutSection>
