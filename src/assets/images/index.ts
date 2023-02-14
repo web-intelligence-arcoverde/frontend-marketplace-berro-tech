@@ -6,8 +6,10 @@ import GadoThree from './gado-3.png';
 import GadoFour from './gado-4.png';
 import GadoFive from './gado-5.png';
 import GadoSix from './gado-6.png';
-
+import ManField from './man-field.png'
 import Seller from './seller-image.png';
+import PrintPublishing from './print-screen-publishing.png'
+import PrintProduct from './print-screen-product.png'
 
 export const IMAGES = {
   Avatar,
@@ -19,4 +21,7 @@ export const IMAGES = {
   GadoFour,
   GadoFive,
   GadoSix,
+  ManField,
+  PrintProduct,
+  PrintPublishing
 };

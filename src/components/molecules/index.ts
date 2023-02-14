@@ -7,3 +7,4 @@ export {FooterMenuNavigation} from './FooterMenuNavigation';
 export {AvatarContainer} from './AvatarContainer/AvatarContainer';
 export {HeaderMenuNavigation} from './HeaderMenuNavigation/HeaderMenuNavigation';
 export {HeaderLogoContainer} from './HeaderLogoContainer/HeaderLogoContainer';
+export {LayoutSection} from './LayoutSection'

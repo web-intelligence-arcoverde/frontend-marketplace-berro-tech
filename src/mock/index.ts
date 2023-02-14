@@ -122,22 +122,70 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
 export const tabs = [
   {
     title: "Principais buscas",
-    content: '',
+    content: "",
   },
   {
     title: "Classificação",
-    content: '',
+    content: "",
   },
   {
     title: "Genética",
-    content: '',
+    content: "",
   },
   {
     title: "Raça",
-    content: '',
+    content: "",
   },
   {
     title: "Sexo",
-    content: '',
+    content: "",
+  },
+];
+
+export const MocksAbout = [
+  {
+    title: "Sobre nós",
+    text: "Malesuada neque purus lobortis porta malesuada. Est tellus at mattis erat condimentum. Dui malesuada aenean pharetra sed. Magna ultrices interdum etiam eget dictum augue quam nec. Vel lacus egestas at mauris posuere vulputate varius ullamcorper. Dignissim sit donec ut adipiscing vel nunc",
+    continuationText:
+      "Facilisis eu magna suspendisse quis. At enim eget urna amet urna arcu. Nunc sit imperdiet elit urna vestibulum donec ut proin. Amet molestie platea libero lorem quam faucibus eu. Viverra diam justo sit accumsan bibendum volutpat. Mus molestie commodo volutpat feugiat quisque mauris mauris",
+    helperText: "",
+    image: "",
+  },
+  {
+    title: "O que fazemos",
+    text: "Conectamos compradores e vendedores de animais dos setores da capinocultura e ovinocultura. Oferecemos uma plataforma segura e fácil de usar para que você encontre animais de qualidade, consulte todas as informações que precisa e entre em contato pra fechar negócio",
+    continuationText: "",
+    helperText: "",
+    image: "",
+  },
+  {
+    title: "Publique seus animais para venda",
+    text: "",
+    continuationText: "",
+    helperText:
+      "Em três passos, você publica seus animais para outros produtores entrarem em contato",
+    image: IMAGES.PrintPublishing,
+  },
+  {
+    title: "Entre em contato com quem vende",
+    text: "",
+    continuationText: "",
+    helperText: "",
+    image: IMAGES.PrintProduct,
+  },
+];
+
+export const MocksSteps = [
+  {
+    pass: "Passo 1",
+    value: "Informações",
+  },
+  {
+    pass: "Passo 2",
+    value: "Fotos e vídeos",
+  },
+  {
+    pass: "Passo 3",
+    value: "Localização",
   },
 ];
