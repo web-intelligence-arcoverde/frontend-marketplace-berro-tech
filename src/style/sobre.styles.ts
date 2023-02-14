@@ -27,6 +27,7 @@ export const PrintImageMobile = styled(Image)`
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
     display: block;
+    object-fit: contain;
   }
 `;
 
@@ -41,6 +42,7 @@ export const StyledImageMobile = styled(Image)`
   @media (max-width: ${BREAKPOINTS.sm}) {
     display: block;
     margin-top: 50px;
+    width: auto;
   }
 `;
 
@@ -80,6 +82,9 @@ export const ContainerPresentation = styled.div`
       line-height: 42px;
       padding: 60px 20px 40px 20px;
       margin: 0 auto;
+    }
+    h6{
+      padding-right: 20px;
     }
   }
 `;

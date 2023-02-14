@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {COLORS} from '@/common';
+import {BREAKPOINTS, COLORS} from '@/common';
 
 export const Container = styled.header`
   display: flex;
@@ -8,6 +8,9 @@ export const Container = styled.header`
   align-items: center;
   padding: 12px 122px 12px 130px;
   background-color: ${COLORS.brand_light._01};
+  @media (max-width:${BREAKPOINTS.sm}){
+    padding:40px 16px 20px 20px
+  }
 `;
 
 export const Navigation = styled.nav`

@@ -14,8 +14,3 @@ export const Navigation = styled.nav`
   }
 `;
 
-export const ButtonMenu = styled.button`
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-`;

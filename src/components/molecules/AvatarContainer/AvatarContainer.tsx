@@ -1,11 +1,9 @@
-import Image from 'next/image';
+import Image from "next/image";
+import { useAppSelector } from "@/hooks/useSelectorHook";
+import { ICONS, IMAGES } from "@/assets";
+import { ButtonLink } from "@/components";
 
-import {useAppSelector} from '@/hooks/useSelectorHook';
-
-import {IMAGES} from '@/assets';
-import {ButtonLink} from '@/components';
-
-import {CardAvatar} from './style';
+import { ButtonMenu, CardAvatar, CardButton, CardMenuMobile } from "./style";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.user.token);
@@ -14,12 +12,21 @@ export const AvatarContainer = () => {
     <>
       {!!token ? (
         <CardAvatar>
-          <Image src={IMAGES.Avatar} alt='foto perfil' />
+          <Image src={IMAGES.Avatar} alt="foto perfil" />
         </CardAvatar>
       ) : (
-        <ButtonLink id='to-enter' link='entrar'>
-          Entrar
-        </ButtonLink>
+        <>
+          <CardButton>
+            <ButtonLink id="to-enter" link="entrar">
+              Entrar
+            </ButtonLink>
+          </CardButton>
+          <CardMenuMobile>
+            <ButtonMenu>
+              <Image src={ICONS.Menu} alt="icone do menu" />
+            </ButtonMenu>
+          </CardMenuMobile>
+        </>
       )}
     </>
   );

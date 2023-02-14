@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import {COLORS} from '@/common';
+import {BREAKPOINTS, COLORS} from '@/common';
 
 export const ContainerNavigation = styled.nav`
   display: flex;
   align-items: center;
   gap: 60px;
+  @media(max-width:${BREAKPOINTS.sm}){
+    display: none;
+  }
 `;
 
 export const ItemNavigation = styled.ul`

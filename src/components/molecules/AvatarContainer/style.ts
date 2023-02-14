@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {COLORS} from '@/common';
+import styled from "styled-components";
+import { BREAKPOINTS, COLORS } from "@/common";
 
 export const CardAvatar = styled.div`
   cursor: pointer;
@@ -11,4 +11,26 @@ export const CardAvatar = styled.div`
     border: solid 2px ${COLORS.light._05};
     margin-top: 4px;
   }
+`;
+
+export const CardButton = styled.div`
+  #to-enter{
+    width: 120px;
+  } ;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    display: none;
+  }
+`;
+export const CardMenuMobile = styled.div`
+  display: none;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    display: block;
+  }
+`;
+
+export const ButtonMenu = styled.button`
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: ${COLORS.brand_dark._03};
 `;
