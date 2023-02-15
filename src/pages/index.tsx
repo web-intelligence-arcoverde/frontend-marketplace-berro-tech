@@ -18,7 +18,7 @@ const Home = () => {
         <PresentationInfo />
         <BussinessHighlight />
         <MainSearch />
-        <SecuritySection />
+        <SecuritySection /> 
         <Footer />
       </Main>
     </Container>
