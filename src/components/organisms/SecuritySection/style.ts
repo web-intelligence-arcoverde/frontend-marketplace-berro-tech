@@ -42,8 +42,18 @@ export const DescriptionContainer = styled.div`
     align-items: flex-start;
     padding: 20px;
     height: auto;
+    p{
+      font-weight: 450;
+      font-size: 16px;
+      line-height: 200%;
+      letter-spacing: 0.02em;
+    }
     h2{
       margin-top: 112px;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
     }
     figure{
       display:inline ;
@@ -71,6 +81,7 @@ export const StampContainer = styled.div`
   @media (max-Width:${BREAKPOINTS.md}) {
     width: 100%;
     padding: 28px;
+    border-top: 1px solid  ${COLORS.light._02};
     figure{
       display: none;
     }

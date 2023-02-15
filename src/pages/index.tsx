@@ -13,8 +13,8 @@ const Home = () => {
   return (
     <Container>
       <Main>
-        {/*  <Header />  */}
-        {/*  <Presentation />  */}
+        <Header />
+        <Presentation />
         <PresentationInfo />
         <BussinessHighlight />
         <MainSearch />
