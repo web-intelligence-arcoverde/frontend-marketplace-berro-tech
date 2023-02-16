@@ -6,7 +6,6 @@ interface CardSearchProps {
   width?: string;
   borderInput?: string;
   borderRight?: string;
-  widthMobile?: string;
   displayNone?: string;
 }
 
@@ -54,10 +53,11 @@ export const CardSearch = styled.form<CardSearchProps>`
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
     input {
-      width: ${(props) => (props.widthMobile ? props.widthMobile : "44px")};
+      width: 44px;
       height: 40px;
       padding: 0 5px;
       border-radius: 5px;
+      pointer-events: none;
       cursor: pointer;
       ::placeholder {
         color: transparent;

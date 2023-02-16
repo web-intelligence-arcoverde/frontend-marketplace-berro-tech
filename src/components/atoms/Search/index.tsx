@@ -31,7 +31,6 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     <CardSearch
       width={isFocused ? "400px" : "250px"}
       borderInput={search ? "8px 0 0 8px" : "8px"}
-      widthMobile={isFocused ? "100%" : "44px"}
       borderRight={search && "none"}
     >
       <IconLupa

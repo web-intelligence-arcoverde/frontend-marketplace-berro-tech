@@ -4,9 +4,15 @@ import { ICONS, IMAGES } from "@/assets";
 import { ButtonLink } from "@/components";
 
 import { ButtonMenu, CardAvatar, CardButton, CardMenuMobile } from "./style";
+import { useState } from "react";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.user.token);
+  const [modal,setModal] = useState(false)
+  const handleModal = ()=>{
+    setModal(!modal)
+    console.log('pegou')
+  }
 
   return (
     <>
@@ -22,7 +28,7 @@ export const AvatarContainer = () => {
             </ButtonLink>
           </CardButton>
           <CardMenuMobile>
-            <ButtonMenu>
+            <ButtonMenu onClick={handleModal}>
               <Image src={ICONS.Menu} alt="icone do menu" />
             </ButtonMenu>
           </CardMenuMobile>
