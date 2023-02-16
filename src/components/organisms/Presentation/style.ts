@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import { IMAGES } from "@/assets";
 
 export const Intro = styled.section`
+  width: 100%;
   display: flex;
   align-items: center;
   height: 600px;
@@ -15,6 +16,14 @@ export const Intro = styled.section`
     url(${IMAGES.BackgroundPresentation?.src});
   background-size: cover;
   background-position: center ;
+
+  @media (max-width:${BREAKPOINTS.md} ) {
+    background: linear-gradient(141.23deg, #F8F3DF 0%, rgba(248, 243, 223, 0) 77.79%), linear-gradient(166.65deg, #F8F3DF 37.3%, rgba(248, 243, 223, 0) 90.44%),url(${IMAGES.BackgroundPresentation?.src});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+    height: 622px;
+  }
 `;
 
 export const DescriptionPresentation = styled.div`
@@ -49,5 +58,25 @@ export const DescriptionPresentation = styled.div`
     font-weight: 800px;
     font-size: 18px;
     line-height: 36px;
+  }
+
+  @media (max-width:${BREAKPOINTS.md} ) {
+    width: 100%;
+   padding: 0 20px 100px 20px ;
+   margin-bottom: 100px;
+   h1,p{
+    width: 100%;
+    
+  }
+  h1{
+     font-size: 28px;
+     font-weight: 700;
+     line-height: 150%;
+     letter-spacing: 0.02em;
+   }
+   p{
+    font-weight: 450;
+    font-size: 16px;
+   }
   }
 `;

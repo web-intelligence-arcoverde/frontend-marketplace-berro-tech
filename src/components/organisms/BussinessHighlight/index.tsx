@@ -1,6 +1,6 @@
 import { ProductCard } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
-import { Container, TitleContainer, ProductCardsContainer } from "./style";
+import { Container, TitleContainer, ProductCardsContainer ,LinkMobileContainer} from "./style";
 
 export const BussinessHighlight = () => {
   return (
@@ -26,6 +26,9 @@ export const BussinessHighlight = () => {
           />
         ))}
       </ProductCardsContainer>
+      <LinkMobileContainer>
+        <a href="./">Veja mais opções</a>
+      </LinkMobileContainer>
     </Container>
   );
 };
