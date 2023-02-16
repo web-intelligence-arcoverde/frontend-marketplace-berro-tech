@@ -6,10 +6,10 @@ export const Container = styled.div`
   border-radius: 5px;
   padding-bottom: 24px;
   width: 500px;
-  @media (max-width: ${BREAKPOINTS.sm}) {
-    width: auto;
-    border-top: 0;
-  }
+ 
+ @media (max-width: ${BREAKPOINTS.sm}){
+  width: 100%;
+ }
 `;
 
 export const Header = styled.header`
