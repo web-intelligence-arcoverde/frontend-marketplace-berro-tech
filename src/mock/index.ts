@@ -193,3 +193,9 @@ export const MocksSteps = [
     value: "Localização",
   },
 ];
+
+export const MockNavigation = [
+  { name: "Início", link: "/" },
+  { name: "Negócios", link: "/negocios" },
+  { name: "Sobre nós", link: "/sobre" },
+];

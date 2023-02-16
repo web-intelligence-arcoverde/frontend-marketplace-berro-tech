@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ContainerMenu = styled.div`
   display: none;
-  padding:60px 20px;
+  padding: 60px 20px;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     display: flex;
@@ -27,4 +27,24 @@ export const CardButtons = styled.div`
     background-color: ${COLORS.brand_light._01};
     color: ${COLORS.brand_dark._01};
   }
+`;
+
+export const CardNavigation = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  a {
+    padding-left: 56px;
+    color: ${COLORS.gray._01};
+    font-size: 1.125rem;
+    line-height: 60px;
+    border-left:2px solid ${COLORS.light._02};
+   
+  }
+  #active{
+      font-weight: 500;
+      color:${COLORS.sub_brand._02};
+      border-left:solid 2px${COLORS.sub_brand._02};;
+    }
 `;
