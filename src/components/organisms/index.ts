@@ -6,3 +6,4 @@ export { HeaderNavigation } from "./HeaderNavigation/HeaderNavigation";
 export { Footer } from "./Footer";
 export { MainSearch } from "./MainSearch"
 export { SecuritySection } from "./SecuritySection"
+export {MenuNavigationMobile} from './MenuNavigationMobile'
