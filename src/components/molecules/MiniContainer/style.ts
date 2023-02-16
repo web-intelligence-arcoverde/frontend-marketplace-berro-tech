@@ -1,11 +1,15 @@
 import styled from "styled-components";
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 
 export const Container = styled.div`
   border: solid 1px ${COLORS.light._02};
   border-radius: 5px;
   padding-bottom: 24px;
   width: 500px;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    width: auto;
+    border-top: 0;
+  }
 `;
 
 export const Header = styled.header`
@@ -14,19 +18,34 @@ export const Header = styled.header`
   width: 100%;
   justify-content: space-between;
   padding: 24px;
+
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    img {
+      position: relative;
+      bottom: 10px;
+    }
+  }
 `;
 
 export const Texts = styled.div`
   h4 {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.125rem;
     color: ${COLORS.dark._04};
   }
   h5 {
     margin-top: 12px;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     color: ${COLORS.sub_brand._02};
+  }
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    h5 {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 290px;
+    }
   }
 `;
 

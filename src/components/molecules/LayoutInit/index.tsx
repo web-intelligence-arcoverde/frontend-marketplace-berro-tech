@@ -1,7 +1,6 @@
 import { ICONS } from "@/assets";
-import Image from "next/image";
 import { ReactNode } from "react";
-import { ContainerChildren, Main } from "./style";
+import { ContainerChildren, Main, StyleImage } from "./style";
 
 interface LayoutInitProps {
   children: ReactNode;
@@ -10,7 +9,7 @@ interface LayoutInitProps {
 export const LayoutInit = ({ children }: LayoutInitProps) => {
   return (
     <Main>
-      <Image src={ICONS.SimboloBackground} alt="simbolo berro tech" />
+      <StyleImage src={ICONS.SimboloBackground} alt="simbolo berro tech" />
       <ContainerChildren>{children}</ContainerChildren>
     </Main>
   );
