@@ -3,7 +3,13 @@ import { useAppSelector } from "@/hooks/useSelectorHook";
 import { ICONS, IMAGES } from "@/assets";
 import { ButtonLink, MenuNavigationMobile } from "@/components";
 
-import { ButtonMenu, CardAvatar, CardButton, CardMenuMobile } from "./style";
+import {
+  ButtonMenu,
+  CardAvatar,
+  CardButton,
+  CardMenuMobile,
+  IconSearch,
+} from "./style";
 import { useState } from "react";
 
 export const AvatarContainer = () => {
@@ -11,7 +17,6 @@ export const AvatarContainer = () => {
   const [modal, setModal] = useState(false);
   const handleModal = () => {
     setModal(!modal);
-    console.log("pegou");
   };
 
   return (
@@ -28,6 +33,13 @@ export const AvatarContainer = () => {
             </ButtonLink>
           </CardButton>
           <CardMenuMobile>
+            <IconSearch>
+              <Image
+                onClick={handleModal}
+                src={ICONS.Search}
+                alt="icone lupa"
+              />
+            </IconSearch>
             <ButtonMenu onClick={handleModal}>
               <Image src={ICONS.Menu} alt="icone do menu" />
               {modal && <MenuNavigationMobile />}

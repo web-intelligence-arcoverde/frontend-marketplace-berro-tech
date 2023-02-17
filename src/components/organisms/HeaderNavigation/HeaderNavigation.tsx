@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HeaderMenuNavigation, Search, AvatarContainer } from "@/components";
-import { Navigation } from "./style";
+import { Navigation, CardSearch } from "./style";
 
 export const HeaderNavigation = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -8,10 +8,12 @@ export const HeaderNavigation = () => {
   return (
     <Navigation>
       <HeaderMenuNavigation />
-      {
-        //@ts-ignore
-        <Search isFocused={isFocused} setIsFocused={setIsFocused} />
-      }
+      <CardSearch>
+        {
+          //@ts-ignore
+          <Search isFocused={isFocused} setIsFocused={setIsFocused} />
+        }
+      </CardSearch>
       <AvatarContainer />
     </Navigation>
   );

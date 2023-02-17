@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {COLORS} from '@/common';
+import styled from "styled-components";
+import { BREAKPOINTS, COLORS } from "@/common";
 
 export const Navigation = styled.nav`
   display: flex;
@@ -14,3 +14,8 @@ export const Navigation = styled.nav`
   }
 `;
 
+export const CardSearch = styled.div`
+  @media (max-width:${BREAKPOINTS.sm}) {
+    display: none;
+  }
+`;

@@ -25,6 +25,9 @@ export const CardMenuMobile = styled.div`
   display: none;
   @media (max-width: ${BREAKPOINTS.sm}) {
     display: block;
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
 `;
 
@@ -34,3 +37,15 @@ export const ButtonMenu = styled.button`
   border-radius: 5px;
   background-color: ${COLORS.brand_dark._03};
 `;
+
+export const IconSearch = styled.div`
+padding: 6px;
+background-color: ${COLORS.light._05};
+width: 44px;
+display: flex;
+height: 40px;
+border-radius: 5px;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+`
