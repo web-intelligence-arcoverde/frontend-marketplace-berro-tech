@@ -13,12 +13,12 @@ export const ItemNavigation = styled.ul`
   align-items: center;
   cursor: pointer;
 
-  li {
+  a {
     font-size: 16px;
     font-weight: 600;
     color: ${COLORS.gray._01};
   }
-  #brightness {
+  #active {
     color: ${COLORS.brand_dark._01};
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
