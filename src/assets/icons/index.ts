@@ -27,6 +27,7 @@ import LogoCopyright from "./logo-copyright.svg";
 import ArrowUp from "./arrow-up.svg";
 import SecurityShield from "./security-shield.svg";
 import ArrowBlue from "./arrow.svg";
+import Excluir from './excluir.svg'
 
 export const ICONS = {
   Search,
@@ -57,5 +58,6 @@ export const ICONS = {
   SecurityShield,
   ArrowUp,
   ArrowBlue,
-  SimboloBackgroundMobile
+  SimboloBackgroundMobile,
+  Excluir
 };

@@ -1,5 +1,5 @@
-import { COLORS } from '@/common';
-import styled from 'styled-components';
+import { COLORS } from "@/common";
+import styled from "styled-components";
 
 export const ContainerSearchMobile = styled.div`
   position: absolute;
@@ -12,7 +12,32 @@ export const ContainerSearchMobile = styled.div`
 `;
 
 export const CardSearch = styled.div`
-background-color: ${COLORS.light._02};
-padding: 20px 20px 20px 0;
-width: 100%;
-`
+  background-color: ${COLORS.light._02};
+  padding: 20px 20px 20px 0;
+  width: 100%;
+`;
+export const LastSearchs = styled.ul`
+  background: ${COLORS.light._05};
+  padding: 32px 20px;
+  h6 {
+    color: ${COLORS.gray._04};
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+  }
+
+  li {
+    font-size: 1rem;
+    color: ${COLORS.gray._02};
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px ${COLORS.light._02};
+    padding: 20px 0;
+
+    :last-child{
+      border-bottom: none;
+    }
+  }
+`;
