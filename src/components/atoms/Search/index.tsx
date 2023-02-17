@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ICONS } from "@/assets";
-import { CardSearch, IconLupa } from "./style";
+import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
 import { ChangeEvent, MouseEventHandler, useState } from "react";
 
 interface ISearch {
@@ -34,7 +34,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
       borderRight={search && "none"}
     >
       <IconLupa
-        displayNone={isFocused || search ? "none" : "block"}
+       
         src={ICONS.Search}
         alt="icone lupa"
       />
@@ -51,6 +51,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
           <Image src={ICONS.Close} alt="icone X" />
         </button>
       )}
+      {search && <ButtonSearchMobile>Buscar</ButtonSearchMobile>}
     </CardSearch>
   );
 };

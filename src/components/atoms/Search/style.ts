@@ -6,7 +6,6 @@ interface CardSearchProps {
   width?: string;
   borderInput?: string;
   borderRight?: string;
-  displayNone?: string;
 }
 
 export const CardSearch = styled.form<CardSearchProps>`
@@ -17,8 +16,8 @@ export const CardSearch = styled.form<CardSearchProps>`
   justify-content: end;
   align-items: center;
   @media (max-width: ${BREAKPOINTS.sm}) {
-    min-width: 0;
-    position: sticky;
+    max-width: 335px;
+    justify-content: center;
   }
 
   input {
@@ -53,14 +52,14 @@ export const CardSearch = styled.form<CardSearchProps>`
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
     input {
-      width: 44px;
-      height: 40px;
-      padding: 0 5px;
+      width: 100%;
+      height: 56px;
+      padding: 10px 10px 10px 40px;
       border-radius: 5px;
-      pointer-events: none;
+      margin: 0 auto;
       cursor: pointer;
       ::placeholder {
-        color: transparent;
+        padding-left: 10px;
       }
     }
     button {
@@ -75,6 +74,18 @@ export const IconLupa = styled(Image)<CardSearchProps>`
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     pointer-events: none;
-    display: ${(props) => (props.displayNone ? props.displayNone : "block")};
+  }
+`;
+
+export const ButtonSearchMobile = styled.button`
+  display: none;
+
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    display: block !important;
+    background-color: ${COLORS.sub_brand._02};
+    color: ${COLORS.light._02};
+    height: 54px;
+    padding: 10px;
+    min-width: 90px;
   }
 `;
