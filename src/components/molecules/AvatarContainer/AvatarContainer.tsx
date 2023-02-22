@@ -8,19 +8,28 @@ import {
   CardAvatar,
   CardButton,
   CardMenuMobile,
-  IconSearch,
+  CardIcons,
 } from "./style";
 import { useState } from "react";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.user.token);
   const [modal, setModal] = useState(false);
-  const [search,setSearch] = useState(false)
+  const [search, setSearch] = useState(false);
+  const [container, setContainer] = useState(true);
+
   const handleModal = () => {
     setModal(!modal);
+    setContainer(!container);
   };
   const handleSearch = () => {
     setSearch(!search);
+    setContainer(!container);
+  };
+  const handleContainer = () => {
+    setContainer(!container);
+    setSearch(false);
+    setModal(false);
   };
 
   return (
@@ -37,18 +46,30 @@ export const AvatarContainer = () => {
             </ButtonLink>
           </CardButton>
           <CardMenuMobile>
-            <IconSearch>
-              <Image
-                onClick={handleSearch}
-                src={ICONS.Search}
-                alt="icone lupa"
-              />
-              {search && <SearchMobile />}
-            </IconSearch>
-            <ButtonMenu onClick={handleModal}>
-              <Image src={ICONS.Menu} alt="icone do menu" />
-              {modal && <MenuNavigationMobile />}
-            </ButtonMenu>
+            {container ? (
+              <>
+                <CardIcons>
+                  <Image
+                    onClick={handleSearch}
+                    src={ICONS.Search}
+                    alt="icone lupa"
+                  />
+                </CardIcons>
+                <ButtonMenu onClick={handleModal}>
+                  <Image src={ICONS.Menu} alt="icone do menu" />
+                </ButtonMenu>
+              </>
+            ) : (
+              <CardIcons>
+                <Image
+                  onClick={handleContainer}
+                  src={ICONS.Excluir}
+                  alt="close"
+                />
+              </CardIcons>
+            )}
+            {modal && <MenuNavigationMobile />}
+            {search && <SearchMobile />}
           </CardMenuMobile>
         </>
       )}

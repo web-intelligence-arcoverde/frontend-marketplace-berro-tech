@@ -13,6 +13,7 @@ export const CardAvatar = styled.div`
   }
 `;
 
+
 export const CardButton = styled.div`
   #to-enter{
     width: 120px;
@@ -38,7 +39,7 @@ export const ButtonMenu = styled.button`
   background-color: ${COLORS.brand_dark._03};
 `;
 
-export const IconSearch = styled.div`
+export const CardIcons = styled.div`
 padding: 6px;
 background-color: ${COLORS.light._05};
 width: 44px;

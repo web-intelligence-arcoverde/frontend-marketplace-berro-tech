@@ -18,7 +18,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     setSearch(event.target.value);
   };
 
-  const handleAddItem = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleAddItem = (event: ChangeEvent<HTMLInputElement> |any) => {
     event.preventDefault();
     dispath(addItem(search))
     setSearch('')
