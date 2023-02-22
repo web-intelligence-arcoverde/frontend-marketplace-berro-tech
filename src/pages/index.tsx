@@ -1,22 +1,24 @@
 import {
   Header,
-  Presentation,
   PresentationInfo,
-  BussinessHighlight,
   Footer,
   MainSearch,
   SecuritySection,
 } from "@/components";
 import { Main, Container } from "@/style";
+import dynamic  from 'next/dynamic'
+
+const MyPresentation = dynamic(() => import('../components/organisms/Presentation'));
+const MyBussinessHighlight = dynamic(() => import('../components/organisms/BussinessHighlight/index'));
 
 const Home = () => {
   return (
     <Container>
       <Main>
         <Header />
-        <Presentation />
+       <MyPresentation/>
         <PresentationInfo />
-        <BussinessHighlight />
+        <MyBussinessHighlight />
         <MainSearch />
         <SecuritySection /> 
         <Footer />

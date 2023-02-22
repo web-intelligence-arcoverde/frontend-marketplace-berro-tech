@@ -1,6 +1,6 @@
 import { DescriptionPresentation, Intro } from "./style";
 
-export const Presentation = () => {
+ export const Presentation = () => {
   return (
     <Intro>
       <DescriptionPresentation>
@@ -14,3 +14,5 @@ export const Presentation = () => {
     </Intro>
   );
 };
+
+export default Presentation

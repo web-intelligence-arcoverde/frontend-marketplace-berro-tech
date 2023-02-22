@@ -32,3 +32,5 @@ export const BussinessHighlight = () => {
     </Container>
   );
 };
+
+export default BussinessHighlight
