@@ -2,7 +2,6 @@ import Image from "next/image";
 import { ICONS } from "@/assets";
 import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
 import { ChangeEvent, MouseEventHandler, useState } from "react";
-import { initialState } from "@/store/reducer/user/initial";
 import { addItem } from "@/store/reducer/user/actions";
 import { useAppDispatch } from "@/hooks/useSelectorHook";
 
@@ -22,8 +21,9 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const teste = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     dispath(addItem(search))
-    console.log(initialState);
+    setSearch('')
   };
+
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
     setSearch("");

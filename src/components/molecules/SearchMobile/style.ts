@@ -35,6 +35,9 @@ export const LastSearchs = styled.ul`
     align-items: center;
     border-bottom: solid 1px ${COLORS.light._02};
     padding: 20px 0;
+    img{
+      z-index: 11;
+    }
 
     :last-child{
       border-bottom: none;

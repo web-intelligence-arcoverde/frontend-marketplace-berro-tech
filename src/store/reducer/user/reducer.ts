@@ -1,5 +1,5 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {addItem, signIn} from './actions';
+import { addItem, signIn, removeItem } from './actions';
 
 import {initialState} from './initial';
 
@@ -8,8 +8,9 @@ export const userReducer = createReducer(initialState, (builder) => {
     console.log(action);
   },
   ).addCase(addItem, (state, action) => {
-    console.log('TESTANDO O REDUX')
     state.lastSearchs.push(action.payload);
-  });
+  }).addCase(removeItem,(state,action)=>{
+    state.lastSearchs = state.lastSearchs.filter(item => item !== action.payload)
+  })
 });
 

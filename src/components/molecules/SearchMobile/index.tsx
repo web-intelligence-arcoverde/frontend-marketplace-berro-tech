@@ -1,15 +1,19 @@
 import { ICONS } from "@/assets";
 import { Search } from "@/components/atoms";
-import { useAppSelector } from "@/hooks/useSelectorHook";
-import { initialState } from "@/store/reducer/user/initial";
+import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
+import { removeItem } from "@/store/reducer/user/actions";
 import Image from "next/image";
 import { useState } from "react";
 import { ContainerSearchMobile, CardSearch, LastSearchs } from "./style";
 
 export const SearchMobile = () => {
   const [isFocused, setIsFocused] = useState(false);
+  const dispatch = useAppDispatch();
+  const handleRemoveClick = (item: any) => {
+    dispatch(removeItem(item));
+  };
 
-  const lastSearchs = useAppSelector((state)=>state.user.lastSearchs)
+  const lastSearchs = useAppSelector((state) => state.user.lastSearchs);
 
   return (
     <ContainerSearchMobile>
@@ -20,10 +24,17 @@ export const SearchMobile = () => {
         }
       </CardSearch>
       <LastSearchs>
-        <h6>Recentes</h6>
-        {lastSearchs.map((search: string) => (
-          <li>
-            {search} <Image src={ICONS.Excluir} alt="excluir" />
+        {lastSearchs.length > 0 && <h6>Recentes</h6>}
+        {lastSearchs.map((search, index) => (
+          <li key={index}>
+            {search}
+            <Image
+              onClick={() => {
+                handleRemoveClick(search);
+              }}
+              src={ICONS.Excluir}
+              alt="excluir"
+            />
           </li>
         ))}
       </LastSearchs>
