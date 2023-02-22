@@ -18,6 +18,8 @@ export const CardSearch = styled.form<CardSearchProps>`
   @media (max-width: ${BREAKPOINTS.sm}) {
     max-width: 335px;
     justify-content: center;
+    width: 100%;
+    align-items: center;
   }
 
   input {
@@ -42,7 +44,7 @@ export const CardSearch = styled.form<CardSearchProps>`
 
   button {
     width: 52px;
-    height: 46px;
+    height: 48px;
     border: none;
     border-radius: 0 5px 5px 0;
     transition: all 0s;
@@ -55,7 +57,8 @@ export const CardSearch = styled.form<CardSearchProps>`
       width: 100%;
       height: 56px;
       padding: 10px 10px 10px 40px;
-      border-radius: 5px;
+    border-radius: ${(props) =>
+      props.borderInput ? props.borderInput : "5px"};
       margin: 0 auto;
       cursor: pointer;
       ::placeholder {
@@ -84,7 +87,7 @@ export const ButtonSearchMobile = styled.button`
     display: block !important;
     background-color: ${COLORS.sub_brand._02};
     color: ${COLORS.light._02};
-    height: 54px;
+    height: 54px !important;
     padding: 10px;
     min-width: 90px;
   }

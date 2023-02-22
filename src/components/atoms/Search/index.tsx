@@ -18,7 +18,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     setSearch(event.target.value);
   };
 
-  const teste = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleAddItem = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     dispath(addItem(search))
     setSearch('')
@@ -58,7 +58,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         </button>
       )}
       {search && (
-        <ButtonSearchMobile type="submit" onClick={teste}>
+        <ButtonSearchMobile type="submit" onClick={handleAddItem}>
           Buscar
         </ButtonSearchMobile>
       )}
