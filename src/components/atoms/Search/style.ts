@@ -16,7 +16,7 @@ export const CardSearch = styled.form<CardSearchProps>`
   justify-content: end;
   align-items: center;
   @media (max-width: ${BREAKPOINTS.sm}) {
-    max-width: 335px;
+    min-width: 0;
     justify-content: center;
     width: 100%;
     align-items: center;
