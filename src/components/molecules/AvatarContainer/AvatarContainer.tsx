@@ -18,7 +18,7 @@ import {
   CardDropDown,
   CardArrowUp,
 } from "./style";
-import { useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.user.token);
@@ -43,11 +43,22 @@ export const AvatarContainer = () => {
   const handleDropDown = () => {
     setOpenDropDown(!openDropDown);
   };
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (openDropDown && !event.target.closest("#avatar-container")) {
+        setOpenDropDown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openDropDown]);
 
   return (
     <>
       {!token ? (
-        <CardAvatar>
+        <CardAvatar id="avatar-container">
           {openDropDown ? (
             <>
               <CardArrowUp onClick={handleDropDown}>

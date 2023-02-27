@@ -26,8 +26,9 @@ export const StyleDropDown = styled.ul`
       border-bottom: none;
       padding-bottom: 0;
     }
-    span {
+    span,a {
       width: max-content;
+      color: ${COLORS.gray._02};
     }
   }
 `;
