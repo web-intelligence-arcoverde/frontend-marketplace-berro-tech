@@ -18,7 +18,7 @@ import {
   CardDropDown,
   CardArrowUp,
 } from "./style";
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.user.token);
@@ -57,7 +57,7 @@ export const AvatarContainer = () => {
 
   return (
     <>
-      {!token ? (
+      {!!token ? (
         <CardAvatar id="avatar-container">
           {openDropDown ? (
             <>
