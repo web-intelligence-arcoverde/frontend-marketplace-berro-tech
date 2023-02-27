@@ -9,3 +9,4 @@ export {HeaderMenuNavigation} from './HeaderMenuNavigation/HeaderMenuNavigation'
 export {HeaderLogoContainer} from './HeaderLogoContainer/HeaderLogoContainer';
 export {LayoutSection} from './LayoutSection'
 export {SearchMobile} from './SearchMobile'
+export {DropDown} from './DropDown'

@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { useAppSelector } from "@/hooks/useSelectorHook";
 import { ICONS, IMAGES } from "@/assets";
-import { ButtonLink, MenuNavigationMobile, SearchMobile } from "@/components";
+import {
+  ButtonLink,
+  DropDown,
+  MenuNavigationMobile,
+  SearchMobile,
+} from "@/components";
 
 import {
   ButtonMenu,
@@ -9,6 +14,9 @@ import {
   CardButton,
   CardMenuMobile,
   CardIcons,
+  StyleAvatar,
+  CardDropDown,
+  CardArrowUp,
 } from "./style";
 import { useState } from "react";
 
@@ -17,6 +25,7 @@ export const AvatarContainer = () => {
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState(false);
   const [container, setContainer] = useState(true);
+  const [openDropDown, setOpenDropDown] = useState(false);
 
   const handleModal = () => {
     setModal(!modal);
@@ -31,12 +40,30 @@ export const AvatarContainer = () => {
     setSearch(false);
     setModal(false);
   };
+  const handleDropDown = () => {
+    setOpenDropDown(!openDropDown);
+  };
 
   return (
     <>
-      {!!token ? (
+      {!token ? (
         <CardAvatar>
-          <Image src={IMAGES.Avatar} alt="foto perfil" />
+          {openDropDown ? (
+            <>
+              <CardArrowUp onClick={handleDropDown}>
+                <Image src={ICONS.Up} alt="arrowUp" />
+              </CardArrowUp>
+              <CardDropDown>
+                <DropDown />
+              </CardDropDown>
+            </>
+          ) : (
+            <StyleAvatar
+              onClick={handleDropDown}
+              src={IMAGES.Avatar}
+              alt="foto perfil"
+            />
+          )}
         </CardAvatar>
       ) : (
         <>
