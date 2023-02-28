@@ -141,6 +141,16 @@ export const tabs = [
     content: "",
   },
 ];
+export const Bussinestabs = [
+  {
+    title: "caprinos",
+    content: "",
+  },
+  {
+    title: "ovinos",
+    content: "",
+  },
+];
 
 export const MocksAbout = [
   {

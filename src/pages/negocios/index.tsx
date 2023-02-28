@@ -1,15 +1,18 @@
-import { Footer, Header } from "@/components";
-import { Main, Container } from "@/style";
+import { Footer, Header, Tabs } from "@/components";
+import { BussinesContainer, ProductContainer } from "@/style/negocios-style";
 
 const Business = () => {
   return (
     <>
-      <Container>
-        <Main>
-          <Header />
-          <h2>Negocios</h2>
-        </Main>
-      </Container>
+      <Header />
+      <BussinesContainer>
+        <aside>
+
+        </aside>
+        <ProductContainer>
+          <Tabs tabs={[]} />
+        </ProductContainer>
+      </BussinesContainer>
       <Footer />
     </>
   );
