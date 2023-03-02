@@ -30,7 +30,8 @@ import ArrowBlue from "./arrow.svg";
 import Excluir from "./excluir.svg";
 import MyPulblication from "./my-pulblication.svg";
 import Exit from "./exit.svg";
-import Up from './up.svg'
+import Up from "./up.svg";
+import ArrowRight from "./arrow-right.svg";
 
 export const ICONS = {
   Search,
@@ -65,5 +66,6 @@ export const ICONS = {
   Excluir,
   Exit,
   MyPulblication,
-  Up
+  Up,
+  ArrowRight,
 };

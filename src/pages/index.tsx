@@ -4,6 +4,7 @@ import {
   Footer,
   MainSearch,
   SecuritySection,
+  PhotosAnimal,
 } from "@/components";
 import { Main, Container } from "@/style";
 import dynamic from "next/dynamic";
@@ -20,6 +21,7 @@ const Home = () => {
     <Container>
       <Main>
         <Header />
+        <PhotosAnimal/>
         <MyPresentation />
         <PresentationInfo />
         <MyBussinessHighlight />

@@ -10,6 +10,7 @@ export const CardDropDown = styled.div`
   position: absolute;
   right: 0px;
   top: 46px;
+  z-index: 20;
 `;
 export const StyleAvatar = styled(Image)`
   width: 46px;
