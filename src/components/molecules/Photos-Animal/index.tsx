@@ -1,8 +1,17 @@
-import { ICONS, IMAGES } from "@/assets";
-import Image from "next/image";
-import { CardSteps, Container, CurrentImage } from "./style";
+import { ICONS } from "@/assets";
+import { BussinessHighlightProductMock } from "@/mock";
+import Image, { StaticImageData } from "next/image";
+import { useState } from "react";
+import { CardSteps, Container, CurrentImage,ListPhotos } from "./style";
 
 export const PhotosAnimal = () => {
+
+const [currentphoto,setCurrentPhoto] = useState(BussinessHighlightProductMock[0].photo)
+
+const handleClick = (image:StaticImageData | any) => {
+  setCurrentPhoto(image);
+};
+
   return (
     <Container>
       <CardSteps>
@@ -13,14 +22,14 @@ export const PhotosAnimal = () => {
         <li>Garrote Senepol</li>
       </CardSteps>
 
-      <CurrentImage src={IMAGES.GadoFour} alt="imagem atual" />
-      <div>
-        <h5>imagem 1</h5>
-        <h5>imagem 2</h5>
-        <h5>imagem 3</h5>
-        <h5>imagem 4</h5>
-        <h5>imagem 5</h5>
-      </div>
+      <CurrentImage src={currentphoto} alt="imagem atual" />
+      <ListPhotos>
+        {BussinessHighlightProductMock.slice(0,5).map((image, index) => (
+          <li key={index} onClick={() => handleClick(image.photo)}>
+            <Image src={image.photo} alt="imagem do animal" />
+          </li>
+        ))}
+      </ListPhotos>
     </Container>
   );
 };
