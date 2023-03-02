@@ -27,6 +27,7 @@ import LogoCopyright from "./logo-copyright.svg";
 import ArrowUp from "./arrow-up.svg";
 import SecurityShield from "./security-shield.svg";
 import ArrowBlue from "./arrow.svg";
+import ArrowRight from "./arrow-right.svg";
 import Excluir from "./excluir.svg";
 import MyPulblication from "./my-pulblication.svg";
 import Exit from "./exit.svg";
@@ -61,6 +62,7 @@ export const ICONS = {
   SecurityShield,
   ArrowUp,
   ArrowBlue,
+  ArrowRight,
   SimboloBackgroundMobile,
   Excluir,
   Exit,

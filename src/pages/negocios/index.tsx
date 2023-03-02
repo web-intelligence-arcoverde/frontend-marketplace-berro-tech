@@ -1,21 +1,17 @@
-import { Footer, Header, Tabs } from "@/components";
-import { BussinesContainer, ProductContainer } from "@/style/negocios-style";
+import { Breadcrumb, Footer, Header } from "@/components";
+import { BussinesContainer } from "@/style/negocios-style";
 
-const Business = () => {
+export const Business = () => {
+
   return (
-    <>
+    <div>
       <Header />
-      <BussinesContainer>
-        <aside>
-
-        </aside>
-        <ProductContainer>
-          <Tabs tabs={[]} />
-        </ProductContainer>
-      </BussinesContainer>
+        <BussinesContainer>
+          <Breadcrumb />
+        </BussinesContainer>
       <Footer />
-    </>
+    </div>
   );
 };
 
-export default Business;
+export default Business
