@@ -36,7 +36,15 @@ export const ListPhotos = styled.ul`
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
-  
+  position: relative;
+
+  #see-more {
+    img {
+      filter: brightness(40%) opacity(50%);
+      pointer-events: none;
+    }
+  }
+
   li {
     width: 19.5%;
     padding: 16px;
@@ -49,4 +57,24 @@ export const ListPhotos = styled.ul`
       border-radius: 5px;
     }
   }
+`;
+
+export const SeeMore = styled.span`
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-color: transparent;
+  position: absolute;
+  right: 7.5%;
+  bottom: 30px;
+  color: ${COLORS.light._05};
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  
 `;
