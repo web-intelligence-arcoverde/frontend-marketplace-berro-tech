@@ -32,6 +32,7 @@ import MyPulblication from "./my-pulblication.svg";
 import Exit from "./exit.svg";
 import Up from "./up.svg";
 import ArrowRight from "./arrow-right.svg";
+import ArrowSlide from './arrow-slide.svg'
 
 export const ICONS = {
   Search,
@@ -68,4 +69,5 @@ export const ICONS = {
   MyPulblication,
   Up,
   ArrowRight,
+  ArrowSlide
 };

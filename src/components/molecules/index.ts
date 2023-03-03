@@ -11,3 +11,4 @@ export { LayoutSection } from "./LayoutSection";
 export { SearchMobile } from "./SearchMobile";
 export { DropDown } from "./DropDown";
 export { PhotosAnimal } from "./Photos-Animal";
+export {ModalAnimal} from './ModalAnimal'
