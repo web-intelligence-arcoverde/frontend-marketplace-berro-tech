@@ -36,14 +36,14 @@ export const ModalAnimal = ({ handleModal }: any) => {
         <CardSlide>
           <Swiper
             slidesPerView={1}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => {}}
+            onSwiper={(swiper) => swiper}
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
           >
-            {BussinessHighlightProductMock.map((item) => (
-              <SwiperSlide key={item.name}>
+            {BussinessHighlightProductMock.map((item, index) => (
+              <SwiperSlide key={index}>
                 <SlideImage src={item.photo} alt="foto animal" />
               </SwiperSlide>
             ))}

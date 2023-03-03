@@ -12,6 +12,7 @@ export const ModalBackground = styled.div`
   background-color: #000;
   opacity: 0.7;
   z-index: 20;
+  cursor: pointer;
 `;
 
 export const ContainerModal = styled.div`
@@ -21,6 +22,7 @@ export const ContainerModal = styled.div`
   transform: translate(-50%, -50%);
   padding: 20px;
   z-index: 30;
+ 
 `;
 export const CardSlide = styled.div`
   max-width: 700px;
