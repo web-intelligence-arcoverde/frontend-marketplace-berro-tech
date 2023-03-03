@@ -15,7 +15,7 @@ export const PhotosAnimal = () => {
   const [currentphoto, setCurrentPhoto] = useState(
     BussinessHighlightProductMock[0].photo
   );
-  const [modal, setMododal] = useState(false);
+  const [modal, setModal] = useState(false);
   const RestArray = BussinessHighlightProductMock.length - 5;
   const MinArray = BussinessHighlightProductMock.length;
 
@@ -23,7 +23,7 @@ export const PhotosAnimal = () => {
     setCurrentPhoto(image);
   };
   const handleModal = () => {
-    setMododal(!modal);
+    setModal(!modal);
   };
 
   return (
@@ -49,7 +49,7 @@ export const PhotosAnimal = () => {
         ))}
         {MinArray > 5 && <SeeMore onClick={handleModal}>{RestArray}</SeeMore>}
       </ListPhotos>
-      {modal && <ModalAnimal />}
+      {modal && <ModalAnimal handleModal={handleModal} />}
     </Container>
   );
 };

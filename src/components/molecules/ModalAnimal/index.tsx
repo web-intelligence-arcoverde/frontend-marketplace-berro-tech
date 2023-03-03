@@ -10,13 +10,28 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { BussinessHighlightProductMock } from "@/mock";
+import { useEffect } from "react";
 
 SwiperCore.use([Navigation, Pagination]);
 
-export const ModalAnimal = () => {
+export const ModalAnimal = ({ handleModal }: any) => {
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        handleModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleModal]);
+
   return (
     <>
-    <ModalBackground/>
+      <ModalBackground onClick={handleModal} />
       <ContainerModal>
         <CardSlide>
           <Swiper
