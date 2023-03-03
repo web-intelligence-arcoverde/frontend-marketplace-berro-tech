@@ -9,12 +9,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { BussinessHighlightProductMock } from "@/mock";
 import { useEffect } from "react";
 
 SwiperCore.use([Navigation, Pagination]);
 
-export const ModalAnimal = ({ handleModal }: any) => {
+export const ModalAnimal = ({ handleModal, allPhotos }: any) => {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -42,7 +41,7 @@ export const ModalAnimal = ({ handleModal }: any) => {
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
           >
-            {BussinessHighlightProductMock.map((item, index) => (
+            {allPhotos.map((item: any, index: number) => (
               <SwiperSlide key={index}>
                 <SlideImage src={item.photo} alt="foto animal" />
               </SwiperSlide>

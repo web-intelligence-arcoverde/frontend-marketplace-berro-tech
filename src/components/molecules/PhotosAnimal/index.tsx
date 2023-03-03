@@ -49,8 +49,8 @@ export const PhotosAnimal = () => {
         ))}
         {MinArray > 5 && <SeeMore onClick={handleModal}>{RestArray}</SeeMore>}
       </ListPhotos>
-      <PhotosAnimalMobile />
-      {modal && <ModalAnimal handleModal={handleModal} />}
+      <PhotosAnimalMobile allPhotos={allPhotos} />
+      {modal && <ModalAnimal allPhotos={allPhotos} handleModal={handleModal} />}
     </Container>
   );
 };
