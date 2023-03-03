@@ -10,5 +10,6 @@ export { HeaderLogoContainer } from "./HeaderLogoContainer/HeaderLogoContainer";
 export { LayoutSection } from "./LayoutSection";
 export { SearchMobile } from "./SearchMobile";
 export { DropDown } from "./DropDown";
-export { PhotosAnimal } from "./Photos-Animal";
+export { PhotosAnimal } from "./PhotosAnimal";
 export {ModalAnimal} from './ModalAnimal'
+export {PhotosAnimalMobile} from './PhotosAnimalMobile'

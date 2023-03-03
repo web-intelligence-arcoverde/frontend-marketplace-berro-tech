@@ -3,6 +3,7 @@ import { BussinessHighlightProductMock } from "@/mock";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { ModalAnimal } from "../ModalAnimal";
+import { PhotosAnimalMobile } from "../PhotosAnimalMobile";
 import {
   CardSteps,
   Container,
@@ -12,12 +13,11 @@ import {
 } from "./style";
 
 export const PhotosAnimal = () => {
-  const [currentphoto, setCurrentPhoto] = useState(
-    BussinessHighlightProductMock[0].photo
-  );
   const [modal, setModal] = useState(false);
   const RestArray = BussinessHighlightProductMock.length - 5;
   const MinArray = BussinessHighlightProductMock.length;
+  const allPhotos = BussinessHighlightProductMock;
+  const [currentphoto, setCurrentPhoto] = useState(allPhotos[0].photo);
 
   const handleClick = (image: StaticImageData | any) => {
     setCurrentPhoto(image);
@@ -38,7 +38,7 @@ export const PhotosAnimal = () => {
 
       <CurrentImage src={currentphoto} alt="imagem atual" />
       <ListPhotos>
-        {BussinessHighlightProductMock.slice(0, 5).map((image, index) => (
+        {allPhotos.slice(0, 5).map((image, index) => (
           <li key={index} id={index === 4 && MinArray > 5 ? "see-more" : ""}>
             <Image
               onClick={() => handleClick(image.photo)}
@@ -49,6 +49,7 @@ export const PhotosAnimal = () => {
         ))}
         {MinArray > 5 && <SeeMore onClick={handleModal}>{RestArray}</SeeMore>}
       </ListPhotos>
+      <PhotosAnimalMobile />
       {modal && <ModalAnimal handleModal={handleModal} />}
     </Container>
   );

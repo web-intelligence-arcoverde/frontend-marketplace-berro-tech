@@ -1,3 +1,4 @@
+import { BREAKPOINTS } from "../../../common/index";
 import { COLORS } from "@/common";
 import Image from "next/image";
 import styled from "styled-components";
@@ -31,6 +32,9 @@ export const CurrentImage = styled(Image)`
   width: 100%;
   border: none;
   object-fit: cover;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    display: none;
+  }
 `;
 export const ListPhotos = styled.ul`
   display: flex;
@@ -56,6 +60,9 @@ export const ListPhotos = styled.ul`
       height: 75px;
       border-radius: 5px;
     }
+    @media (max-width: ${BREAKPOINTS.sm}) {
+      display: none;
+    }
   }
 `;
 
@@ -76,5 +83,6 @@ export const SeeMore = styled.span`
   font-size: 16px;
   cursor: pointer;
   z-index: 10;
-  
 `;
+
+
