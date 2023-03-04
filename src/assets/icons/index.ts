@@ -34,6 +34,7 @@ import Exit from "./exit.svg";
 import Up from "./up.svg";
 import ArrowSlide from "./arrow-slide.svg";
 import StarYellow from "./star-yellow.svg";
+import LogoGray from "./logo-gray.svg";
 
 export const ICONS = {
   Search,
@@ -72,4 +73,5 @@ export const ICONS = {
   Up,
   ArrowSlide,
   StarYellow,
+  LogoGray,
 };
