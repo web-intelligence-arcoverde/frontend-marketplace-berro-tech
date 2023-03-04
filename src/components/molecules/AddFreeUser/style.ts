@@ -9,6 +9,7 @@ export const ContainerAddFreeUser = styled.section`
   justify-content: center;
   gap: 32px;
   text-align: center;
+  margin-right: 150px;
   h5 {
     font-size: 18px;
     font-weight: 500;
@@ -33,6 +34,7 @@ export const ContainerAddFreeUser = styled.section`
     margin-top: 36px;
     border-bottom: solid 2px ${COLORS.light._02};
     padding-bottom: 28px;
+    margin-right: 0;
   }
 `;
 
