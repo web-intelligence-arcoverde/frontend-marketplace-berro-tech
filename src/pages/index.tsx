@@ -6,6 +6,7 @@ import {
   SecuritySection,
   PhotosAnimal,
 } from "@/components";
+import { BussinessHighlightProductMock } from "@/mock";
 import { Main, Container } from "@/style";
 import dynamic from "next/dynamic";
 

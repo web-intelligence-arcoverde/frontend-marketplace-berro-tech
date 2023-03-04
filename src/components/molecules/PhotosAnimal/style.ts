@@ -12,20 +12,6 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const CardSteps = styled.ul`
-  margin: 16px 24px;
-  display: flex;
-  gap: 14px;
-  li {
-    color: ${COLORS.gray._04};
-
-    :last-child {
-      color: ${COLORS.sub_brand._02};
-      font-weight: 500;
-    }
-  }
-`;
-
 export const CurrentImage = styled(Image)`
   max-width: 700px;
   height: 400px;

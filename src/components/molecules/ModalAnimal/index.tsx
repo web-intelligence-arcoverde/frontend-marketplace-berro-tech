@@ -40,6 +40,7 @@ export const ModalAnimal = ({ handleModal, allPhotos }: any) => {
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
+
           >
             {allPhotos.map((item: any, index: number) => (
               <SwiperSlide key={index}>

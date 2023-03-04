@@ -9,3 +9,4 @@ export {InputUser} from './Input/InputUser';
 export {CardNameLocation} from './CardNameLocation';
 export {LogoCopyright} from './LogoCopyright'
 export {Tabs} from './Tabs';
+export {Breadcrumb} from './Breadcumb';
