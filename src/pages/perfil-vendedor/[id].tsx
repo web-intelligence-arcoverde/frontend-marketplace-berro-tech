@@ -1,7 +1,14 @@
-import { AddFreeUser, CardPerfilVendedor, Header } from "@/components";
+import {
+  AddFreeUser,
+  CardPerfilVendedor,
+  Header,
+  ProductCard,
+} from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import { ButtonAddProduct, Container, Main } from "@/style";
 import {
+  CardButtonMobile,
+  CardProducts,
   ContainerPerfilVendedor,
   ContentCard,
 } from "@/style/perfil-vendedor.style";
@@ -13,7 +20,7 @@ const SellerProfile = () => {
     <Container>
       <Main>
         <Header />
-        <ContainerPerfilVendedor>
+        <ContainerPerfilVendedor empty={productsEmpty}>
           <ContentCard>
             <CardPerfilVendedor
               name="Brenno Guedes"
@@ -22,14 +29,42 @@ const SellerProfile = () => {
               avaliation={4.8}
             />
             {productsEmpty && (
-              <ButtonAddProduct onClick={() => {}}>
+              <ButtonAddProduct id='first-add' onClick={() => {}}>
                 Adicionar novo negócio
               </ButtonAddProduct>
             )}
           </ContentCard>
-          <div>
-            {productsEmpty ? <>TESTE</> : <AddFreeUser addProduct={() => {}} />}
-          </div>
+
+          {productsEmpty ? (
+            <>
+              <CardProducts>
+                {products.map((item, index) => (
+                  <ProductCard
+                    key={index}
+                    photo={item.photo}
+                    breed={item.breed}
+                    quantity={item.quantity}
+                    name={item.name}
+                    city={item.city}
+                    state={item.state}
+                    country={item.country}
+                    sex={item.sex}
+                    age={item.age}
+                    rank={item.rank}
+                  />
+                ))}
+                {productsEmpty && (
+                  <CardButtonMobile>
+                    <ButtonAddProduct onClick={() => {}}>
+                      Adicionar novo negócio
+                    </ButtonAddProduct>
+                  </CardButtonMobile>
+                )}
+              </CardProducts>
+            </>
+          ) : (
+            <AddFreeUser addProduct={() => {}} />
+          )}
         </ContainerPerfilVendedor>
       </Main>
     </Container>

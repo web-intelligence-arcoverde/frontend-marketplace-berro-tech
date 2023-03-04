@@ -3,7 +3,7 @@ import { ButtonAddProduct } from "@/style";
 import { ContainerAddFreeUser, StyleLogo } from "./style";
 
 interface AddFreeUserProps {
-  addProduct: ()=>void;
+  addProduct: () => void;
 }
 export const AddFreeUser = ({ addProduct }: AddFreeUserProps) => {
   return (

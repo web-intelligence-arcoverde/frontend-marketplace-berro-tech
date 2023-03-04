@@ -1,6 +1,6 @@
+import styled from "styled-components";
 import { BREAKPOINTS, COLORS } from "@/common";
 import Image from "next/image";
-import styled from "styled-components";
 
 export const ContainerAddFreeUser = styled.section`
   display: flex;
