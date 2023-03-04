@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const ContainerPerfilVendedor = styled.div<{ empty: boolean }>`
   display: flex;
+  margin-bottom: 50px;
 
   align-items: ${(props) => (props.empty ? "flex-start" : "center")};
   justify-content: space-around;
@@ -12,6 +13,7 @@ export const ContainerPerfilVendedor = styled.div<{ empty: boolean }>`
   @media (max-width: ${BREAKPOINTS.sm}) {
     margin-top: 0;
     flex-direction: column;
+    margin-bottom: 20px;
   }
 `;
 export const ContentCard = styled.div`
@@ -30,16 +32,14 @@ export const CardProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 60%;
-  margin-bottom: 50px;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100% !important;
     justify-content: center;
     gap: 30px;
     padding: 28px 20px;
-    margin-bottom: 0;
   }
 `;
 

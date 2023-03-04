@@ -20,7 +20,7 @@ const SellerProfile = () => {
     <Container>
       <Main>
         <Header />
-        <ContainerPerfilVendedor empty={productsEmpty}>
+        <ContainerPerfilVendedor empty={(productsEmpty && products.length > 2)}>
           <ContentCard>
             <CardPerfilVendedor
               name="Brenno Guedes"
@@ -29,7 +29,7 @@ const SellerProfile = () => {
               avaliation={4.8}
             />
             {productsEmpty && (
-              <ButtonAddProduct id='first-add' onClick={() => {}}>
+              <ButtonAddProduct id="first-add" onClick={() => {}}>
                 Adicionar novo negócio
               </ButtonAddProduct>
             )}
