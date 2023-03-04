@@ -22,7 +22,7 @@ const Home = () => {
     <Container>
       <Main>
         <Header />
-        <PhotosAnimal/>
+        <PhotosAnimal arrayPhoto={BussinessHighlightProductMock}/>
         <MyPresentation />
         <PresentationInfo />
         <MyBussinessHighlight />

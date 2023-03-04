@@ -1,18 +1,15 @@
-import { ModalAnimal } from "@/components";
-import { BussinessHighlightProductMock } from "@/mock";
+import { Breadcrumb, ModalAnimal } from "@/components";
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PhotosAnimalMobile } from "../PhotosAnimalMobile";
 import { Container, CurrentImage, ListPhotos, SeeMore } from "./style";
 
-export const PhotosAnimal = () => {
+export const PhotosAnimal = (arrayPhoto: any) => {
   const [modal, setModal] = useState(false);
-  const RestArray = BussinessHighlightProductMock.length - 5;
-  const MinArray = BussinessHighlightProductMock.length;
-  const allPhotos = BussinessHighlightProductMock;
-  const [currentphoto, setCurrentPhoto] = useState(
-    BussinessHighlightProductMock[0].photo
-  );
+  const allPhotos = arrayPhoto.arrayPhoto;
+  const RestPhotos = allPhotos.length - 5;
+  const MinPhotos = allPhotos.length;
+  const [currentphoto, setCurrentPhoto] = useState(allPhotos[0].photo);
 
   const handleClick = (image: StaticImageData | any) => {
     setCurrentPhoto(image);
@@ -20,14 +17,25 @@ export const PhotosAnimal = () => {
   const handleModal = () => {
     setModal(!modal);
   };
-  console.log(allPhotos);
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (modal && body) {
+      body.classList.add("modal-open");
+    }
+    return () => {
+      if (body) {
+        body.classList.remove("modal-open");
+      }
+    };
+  }, [modal]);
 
   return (
     <Container>
+      <Breadcrumb />
       <CurrentImage src={currentphoto} alt="imagem atual" />
       <ListPhotos>
-        {allPhotos.slice(0, 5).map(( image, index) => (
-          <li key={index} id={index === 4 && MinArray > 5 ? "see-more" : ""}>
+        {allPhotos.slice(0, 5).map((image: any, index: number) => (
+          <li key={index} id={index === 4 && MinPhotos > 5 ? "see-more" : ""}>
             <Image
               onClick={() => handleClick(image?.photo)}
               src={image?.photo}
@@ -35,7 +43,7 @@ export const PhotosAnimal = () => {
             />
           </li>
         ))}
-        {MinArray > 5 && <SeeMore onClick={handleModal}>{RestArray}</SeeMore>}
+        {MinPhotos > 5 && <SeeMore onClick={handleModal}>{RestPhotos}</SeeMore>}
       </ListPhotos>
       <PhotosAnimalMobile allPhotos={allPhotos} />
       {modal && <ModalAnimal allPhotos={allPhotos} handleModal={handleModal} />}
