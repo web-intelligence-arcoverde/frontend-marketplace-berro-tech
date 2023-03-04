@@ -11,5 +11,6 @@ export { LayoutSection } from "./LayoutSection";
 export { SearchMobile } from "./SearchMobile";
 export { DropDown } from "./DropDown";
 export { PhotosAnimal } from "./PhotosAnimal";
-export {ModalAnimal} from './ModalAnimal'
-export {PhotosAnimalMobile} from './PhotosAnimalMobile'
+export { ModalAnimal } from "./ModalAnimal";
+export { PhotosAnimalMobile } from "./PhotosAnimalMobile";
+export { CardPerfilVendedor } from "./CardPerfilVendedor";
