@@ -15,6 +15,7 @@ export const CardDropDown = styled.div`
 export const StyleAvatar = styled(Image)`
   width: 46px;
   height: 46px;
+  object-fit: cover;
   border-radius: 5px;
   border: solid 2px ${COLORS.light._05};
   margin-top: 4px;

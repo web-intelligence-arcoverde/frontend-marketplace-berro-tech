@@ -1,4 +1,4 @@
-import Avatar from "./avatar.jpg";
+import Avatar from "./avatar.png";
 import BackgroundPresentation from "./background-presentation.png";
 import GadoOne from "./gado-1.png";
 import GadoTwo from "./gado-2.png";
