@@ -4,9 +4,7 @@ import {
   Footer,
   MainSearch,
   SecuritySection,
-  PhotosAnimal,
 } from "@/components";
-import { BussinessHighlightProductMock } from "@/mock";
 import { Main, Container } from "@/style";
 import dynamic from "next/dynamic";
 
@@ -22,7 +20,6 @@ const Home = () => {
     <Container>
       <Main>
         <Header />
-        <PhotosAnimal arrayPhoto={BussinessHighlightProductMock}/>
         <MyPresentation />
         <PresentationInfo />
         <MyBussinessHighlight />
