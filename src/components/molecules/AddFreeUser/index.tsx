@@ -1,6 +1,5 @@
 import { ICONS } from "@/assets";
-import { Button } from "@/components/atoms";
-import Image from "next/image";
+import { ButtonAddProduct } from "@/style";
 import { ContainerAddFreeUser, StyleLogo } from "./style";
 
 interface AddFreeUserProps {
@@ -14,13 +13,13 @@ export const AddFreeUser = ({ addProduct }: AddFreeUserProps) => {
         <h5>Publique seus animais para venda</h5>
         <h6>Em apenas 3 etapas você pode começar a vender</h6>
       </div>
-      <Button
+      <ButtonAddProduct
         onClick={() => {
           addProduct;
         }}
       >
         Adicionar meu primeiro negócio
-      </Button>
+      </ButtonAddProduct>
     </ContainerAddFreeUser>
   );
 };

@@ -44,3 +44,4 @@ export const StyleLogo = styled(Image)`
     width: 110px;
   }
 `;
+

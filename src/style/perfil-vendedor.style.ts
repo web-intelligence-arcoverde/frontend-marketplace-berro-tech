@@ -13,3 +13,14 @@ export const ContainerPerfilVendedor = styled.div`
     flex-direction: column;
   }
 `;
+export const ContentCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  button {
+    @media (max-width: ${BREAKPOINTS.sm}) {
+      display: none;
+    }
+  }
+`;
