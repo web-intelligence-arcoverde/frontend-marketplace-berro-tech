@@ -12,12 +12,10 @@ import {
   ContainerPerfilVendedor,
   ContentCard,
 } from "@/style/perfil-vendedor.style";
-import Link from "next/link";
 
 const SellerProfile = () => {
   const products = BussinessHighlightProductMock;
   const productsEmpty = products.length > 0 ? true : false;
-
   return (
     <Container>
       <Main>
@@ -41,22 +39,7 @@ const SellerProfile = () => {
             <>
               <CardProducts>
                 {products.map((item) => (
-                  <Link key={item.id} href={`/product?id=${item.id}`}>
-                    <ProductCard
-                      id={item.id}
-                      key={item.id}
-                      photo={item.photo}
-                      breed={item.breed}
-                      quantity={item.quantity}
-                      name={item.name}
-                      city={item.city}
-                      state={item.state}
-                      country={item.country}
-                      sex={item.sex}
-                      age={item.age}
-                      rank={item.rank}
-                    />
-                  </Link>
+                  <ProductCard {...item} />
                 ))}
                 {productsEmpty && (
                   <CardButtonMobile>

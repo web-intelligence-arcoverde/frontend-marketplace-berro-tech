@@ -12,11 +12,16 @@ import {
   ContainerPerfilVendedor,
   ContentCard,
 } from "@/style/perfil-vendedor.style";
-import Link from "next/link";
+import { CardProductProps } from "@/types";
+import router from "next/router";
 
-const SellerProfile = () => {
+const MyPublication = () => {
   const products = BussinessHighlightProductMock;
   const productsEmpty = products.length > 0 ? true : false;
+
+  const handleAnimalClick = (animal: CardProductProps) => {
+    router.push(`/minhas-publicacoes/${animal.name}`);
+  };
 
   return (
     <Container>
@@ -41,22 +46,9 @@ const SellerProfile = () => {
             <>
               <CardProducts>
                 {products.map((item) => (
-                  <Link key={item.id} href={`/product?id=${item.id}`}>
-                    <ProductCard
-                      id={item.id}
-                      key={item.id}
-                      photo={item.photo}
-                      breed={item.breed}
-                      quantity={item.quantity}
-                      name={item.name}
-                      city={item.city}
-                      state={item.state}
-                      country={item.country}
-                      sex={item.sex}
-                      age={item.age}
-                      rank={item.rank}
-                    />
-                  </Link>
+                  <div key={item.id} onClick={() => handleAnimalClick(item)}>
+                    <ProductCard {...item} />
+                  </div>
                 ))}
                 {productsEmpty && (
                   <CardButtonMobile>
@@ -76,4 +68,4 @@ const SellerProfile = () => {
   );
 };
 
-export default SellerProfile;
+export default MyPublication;
