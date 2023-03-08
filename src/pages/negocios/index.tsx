@@ -14,11 +14,13 @@ import {
   ProductHeaderContainer,
 } from '@/style/negocios-style';
 import {BussinessHighlightProductMock, Bussinestabs} from '@/mock';
-import {useMediaQuery} from '@/hooks/useMediaQuery';
+
+import { Container, Main } from '@/style';
 
 export const Business = () => {
   return (
-    <div>
+    <Container>
+      <Main>
       <Header />
       <BussinesContainer>
         <BussinessAside />
@@ -37,7 +39,8 @@ export const Business = () => {
         </ProductContainer>
       </BussinesContainer>
       <Footer />
-    </div>
+      </Main>
+    </Container>
   );
 };
 

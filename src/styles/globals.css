@@ -14,12 +14,13 @@
 }
 body {
   -webkit-font-smoothing: antialiased;
-  background: #FCFCFA;
+  background: #fcfcfa;
 }
 body,
 input,
 button,
-textarea {
+textarea,
+option {
   font-family: "Inter", sans-serif;
 }
 button,

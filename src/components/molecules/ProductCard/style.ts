@@ -6,7 +6,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 390px;
+  max-width: 380px;
   min-width: 300px;
   border-radius: 5px;
   cursor: pointer;

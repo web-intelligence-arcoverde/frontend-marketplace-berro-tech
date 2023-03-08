@@ -3,6 +3,7 @@ import {
   CardPerfilVendedor,
   Header,
   ProductCard,
+  Select,
   Tabs,
 } from "@/components";
 import { BussinessHighlightProductMock, Bussinestabs } from "@/mock";
@@ -14,6 +15,7 @@ import {
   SectionProducts,
   ButtonFixedMobile,
   CardFixedMobile,
+  ContainerTabs,
 } from "@/style/minhas-publicacoes-style";
 import { CardProductProps } from "@/types";
 import router from "next/router";
@@ -46,9 +48,12 @@ const MyPublication = () => {
           </ContentCard>
           <SectionProducts>
             {productsEmpty && (
-              <TabsContainer>
-                <Tabs tabs={Bussinestabs} />
-              </TabsContainer>
+              <ContainerTabs>
+                <TabsContainer>
+                  <Tabs tabs={Bussinestabs} />
+                </TabsContainer>
+                <Select />
+              </ContainerTabs>
             )}
 
             {productsEmpty ? (
