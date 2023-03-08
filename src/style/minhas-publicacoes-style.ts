@@ -2,13 +2,14 @@ import { BREAKPOINTS, COLORS } from "@/common";
 import styled from "styled-components";
 import { CardButton } from "@/components/atoms/Button/style";
 
-export const ContainerMypublication = styled.div`
+export const ContainerMypublication = styled.div<{empty:boolean}>`
   display: flex;
-  width: 90%;
-  align-items: flex-start;
-  justify-content: center;
+  width: 100%;
+  align-items: ${(props) => props.empty ? 'center' : 'flex-start'};
+  justify-content: space-between;
   margin: 50px auto;
   background-color: ${COLORS.brand_light._04};
+  padding: 0 100px;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;

@@ -6,7 +6,7 @@ export const Container = styled.header`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 122px 12px 130px;
+  padding: 12px 100px;
   background-color: ${COLORS.brand_light._01};
   @media (max-width:${BREAKPOINTS.sm}){
     padding:40px 16px 20px 20px

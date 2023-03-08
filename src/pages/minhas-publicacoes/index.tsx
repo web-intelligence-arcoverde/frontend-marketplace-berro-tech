@@ -30,7 +30,7 @@ const MyPublication = () => {
     <Container>
       <Main>
         <Header />
-        <ContainerMypublication>
+        <ContainerMypublication empty={!productsEmpty}>
           <ContentCard>
             <CardPerfilVendedor
               name="Brenno Guedes"
