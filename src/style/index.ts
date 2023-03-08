@@ -18,6 +18,11 @@ export const ButtonAddProduct = styled(CardButton)`
   background-color: ${COLORS.sub_brand._02};
   color: ${COLORS.light._05};
   width: 100%;
+
+  @media (max-width: ${BREAKPOINTS.lg}){
+    display: none;
+  }
+
 `;
 export const TabsContainer = styled.div`
   display: flex;

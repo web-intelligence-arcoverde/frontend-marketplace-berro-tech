@@ -21,7 +21,6 @@ export const ContainerAddFreeUser = styled.section`
     color: ${COLORS.gray._04};
     margin-top: 6px;
     @media (max-width: ${BREAKPOINTS.sm}) {
-      border-bottom: solid 2px ${COLORS.light._02};
       padding: 0 52px 28px 52px;
     }
   }
@@ -32,8 +31,7 @@ export const ContainerAddFreeUser = styled.section`
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
     margin-top: 36px;
-    border-bottom: solid 2px ${COLORS.light._02};
-    padding-bottom: 28px;
+    padding-bottom: 100px;
     margin-right: 0;
   }
 `;

@@ -8,11 +8,12 @@ import {
 import { BussinessHighlightProductMock, Bussinestabs } from "@/mock";
 import { ButtonAddProduct, Container, Main, TabsContainer } from "@/style";
 import {
-  CardButtonMobile,
   CardProducts,
   ContainerMypublication,
   ContentCard,
   SectionProducts,
+  ButtonFixedMobile,
+  CardFixedMobile,
 } from "@/style/minhas-publicacoes-style";
 import { CardProductProps } from "@/types";
 import router from "next/router";
@@ -44,9 +45,12 @@ const MyPublication = () => {
             )}
           </ContentCard>
           <SectionProducts>
-            <TabsContainer>
-              <Tabs tabs={Bussinestabs} />
-            </TabsContainer>
+            {productsEmpty && (
+              <TabsContainer>
+                <Tabs tabs={Bussinestabs} />
+              </TabsContainer>
+            )}
+
             {productsEmpty ? (
               <CardProducts>
                 {products.map((item) => (
@@ -54,18 +58,18 @@ const MyPublication = () => {
                     <ProductCard {...item} />
                   </div>
                 ))}
-                {productsEmpty && (
-                  <CardButtonMobile>
-                    <ButtonAddProduct onClick={() => {}}>
-                      Adicionar novo negócio
-                    </ButtonAddProduct>
-                  </CardButtonMobile>
-                )}
               </CardProducts>
             ) : (
               <AddFreeUser addProduct={() => {}} />
             )}
           </SectionProducts>
+          <CardFixedMobile>
+            <ButtonFixedMobile>
+              {productsEmpty
+                ? "Adicionar novo negócio"
+                : "Adicionar meu primeiro negócio"}
+            </ButtonFixedMobile>
+          </CardFixedMobile>
         </ContainerMypublication>
       </Main>
     </Container>

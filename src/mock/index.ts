@@ -43,38 +43,6 @@ export const PresentationInfoCardMock = [
     description: "E negocie com o vendedor",
   },
 ];
-export const BusinessFiltersMock = [
-  {
-    icon: ICONS?.LocationGray,
-    iconName: "localização",
-    title: "Estado",
-  },
-  {
-    icon: ICONS?.Classification,
-    iconName: "Classificação",
-    title: "Classificação",
-  },
-  {
-    icon: ICONS?.Race,
-    iconName: "Raça",
-    title: "Raça",
-  },
-  {
-    icon: ICONS?.Gender,
-    iconName: "Sexo",
-    title: "Sexo",
-  },
-  {
-    icon: ICONS?.Date,
-    iconName: "Data",
-    title: "Idade",
-  },
-  {
-    icon: ICONS?.Quantity,
-    iconName: "Quantidade",
-    title: "Quantidade",
-  },
-];
 
 export const BussinessHighlightProductMock: CardProductProps[] = [
   // {
@@ -189,7 +157,6 @@ export const Bussinestabs = [
     content: "",
   },
 ];
-
 
 
 export const MocksAbout = [
