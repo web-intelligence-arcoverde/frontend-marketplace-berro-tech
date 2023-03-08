@@ -78,6 +78,7 @@ export const BusinessFiltersMock = [
 
 export const BussinessHighlightProductMock: CardProductProps[] = [
   {
+    id:1,
     photo: IMAGES.GadoOne,
     breed: "senepol",
     quantity: 3,
@@ -90,10 +91,11 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
+    id:2,
     photo: IMAGES.GadoTwo,
     breed: "senepol",
     quantity: 3,
-    name: "Garrote Senepol",
+    name: "Garrote Himalaia",
     city: "Campina Grande",
     state: "Paraiba",
     country: "Brasil",
@@ -102,10 +104,11 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
+    id:3,
     photo: IMAGES.GadoThree,
     breed: "senepol",
     quantity: 3,
-    name: "Garrote Senepol",
+    name: "Garrote Pegasus",
     city: "Campina Grande",
     state: "Paraiba",
     country: "Brasil",
@@ -114,6 +117,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
+    id:4,
     photo: IMAGES.GadoFour,
     breed: "senepol",
     quantity: 3,
@@ -126,6 +130,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
+    id:5,
     photo: IMAGES.GadoFive,
     breed: "senepol",
     quantity: 3,
@@ -138,6 +143,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
+    id:6,
     photo: IMAGES.GadoSix,
     breed: "senepol",
     quantity: 3,
@@ -183,6 +189,8 @@ export const Bussinestabs = [
     content: "",
   },
 ];
+
+
 
 export const MocksAbout = [
   {

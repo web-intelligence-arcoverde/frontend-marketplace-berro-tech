@@ -39,16 +39,7 @@ export const MainSearch = () => {
         {BussinessHighlightProductMock.slice(2).map((item, index) => (
           <ProductCard
             key={`${item.name} ${index}`}
-            photo={item.photo}
-            breed={item.breed}
-            quantity={item.quantity}
-            name={item.name}
-            city={item.city}
-            state={item.state}
-            country={item.country}
-            sex={item.sex}
-            age={item.age}
-            rank={item.rank}
+            {...item}
           />
         ))}
       </SearchResponseContainer >

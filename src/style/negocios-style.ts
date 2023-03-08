@@ -5,6 +5,7 @@ export const BussinesContainer = styled.section`
   display: flex;
   justify-content: space-between;
   gap: 60px;
+
   width: 100%;
   margin: 0 auto;
   padding: 45px 100px;
@@ -80,3 +81,4 @@ export const TabsContainer = styled.div`
       }
     }
   `
+

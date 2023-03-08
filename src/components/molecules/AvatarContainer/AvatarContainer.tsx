@@ -57,7 +57,7 @@ export const AvatarContainer = () => {
 
   return (
     <>
-      {!!token ? (
+      {!token ? (
         <CardAvatar id="avatar-container">
           {openDropDown ? (
             <>

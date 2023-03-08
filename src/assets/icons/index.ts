@@ -40,6 +40,10 @@ import Gender from './gender.svg'
 import LocationGray from "./location-gray.svg";
 import Quantity from "./quantity.svg";
 import Race from "./race.svg";
+import ArrowSlide from "./arrow-slide.svg";
+import StarYellow from "./star-yellow.svg";
+import LogoGray from "./logo-gray.svg";
+
 
 export const ICONS = {
   Search,
@@ -84,4 +88,7 @@ export const ICONS = {
   Gender,
   Quantity,
   Date,
+  ArrowSlide,
+  StarYellow,
+  LogoGray,
 };

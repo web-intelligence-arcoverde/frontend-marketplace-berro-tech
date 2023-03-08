@@ -1,9 +1,5 @@
-const SellerProfile = () => {
-  return (
-    <div>
-      <h2>perfil-vendedor</h2>
-    </div>
-  );
+const SelleProfiler = () => {
+  return <div />;
 };
 
-export default SellerProfile;
+export default SelleProfiler;

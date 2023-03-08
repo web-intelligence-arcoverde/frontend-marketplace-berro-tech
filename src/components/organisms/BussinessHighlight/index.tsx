@@ -1,6 +1,11 @@
 import { ProductCard } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
-import { Container, TitleContainer, ProductCardsContainer ,LinkMobileContainer} from "./style";
+import {
+  Container,
+  TitleContainer,
+  ProductCardsContainer,
+  LinkMobileContainer,
+} from "./style";
 
 export const BussinessHighlight = () => {
   return (
@@ -10,20 +15,8 @@ export const BussinessHighlight = () => {
         <a href="./">Veja mais opções</a>
       </TitleContainer>
       <ProductCardsContainer>
-        {BussinessHighlightProductMock.map((item , index) => (
-          <ProductCard
-            key={`${item.name} ${index}`}
-            photo={item.photo}
-            breed={item.breed}
-            quantity={item.quantity}
-            name={item.name}
-            city={item.city}
-            state={item.state}
-            country={item.country}
-            sex={item.sex}
-            age={item.age}
-            rank={item.rank}
-          />
+        {BussinessHighlightProductMock.map((item, index) => (
+          <ProductCard key={`${item.name} ${index}`} {...item} />
         ))}
       </ProductCardsContainer>
       <LinkMobileContainer>
@@ -33,4 +26,4 @@ export const BussinessHighlight = () => {
   );
 };
 
-export default BussinessHighlight
+export default BussinessHighlight;

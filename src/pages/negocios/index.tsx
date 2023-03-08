@@ -3,7 +3,8 @@ import { BussinesContainer, ProductContainer, ProductCardContainer, TabsContaine
 import { BussinessHighlightProductMock, Bussinestabs } from "@/mock"
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-const Business = () => {
+
+export const Business = () => {
   return (
     <div>
       <Header />

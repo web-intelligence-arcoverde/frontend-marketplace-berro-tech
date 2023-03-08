@@ -8,19 +8,29 @@ export const Breadcrumb = () => {
   const router = useRouter();
   const pathnames = router.pathname.split("/").filter((x: string) => x);
 
+  const { id } = router.query;
+  const newArrayPathNames = pathnames.map((item) =>
+    item === "[id]" ? id : item
+  );
+
   return (
     <ListBreadcumb>
-      {pathnames.length > 1 && pathnames.map((name: string, key: number) => {
-        const goTo = `/${pathnames.slice(0, key + 1).join("/")}`;
-        return (
-          <ItemBreadcumb key={key}>
-            <Link key={key} href={goTo}>
-              {name}
-            </Link>
-            <Image src={ICONS.ArrowRight} alt='imagem seta direita' />
-          </ItemBreadcumb>
-        );
-      })}
+      <ItemBreadcumb>
+        <Link href="/">Início</Link>
+        <Image src={ICONS.ArrowRight} alt="imagem seta direita" />
+      </ItemBreadcumb>
+      {newArrayPathNames.length > 1 &&
+        newArrayPathNames.map((name: any, key: any) => {
+          const goTo = `/${newArrayPathNames.slice(0, key + 1).join("/")}`;
+          return (
+            <ItemBreadcumb key={key}>
+              <Link key={key} href={goTo}>
+                {name === "minhas-publicacoes" ? "minhas publicações " : name}
+              </Link>
+              <Image src={ICONS.ArrowRight} alt="imagem seta direita" />
+            </ItemBreadcumb>
+          );
+        })}
     </ListBreadcumb>
   );
 };

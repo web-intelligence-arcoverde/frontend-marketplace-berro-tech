@@ -11,7 +11,7 @@ export const DropDown = () => {
     <StyleDropDown>
       <li>
         <Image src={ICONS.MyPulblication} alt="minhas pulblicações" />
-        <Link href='./perfil-vendendor'> Minhas publicações</Link>
+        <Link href='./minhas-publicacoes'> Minhas publicações</Link>
       </li>
       <li>
         <Image src={ICONS.Exit} alt="minhas pulblicações" />
