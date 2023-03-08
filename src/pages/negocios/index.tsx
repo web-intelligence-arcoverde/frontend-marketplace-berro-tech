@@ -1,9 +1,14 @@
 import { Footer, Header, Tabs } from "@/components";
-import { BussinesContainer, ProductContainer, TabsContainer, SelectProduct, SelectContainer } from "@/style/negocios-style";
-import { BussinessHighlightProductMock, Bussinestabs } from "@/mock"
+import {
+  BussinesContainer,
+  ProductContainer,
+  SelectProduct,
+  SelectContainer,
+} from "@/style/negocios-style";
+import { Bussinestabs } from "@/mock";
+import { TabsContainer } from "@/style";
 
 export const Business = () => {
-
   return (
     <div>
       <Header />
@@ -14,7 +19,11 @@ export const Business = () => {
             <Tabs tabs={Bussinestabs} />
           </TabsContainer>
           <SelectContainer>
-            <SelectProduct placeholder="Orderna por" name="ordanation" id="ordanation">
+            <SelectProduct
+              placeholder="Orderna por"
+              name="ordanation"
+              id="ordanation"
+            >
               <option>Orderna por</option>
               <option value="newer">Mais recentes</option>
               <option value="oldest">Mais antigos</option>
@@ -27,4 +36,4 @@ export const Business = () => {
   );
 };
 
-export default Business
+export default Business;

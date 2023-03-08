@@ -1,13 +1,12 @@
 import { BREAKPOINTS, COLORS } from "@/common";
 import styled from "styled-components";
 
-export const ContainerPerfilVendedor = styled.div<{ empty: boolean }>`
+export const ContainerMypublication = styled.div`
   display: flex;
-  margin-bottom: 50px;
-
-  align-items: ${(props) => (props.empty ? "flex-start" : "center")};
-  justify-content: space-around;
-  margin-top: 50px;
+  width: 90%;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 50px auto;
   background-color: ${COLORS.brand_light._04};
 
   @media (max-width: ${BREAKPOINTS.sm}) {
@@ -26,6 +25,9 @@ export const ContentCard = styled.div`
       display: none;
     }
   }
+  @media (max-width: ${BREAKPOINTS.sm}){
+    margin-bottom:34px ;
+  }
 `;
 
 export const CardProducts = styled.div`
@@ -33,13 +35,12 @@ export const CardProducts = styled.div`
   flex-wrap: wrap;
   gap: 16px;
   justify-content: flex-start;
-  width: 60%;
+  width: 100%;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100% !important;
     justify-content: center;
     gap: 30px;
-    padding: 28px 20px;
   }
 `;
 
@@ -50,5 +51,15 @@ export const CardButtonMobile = styled.div`
     width: 100%;
     border-top: solid 2px ${COLORS.light._02};
     padding-top: 28px;
+  }
+`;
+
+export const SectionProducts = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 32px;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    padding-left: 0;
   }
 `;

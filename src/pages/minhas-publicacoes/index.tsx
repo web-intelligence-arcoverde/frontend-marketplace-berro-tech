@@ -3,15 +3,17 @@ import {
   CardPerfilVendedor,
   Header,
   ProductCard,
+  Tabs,
 } from "@/components";
-import { BussinessHighlightProductMock } from "@/mock";
-import { ButtonAddProduct, Container, Main } from "@/style";
+import { BussinessHighlightProductMock, Bussinestabs } from "@/mock";
+import { ButtonAddProduct, Container, Main, TabsContainer } from "@/style";
 import {
   CardButtonMobile,
   CardProducts,
-  ContainerPerfilVendedor,
+  ContainerMypublication,
   ContentCard,
-} from "@/style/perfil-vendedor.style";
+  SectionProducts,
+} from "@/style/minhas-publicacoes-style";
 import { CardProductProps } from "@/types";
 import router from "next/router";
 
@@ -27,7 +29,7 @@ const MyPublication = () => {
     <Container>
       <Main>
         <Header />
-        <ContainerPerfilVendedor empty={productsEmpty && products.length > 2}>
+        <ContainerMypublication>
           <ContentCard>
             <CardPerfilVendedor
               name="Brenno Guedes"
@@ -41,9 +43,11 @@ const MyPublication = () => {
               </ButtonAddProduct>
             )}
           </ContentCard>
-
-          {productsEmpty ? (
-            <>
+          <SectionProducts>
+            <TabsContainer>
+              <Tabs tabs={Bussinestabs} />
+            </TabsContainer>
+            {productsEmpty ? (
               <CardProducts>
                 {products.map((item) => (
                   <div key={item.id} onClick={() => handleAnimalClick(item)}>
@@ -58,11 +62,11 @@ const MyPublication = () => {
                   </CardButtonMobile>
                 )}
               </CardProducts>
-            </>
-          ) : (
-            <AddFreeUser addProduct={() => {}} />
-          )}
-        </ContainerPerfilVendedor>
+            ) : (
+              <AddFreeUser addProduct={() => {}} />
+            )}
+          </SectionProducts>
+        </ContainerMypublication>
       </Main>
     </Container>
   );
