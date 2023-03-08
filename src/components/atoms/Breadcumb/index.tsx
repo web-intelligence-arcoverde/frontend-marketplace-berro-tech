@@ -7,6 +7,7 @@ import { ICONS } from "@/assets";
 export const Breadcrumb = () => {
   const router = useRouter();
   const pathnames = router.pathname.split("/").filter((x: string) => x);
+
   const { id } = router.query;
   const newArrayPathNames = pathnames.map((item) =>
     item === "[id]" ? id : item

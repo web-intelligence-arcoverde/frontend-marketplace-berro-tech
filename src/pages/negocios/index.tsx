@@ -1,34 +1,39 @@
-import { Footer, Header, Tabs } from "@/components";
+import {
+  BussinessAside,
+  Footer,
+  Header,
+  ProductCard,
+  Select,
+  Tabs,
+} from '@/components';
 import {
   BussinesContainer,
   ProductContainer,
-  SelectProduct,
-  SelectContainer,
-} from "@/style/negocios-style";
-import { Bussinestabs } from "@/mock";
-import { TabsContainer } from "@/style";
+  ProductCardContainer,
+  TabsContainer,
+  ProductHeaderContainer,
+} from '@/style/negocios-style';
+import {BussinessHighlightProductMock, Bussinestabs} from '@/mock';
+import {useMediaQuery} from '@/hooks/useMediaQuery';
 
 export const Business = () => {
   return (
     <div>
       <Header />
       <BussinesContainer>
-        <div>aside</div>
+        <BussinessAside />
         <ProductContainer>
-          <TabsContainer>
-            <Tabs tabs={Bussinestabs} />
-          </TabsContainer>
-          <SelectContainer>
-            <SelectProduct
-              placeholder="Orderna por"
-              name="ordanation"
-              id="ordanation"
-            >
-              <option>Orderna por</option>
-              <option value="newer">Mais recentes</option>
-              <option value="oldest">Mais antigos</option>
-            </SelectProduct>
-          </SelectContainer>
+          <ProductHeaderContainer>
+            <TabsContainer>
+              <Tabs tabs={Bussinestabs} />
+            </TabsContainer>
+            <Select />
+          </ProductHeaderContainer>
+          <ProductCardContainer>
+            {BussinessHighlightProductMock.map((item, index) => (
+              <ProductCard key={`${item.name} ${index}`} {...item} />
+            ))}
+          </ProductCardContainer>
         </ProductContainer>
       </BussinesContainer>
       <Footer />

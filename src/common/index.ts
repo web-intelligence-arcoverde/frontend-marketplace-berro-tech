@@ -55,8 +55,8 @@ export const COLORS = {
   sub_brand: {
     _01: '#001540',
     _02: '#1B5DE0',
-    _03: '#F3F7FD', 
-    _04: '#FBFCFE', 
+    _03: '#F3F7FD',
+    _04: '#FBFCFE',
   },
   auxiliary: {
     green_confirm: '#25D366',
@@ -70,6 +70,7 @@ export const COLORS = {
     blue_01: 'rgba(27, 93, 224, 0.1)',
     blue_05: 'rgba(27, 93, 224, 0.05)',
     blue_08: 'rgba(27, 93, 224, 0.08)',
+    black_04: 'rgba(0, 0, 0, 0.4)'
   },
 
 };
