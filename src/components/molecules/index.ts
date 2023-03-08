@@ -1,3 +1,4 @@
+
 export { ProductCard } from "./ProductCard";
 export { SellerCard } from "./SellerCard";
 export { PresentationInfoCard } from "./PresentationInfoCard";
@@ -9,9 +10,11 @@ export { HeaderMenuNavigation } from "./HeaderMenuNavigation/HeaderMenuNavigatio
 export { HeaderLogoContainer } from "./HeaderLogoContainer/HeaderLogoContainer";
 export { LayoutSection } from "./LayoutSection";
 export { SearchMobile } from "./SearchMobile";
+export { BussinessFilter } from './BussinessFilter'
 export { DropDown } from "./DropDown";
 export { PhotosAnimal } from "./PhotosAnimal";
 export { ModalAnimal } from "./ModalAnimal";
 export { PhotosAnimalMobile } from "./PhotosAnimalMobile";
 export { CardPerfilVendedor } from "./CardPerfilVendedor";
 export { AddFreeUser } from "./AddFreeUser";
+

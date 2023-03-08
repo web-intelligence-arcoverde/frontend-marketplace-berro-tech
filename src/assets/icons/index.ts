@@ -31,10 +31,19 @@ import ArrowRight from "./arrow-right.svg";
 import Excluir from "./excluir.svg";
 import MyPulblication from "./my-pulblication.svg";
 import Exit from "./exit.svg";
-import Up from "./up.svg";
+import Up from './up.svg'
+import Settings from './settings.svg'
+import DocumentArrowDown from './document-arrow-down.svg'
+import Classification from './classification.svg'
+import Date from './date.svg'
+import Gender from './gender.svg'
+import LocationGray from "./location-gray.svg";
+import Quantity from "./quantity.svg";
+import Race from "./race.svg";
 import ArrowSlide from "./arrow-slide.svg";
 import StarYellow from "./star-yellow.svg";
 import LogoGray from "./logo-gray.svg";
+
 
 export const ICONS = {
   Search,
@@ -71,6 +80,14 @@ export const ICONS = {
   Exit,
   MyPulblication,
   Up,
+  Settings,
+  DocumentArrowDown,
+  Classification,
+  Race,
+  LocationGray,
+  Gender,
+  Quantity,
+  Date,
   ArrowSlide,
   StarYellow,
   LogoGray,

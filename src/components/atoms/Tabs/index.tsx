@@ -19,7 +19,7 @@ export const Tabs = ({ tabs, initialTab = 0 }:TabsProps) => {
         ))}
       </div>
       <div className="tab-content">
-        {tabs[selectedTab].content}
+        {tabs[selectedTab]?.content}
       </div>
     </Container>
   );
