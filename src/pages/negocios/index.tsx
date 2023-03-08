@@ -1,8 +1,20 @@
-import { BussinessAside, Footer, Header, ProductCard, Select, Tabs } from "@/components";
-import { BussinesContainer, ProductContainer, ProductCardContainer, TabsContainer, ProductHeaderContainer } from "@/style/negocios-style";
-import { BussinessHighlightProductMock, Bussinestabs } from "@/mock"
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-
+import {
+  BussinessAside,
+  Footer,
+  Header,
+  ProductCard,
+  Select,
+  Tabs,
+} from '@/components';
+import {
+  BussinesContainer,
+  ProductContainer,
+  ProductCardContainer,
+  TabsContainer,
+  ProductHeaderContainer,
+} from '@/style/negocios-style';
+import {BussinessHighlightProductMock, Bussinestabs} from '@/mock';
+import {useMediaQuery} from '@/hooks/useMediaQuery';
 
 export const Business = () => {
   return (
@@ -19,19 +31,7 @@ export const Business = () => {
           </ProductHeaderContainer>
           <ProductCardContainer>
             {BussinessHighlightProductMock.map((item, index) => (
-              <ProductCard
-                key={`${item.name} ${index}`}
-                photo={item.photo}
-                breed={item.breed}
-                quantity={item.quantity}
-                name={item.name}
-                city={item.city}
-                state={item.state}
-                country={item.country}
-                sex={item.sex}
-                age={item.age}
-                rank={item.rank}
-              />
+              <ProductCard key={`${item.name} ${index}`} {...item} />
             ))}
           </ProductCardContainer>
         </ProductContainer>
@@ -41,4 +41,4 @@ export const Business = () => {
   );
 };
 
-export default Business
+export default Business;
