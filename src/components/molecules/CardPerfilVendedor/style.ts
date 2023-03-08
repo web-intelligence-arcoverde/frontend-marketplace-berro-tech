@@ -22,6 +22,9 @@ export const HeaderCard = styled.header`
   border-bottom: solid 2px ${COLORS.light._02};
   padding: 25px 24px;
   align-items: center;
+  @media (max-width: ${BREAKPOINTS.sm}){
+    padding: 25px 0;
+  }
 `;
 export const ImagePerfil = styled(Image)`
   width: 90px;
@@ -58,21 +61,25 @@ export const CardSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 24px 24px 0 24px;
+  padding: 24px;
   border-bottom: solid 1px ${COLORS.light._02};
-  padding-bottom: 24px;
+
 
   :last-child {
     border-bottom: none;
     padding-bottom: 0;
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
+
+    padding-left: 0;
+
     :first-child {
       border-bottom: none;
       padding-bottom: none;
     }
     :last-child {
       padding-bottom: 24px;
+      padding-left: 24px;
     }
   }
   h5 {

@@ -10,6 +10,8 @@ export const ContainerMypublication = styled.div`
   background-color: ${COLORS.brand_light._04};
 
   @media (max-width: ${BREAKPOINTS.sm}) {
+    width: 100%;
+    padding: 0 20px;
     margin-top: 0;
     flex-direction: column;
     margin-bottom: 20px;
