@@ -91,10 +91,22 @@ export const ContainerTabs = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 780px;
-`
+`;
 // **********************************   Style da página de Id   *************************************
 
 export const Content = styled.div`
   display: flex;
   padding: 44px 100px;
+  gap: 32px;
+  @media (max-width: ${BREAKPOINTS.sm}){
+    padding: 0;
+  }
+
+`;
+
+export const InfoProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  gap: 32px;
 `;

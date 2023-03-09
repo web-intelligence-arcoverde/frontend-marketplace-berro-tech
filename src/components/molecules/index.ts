@@ -17,4 +17,4 @@ export { ModalAnimal } from "./ModalAnimal";
 export { PhotosAnimalMobile } from "./PhotosAnimalMobile";
 export { CardPerfilVendedor } from "./CardPerfilVendedor";
 export { AddFreeUser } from "./AddFreeUser";
-
+export {DescriptionProduct} from "./DescriptionProduct"

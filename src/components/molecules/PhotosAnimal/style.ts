@@ -6,7 +6,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  border: solid 2px ${COLORS.light._02};
+  border: solid 1.5px ${COLORS.light._02};
   border-radius: 5px;
   max-width: 700px;
   width: 100%;

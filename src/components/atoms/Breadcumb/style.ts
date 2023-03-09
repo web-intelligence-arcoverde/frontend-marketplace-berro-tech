@@ -3,36 +3,34 @@ import { COLORS } from "@/common";
 
 export const ListBreadcumb = styled.ol`
   display: flex;
-  padding: 16px;
-  overflow-x: auto;
-
-`
+  padding: 16px 24px;
+  overflow-x: hidden;
+`;
 export const ItemBreadcumb = styled.li`
-a{
-  font-weight: 400;
-  font-size: 14px;
-  color: ${COLORS.gray._01};
-
- 
-
-}
-img{
-  margin: 0 14px;
-}
-:last-child{
-  a{
-
-    pointer-events: none;
-
-    font-weight: 500;
-    color: ${COLORS.sub_brand._02};
+  display: flex;
+  align-items: center;
+  a {
+    font-weight: 400;
+    font-size: 14px;
+    color: ${COLORS.gray._01};
+    width: max-content;
   }
-  img{
-    display: none;
+  img {
+    margin: 0 14px;
   }
-}
+  :last-child {
+    a {
+      pointer-events: none;
 
-::first-letter{
+      font-weight: 500;
+      color: ${COLORS.sub_brand._02};
+    }
+    img {
+      display: none;
+    }
+  }
+
+  ::first-letter {
     text-transform: uppercase;
   }
-`
+`;
