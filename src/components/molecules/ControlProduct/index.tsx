@@ -1,7 +1,13 @@
+import { Button, ProductCard } from "@/components";
 import { formatMoney } from "@/hooks/useFormatMoney";
 import { CardProductProps } from "@/types";
-import { ProductCard } from "../ProductCard";
-import { CardPrice, ContainerControlProduct, MiniCard, Price } from "./style";
+import {
+  CardButtons,
+  CardPrice,
+  ContainerControlProduct,
+  MiniCard,
+  Price,
+} from "./style";
 
 export const ControlProduct = ({
   name,
@@ -46,6 +52,10 @@ export const ControlProduct = ({
           </Price>
         </CardPrice>
       </MiniCard>
+      <CardButtons>
+        <Button onClick={() => {}}>Editar</Button>
+        <Button onClick={() => {}}>Remover</Button>
+      </CardButtons>
     </ContainerControlProduct>
   );
 };

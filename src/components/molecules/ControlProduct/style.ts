@@ -10,8 +10,8 @@ export const ContainerControlProduct = styled.div`
 export const MiniCard = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1.5px solid ${COLORS.light._02};
-  border-top: none;
+  border-left: 1.5px solid ${COLORS.light._02};
+  border-right: 1.5px solid ${COLORS.light._02};
 `;
 
 export const CardPrice = styled.div`
@@ -38,9 +38,30 @@ export const Price = styled.div`
       color: ${COLORS.brand_dark._04};
     }
   }
-  h6{
+  h6 {
     font-size: 16px;
     font-weight: 400;
     color: ${COLORS.gray._04};
+  }
+`;
+
+export const CardButtons = styled.div`
+  display: flex;
+  gap: 20px;
+  border: 1.5px solid ${COLORS.light._02};
+  padding:0 24px;
+
+  Button {
+    font-weight: 500;
+    
+    margin: 20px 0;
+    :first-child {
+      background-color: ${COLORS.light._02};
+      color: ${COLORS.gray._02};
+    }
+    :last-child {
+      background-color: rgba(211, 60, 37, 0.1);
+      color: ${COLORS.auxiliary.red_negative};
+    }
   }
 `;
