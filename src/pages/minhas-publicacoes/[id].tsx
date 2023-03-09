@@ -1,4 +1,10 @@
-import { DescriptionProduct, Header, PhotosAnimal } from "@/components";
+import {
+  ControlProduct,
+  DescriptionProduct,
+  Header,
+  PhotosAnimal,
+  ProductCard,
+} from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import { Container, Main } from "@/style";
 import { Content, InfoProduct } from "@/style/minhas-publicacoes-style";
@@ -18,6 +24,18 @@ const Product = () => {
               birthDate={"30/11/2020"}
             />
           </InfoProduct>
+          <ControlProduct
+                 id={0}
+                 breed={"Senepol"}
+                 quantity={3}
+                 name={"Garrote Senepol"}
+                 city={"Campina Grande"}
+                 state={"Paraiba"}
+                 country={"Brazil"}
+                 sex={"Macho"}
+                 age={"Garrote"}
+                 rank={"Genética"}
+                 maxWidth={'100%'} />
         </Content>
       </Main>
     </Container>
