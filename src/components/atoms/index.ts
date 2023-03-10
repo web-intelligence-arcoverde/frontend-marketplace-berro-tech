@@ -13,4 +13,5 @@ export { Breadcrumb } from './Breadcumb';
 export { Accordion } from './Accordion'
 export { Checkbox } from './Checkbox'
 export { Select } from './Select'
+export { Dropdown } from './Dropdown'
 

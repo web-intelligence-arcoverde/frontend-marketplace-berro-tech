@@ -63,14 +63,7 @@ export const HeaderFilterMobile = styled.div`
   color: ${COLORS.gray._02};
   }
 `
-export const ButtonModal = styled.button`
-width: fit-content;
-background: transparent;
-border: none;
-padding: 20px;
-border-left: 1.5px solid ${COLORS.light._02};
-border-bottom: 1.5px solid ${COLORS.light._02};
-`
+
 
 export const Badge = styled.div`
 font-weight: 500;

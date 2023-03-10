@@ -8,7 +8,7 @@ export const Container = styled.header`
   align-items: center;
   padding: 12px 100px;
   background-color: ${COLORS.brand_light._01};
-  @media (max-width:${BREAKPOINTS.sm}){
+  @media (max-width:${BREAKPOINTS.md}){
     padding:40px 16px 20px 20px
   }
 `;

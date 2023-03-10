@@ -1,30 +1,41 @@
 import { ICONS } from '@/assets'
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import Image from "next/image"
 import { Container, InputSearchBar, InputContainer, CheckboxContainer } from "./style"
 import { Checkbox } from '@/components/atoms'
 
+interface BussinessfilterProps {
+  data:any;
+  returnFilters:(e:string[])=>void
+}
 
-export const BussinessFilter = () => {
-
-  const [form, setForm] = useState({
-    mainSearch: '',
-  });
+export const BussinessFilter = ({ data, returnFilters }: BussinessfilterProps) => {
+  const [checkedArray, setCheckedArray] = useState<string[]>([]);
+  const [filteredData, setFilterData] = useState<[]>(data.filters);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setForm((prevForm) => ({ ...prevForm, [name]: value }));
+    const newData = data?.filters?.filter((item: string) => (
+      item?.toLowerCase()?.includes(event?.target?.value?.toLowerCase())
+    ))
+    setFilterData(newData)
   };
+  const handleCheck = (e: { name: string, value: boolean }) => {
+    if (e.value) {
+      setCheckedArray(prevArray => [...prevArray, e.name])
+    } else {
+      setCheckedArray(prevArray => prevArray.filter(item => item !== e.name))
+    }
+    return e
+  }
+  
+  useEffect(()=>{
+    returnFilters(checkedArray)
+  },[checkedArray,returnFilters])
 
-  const submitForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setForm({ mainSearch: '' });
-    console.log('Formulário enviado', form);
-  };
 
 
   return (
     <Container>
-      <InputContainer onSubmit={submitForm}>
+      <InputContainer >
         <Image src={ICONS.Search} alt="Icone de pesquisa" />
         <InputSearchBar
           name={"mainSearch"}
@@ -34,7 +45,9 @@ export const BussinessFilter = () => {
         />
       </InputContainer>
       <CheckboxContainer>
-        <Checkbox name='arcoverde-pe' />
+        {filteredData?.map((item: string) => (
+          <Checkbox key={item} onCheck={(e) => handleCheck(e)} name={item} />
+        ))}
       </CheckboxContainer>
     </Container>
   )

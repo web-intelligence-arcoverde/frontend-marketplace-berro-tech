@@ -2,7 +2,6 @@ import { COLORS } from "@/common";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 32px 16px;
   display: flex;
   gap: 20px;
   label{
@@ -13,4 +12,5 @@ export const Container = styled.div`
 `
 export const CheckboxInput = styled.input`
 padding: 2px;
+margin-bottom: 48px;
 `
