@@ -19,10 +19,9 @@ export const ButtonAddProduct = styled(CardButton)`
   color: ${COLORS.light._05};
   width: 100%;
 
-  @media (max-width: ${BREAKPOINTS.lg}){
+  @media (max-width: ${BREAKPOINTS.lg}) {
     display: none;
   }
-
 `;
 export const TabsContainer = styled.div`
   display: flex;
@@ -51,12 +50,24 @@ export const TabsContainer = styled.div`
     width: 100%;
     .tabs {
       width: 100%;
-      border-bottom:none;
-      padding-bottom:0;
+      border-bottom: none;
+      padding-bottom: 0;
       .tab {
         width: 100%;
         text-align: center;
       }
     }
+  }
+`;
+
+export const StyleDesktop = styled.div`
+  @media (max-width: ${BREAKPOINTS.md}) {
+    display: none;
+  }
+`;
+export const StyleMobile = styled.div`
+  display: none;
+  @media (max-width: ${BREAKPOINTS.md}) {
+    display: block;
   }
 `;

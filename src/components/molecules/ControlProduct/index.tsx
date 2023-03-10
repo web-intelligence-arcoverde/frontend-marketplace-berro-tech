@@ -1,7 +1,7 @@
-import { Button, PriceProduct, ProductCard } from "@/components";
+import {  ButtonsControl, PriceProduct, ProductCard } from "@/components";
+import { StyleDesktop } from "@/style";
 import { CardProductProps } from "@/types";
-
-import { CardButtons, ContainerControlProduct } from "./style";
+import {  ContainerControlProduct } from "./style";
 
 export const ControlProduct = ({
   name,
@@ -14,14 +14,7 @@ export const ControlProduct = ({
   sex,
   rank,
 }: CardProductProps) => {
-  const ButtonsControl = () => {
-    return (
-      <CardButtons>
-        <Button onClick={() => {}}>Editar</Button>
-        <Button onClick={() => {}}>Remover</Button>
-      </CardButtons>
-    );
-  };
+ 
   return (
     <ContainerControlProduct>
       <ProductCard
@@ -38,7 +31,9 @@ export const ControlProduct = ({
         maxWidth="100%"
       />
       <PriceProduct value={11000} installments={20} />
-      <ButtonsControl/>
+      <StyleDesktop>
+        <ButtonsControl />
+      </StyleDesktop>
     </ContainerControlProduct>
   );
 };

@@ -8,7 +8,7 @@ export const ContainerDescriptionProduct = styled.div`
   max-width: 700px;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
-    margin: 56px 0;
+    margin: 20px 0;
   }
 `;
 

@@ -4,13 +4,15 @@ import {
   Header,
   PhotosAnimal,
   Notification,
-  PriceProduct,
+  ButtonsControl,
 } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
-import { Container, Main } from "@/style";
+import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
 import { Content, InfoProduct } from "@/style/minhas-publicacoes-style";
 
 const Product = () => {
+  let description =
+    "Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.";
   return (
     <Container>
       <Main>
@@ -18,12 +20,14 @@ const Product = () => {
         <Content>
           <InfoProduct>
             <PhotosAnimal arrayPhoto={BussinessHighlightProductMock} />
-            <DescriptionProduct
-              description="Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet."
-              genetics={"Puro de Origem"}
-              weight={"588,9"}
-              birthDate={"30/11/2020"}
-            />
+            <StyleDesktop>
+              <DescriptionProduct
+                description={description}
+                genetics={"Puro de Origem"}
+                weight={"588,9"}
+                birthDate={"30/11/2020"}
+              />
+            </StyleDesktop>
           </InfoProduct>
           <InfoProduct>
             <ControlProduct
@@ -39,9 +43,20 @@ const Product = () => {
               rank={"Genética"}
               maxWidth={"100%"}
             />
+            <StyleMobile>
+              <DescriptionProduct
+                description={description}
+                genetics={"Puro de Origem"}
+                weight={"588,9"}
+                birthDate={"30/11/2020"}
+              />
+            </StyleMobile>
 
             <Notification />
           </InfoProduct>
+          <StyleMobile>
+            <ButtonsControl />
+          </StyleMobile>
         </Content>
       </Main>
     </Container>

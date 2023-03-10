@@ -19,6 +19,9 @@ export const CardToogle = styled.div`
   justify-content: space-between;
   border-top: solid 1.5px ${COLORS.light._02};
   padding-top: 24px;
+  @media (max-width:769px){
+  
+  }
 `;
 
 export const ButtonToogle = styled.button<{ isOn: boolean }>`

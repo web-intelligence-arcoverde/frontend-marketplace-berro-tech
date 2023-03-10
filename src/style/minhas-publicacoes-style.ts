@@ -100,8 +100,12 @@ export const Content = styled.div`
   gap: 32px;
   background-color: ${COLORS.light._05};
   @media (max-width: ${BREAKPOINTS.sm}) {
+    
     padding: 0;
     flex-direction: column;
+    @media (max-width: ${BREAKPOINTS.sm}){
+    gap: 0;
+  }
   }
 `;
 
@@ -110,4 +114,5 @@ export const InfoProduct = styled.div`
   flex-direction: column;
   max-width: 700px;
   gap: 32px;
+ 
 `;

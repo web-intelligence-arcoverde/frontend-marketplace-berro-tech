@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 
 SwiperCore.use([Pagination]);
 
-export const PhotosAnimalMobile = ({allPhotos}:any) => {
+export const PhotosAnimalMobile = ({ allPhotos }: any) => {
   return (
     <ContainerModalMobile>
       <Swiper
@@ -17,7 +17,7 @@ export const PhotosAnimalMobile = ({allPhotos}:any) => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        {allPhotos.map((item:any, index :number) => (
+        {allPhotos.map((item: any, index: number) => (
           <SwiperSlide key={index}>
             <SlideImage src={item.photo} alt="foto animal" />
           </SwiperSlide>

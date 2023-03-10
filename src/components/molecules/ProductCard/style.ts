@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 
-export const Card = styled.div<{maxWidth?:string}>`
+export const Card = styled.div<{ maxWidth?: string }>`
   background: ${COLORS.light._05};
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width:${(props)=> props.maxWidth ? props.maxWidth: '380px' };
+  max-width: ${(props) => (props.maxWidth ? props.maxWidth : "380px")};
   min-width: 300px;
   border-radius: 5px;
   cursor: pointer;
@@ -25,6 +25,9 @@ export const Flex = styled.div`
   align-items: center;
   border: solid 1.5px ${COLORS.light._02};
   border-bottom: none;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    border-top: none;
+  }
 
   p {
     color: ${COLORS.gray._02};

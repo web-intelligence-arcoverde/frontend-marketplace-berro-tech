@@ -1,4 +1,4 @@
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import styled from "styled-components";
 
 export const ContainerPrice = styled.div`
@@ -6,6 +6,9 @@ export const ContainerPrice = styled.div`
   flex-direction: column;
   border-left: 1.5px solid ${COLORS.light._02};
   border-right: 1.5px solid ${COLORS.light._02};
+  @media (max-width:${BREAKPOINTS.md}){
+    border-bottom: 1.5px solid ${COLORS.light._02};
+  }
 `;
 
 export const CardPrice = styled.div`
