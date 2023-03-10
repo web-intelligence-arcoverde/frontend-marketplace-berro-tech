@@ -3,7 +3,7 @@ import {
   DescriptionProduct,
   Header,
   PhotosAnimal,
-  ProductCard,
+  Notification,
 } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import { Container, Main } from "@/style";
@@ -15,7 +15,7 @@ const Product = () => {
       <Main>
         <Header />
         <Content>
-          <InfoProduct style={{ display: "flex", flexDirection: "column" }}>
+          <InfoProduct>
             <PhotosAnimal arrayPhoto={BussinessHighlightProductMock} />
             <DescriptionProduct
               description="Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet."
@@ -24,18 +24,24 @@ const Product = () => {
               birthDate={"30/11/2020"}
             />
           </InfoProduct>
-          <ControlProduct
-                 id={0}
-                 breed={"Senepol"}
-                 quantity={3}
-                 name={"Garrote Senepol"}
-                 city={"Campina Grande"}
-                 state={"Paraiba"}
-                 country={"Brazil"}
-                 sex={"Macho"}
-                 age={"Garrote"}
-                 rank={"Genética"}
-                 maxWidth={'100%'} />
+          <InfoProduct>
+            <ControlProduct
+              id={0}
+              breed={"Senepol"}
+              quantity={3}
+              name={"Garrote Senepol"}
+              city={"Campina Grande"}
+              state={"Paraiba"}
+              country={"Brazil"}
+              sex={"Macho"}
+              age={"Garrote"}
+              rank={"Genética"}
+              maxWidth={"100%"}
+              value={11000}
+              installments={20}
+            />
+            <Notification />
+          </InfoProduct>
         </Content>
       </Main>
     </Container>

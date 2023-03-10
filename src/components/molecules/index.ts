@@ -18,3 +18,4 @@ export { CardPerfilVendedor } from "./CardPerfilVendedor";
 export { AddFreeUser } from "./AddFreeUser";
 export { DescriptionProduct } from "./DescriptionProduct";
 export { ControlProduct } from "./ControlProduct";
+export { Notification } from "./Notification";

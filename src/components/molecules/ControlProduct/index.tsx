@@ -1,6 +1,7 @@
 import { Button, ProductCard } from "@/components";
-import { formatMoney } from "@/hooks/useFormatMoney";
+import { useFormatMoney } from "@/hooks/useFormatMoney";
 import { CardProductProps } from "@/types";
+import { CardProductCompletedProps } from "@/types/ICardProductProps";
 import {
   CardButtons,
   CardPrice,
@@ -19,9 +20,9 @@ export const ControlProduct = ({
   age,
   sex,
   rank,
-}: CardProductProps) => {
-  let value = 11000;
-  let installments = 20;
+  value,
+  installments,
+}: CardProductCompletedProps) => {
   let totalValue = value / installments;
 
   return (
@@ -44,10 +45,10 @@ export const ControlProduct = ({
           <h5>Preço</h5>
           <Price>
             <h3>
-              {formatMoney(value)} <span>cada</span>
+              {useFormatMoney(value)} <span>cada</span>
             </h3>
             <h6>
-              ou {installments} x {formatMoney(totalValue)}
+              ou {installments} x {useFormatMoney(totalValue)}
             </h6>
           </Price>
         </CardPrice>
