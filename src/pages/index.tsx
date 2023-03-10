@@ -18,8 +18,8 @@ const MyBussinessHighlight = dynamic(
 const Home = () => {
   return (
     <Container>
+      <Header />
       <Main>
-        <Header />
         <MyPresentation />
         <PresentationInfo />
         <MyBussinessHighlight />

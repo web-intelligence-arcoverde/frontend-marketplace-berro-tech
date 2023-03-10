@@ -15,8 +15,8 @@ import {
 const About = () => {
   return (
     <Container>
+      <Header />
       <Main>
-        <Header />
         <Presentation>
           <ContainerPresentation>
             <h1>

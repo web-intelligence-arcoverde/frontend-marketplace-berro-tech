@@ -6,11 +6,13 @@ export const Presentation = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: ${COLORS.light._05};
 `;
 
 export const ListSections = styled.ul`
   display: flex;
   flex-direction: column;
+  background-color: ${COLORS.light._05};
 `;
 export const PrintImage = styled(Image)`
   width: 100%;

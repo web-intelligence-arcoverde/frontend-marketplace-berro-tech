@@ -20,8 +20,8 @@ import { Container, Main } from '@/style';
 export const Business = () => {
   return (
     <Container>
-      <Main>
       <Header />
+      <Main>
       <BussinesContainer>
         <BussinessAside />
         <ProductContainer>

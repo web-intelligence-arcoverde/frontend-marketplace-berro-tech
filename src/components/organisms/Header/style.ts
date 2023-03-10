@@ -1,15 +1,21 @@
-import styled from 'styled-components';
-import {BREAKPOINTS, COLORS} from '@/common';
+import styled from "styled-components";
+import { BREAKPOINTS, COLORS } from "@/common";
 
-export const Container = styled.header`
+export const ContainerHeader = styled.header`
+  width: 100%;
+  background-color: ${COLORS.brand_light._01};
+`;
+
+export const MainHeader = styled.div`
+  margin: 0 auto;
+  max-width: ${BREAKPOINTS.xxg};
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 12px 100px;
-  background-color: ${COLORS.brand_light._01};
-  @media (max-width:${BREAKPOINTS.sm}){
-    padding:40px 16px 20px 20px
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    padding: 40px 16px 20px 20px;
   }
 `;
 

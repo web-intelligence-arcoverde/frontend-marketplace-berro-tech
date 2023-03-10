@@ -1,12 +1,13 @@
-import {HeaderLogoContainer, HeaderNavigation} from '@/components';
-
-import {Container} from './style';
+import { HeaderLogoContainer, HeaderNavigation } from "@/components";
+import { ContainerHeader, MainHeader } from "./style";
 
 export const Header = () => {
   return (
-    <Container>
-      <HeaderLogoContainer />
-      <HeaderNavigation />
-    </Container>
+    <ContainerHeader>
+      <MainHeader>
+        <HeaderLogoContainer />
+        <HeaderNavigation />
+      </MainHeader>
+    </ContainerHeader>
   );
 };

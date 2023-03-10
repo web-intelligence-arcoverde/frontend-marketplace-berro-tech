@@ -7,7 +7,7 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
   width: 100%;
   align-items: ${(props) => (props.empty ? "center" : "flex-start")};
   justify-content: space-between;
-  background-color: ${COLORS.brand_light._04};
+  background-color: ${COLORS.light._05};
   padding: 50px 100px;
 
   @media (max-width: ${BREAKPOINTS.sm}) {

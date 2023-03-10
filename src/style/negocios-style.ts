@@ -5,7 +5,7 @@ export const BussinesContainer = styled.section`
   display: flex;
   justify-content: space-between;
   gap: 60px;
-
+  background-color: ${COLORS.light._05};
   width: 100%;
   margin: 0 auto;
   padding: 45px 100px;

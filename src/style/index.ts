@@ -12,7 +12,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 `;
 export const ButtonAddProduct = styled(CardButton)`
   background-color: ${COLORS.sub_brand._02};

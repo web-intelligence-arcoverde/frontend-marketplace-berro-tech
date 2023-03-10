@@ -15,8 +15,8 @@ const Product = () => {
     "Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.";
   return (
     <Container>
+      <Header />
       <Main>
-        <Header />
         <Content>
           <InfoProduct>
             <PhotosAnimal arrayPhoto={BussinessHighlightProductMock} />
