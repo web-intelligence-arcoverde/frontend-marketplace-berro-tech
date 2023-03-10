@@ -98,6 +98,7 @@ export const Content = styled.div`
   display: flex;
   padding: 44px 100px;
   gap: 32px;
+  background-color: ${COLORS.light._05};
   @media (max-width: ${BREAKPOINTS.sm}) {
     padding: 0;
     flex-direction: column;

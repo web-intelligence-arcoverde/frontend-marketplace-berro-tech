@@ -4,6 +4,7 @@ import {
   Header,
   PhotosAnimal,
   Notification,
+  PriceProduct,
 } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import { Container, Main } from "@/style";
@@ -37,9 +38,8 @@ const Product = () => {
               age={"Garrote"}
               rank={"Genética"}
               maxWidth={"100%"}
-              value={11000}
-              installments={20}
             />
+
             <Notification />
           </InfoProduct>
         </Content>

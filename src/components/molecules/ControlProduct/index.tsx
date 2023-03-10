@@ -1,14 +1,7 @@
-import { Button, ProductCard } from "@/components";
-import { useFormatMoney } from "@/hooks/useFormatMoney";
+import { Button, PriceProduct, ProductCard } from "@/components";
 import { CardProductProps } from "@/types";
-import { CardProductCompletedProps } from "@/types/ICardProductProps";
-import {
-  CardButtons,
-  CardPrice,
-  ContainerControlProduct,
-  MiniCard,
-  Price,
-} from "./style";
+
+import { CardButtons, ContainerControlProduct } from "./style";
 
 export const ControlProduct = ({
   name,
@@ -20,11 +13,15 @@ export const ControlProduct = ({
   age,
   sex,
   rank,
-  value,
-  installments,
-}: CardProductCompletedProps) => {
-  let totalValue = value / installments;
-
+}: CardProductProps) => {
+  const ButtonsControl = () => {
+    return (
+      <CardButtons>
+        <Button onClick={() => {}}>Editar</Button>
+        <Button onClick={() => {}}>Remover</Button>
+      </CardButtons>
+    );
+  };
   return (
     <ContainerControlProduct>
       <ProductCard
@@ -40,23 +37,8 @@ export const ControlProduct = ({
         rank={rank}
         maxWidth="100%"
       />
-      <MiniCard>
-        <CardPrice>
-          <h5>Preço</h5>
-          <Price>
-            <h3>
-              {useFormatMoney(value)} <span>cada</span>
-            </h3>
-            <h6>
-              ou {installments} x {useFormatMoney(totalValue)}
-            </h6>
-          </Price>
-        </CardPrice>
-      </MiniCard>
-      <CardButtons>
-        <Button onClick={() => {}}>Editar</Button>
-        <Button onClick={() => {}}>Remover</Button>
-      </CardButtons>
+      <PriceProduct value={11000} installments={20} />
+      <ButtonsControl/>
     </ContainerControlProduct>
   );
 };

@@ -13,7 +13,3 @@ export interface CardProductProps {
   rank: string;
   maxWidth?: string;
 }
-export interface CardProductCompletedProps extends CardProductProps {
-  value: number;
-  installments: number;
-}
