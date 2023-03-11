@@ -13,7 +13,7 @@ import { useEffect } from "react";
 
 SwiperCore.use([Navigation, Pagination]);
 
-export const ModalAnimal = ({ handleModal, allPhotos }: any) => {
+export const SlideProduct = ({ handleModal, allPhotos }: any) => {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "Escape") {

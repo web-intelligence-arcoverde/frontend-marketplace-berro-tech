@@ -1,4 +1,4 @@
-import { Breadcrumb, ModalAnimal } from "@/components";
+import { Breadcrumb, SlideProduct } from "@/components";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
 import { PhotosAnimalMobile } from "../PhotosAnimalMobile";
@@ -46,7 +46,7 @@ export const PhotosAnimal = (arrayPhoto: any) => {
         {MinPhotos > 5 && <SeeMore onClick={handleModal}>{RestPhotos}</SeeMore>}
       </ListPhotos>
       <PhotosAnimalMobile allPhotos={allPhotos} />
-      {modal && <ModalAnimal allPhotos={allPhotos} handleModal={handleModal} />}
+      {modal && <SlideProduct allPhotos={allPhotos} handleModal={handleModal} />}
     </Container>
   );
 };

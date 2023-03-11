@@ -12,7 +12,7 @@ export { SearchMobile } from "./SearchMobile";
 export { BussinessFilter } from "./BussinessFilter";
 export { DropDown } from "./DropDown";
 export { PhotosAnimal } from "./PhotosAnimal";
-export { ModalAnimal } from "./ModalAnimal";
+export { SlideProduct } from "./SlideProduct";
 export { PhotosAnimalMobile } from "./PhotosAnimalMobile";
 export { CardPerfilVendedor } from "./CardPerfilVendedor";
 export { AddFreeUser } from "./AddFreeUser";
