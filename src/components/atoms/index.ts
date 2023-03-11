@@ -15,6 +15,6 @@ export { Checkbox } from "./Checkbox";
 export { Select } from "./Select";
 export { PriceProduct } from "./PriceProduct";
 export { ButtonsControl } from "./ButtonsControl";
-export { Dropdown } from './Dropdown'
-export {ModalFilters} from './ModalFilters'
-
+export { Dropdown } from "./Dropdown";
+export { ModalFilters } from "./ModalFilters";
+export { Modal } from "./Modal";

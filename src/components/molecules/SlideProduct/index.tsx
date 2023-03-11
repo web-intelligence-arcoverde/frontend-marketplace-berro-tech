@@ -1,15 +1,11 @@
-import {
-  CardSlide,
-  ContainerModal,
-  ModalBackground,
-  SlideImage,
-} from "./style";
+import { CardSlide, SlideImage } from "./style";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect } from "react";
+import { Modal } from "@/components/atoms";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -30,8 +26,7 @@ export const SlideProduct = ({ handleModal, allPhotos }: any) => {
 
   return (
     <>
-      <ModalBackground onClick={handleModal} />
-      <ContainerModal>
+      <Modal onClick={handleModal}>
         <CardSlide>
           <Swiper
             slidesPerView={1}
@@ -48,7 +43,7 @@ export const SlideProduct = ({ handleModal, allPhotos }: any) => {
             ))}
           </Swiper>
         </CardSlide>
-      </ContainerModal>
+      </Modal>
     </>
   );
 };

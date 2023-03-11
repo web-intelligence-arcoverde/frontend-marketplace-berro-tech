@@ -3,27 +3,6 @@ import { COLORS } from "@/common";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const ModalBackground = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.7;
-  z-index: 20;
-  cursor: pointer;
-`;
-
-export const ContainerModal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  z-index: 30;
- 
-`;
 export const CardSlide = styled.div`
   max-width: 700px;
   max-height: 600px;
