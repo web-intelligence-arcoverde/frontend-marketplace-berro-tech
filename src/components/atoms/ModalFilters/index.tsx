@@ -1,18 +1,17 @@
 import useModalOverflow from "@/hooks/useModalOverflow";
 import { ModalContent, ModalWrapper } from "./style";
 
-type ModalProps = {
+type ModalFiltersProps = {
   isOpen: boolean;
   handleToggle: () => void;
   children: React.ReactNode;
 };
-export const Modal: React.FC<ModalProps> = ({
+export const ModalFilters = ({
   isOpen,
   handleToggle,
   children,
-}) => {
-
-  useModalOverflow(isOpen)
+}: ModalFiltersProps) => {
+  useModalOverflow(isOpen);
 
   return (
     <>

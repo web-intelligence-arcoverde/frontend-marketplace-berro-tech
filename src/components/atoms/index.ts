@@ -16,4 +16,5 @@ export { Select } from "./Select";
 export { PriceProduct } from "./PriceProduct";
 export { ButtonsControl } from "./ButtonsControl";
 export { Dropdown } from './Dropdown'
+export {ModalFilters} from './ModalFilters'
 

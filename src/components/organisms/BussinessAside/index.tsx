@@ -1,10 +1,10 @@
-import { Accordion, Dropdown,BussinessFilter } from "@/components"
+import { Accordion, Dropdown,BussinessFilter, ModalFilters } from "@/components"
 import { Container, BadgeContainer, Badge, HeaderFilterMobile, FilterButtonContainer, FiltersHeaderContainer, FiltersIconTitle, FiltersIconTitleHeader, ArrowImage, CleanFilterButton, ApplyFilterButton } from "./style"
 import { ICONS, } from "@/assets"
 import Image from "next/image"
 import { BusinessFiltersMock, DropdownMock } from '@/mock'
 import { useMediaQuery } from "@/hooks/useMediaQuery"
-import { Modal } from "@/components/atoms/Modal"
+
 import { useState } from "react"
 
 export const BussinessAside = () => {
@@ -47,7 +47,7 @@ export const BussinessAside = () => {
           <BadgeContainer>
             {[1, 3, 2, 4, 5, 4, 7, 4, 7].map((item, index) => <Badge key={index}>Paraiba</Badge>)}
           </BadgeContainer>
-          <Modal isOpen={isOpen} handleToggle={handleToggle}>
+          <ModalFilters isOpen={isOpen} handleToggle={handleToggle}>
             <HeaderFilterMobile>
               <h3>Filtros</h3>
               <FilterButtonContainer>
@@ -64,7 +64,7 @@ export const BussinessAside = () => {
                 <BussinessFilter returnFilters={(e)=>setFilters(e)} data={item} />
               </Accordion>
             ))}
-          </Modal>
+          </ModalFilters>
         </>
       }
     </Container>
