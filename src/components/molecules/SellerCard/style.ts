@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {COLORS} from '@/common/index';
+import {BREAKPOINTS, COLORS} from '@/common/index';
 import Image from 'next/image';
 
 export const Container = styled.div`
@@ -8,10 +8,18 @@ export const Container = styled.div`
   background: ${COLORS.light._05};
   border: 1.5px solid ${COLORS.light._02};
   border-radius: 5px;
+
+  @media (max-width:${BREAKPOINTS.md}){
+    width: 100%;
+    border-radius: 0;
+  }
 `;
 
 export const ImageSeller = styled(Image)`
   width: 100%;
   border-radius: 5px 5px 0 0;
   object-fit: cover;
+  @media (max-width:${BREAKPOINTS.md}){
+    border-radius: 0;
+  }
 `;

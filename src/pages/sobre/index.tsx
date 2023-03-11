@@ -11,7 +11,8 @@ import {
   PrintImage,
   PrintImageMobile,
   StyledImageMobile,
-} from "../../style/sobre.styles";
+} from "../../style/sobre-styles";
+
 const About = () => {
   return (
     <Container>

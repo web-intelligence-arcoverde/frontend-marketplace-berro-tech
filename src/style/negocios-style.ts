@@ -28,8 +28,21 @@ export const ProductContainer = styled.div`
   @media (max-width:${BREAKPOINTS.largeScreen}) {
     min-width: auto;
   }
-
 `
+
+export const SelectContainer = styled.div`
+  width: 30%;
+  display: flex;
+  height: min-content;
+  justify-content: end;
+  background: transparent;
+  border-bottom: 1px solid ${COLORS.light._02};
+  padding-bottom: 8px;
+  @media (max-width: ${BREAKPOINTS.md}) {
+    display: none;
+  }
+`;
+
 export const ProductHeaderContainer = styled.div`
   display: flex;
 

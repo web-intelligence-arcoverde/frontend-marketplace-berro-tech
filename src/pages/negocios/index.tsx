@@ -12,6 +12,7 @@ import {
   ProductCardContainer,
   TabsContainer,
   ProductHeaderContainer,
+  SelectContainer,
 } from '@/style/negocios-style';
 import { BussinessHighlightProductMock, Bussinestabs } from '@/mock';
 
@@ -20,8 +21,8 @@ import { Container, Main } from '@/style';
 export const Business = () => {
   return (
     <Container>
+      <Header />
       <Main>
-        <Header />
         <BussinesContainer>
           <BussinessAside />
           <ProductContainer>
@@ -29,7 +30,9 @@ export const Business = () => {
               <TabsContainer>
                 <Tabs tabs={Bussinestabs} />
               </TabsContainer>
-              <Select />
+              <SelectContainer>
+                <Select />
+              </SelectContainer>
             </ProductHeaderContainer>
             <ProductCardContainer>
               {BussinessHighlightProductMock.map((item, index) => (
