@@ -18,7 +18,10 @@ export const ItemBreadcumb = styled.li`
   img {
     margin: 0 14px;
   }
-  :last-child {
+  :last-child{
+    display: none;
+  }
+  :nth-last-child(2) {
     a {
       pointer-events: none;
 

@@ -8,9 +8,9 @@ export const Breadcrumb = () => {
   const router = useRouter();
   const pathnames = router.pathname.split("/").filter((x: string) => x);
 
-  const { id } = router.query;
+  const { product } = router.query;
   const newArrayPathNames = pathnames.map((item) =>
-    item === "[id]" ? id : item
+    item === "[product]" ? product : item
   );
 
   return (

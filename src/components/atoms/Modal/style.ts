@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const ContainerModal = styled.div`
   position: fixed;
@@ -7,6 +16,8 @@ export const ContainerModal = styled.div`
   transform: translate(-50%, -50%);
   padding: 20px;
   z-index: 30;
+  opacity: 0;
+  animation: ${fadeIn} 0.3s ease-in-out forwards;
 `;
 export const ModalBackground = styled.div`
   position: fixed;

@@ -25,7 +25,7 @@ const MyPublication = () => {
   const productsEmpty = products.length > 0 ? true : false;
 
   const handleAnimalClick = (animal: CardProductProps) => {
-    router.push(`/minhas-publicacoes/${animal.name}`);
+    router.push(`/minhas-publicacoes/${animal.name}/${animal.id}`);
   };
 
   return (
