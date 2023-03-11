@@ -4,25 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useEffect } from "react";
 import { Modal } from "@/components/atoms";
+import useModalOverflow from "@/hooks/useModalOverflow";
 
 SwiperCore.use([Navigation, Pagination]);
 
 export const SlideProduct = ({ handleModal, allPhotos }: any) => {
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        handleModal();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [handleModal]);
+  useModalOverflow(handleModal,handleModal);
 
   return (
     <>

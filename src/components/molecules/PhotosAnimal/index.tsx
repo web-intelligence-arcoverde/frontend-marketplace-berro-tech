@@ -17,17 +17,6 @@ export const PhotosAnimal = (arrayPhoto: any) => {
   const handleModal = () => {
     setModal(!modal);
   };
-  useEffect(() => {
-    const body = document.querySelector("body");
-    if (modal && body) {
-      body.classList.add("modal-open");
-    }
-    return () => {
-      if (body) {
-        body.classList.remove("modal-open");
-      }
-    };
-  }, [modal]);
 
   return (
     <Container>
