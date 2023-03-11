@@ -8,7 +8,7 @@ export const BussinesContainer = styled.section`
 
   width: 100%;
   margin: 0 auto;
-  padding: 45px 100px;
+  padding: 45px 112px;
   max-width: ${BREAKPOINTS.xxg};
   @media (max-width:${BREAKPOINTS.md}) {
     flex-direction: column;
@@ -19,7 +19,7 @@ export const BussinesContainer = styled.section`
 export const ProductContainer = styled.div`
   display: flex;
   width: 70%;
-  min-width: 776px;
+  min-width: 800px;
   flex-direction: column;
   @media (max-width:${BREAKPOINTS.md}) {
    width: 100%;
@@ -36,7 +36,7 @@ export const ProductHeaderContainer = styled.div`
 `
 
 export const ProductCardContainer = styled.div`
-  margin-top: 48px;
+  margin-top: 16px;
   width: 100%;
   display: flex;
   justify-content: space-between;
