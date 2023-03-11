@@ -53,7 +53,7 @@ function getBreakpointValue(breakpoint: Breakpoints) {
     case 'ipadPro':
       return 1160;
     case 'largeScreen':
-      return 1200;
+      return 1250;
     case 'specific':
       return 1325;
     case 'lg':

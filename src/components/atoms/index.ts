@@ -15,3 +15,5 @@ export { Checkbox } from "./Checkbox";
 export { Select } from "./Select";
 export { PriceProduct } from "./PriceProduct";
 export { ButtonsControl } from "./ButtonsControl";
+export { Dropdown } from './Dropdown'
+

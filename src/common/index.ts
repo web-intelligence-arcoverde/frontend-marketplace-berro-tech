@@ -10,7 +10,7 @@ export const BREAKPOINTS = {
   md: '992px',
   big: '1060px',
   ipadPro: '1160px',
-  largeScreen: '1200px',
+  largeScreen: '1250px',
   specific: '1325px',
   lg: '1200px',
   lgg: '1300px',

@@ -83,7 +83,7 @@ export const IconLupa = styled(Image)<CardSearchProps>`
 export const ButtonSearchMobile = styled.button`
   display: none;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${BREAKPOINTS.md}) {
     display: block !important;
     background-color: ${COLORS.sub_brand._02};
     color: ${COLORS.light._02};

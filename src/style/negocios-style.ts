@@ -8,7 +8,7 @@ export const BussinesContainer = styled.section`
   background-color: ${COLORS.light._05};
   width: 100%;
   margin: 0 auto;
-  padding: 45px 100px;
+  padding: 45px 112px;
   max-width: ${BREAKPOINTS.xxg};
   @media (max-width:${BREAKPOINTS.md}) {
     flex-direction: column;
@@ -19,9 +19,14 @@ export const BussinesContainer = styled.section`
 export const ProductContainer = styled.div`
   display: flex;
   width: 70%;
+  min-width: 800px;
   flex-direction: column;
   @media (max-width:${BREAKPOINTS.md}) {
    width: 100%;
+   padding: 0 20px;
+  }
+  @media (max-width:${BREAKPOINTS.largeScreen}) {
+    min-width: auto;
   }
 
 `
@@ -31,7 +36,7 @@ export const ProductHeaderContainer = styled.div`
 `
 
 export const ProductCardContainer = styled.div`
-  margin-top: 48px;
+  margin-top: 16px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -42,6 +47,7 @@ export const ProductCardContainer = styled.div`
   }
   @media (max-width: ${BREAKPOINTS.md}) {
     justify-content: center;
+    margin-top: 28px;
   }
 
 `
@@ -51,7 +57,6 @@ export const TabsContainer = styled.div`
   flex-direction: column;
   width: 70%;
   .tabs{
-    padding: 0 20px;
     border-bottom: 1px solid ${COLORS.light._02};
     display: flex;
     padding-bottom:16px;
@@ -73,7 +78,10 @@ export const TabsContainer = styled.div`
   @media (max-width:${BREAKPOINTS.md}) {
       width: 100%;
       .tabs{
+        padding: 0;
+        border-radius: 7px;
         width: 100%;
+        border: 1px solid ${COLORS.light._02};
         .tab{
           width: 100%;
           text-align: center;

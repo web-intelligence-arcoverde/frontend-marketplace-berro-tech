@@ -6,6 +6,10 @@ export const NavigationHeader = [
   { name: "mensagens", icon: ICONS.Message },
   { name: "alerta", icon: ICONS.Alert },
 ];
+export const DropdownMock = [
+  "Mais Recente",
+  "Mais Antigo",
+];
 
 export const MocksCard: any[] = [
   {
@@ -48,37 +52,73 @@ export const BusinessFiltersMock = [
     icon: ICONS?.LocationGray,
     iconName: "localização",
     title: "Estado",
+    filters: [
+      "Acre",
+      "Alagoas",
+      "Amapá",
+      "Amazonas",
+      "Bahia",
+      "Ceará",
+      "Distrito Federal",
+      "Espírito Santo",
+      "Goiás",
+      "Maranhão",
+      "Mato Grosso",
+      "Mato Grosso do Sul",
+      "Minas Gerais",
+      "Pará",
+      "Paraíba",
+      "Paraná",
+      "Pernambuco",
+      "Piauí",
+      "Rio de Janeiro",
+      "Rio Grande do Norte",
+      "Rio Grande do Sul",
+      "Rondônia",
+      "Roraima",
+      "Santa Catarina",
+      "São Paulo",
+      "Sergipe",
+      "Tocantins"
+    ],
+
   },
   {
     icon: ICONS?.Classification,
     iconName: "Classificação",
     title: "Classificação",
+    filters: ['Reposição', 'Genética',],
   },
   {
     icon: ICONS?.Race,
     iconName: "Raça",
     title: "Raça",
+    filters: ['Boer', 'Anglo-Nubiana', 'Saanen', 'Alpina', 'Toggenburg', 'Moxotó', 'Canindé', 'Marota', 'Repartida', 'Graúna', 'Azul', 'Cariri', 'Guanambi', 'Jarmelista', 'Somalis brasileira', 'Anglo-bad', 'Parda brasileira', 'Serrana', 'Seridó', 'Borborema', 'Campolina'],
+
   },
   {
     icon: ICONS?.Gender,
     iconName: "Sexo",
     title: "Sexo",
+    filters: ['Macho', 'Fêmea'],
   },
   {
     icon: ICONS?.Date,
     iconName: "Data",
     title: "Idade",
+    filters: ['Vaca', 'Bezerro', 'Garrote', 'Novilha', 'Aspiração'],
   },
   {
     icon: ICONS?.Quantity,
     iconName: "Quantidade",
     title: "Quantidade",
+    filters: ['Unidade', 'Lote'],
   },
 ];
 
 export const BussinessHighlightProductMock: CardProductProps[] = [
   {
-    id:1,
+    id: 1,
     photo: IMAGES.GadoOne,
     breed: "senepol",
     quantity: 3,
@@ -91,7 +131,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
-    id:2,
+    id: 2,
     photo: IMAGES.GadoTwo,
     breed: "senepol",
     quantity: 3,
@@ -104,7 +144,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
-    id:3,
+    id: 3,
     photo: IMAGES.GadoThree,
     breed: "senepol",
     quantity: 3,
@@ -117,7 +157,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
-    id:4,
+    id: 4,
     photo: IMAGES.GadoFour,
     breed: "senepol",
     quantity: 3,
@@ -130,7 +170,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
-    id:5,
+    id: 5,
     photo: IMAGES.GadoFive,
     breed: "senepol",
     quantity: 3,
@@ -143,7 +183,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     rank: "Genética",
   },
   {
-    id:6,
+    id: 6,
     photo: IMAGES.GadoSix,
     breed: "senepol",
     quantity: 3,

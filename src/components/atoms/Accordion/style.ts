@@ -23,7 +23,6 @@ export const AccordionHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid ${COLORS.light._02};
   @media (max-width:${BREAKPOINTS.md}) {
   }
   

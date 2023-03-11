@@ -15,9 +15,11 @@ export const InputContainer = styled.form`
   display: flex;
   gap: 20px;
   background: ${COLORS.light._05};
+  margin-bottom: 32px;
   padding: 10px;
   width: 100%;
-  border-left: solid 2px ${COLORS.brand_light._02};
+  border-top: solid 2px ${COLORS.light._02};
+  border-bottom: solid 2px ${COLORS.light._02};
   @media (max-width: ${BREAKPOINTS.md}) {
   }
 `;
