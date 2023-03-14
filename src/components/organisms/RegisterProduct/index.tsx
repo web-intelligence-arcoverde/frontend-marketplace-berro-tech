@@ -1,12 +1,16 @@
+import { LayoutRegisterConfig } from "@/style";
 import { useState } from "react";
-import Information from "./Information";
-import Location from "./Location";
-import Photos from "./Photos";
+import {
+  RegisterInformation,
+  RegisterLocation,
+  RegisterPhotos,
+} from "@/components";
 
 export const RegisterProduct = () => {
   const [formValues, setFormValues] = useState({});
   const [currentStep, setCurrentStep] = useState(1);
-
+  const initialValues = {};
+  const steps = [RegisterInformation, RegisterPhotos, RegisterLocation];
   const handleNext = () => {
     setCurrentStep(currentStep + 1);
   };
@@ -16,21 +20,41 @@ export const RegisterProduct = () => {
   };
 
   return (
-    <div>
+    <LayoutRegisterConfig>
+      <header>
+        <div>
+          <h6>Passo 1</h6>
+          <h4>Informações</h4>
+        </div>
+        <div>
+          <h6>Passo 2</h6>
+          <h4>Fotos e vídeos</h4>
+        </div>
+        <div>
+          <h6>Passo 1</h6>
+          <h4>Localização</h4>
+        </div>
+      </header>
       {currentStep === 1 && (
-        <Information formValues={formValues} setFormValues={setFormValues} />
+        <RegisterInformation
+          formValues={formValues}
+          setFormValues={setFormValues}
+        />
       )}
       {currentStep === 2 && (
-        <Photos formValues={formValues} setFormValues={setFormValues} />
+        <RegisterPhotos formValues={formValues} setFormValues={setFormValues} />
       )}
       {currentStep === 3 && (
-        <Location formValues={formValues} setFormValues={setFormValues} />
+        <RegisterLocation
+          formValues={formValues}
+          setFormValues={setFormValues}
+        />
       )}
       {currentStep < 3 ? (
         <button onClick={handleNext}>Próximo</button>
       ) : (
         <button onClick={handleSubmit}>Enviar</button>
       )}
-    </div>
+    </LayoutRegisterConfig>
   );
 };
