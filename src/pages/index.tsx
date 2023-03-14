@@ -4,6 +4,7 @@ import {
   Footer,
   MainSearch,
   SecuritySection,
+  RegisterProduct,
 } from "@/components";
 import { Main, Container } from "@/style";
 import dynamic from "next/dynamic";
@@ -27,6 +28,7 @@ const Home = () => {
         <SecuritySection />
         <Footer />
       </Main>
+      <RegisterProduct/>
     </Container>
   );
 };

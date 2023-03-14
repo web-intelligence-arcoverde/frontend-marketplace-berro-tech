@@ -5,6 +5,7 @@ export { BussinessHighlight } from "./BussinessHighlight";
 export { BussinessAside } from "./BussinessAside";
 export { HeaderNavigation } from "./HeaderNavigation/HeaderNavigation";
 export { Footer } from "./Footer";
-export { MainSearch } from "./MainSearch"
-export { SecuritySection } from "./SecuritySection"
-export { MenuNavigationMobile } from './MenuNavigationMobile'
+export { MainSearch } from "./MainSearch";
+export { SecuritySection } from "./SecuritySection";
+export { MenuNavigationMobile } from "./MenuNavigationMobile";
+export { RegisterProduct } from "./RegisterProduct";
