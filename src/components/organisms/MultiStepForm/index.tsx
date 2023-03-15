@@ -1,4 +1,9 @@
-import { LayoutRegisterConfig } from "./style";
+import {
+  ContentStep,
+  HeaderMultiSteps,
+  LayoutRegisterConfig,
+  TitleStep,
+} from "./style";
 import { useState } from "react";
 
 interface Step {
@@ -10,15 +15,20 @@ interface Step {
 
 interface MultiStepFormProps {
   steps: Step[];
+  titleStep: string;
+  step?: number;
   onSubmit: (formValues: any) => void;
 }
 
 export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   steps,
   onSubmit,
+  titleStep,
+  step,
 }) => {
   const [formValues, setFormValues] = useState({});
   const [currentStep, setCurrentStep] = useState(1);
+  step = currentStep;
 
   const handleNext = () => {
     setCurrentStep(currentStep + 1);
@@ -34,7 +44,7 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
 
   return (
     <LayoutRegisterConfig>
-      <header>
+      <HeaderMultiSteps>
         {steps.map((step) => (
           <div
             className={currentStep === step.id ? "active" : ""}
@@ -47,18 +57,16 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
             <h4>{step.name}</h4>
           </div>
         ))}
-      </header>
-      {currentStep === 1 &&
-        steps[currentStep - 1].component({ formValues, setFormValues })}
-      {currentStep === 2 &&
-        steps[currentStep - 1].component({ formValues, setFormValues })}
-      {currentStep === 3 &&
-        steps[currentStep - 1].component({ formValues, setFormValues })}
-      {currentStep < steps.length ? (
-        <button onClick={handleNext}>Próximo</button>
-      ) : (
-        <button onClick={handleSubmit}>Enviar</button>
-      )}
+      </HeaderMultiSteps>
+      <ContentStep>
+        <TitleStep>{titleStep}</TitleStep>
+        {currentStep === 1 &&
+          steps[currentStep - 1].component({ formValues, setFormValues })}
+        {currentStep === 2 &&
+          steps[currentStep - 1].component({ formValues, setFormValues })}
+        {currentStep === 3 &&
+          steps[currentStep - 1].component({ formValues, setFormValues })}
+      </ContentStep>
     </LayoutRegisterConfig>
   );
 };

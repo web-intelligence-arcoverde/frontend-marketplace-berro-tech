@@ -9,6 +9,7 @@ export const RegisterProduct = () => {
   return (
     <>
       <MultiStepForm
+        titleStep="Sobre o produto"
         steps={StepRegisterProduct}
         onSubmit={() => {
           handleSubmit;
