@@ -61,10 +61,13 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
       <ContentStep>
         <TitleStep>{titleStep}</TitleStep>
         {currentStep === 1 &&
+          typeof steps[currentStep - 1].component === "function" &&
           steps[currentStep - 1].component({ formValues, setFormValues })}
         {currentStep === 2 &&
+          typeof steps[currentStep - 1].component === "function" &&
           steps[currentStep - 1].component({ formValues, setFormValues })}
         {currentStep === 3 &&
+          typeof steps[currentStep - 1].component === "function" &&
           steps[currentStep - 1].component({ formValues, setFormValues })}
       </ContentStep>
     </LayoutRegisterConfig>
