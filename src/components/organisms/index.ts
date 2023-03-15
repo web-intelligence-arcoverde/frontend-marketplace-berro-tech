@@ -1,3 +1,4 @@
+import { MultiStepForm } from './MultiStepForm/index';
 export { Header } from "./Header";
 export { Presentation } from "./Presentation";
 export { PresentationInfo } from "./PresentationInfo";
@@ -9,4 +10,5 @@ export { MainSearch } from "./MainSearch";
 export { SecuritySection } from "./SecuritySection";
 export { MenuNavigationMobile } from "./MenuNavigationMobile";
 export { RegisterProduct } from "./RegisterProduct";
+export {MultiStepForm} from './MultiStepForm'
 

@@ -1,4 +1,5 @@
 import { ICONS, IMAGES } from "@/assets";
+import { RegisterInformation, RegisterLocation, RegisterPhotos } from "@/components";
 import { CardProductProps } from "@/types";
 
 export const NavigationHeader = [
@@ -6,10 +7,7 @@ export const NavigationHeader = [
   { name: "mensagens", icon: ICONS.Message },
   { name: "alerta", icon: ICONS.Alert },
 ];
-export const DropdownMock = [
-  "Mais Recente",
-  "Mais Antigo",
-];
+export const DropdownMock = ["Mais Recente", "Mais Antigo"];
 
 export const MocksCard: any[] = [
   {
@@ -79,40 +77,60 @@ export const BusinessFiltersMock = [
       "Santa Catarina",
       "São Paulo",
       "Sergipe",
-      "Tocantins"
+      "Tocantins",
     ],
-
   },
   {
     icon: ICONS?.Classification,
     iconName: "Classificação",
     title: "Classificação",
-    filters: ['Reposição', 'Genética',],
+    filters: ["Reposição", "Genética"],
   },
   {
     icon: ICONS?.Race,
     iconName: "Raça",
     title: "Raça",
-    filters: ['Boer', 'Anglo-Nubiana', 'Saanen', 'Alpina', 'Toggenburg', 'Moxotó', 'Canindé', 'Marota', 'Repartida', 'Graúna', 'Azul', 'Cariri', 'Guanambi', 'Jarmelista', 'Somalis brasileira', 'Anglo-bad', 'Parda brasileira', 'Serrana', 'Seridó', 'Borborema', 'Campolina'],
-
+    filters: [
+      "Boer",
+      "Anglo-Nubiana",
+      "Saanen",
+      "Alpina",
+      "Toggenburg",
+      "Moxotó",
+      "Canindé",
+      "Marota",
+      "Repartida",
+      "Graúna",
+      "Azul",
+      "Cariri",
+      "Guanambi",
+      "Jarmelista",
+      "Somalis brasileira",
+      "Anglo-bad",
+      "Parda brasileira",
+      "Serrana",
+      "Seridó",
+      "Borborema",
+      "Campolina",
+    ],
   },
   {
     icon: ICONS?.Gender,
     iconName: "Sexo",
     title: "Sexo",
-    filters: ['Macho', 'Fêmea'],
+    filters: ["Macho", "Fêmea"],
   },
   {
     icon: ICONS?.Date,
     iconName: "Data",
     title: "Idade",
-    filters: ['Vaca', 'Bezerro', 'Garrote', 'Novilha', 'Aspiração'],
+    filters: ["Vaca", "Bezerro", "Garrote", "Novilha", "Aspiração"],
   },
   {
     icon: ICONS?.Quantity,
     iconName: "Quantidade",
     title: "Quantidade",
-    filters: ['Unidade', 'Lote'],
+    filters: ["Unidade", "Lote"],
   },
 ];
 
@@ -230,8 +248,6 @@ export const Bussinestabs = [
   },
 ];
 
-
-
 export const MocksAbout = [
   {
     title: "Sobre nós",
@@ -288,4 +304,10 @@ export const MockNavigation = [
   { name: "Início", link: "/" },
   { name: "Negócios", link: "/negocios" },
   { name: "Sobre nós", link: "/sobre" },
+];
+
+export const StepRegisterProduct = [
+  { id: 1, name: "Informações", step: "Passo 1", component: RegisterInformation },
+  { id: 2, name: "Fotos", step: "Passo 2", component: RegisterPhotos },
+  { id: 3, name: "Localização", step: "Passo 3", component: RegisterLocation },
 ];

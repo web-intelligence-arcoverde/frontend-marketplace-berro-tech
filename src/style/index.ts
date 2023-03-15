@@ -71,33 +71,3 @@ export const StyleMobile = styled.div`
     display: block;
   }
 `;
-
-export const LayoutRegisterConfig = styled.main`
-  display: flex;
-  flex-direction: column;
-  width: 800px;
-  border-radius: 5px 5px 0 0;
-  background: ${COLORS.light._05};
-  padding: 16px 24px;
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    h6 {
-      color: ${COLORS.gray._04};
-      font-size: 14px;
-      font-weight: 400;
-    }
-    h4 {
-      margin-top: 8px;
-      color: ${COLORS.gray._03};
-      font-size: 16px;
-      font-weight: 400;
-      width: auto;
-    }
-    *{
-      width: 50%;
-    }
-  }
-`;
