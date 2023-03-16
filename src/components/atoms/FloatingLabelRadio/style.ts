@@ -20,8 +20,7 @@ export const Input = styled.input<{ active: boolean; open: boolean }>`
   height: 85px;
   width: 100%;
   max-width: 460px;
-  border-radius: 5px;
-  border-radius: ${(props) => (props.active ? "5px 5px 0 0" : "5px")};
+  border-radius: ${(props) => (props.open ? "5px 5px 0 0" : "5px")};
   padding: 16px;
   color: ${COLORS.gray._01};
   font-weight: 500;
@@ -29,7 +28,7 @@ export const Input = styled.input<{ active: boolean; open: boolean }>`
   border: solid 2px ${COLORS.light._02};
   padding-top: ${(props) => (props.active ? "16px" : "40px")};
   background: ${(props) =>
-    props.active ? `${COLORS.brand_light._04}` : `${COLORS.light._04}`};
+    props.open ? `${COLORS.brand_light._04}` : `${COLORS.light._04}`};
   cursor: pointer;
   ::placeholder {
     font-weight: 400;
@@ -55,6 +54,6 @@ export const CardOptions = styled.div`
   background: ${COLORS.light._04};
 
   input{
-    margin-right: 16px;
+    margin-right: 16px ;
   }
 `;

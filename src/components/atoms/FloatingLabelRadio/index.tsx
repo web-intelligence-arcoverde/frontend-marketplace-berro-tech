@@ -14,13 +14,17 @@ export const FloatingLabelRadio = ({
 }: FloatingLabelInputProps) => {
   const [value, setValue] = useState("");
   const [openForm, setOpenForm] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
 
   const handleClick = () => {
     setOpenForm(!openForm);
+  };
+
+  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value);
+    setValue(event.target.defaultValue)
+    setOpenForm(false);
   };
 
   return (
@@ -42,7 +46,14 @@ export const FloatingLabelRadio = ({
         <CardOptions>
           {labels.map((item, index) => (
             <label key={index}>
-              <input name={item} type="radio" />
+              <input
+                name="radio-options"
+                type="radio"
+                value={item}
+                checked={selectedOption === item}
+                onChange={handleOptionChange}
+                onClick={()=>{handleOptionChange}}
+              />
               {item}
             </label>
           ))}
