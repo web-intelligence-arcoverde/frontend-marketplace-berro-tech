@@ -1,34 +1,53 @@
 import { useState } from "react";
-import { FormField, Radio, Label } from "./style";
+import { CardOptions, FormField, Input, Label } from "./style";
 
 interface FloatingLabelInputProps {
   placeholder: string;
   id: string | undefined;
-  name: string;
+  labels: string[];
 }
 
 export const FloatingLabelRadio = ({
   placeholder,
+  labels,
   ...props
 }: FloatingLabelInputProps) => {
   const [value, setValue] = useState("");
+  const [openForm, setOpenForm] = useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
+  const handleClick = () => {
+    setOpenForm(!openForm);
+  };
+
   return (
     <FormField>
-      <Radio
+      <Input
+        open={openForm}
         active={!value}
         value={value}
-        onChange={handleInputChange}
         placeholder={placeholder}
+        type={"text"}
         {...props}
+        onClick={handleClick}
       />
       <Label active={!value} htmlFor={props.id}>
         {placeholder}
       </Label>
+
+      {openForm && (
+        <CardOptions>
+          {labels.map((item, index) => (
+            <label key={index}>
+              <input name={item} type="radio" />
+              {item}
+            </label>
+          ))}
+        </CardOptions>
+      )}
     </FormField>
   );
 };

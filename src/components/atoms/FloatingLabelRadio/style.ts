@@ -16,18 +16,21 @@ export const Label = styled.label<{ active: boolean }>`
   transition: all 0.2s ease-in-out;
   pointer-events: none;
 `;
-export const Radio = styled.input<{ active: boolean }>`
+export const Input = styled.input<{ active: boolean; open: boolean }>`
   height: 85px;
   width: 100%;
   max-width: 460px;
   border-radius: 5px;
+  border-radius: ${(props) => (props.active ? "5px 5px 0 0" : "5px")};
   padding: 16px;
   color: ${COLORS.gray._01};
   font-weight: 500;
   font-size: 16px;
   border: solid 2px ${COLORS.light._02};
   padding-top: ${(props) => (props.active ? "16px" : "40px")};
-  background: ${COLORS.light._04};
+  background: ${(props) =>
+    props.active ? `${COLORS.brand_light._04}` : `${COLORS.light._04}`};
+  cursor: pointer;
   ::placeholder {
     font-weight: 400;
     color: ${COLORS.gray._03};
@@ -39,5 +42,19 @@ export const Radio = styled.input<{ active: boolean }>`
     color: ${COLORS.sub_brand._02};
     font-size: 14px;
     font-weight: 500;
+  }
+`;
+export const CardOptions = styled.div`
+  border: solid 2px ${COLORS.light._02};
+  border-radius: 0 0 5px 5px;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 24px 16px;
+  background: ${COLORS.light._04};
+
+  input{
+    margin-right: 16px;
   }
 `;
