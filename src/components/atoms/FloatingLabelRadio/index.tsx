@@ -1,5 +1,7 @@
+import { ICONS } from "@/assets";
+import Image from "next/image";
 import { useState } from "react";
-import { CardOptions, FormField, Input, Label } from "./style";
+import { ArrowDown, CardOptions, FormField, Input, Label } from "./style";
 
 interface FloatingLabelInputProps {
   placeholder: string;
@@ -16,14 +18,18 @@ export const FloatingLabelRadio = ({
   const [openForm, setOpenForm] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
-
   const handleClick = () => {
     setOpenForm(!openForm);
+  };
+  const clearField = () => {
+    setValue("");
+    setSelectedOption("");
+    setOpenForm(false);
   };
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
-    setValue(event.target.defaultValue)
+    setValue(event.target.defaultValue);
     setOpenForm(false);
   };
 
@@ -38,6 +44,7 @@ export const FloatingLabelRadio = ({
         {...props}
         onClick={handleClick}
       />
+
       <Label active={!value} htmlFor={props.id}>
         {placeholder}
       </Label>
@@ -52,12 +59,19 @@ export const FloatingLabelRadio = ({
                 value={item}
                 checked={selectedOption === item}
                 onChange={handleOptionChange}
-                onClick={()=>{handleOptionChange}}
+                onClick={() => {
+                  handleOptionChange;
+                }}
               />
               {item}
             </label>
           ))}
         </CardOptions>
+      )}
+      {openForm ? (
+        <Image onClick={clearField} src={ICONS.Excluir} alt="excluir" />
+      ) : (
+        <ArrowDown onClick={handleClick} src={ICONS.Up} alt="excluir" />
       )}
     </FormField>
   );

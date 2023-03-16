@@ -1,13 +1,20 @@
 import { COLORS } from "@/common";
+import Image from "next/image";
 import styled from "styled-components";
 
 export const FormField = styled.div`
   position: relative;
   margin-bottom: 1rem;
+  img {
+    position: absolute;
+    right: 16px;
+    top: 32px;
+    cursor: pointer;
+  }
 `;
 
 export const Label = styled.label<{ active: boolean }>`
-  display: ${(props) => (props.active ? "none" : "block")};
+  display: ${(props) => (props.active ? "none" : "flex")};
   position: absolute;
   top: 0;
   left: 0;
@@ -53,7 +60,11 @@ export const CardOptions = styled.div`
   padding: 24px 16px;
   background: ${COLORS.light._04};
 
-  input{
-    margin-right: 16px ;
+  input {
+    margin-right: 16px;
   }
+`;
+
+export const ArrowDown = styled(Image)`
+  transform: rotate(180deg);
 `;
