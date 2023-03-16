@@ -9,6 +9,7 @@ export const LayoutRegisterConfig = styled.main`
   border-radius: 5px 5px 0 0;
   background: ${COLORS.light._05};
   padding: 24px 0;
+
 `;
 
 export const HeaderMultiSteps = styled.header`

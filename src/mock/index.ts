@@ -319,6 +319,8 @@ export const StepRegisterProduct = [
   { id: 3, name: "Localização", step: "Passo 3", component: RegisterLocation },
 ];
 
+export const TypeAnimal = ["Caprino", "Ovino"];
+
 export const Caprino = [
   "SRD",
   "Boer",
