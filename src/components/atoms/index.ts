@@ -18,3 +18,5 @@ export { ButtonsControl } from "./ButtonsControl";
 export { Dropdown } from "./Dropdown";
 export { ModalFilters } from "./ModalFilters";
 export { Modal } from "./Modal";
+export { FloatingLabelInput } from "./FloatingLabelInput";
+export { FloatingLabelRadio } from "./FloatingLabelRadio";

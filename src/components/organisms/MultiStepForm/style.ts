@@ -41,15 +41,10 @@ export const HeaderMultiSteps = styled.header`
     }
   }
 `;
-export const TitleStep = styled.h2`
-  font-size: 16px;
-  color: ${COLORS.gray._01};
-  font-weight: 500;
-  margin-bottom: 24px;
-`;
 
 export const ContentStep = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px;
+  width: 100%;
 `;

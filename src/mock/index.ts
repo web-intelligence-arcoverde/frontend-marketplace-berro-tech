@@ -1,5 +1,7 @@
 import { ICONS, IMAGES } from "@/assets";
-import { RegisterInformation, RegisterLocation, RegisterPhotos } from "@/components";
+import RegisterInformation from "@/components/molecules/RegisterInformation";
+import RegisterLocation from "@/components/molecules/RegisterLocation";
+import RegisterPhotos from "@/components/molecules/RegisterPhotos";
 import { CardProductProps } from "@/types";
 
 export const NavigationHeader = [
@@ -307,7 +309,12 @@ export const MockNavigation = [
 ];
 
 export const StepRegisterProduct = [
-  { id: 1, name: "Informações", step: "Passo 1", component: RegisterInformation },
+  {
+    id: 1,
+    name: "Informações",
+    step: "Passo 1",
+    component: RegisterInformation,
+  },
   { id: 2, name: "Fotos", step: "Passo 2", component: RegisterPhotos },
   { id: 3, name: "Localização", step: "Passo 3", component: RegisterLocation },
 ];

@@ -19,6 +19,3 @@ export { AddFreeUser } from "./AddFreeUser";
 export { DescriptionProduct } from "./DescriptionProduct";
 export { ControlProduct } from "./ControlProduct";
 export { Notification } from "./Notification";
-export {RegisterInformation} from './RegisterInformation'
-export {RegisterLocation} from './RegisterLocation'
-export {RegisterPhotos} from './RegisterPhotos'
