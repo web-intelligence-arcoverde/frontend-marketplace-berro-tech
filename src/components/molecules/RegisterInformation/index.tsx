@@ -2,12 +2,16 @@ import { FloatingLabelInput, FloatingLabelRadio } from "@/components";
 import { Ovino, TypeAnimal } from "@/mock";
 import { ContainerForm, FirstColumn, TitleStep } from "./style";
 
-const RegisterInformation = ({ formValues, setFormValues }: any) => {
+const RegisterInformation = () => {
   return (
     <ContainerForm>
       <FirstColumn>
         <TitleStep>Sobre o produto</TitleStep>
-        <FloatingLabelInput id="name" name="name" placeholder="Nome" />
+        <FloatingLabelInput
+          id="name"
+          name="name"
+          placeholder="Nome"
+        />
         <FloatingLabelRadio
           placeholder={"Animal"}
           id="animal"

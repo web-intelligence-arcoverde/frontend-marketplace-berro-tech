@@ -9,6 +9,7 @@ interface FloatingLabelInputProps {
 
 export const FloatingLabelInput = ({
   placeholder,
+
   ...props
 }: FloatingLabelInputProps) => {
   const [value, setValue] = useState("");
