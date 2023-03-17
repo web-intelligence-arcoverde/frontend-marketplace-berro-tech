@@ -17,20 +17,10 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   steps,
   onSubmit,
 }) => {
-  const [formValues, setFormValues] = useState({});
   const [currentStep, setCurrentStep] = useState(1);
-
-  const handleNext = () => {
-    setCurrentStep(currentStep + 1);
-  };
 
   const clickStep = (stepNumber: number) => {
     setCurrentStep(stepNumber);
-    console.log("teste", currentStep);
-  };
-
-  const handleSubmit = () => {
-    onSubmit(formValues);
   };
 
   const ComponentStep = steps[currentStep - 1].component;

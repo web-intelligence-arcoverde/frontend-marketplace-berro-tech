@@ -1,7 +1,7 @@
-import {UserState} from './types';
+import { UserState } from "./types";
 
 export const initialState: UserState = {
-  token: '',
-  lastSearchs:[],
-  registerProduct:[]
+  token: "",
+  lastSearchs: [],
+  registerProduct: [{ name: "", animal: "", breed: "" }],
 };
