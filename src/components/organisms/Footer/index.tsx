@@ -10,6 +10,7 @@ import {
   ContainerFooter,
   Flex,
   CardLogo,
+  MaxContainer,
 } from "./style";
 
 export const Footer = () => {
@@ -21,26 +22,28 @@ export const Footer = () => {
   };
 
   return (
-    <ContainerFooter>
-      <CardLogo>
-        <LogoCopyright />
-        <Image
-          id="arrow-up"
-          onClick={goTop}
-          src={ICONS.ArrowUp}
-          alt="icone de seta pra cima"
-        />
-      </CardLogo>
-      <CardFlex>
-        <CardCopyright>
-          <Link href={"#"}>&#169; {currentYear} BerroTech </Link>
-          <Link href={"#"}>Política de prinvacidade</Link>
-          <Link href={"#"}>Develop by WebIntelligence</Link>
-        </CardCopyright>
-        <Flex>
-          <FooterMenuNavigation />
-        </Flex>
-      </CardFlex>
-    </ContainerFooter>
+    <MaxContainer>
+      <ContainerFooter>
+        <CardLogo>
+          <LogoCopyright />
+          <Image
+            id="arrow-up"
+            onClick={goTop}
+            src={ICONS.ArrowUp}
+            alt="icone de seta pra cima"
+          />
+        </CardLogo>
+        <CardFlex>
+          <CardCopyright>
+            <Link href={"#"}>&#169; {currentYear} BerroTech </Link>
+            <Link href={"#"}>Política de prinvacidade</Link>
+            <Link href={"#"}>Develop by WebIntelligence</Link>
+          </CardCopyright>
+          <Flex>
+            <FooterMenuNavigation />
+          </Flex>
+        </CardFlex>
+      </ContainerFooter>
+    </MaxContainer>
   );
 };

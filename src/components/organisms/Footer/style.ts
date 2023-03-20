@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import { COLORS, BREAKPOINTS } from "@/common";
 
-export const ContainerFooter = styled.footer`
+export const MaxContainer = styled.footer`
+  background-color: ${COLORS.light._04};
+  width: 100%;
+`;
+
+export const ContainerFooter = styled.div`
   display: flex;
   flex-direction: column;
   padding: 66px 100px 26px 100px;
-  background-color: ${COLORS.light._04};
   gap: 16px;
   min-height: 200px;
+  margin: 0 auto;
+  max-width: ${BREAKPOINTS.xxg};
   @media (max-width: ${BREAKPOINTS.sm}) {
     padding: 60px 0;
     height: auto;
