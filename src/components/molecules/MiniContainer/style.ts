@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BREAKPOINTS, COLORS } from "@/common";
 
 export const Container = styled.div`
-  border: solid 1px ${COLORS.light._02};
+  border: solid 1.5px ${COLORS.light._02};
   border-radius: 5px;
   padding-bottom: 24px;
   width: 500px;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAKPOINTS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import Image from "next/image";
 
 export const Main = styled.main`
@@ -8,11 +8,14 @@ export const Main = styled.main`
   height: 100vh;
   max-width: ${BREAKPOINTS.xg};
   margin: 0 auto;
+  background-color: ${COLORS.light._05};
+
   @media (max-width: ${BREAKPOINTS.sm}) {
     flex-direction: column;
   }
 `;
 export const StyleImage = styled(Image)`
+  height: 100vh;
   @media (max-width: ${BREAKPOINTS.sm}) {
     display: none;
   }
@@ -23,10 +26,10 @@ export const StyleImageMobile = styled.div`
     display: block;
     width: 100%;
 
-   img{
-    width: 100%;
-    object-fit: cover;
-   }
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 `;
 
