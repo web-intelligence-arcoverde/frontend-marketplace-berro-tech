@@ -1,18 +1,18 @@
-import Avatar from "./avatar.png";
-import BackgroundPresentation from "./background-presentation.png";
-import GadoOne from "./gado-1.png";
-import GadoTwo from "./gado-2.png";
-import GadoThree from "./gado-3.png";
-import GadoFour from "./gado-4.png";
-import GadoFive from "./gado-5.png";
-import GadoSix from "./gado-6.png";
-import ManField from "./man-field.png";
-import ManFieldMobile from "./man-field-mobile.png";
-import Seller from "./seller-image.png";
-import PrintPublishing from "./print-screen-publishing.png";
-import PrintProduct from "./print-screen-product.png";
-import PrintPublishingMobile from "./print-screen-publishing-mobile.png";
-import PrintProductMobile from "./print-screen-product-mobile.png";
+import Avatar from "./avatar.webp";
+import BackgroundPresentation from "./background-presentation.webp";
+import GadoOne from "./gado-1.webp";
+import GadoTwo from "./gado-2.webp";
+import GadoThree from "./gado-3.webp";
+import GadoFour from "./gado-4.webp";
+import GadoFive from "./gado-5.webp";
+import GadoSix from "./gado-6.webp";
+import ManField from "./man-field.webp";
+import ManFieldMobile from "./man-field-mobile.webp";
+import Seller from "./seller-image.webp";
+import PrintPublishing from "./print-screen-publishing.webp";
+import PrintProduct from "./print-screen-product.webp";
+import PrintPublishingMobile from "./print-screen-publishing-mobile.webp";
+import PrintProductMobile from "./print-screen-product-mobile.webp";
 
 export const IMAGES = {
   Avatar,

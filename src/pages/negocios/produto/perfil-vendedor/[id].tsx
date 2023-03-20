@@ -49,8 +49,8 @@ const SelleProfiler = () => {
             <SellerCard />
           </CardSellerProfile>
         </ContainerSellerProfile>
-        <Footer />
       </Main>
+      <Footer />
     </Container>
   );
 };

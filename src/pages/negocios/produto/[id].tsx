@@ -9,14 +9,22 @@ import {
 } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
-import { Content, ImagesProduct, InfoProduct, LinkNearProducts, NearProducts,NearProductsTitleContainer,NearProductsContainer } from "@/style/produto-style";
+import {
+  Content,
+  ImagesProduct,
+  InfoProduct,
+  LinkNearProducts,
+  NearProducts,
+  NearProductsTitleContainer,
+  NearProductsContainer,
+} from "@/style/produto-style";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 
 const Product = () => {
   const router = useRouter();
 
-  const {id}: ParsedUrlQuery = router.query;
+  const { id }: ParsedUrlQuery = router.query;
 
   console.log(id);
   const description =
@@ -52,18 +60,17 @@ const Product = () => {
               age={"Garrote"}
               rank={"Genética"}
               maxWidth={"100%"}
-              />
-              </InfoProduct>
-            <StyleMobile>
-              <DescriptionProduct
-                description={description}
-                genetics={"Puro de Origem"}
-                weight={"588,9"}
-                birthDate={"30/11/2020"}
-              />
-               <ProductSellerCard />
-            </StyleMobile>
-
+            />
+          </InfoProduct>
+          <StyleMobile>
+            <DescriptionProduct
+              description={description}
+              genetics={"Puro de Origem"}
+              weight={"588,9"}
+              birthDate={"30/11/2020"}
+            />
+            <ProductSellerCard />
+          </StyleMobile>
         </Content>
         <NearProductsContainer>
           <NearProductsTitleContainer>
@@ -73,13 +80,13 @@ const Product = () => {
             </StyleDesktop>
           </NearProductsTitleContainer>
           <NearProducts>
-          {BussinessHighlightProductMock.slice(3).map((item, index) => (
-                <ProductCard key={`${item.name} ${index}`} {...item} />
-              ))}
+            {BussinessHighlightProductMock.slice(3).map((item, index) => (
+              <ProductCard key={`${item.name} ${index}`} {...item} />
+            ))}
           </NearProducts>
         </NearProductsContainer>
-        <Footer />
       </Main>
+      <Footer />
     </Container>
   );
 };

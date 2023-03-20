@@ -5,7 +5,7 @@ import {
   ProductCard,
   Select,
   Tabs,
-} from '@/components';
+} from "@/components";
 import {
   BussinesContainer,
   ProductContainer,
@@ -13,10 +13,10 @@ import {
   TabsContainer,
   ProductHeaderContainer,
   SelectContainer,
-} from '@/style/negocios-style';
-import { BussinessHighlightProductMock, Bussinestabs } from '@/mock';
+} from "@/style/negocios-style";
+import { BussinessHighlightProductMock, Bussinestabs } from "@/mock";
 
-import { Container, Main } from '@/style';
+import { Container, Main } from "@/style";
 
 export const Business = () => {
   return (
@@ -41,8 +41,8 @@ export const Business = () => {
             </ProductCardContainer>
           </ProductContainer>
         </BussinesContainer>
-        <Footer />
       </Main>
+      <Footer />
     </Container>
   );
 };

@@ -51,8 +51,8 @@ const About = () => {
             </LayoutSection>
           ))}
         </ListSections>
-        <Footer />
       </Main>
+      <Footer />
     </Container>
   );
 };
