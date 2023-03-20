@@ -1,4 +1,4 @@
-import {  ButtonsControl, PriceProduct, ProductCard } from "@/components";
+import {  ButtonsControl, CardContact, PriceProduct, ProductCard } from "@/components";
 import { StyleDesktop } from "@/style";
 import { CardProductProps } from "@/types";
 import {  ContainerControlProduct } from "./style";
@@ -13,6 +13,7 @@ export const ControlProduct = ({
   age,
   sex,
   rank,
+  isProductPage,
 }: CardProductProps) => {
  
   return (
@@ -31,9 +32,13 @@ export const ControlProduct = ({
         maxWidth="100%"
       />
       <PriceProduct value={11000} installments={20} />
-      <StyleDesktop>
-        <ButtonsControl />
-      </StyleDesktop>
+        {isProductPage?
+        <CardContact />
+        :
+        <StyleDesktop>
+          <ButtonsControl />
+        </StyleDesktop>
+        }
     </ContainerControlProduct>
   );
 };

@@ -12,4 +12,5 @@ export interface CardProductProps {
   age: string;
   rank: string;
   maxWidth?: string;
+  isProductPage?: boolean;
 }
