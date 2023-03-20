@@ -30,8 +30,16 @@ const About = () => {
             </h6>
           </ContainerPresentation>
 
-          <StyleImage src={IMAGES.ManField} alt="homem no campo" />
-          <StyledImageMobile src={IMAGES.ManFieldMobile} alt="homem no campo" />
+          <StyleImage
+            objectFit="contain"
+            src={IMAGES.ManField}
+            alt="homem no campo"
+          />
+          <StyledImageMobile
+            objectFit="contain"
+            src={IMAGES.ManFieldMobile}
+            alt="homem no campo"
+          />
         </Presentation>
         <ListSections>
           {MocksAbout.map((section, index) => (
