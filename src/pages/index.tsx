@@ -25,8 +25,8 @@ const Home = () => {
         <MyBussinessHighlight />
         <MainSearch />
         <SecuritySection />
-        <Footer />
       </Main>
+      <Footer />
     </Container>
   );
 };

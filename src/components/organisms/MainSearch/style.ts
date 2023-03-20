@@ -1,6 +1,6 @@
-import { BREAKPOINTS, COLORS } from '@/common';
-import { InputUser } from "@/components"
-import styled from 'styled-components';
+import { BREAKPOINTS, COLORS } from "@/common";
+import { InputUser } from "@/components";
+import styled from "styled-components";
 
 export const Container = styled.section`
   background: ${COLORS.light._05};
@@ -14,52 +14,52 @@ export const Container = styled.section`
     align-items: flex-start;
     padding: 160px 20px;
   }
-
 `;
 export const SearchSideBar = styled.div`
-  width: 33% ;
+  width: 33%;
   max-width: 360px;
   display: flex;
   flex-direction: column;
-  h2{
+  h2 {
     font-weight: 600;
     font-size: 32px;
     color: ${COLORS.brand_dark._01};
   }
-  .tabs{
+  .tabs {
     width: 100%;
     margin-top: 32px;
-    .tab{
+    .tab {
       cursor: pointer;
       font-weight: 400;
       font-size: 16px;
       color: ${COLORS.gray._03};
       padding: 16px 24px;
     }
-    .active{
-      color:${COLORS.dark._03};
+    .active {
+      color: ${COLORS.dark._03};
       background: ${COLORS.sub_brand._03};
       border-left: 3px solid ${COLORS.sub_brand._02};
     }
   }
-  
+
   @media (max-width: ${BREAKPOINTS.md}) {
     width: 100%;
     max-width: none;
-    .tabs{
-    display:flex;
-    width: 100%;
-    overflow-x: auto;
-    .tab{
-      white-space: nowrap;
-      word-break: keep-all;
-      width: max-content;
-      padding: 16px 26px;
-      vertical-align: middle;
-    }
-   }
-  }
+    .tabs {
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
 
+      .tab {
+        white-space: nowrap;
+        word-break: keep-all;
+        width: max-content;
+        padding: 16px 26px;
+        vertical-align: middle;
+        font-size: 14px;
+      }
+    }
+  }
 `;
 export const SearchResponseContainer = styled.div`
   width: 77%;
@@ -68,8 +68,8 @@ export const SearchResponseContainer = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   gap: 32px 16px;
-  
-  @media (max-width:${BREAKPOINTS.md}) {
+
+  @media (max-width: ${BREAKPOINTS.md}) {
     justify-content: space-between;
     overflow-x: scroll;
     width: 100%;
