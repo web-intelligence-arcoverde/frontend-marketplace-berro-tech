@@ -60,7 +60,7 @@ export const TextGray = styled.h6`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
+  max-width: 190px;
 `;
 
 export const CardSection = styled.div`
