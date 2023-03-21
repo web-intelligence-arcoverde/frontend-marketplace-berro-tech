@@ -1,4 +1,4 @@
-import { Content } from "./../../../style/minhas-publicacoes-style";
+import { Content } from "../../../style/minhas-publicacoes-style";
 import { COLORS } from "@/common";
 import styled from "styled-components";
 

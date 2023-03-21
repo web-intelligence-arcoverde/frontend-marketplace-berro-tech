@@ -58,7 +58,7 @@ const SignIn = () => {
               value={form.password}
               onChange={handleChange}
             />
-            <LostPassword href=''>Esqueci minha senha</LostPassword>
+            <LostPassword href='recuperar-senha'>Esqueci minha senha</LostPassword>
             <Button onClick={console.log}>Entrar</Button>
           </FormLogin>
         ) : (
