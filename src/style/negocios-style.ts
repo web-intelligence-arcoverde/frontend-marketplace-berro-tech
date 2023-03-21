@@ -98,6 +98,7 @@ export const TabsContainer = styled.div`
         .tab{
           width: 100%;
           text-align: center;
+          font-size: 14px ;
         }
       }
     }

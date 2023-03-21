@@ -241,11 +241,11 @@ export const tabs = [
 ];
 export const Bussinestabs = [
   {
-    title: "caprinos",
+    title: "Caprinos",
     content: "",
   },
   {
-    title: "ovinos",
+    title: "Ovinos",
     content: "",
   },
 ];

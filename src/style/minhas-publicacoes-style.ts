@@ -9,6 +9,12 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
   justify-content: space-between;
   background-color: ${COLORS.light._05};
   padding: 50px 100px;
+  #dropdown {
+    border: 1.5px solid ${COLORS.light._02};
+    padding: 8px 10px;
+    border-radius: 5px;
+    height: 48px;
+  }
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
@@ -17,6 +23,21 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
     flex-direction: column;
     margin-bottom: 20px;
     position: relative;
+    .tabs {
+      padding: 0;
+      border-radius: 5px;
+      height: 48px;
+      width: 90%;
+      border: 1.5px solid ${COLORS.light._02};
+      .tab {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+      }
+      .active{
+       border: none;
+      }
+    }
   }
 `;
 export const ContentCard = styled.div`
@@ -100,12 +121,11 @@ export const Content = styled.div`
   gap: 32px;
   background-color: ${COLORS.light._05};
   @media (max-width: ${BREAKPOINTS.sm}) {
-    
     padding: 0;
     flex-direction: column;
-    @media (max-width: ${BREAKPOINTS.sm}){
-    gap: 0;
-  }
+    @media (max-width: ${BREAKPOINTS.sm}) {
+      gap: 0;
+    }
   }
 `;
 
@@ -114,5 +134,4 @@ export const InfoProduct = styled.div`
   flex-direction: column;
   max-width: 700px;
   gap: 32px;
- 
 `;

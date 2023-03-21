@@ -1,6 +1,7 @@
 import {
   AddFreeUser,
   CardPerfilVendedor,
+  Dropdown,
   Header,
   Modal,
   ProductCard,
@@ -8,9 +9,17 @@ import {
   Select,
   Tabs,
 } from "@/components";
+import { DropdownImage } from "@/components/atoms/Dropdown/style";
 import useModalOverflow from "@/hooks/useModalOverflow";
-import { BussinessHighlightProductMock, Bussinestabs } from "@/mock";
-import { ButtonAddProduct, Container, Main, TabsContainer } from "@/style";
+import { BussinessHighlightProductMock, Bussinestabs, DropdownMock } from "@/mock";
+import {
+  ButtonAddProduct,
+  Container,
+  Main,
+  StyleDesktop,
+  StyleMobile,
+  TabsContainer,
+} from "@/style";
 import {
   CardProducts,
   ContainerMypublication,
@@ -63,7 +72,16 @@ const MyPublication = () => {
                 <TabsContainer>
                   <Tabs tabs={Bussinestabs} />
                 </TabsContainer>
-                <Select />
+                <StyleDesktop>
+                  <Select />
+                </StyleDesktop>
+                <StyleMobile>
+                  <Dropdown
+                    id="dropdown"
+                    options={DropdownMock}
+                    onOptionSelect={() => {}}
+                  />
+                </StyleMobile>
               </ContainerTabs>
             )}
 
