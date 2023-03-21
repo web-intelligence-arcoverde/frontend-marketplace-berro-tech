@@ -6,6 +6,7 @@ export const ContainerNotification = styled.div`
   flex-direction: column;
   border: solid 1.5px ${COLORS.light._02};
   padding-top: 24px;
+  background: ${COLORS.light._05};
 
   p {
     padding: 0 24px 24px 24px;

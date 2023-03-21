@@ -6,6 +6,7 @@ export const ContainerDescriptionProduct = styled.div`
   flex-direction: column;
   border: solid 1.5px ${COLORS.light._02};
   max-width: 700px;
+  background-color: ${COLORS.light._05};
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     margin: 20px 0;
