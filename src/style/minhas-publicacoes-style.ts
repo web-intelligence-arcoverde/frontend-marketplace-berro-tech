@@ -15,6 +15,9 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
     border-radius: 5px;
     height: 48px;
   }
+  .tabs{
+    border-bottom: none;
+  }
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
@@ -60,7 +63,7 @@ export const CardProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: flex-start;
+  justify-content: flex-end;
   width: 100%;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
@@ -77,6 +80,7 @@ export const SectionProducts = styled.section`
   flex-direction: column;
   gap: 16px;
   padding-left: 32px;
+  align-items: end;
   @media (max-width: ${BREAKPOINTS.sm}) {
     padding-left: 0;
   }
@@ -112,6 +116,11 @@ export const ContainerTabs = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 780px;
+  width: 100%;
+  border-bottom: solid 1.5px ${COLORS.light._02};
+  @media(max-width:${BREAKPOINTS.md}){
+    border-bottom:none;
+  }
 `;
 // **********************************   Style da página de Id   *************************************
 
