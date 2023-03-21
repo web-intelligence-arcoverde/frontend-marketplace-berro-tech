@@ -7,6 +7,7 @@ interface FloatingLabelInputProps {
   placeholder: string;
   id: string | undefined;
   labels: string[];
+  isWhite?: boolean
 }
 
 export const FloatingLabelRadio = ({
@@ -36,6 +37,7 @@ export const FloatingLabelRadio = ({
   return (
     <FormField>
       <Input
+        isWhite={props.isWhite}
         open={openForm}
         active={!value}
         value={value}
@@ -50,7 +52,7 @@ export const FloatingLabelRadio = ({
       </Label>
 
       {openForm && (
-        <CardOptions>
+        <CardOptions isWhite={props.isWhite} >
           {labels.map((item, index) => (
             <label key={index}>
               <input

@@ -5,6 +5,8 @@ interface FloatingLabelInputProps {
   placeholder: string;
   id: string | undefined;
   name: string;
+  type: string;
+  isWhite?:boolean;
 }
 
 export const FloatingLabelInput = ({
@@ -21,6 +23,7 @@ export const FloatingLabelInput = ({
   return (
     <FormField>
       <Input
+        isWhite={props.isWhite}
         active={!value}
         value={value}
         onChange={handleInputChange}

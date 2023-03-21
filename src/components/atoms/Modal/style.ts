@@ -1,3 +1,4 @@
+import { BREAKPOINTS } from "@/common";
 import styled, { keyframes } from "styled-components";
 
 const fadeIn = keyframes`
@@ -18,6 +19,13 @@ export const ContainerModal = styled.div`
   z-index: 30;
   opacity: 0;
   animation: ${fadeIn} 0.3s ease-in-out forwards;
+  @media (max-width:${BREAKPOINTS.md}) {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-top: 100px;
+  overflow: auto;
+ }
 `;
 export const ModalBackground = styled.div`
   position: fixed;
