@@ -7,8 +7,12 @@ export const SellerCard = () => {
   return (
     <Container>
       <ImageSeller src={IMAGES.Seller} alt="imagem do vendedor" />
-      <CardNameLocation isAvaliation name={"Brunno guedes"} city={"Campina Grande"} state={"paraiba"} country={"pe"}/>
-        
+      <CardNameLocation
+        isAvaliation
+        name={"Brunno guedes"}
+        city={"Campina Grande"}
+        state={"paraiba"}
+      />
       <CardContact />
     </Container>
   );

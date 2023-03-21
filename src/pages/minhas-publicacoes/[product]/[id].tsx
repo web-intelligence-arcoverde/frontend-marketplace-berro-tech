@@ -37,7 +37,6 @@ const Product = () => {
               name={"Garrote Senepol"}
               city={"Campina Grande"}
               state={"Paraiba"}
-              country={"Brazil"}
               sex={"Macho"}
               age={"Garrote"}
               rank={"Genética"}
