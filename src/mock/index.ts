@@ -263,15 +263,9 @@ export const MocksAbout = [
   {
     title: "O que fazemos",
     text: "Conectamos compradores e vendedores de animais dos setores da capinocultura e ovinocultura. Oferecemos uma plataforma segura e fácil de usar para que você encontre animais de qualidade, consulte todas as informações que precisa e entre em contato pra fechar negócio",
-    continuationText: "",
-    helperText: "",
-    image: "",
-    image_mobile: "",
   },
   {
     title: "Publique seus animais para venda",
-    text: "",
-    continuationText: "",
     helperText:
       "Em três passos, você publica seus animais para outros produtores entrarem em contato",
     image: IMAGES.PrintPublishing,
@@ -279,9 +273,7 @@ export const MocksAbout = [
   },
   {
     title: "Entre em contato com quem vende",
-    text: "",
-    continuationText: "",
-    helperText: "",
+    helperText: "Procure por bons negócios e consulte todas as informações que precisar",
     image: IMAGES.PrintProduct,
     image_mobile: IMAGES.PrintProductMobile,
   },

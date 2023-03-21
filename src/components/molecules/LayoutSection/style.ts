@@ -7,57 +7,87 @@ export const Container = styled.li`
   justify-content: space-between;
   padding: 100px;
   border-bottom: 2px solid ${COLORS.light._02};
-  /* background-color: ${COLORS.light._02}; */
 
   p {
     color: ${COLORS.dark._04};
-    line-height: 45px;
+    line-height: 40px;
   }
   :first-child {
-    background: ${COLORS.brand_light._04}
+    background: ${COLORS.brand_light._04};
+    align-items: baseline;
   }
-  :last-child {
-    border: none;
-  }
+
   :nth-child(even) {
     flex-direction: row-reverse;
+
+    aside {
+      align-items: end;
+    }
 
     #arrow {
       transform: rotate(180deg);
     }
   }
   :nth-child(3) {
-    footer {
-      display: block;
-      display: flex;
+    p {
+      width: 360px;
     }
   }
   :nth-child(3),
   :nth-child(4) {
+    #arrow {
+      margin-top: 0;
+    }
+    h1 {
+      margin-bottom: 8px;
+    }
+
     aside {
       flex-direction: column-reverse;
+    }
+    :nth-child(4) {
+      text-align: end;
+      border: none;
+      p {
+        width: 300px;
+        position: absolute;
+        right: 0;
+      }
     }
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
     flex-direction: column !important;
     width: 100%;
-    padding:56px 20px;
+    padding: 56px 20px;
+    aside {
+      align-items: flex-start !important;
+      text-align: start;
+    }
     #arrow {
       transform: rotate(90deg) !important;
     }
     p {
       line-height: 32px;
       margin: 20px 0 30px 0;
+      width: auto !important;
+      text-align: start;
     }
     :nth-child(3) {
-    footer {
-     display: none;
+      footer {
+        display: none;
+      }
+    }
+    :nth-child(4) {
+      p {
+        width: auto;
+        position: unset !important;
+      }
     }
   }
-  }
 `;
-export const FirstCard = styled.div`
+export const Content = styled.div`
   width: 35%;
+  position: relative;
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
   }
@@ -86,9 +116,8 @@ export const CardChildren = styled.div`
     width: 100%;
   }
 `;
-export const CardSteps = styled.footer`
+export const CardSteps = styled.div`
   display: flex;
   margin-top: 120px;
   display: none;
-
 `;
