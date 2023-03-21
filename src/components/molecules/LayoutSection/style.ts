@@ -65,6 +65,7 @@ export const Container = styled.li`
     }
     #arrow {
       transform: rotate(90deg) !important;
+      margin-bottom: 25px;
     }
     p {
       line-height: 32px;
