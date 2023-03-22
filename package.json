@@ -25,7 +25,6 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.42.1",
     "react-redux": "^8.0.5",
-    "reactstrap": "^9.1.6",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.2.2",
     "styled-components": "^5.3.6",

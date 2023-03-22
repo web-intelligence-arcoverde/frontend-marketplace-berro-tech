@@ -1,8 +1,10 @@
 import { ICONS } from "@/assets";
-import { InputUserProps } from "@/types/IInputUserProps";
+import { InputProps } from "@/types/IInputProps";
+
 import Image from "next/image";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
+
 import { CardInputUser, MessageErro, StyleInput, TextLabel } from "./style";
 
 export const Input = ({
@@ -12,7 +14,7 @@ export const Input = ({
   nameLabel,
   control,
   errors,
-}: InputUserProps) => {
+}: InputProps) => {
   const [showPassword, setShowPassord] = useState(false);
   const handleChangeIcon = () => {
     setShowPassord(!showPassword);
