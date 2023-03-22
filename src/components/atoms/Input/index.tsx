@@ -1,11 +1,11 @@
 import { ICONS } from "@/assets";
 import { InputProps } from "@/types/IInputProps";
-
+import MaskedInput from "react-input-mask";
 import Image from "next/image";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
 
-import { CardInputUser, MessageErro, StyleInput, TextLabel } from "./style";
+import { CardInputUser, MessageErro, TextLabel } from "./style";
 
 export const Input = ({
   name,
@@ -27,7 +27,8 @@ export const Input = ({
         <CardInputUser>
           <div>
             <TextLabel>{nameLabel}</TextLabel>
-            <StyleInput
+            <MaskedInput
+              mask={type == "tel" ? "(99) 99999-9999" : ""}
               value={value}
               onBlur={onBlur}
               type={showPassword ? "text" : type}

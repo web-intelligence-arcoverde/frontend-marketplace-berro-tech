@@ -1,27 +1,8 @@
 import { BREAKPOINTS } from "./../../../common/index";
 import styled from "styled-components";
 import { COLORS } from "@/common";
-interface InputProps {
-  width?: string;
-}
 
-export const StyleInput = styled.input<InputProps>`
-  height: 42px;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  width: ${(props) => (props.width ? props.width : "100%")};
-  font-size: 16px;
-  background-color: ${COLORS.light._04};
-  ::placeholder {
-    color: ${COLORS.gray._04};
-  }
-`;
-export const TextLabel = styled.label`
-  text-transform: capitalize;
-`;
-
-export const CardInputUser = styled.div`
+export const CardInputUser = styled.div<{ width?: string }>`
   display: flex;
   align-items: center;
   border: 1.5px solid ${COLORS.light._02};
@@ -32,11 +13,26 @@ export const CardInputUser = styled.div`
   justify-content: space-between;
   height: 85px;
   position: relative;
+  input {
+    height: 42px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    width: ${(props) => (props.width ? props.width : "100%")};
+    font-size: 16px;
+    background-color: ${COLORS.light._04};
+    ::placeholder {
+      color: ${COLORS.gray._04};
+    }
+  }
 
   button {
     background: none;
     border: none;
   }
+`;
+export const TextLabel = styled.label`
+  text-transform: capitalize;
 `;
 export const MessageErro = styled.span`
   color: ${COLORS.auxiliary.red_state};
