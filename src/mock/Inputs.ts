@@ -1,15 +1,15 @@
 export const SignInInputs = [
   {
-    type: "email",
+    type: "text",
     label: "Email",
     name: "email",
-    placeholder: "Ex: rodrigo@exemplo.com",
+    placeholder: "Seu melhor email",
   },
   {
     type: "password",
     label: "Senha",
-    name: "senha",
-    placeholder: "**********",
+    name: "password",
+    placeholder: "No mínimo 8 dígitos",
   },
 ];
 export const SignUpInputs = [
