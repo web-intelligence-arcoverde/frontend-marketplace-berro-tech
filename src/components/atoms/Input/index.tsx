@@ -3,9 +3,9 @@ import { InputUserProps } from "@/types/IInputUserProps";
 import Image from "next/image";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
-import { CardInputUser, Input, TextLabel } from "./style";
+import { CardInputUser, MessageErro, StyleInput, TextLabel } from "./style";
 
-export const InputUser = ({
+export const Input = ({
   name,
   type,
   placeholder,
@@ -23,16 +23,17 @@ export const InputUser = ({
       control={control}
       render={({ field: { onChange, onBlur, value } }) => (
         <CardInputUser>
-          <>
+          <div>
             <TextLabel>{nameLabel}</TextLabel>
-            <Input
+            <StyleInput
               value={value}
               onBlur={onBlur}
               type={showPassword ? "text" : type}
               onChange={onChange}
               placeholder={placeholder}
             />
-          </>
+          </div>
+
           {type === "password" && (
             <button onClick={handleChangeIcon}>
               {showPassword ? (
@@ -42,7 +43,7 @@ export const InputUser = ({
               )}
             </button>
           )}
-          {!!errors && <span>{errors}</span>}
+          {!!errors && <MessageErro>{errors}</MessageErro>}
         </CardInputUser>
       )}
     />

@@ -2,7 +2,7 @@ import { ICONS } from "@/assets";
 import {
   Button,
   ButtonAuthentication,
-  InputUser,
+  Input,
   LayoutInit,
   MiniContainer,
 } from "@/components";
@@ -17,7 +17,6 @@ const SignIn = () => {
   const [loginWithEmail, setLoginWithEmail] = useState(false);
 
   const { control, errors, onSubmit } = useHookFormSignInEmail();
-  console.log("erro ", errors);
   return (
     <LayoutInit>
       <MiniContainer
@@ -30,7 +29,7 @@ const SignIn = () => {
         {loginWithEmail ? (
           <FormLogin onSubmit={onSubmit}>
             {SignInInputs.map((input) => (
-              <InputUser
+              <Input
                 nameLabel={input.label}
                 control={control}
                 //@ts-ignore

@@ -5,7 +5,7 @@ export { CardContact } from "./CardContact";
 export { Avaliation } from "./Avaliation";
 export { ButtonLink } from "./Button/ButtonLink";
 export { ButtonAuthentication } from "./Button/ButtonAuthentication";
-export { InputUser } from "./Input/InputUser";
+export { Input } from "./Input";
 export { CardNameLocation } from "./CardNameLocation";
 export { LogoCopyright } from "./LogoCopyright";
 export { Tabs } from "./Tabs";

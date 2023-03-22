@@ -1,10 +1,11 @@
+import { BREAKPOINTS } from "./../../../common/index";
 import styled from "styled-components";
 import { COLORS } from "@/common";
 interface InputProps {
   width?: string;
 }
 
-export const Input = styled.input<InputProps>`
+export const StyleInput = styled.input<InputProps>`
   height: 42px;
   border: none;
   font-size: 16px;
@@ -30,9 +31,20 @@ export const CardInputUser = styled.div`
   background-color: ${COLORS.light._04};
   justify-content: space-between;
   height: 85px;
+  position: relative;
 
   button {
     background: none;
     border: none;
+  }
+`;
+export const MessageErro = styled.span`
+  color: ${COLORS.auxiliary.red_state};
+  position: absolute;
+  bottom: -20px;
+  font-size: 14px;
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    font-size: 12px;
+    bottom: -16px;
   }
 `;
