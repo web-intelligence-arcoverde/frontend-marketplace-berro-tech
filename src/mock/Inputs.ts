@@ -28,8 +28,8 @@ export const SignUpInputs = [
   {
     type: "tel",
     label: "Telefone",
-    name: "tel",
-    placeholder: "Ex: +55 12 99873-8767",
+    name: "phone",
+    placeholder: "(_ _) _ _ _ _ _-_ _ _ _",
   },
   {
     type: "password",

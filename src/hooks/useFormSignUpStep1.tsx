@@ -6,19 +6,22 @@ import { ErrorMessage } from "../locale";
 
 const schema = yup
   .object({
+    name: yup
+      .string()
+      .required(ErrorMessage["name-required"])
+      .min(3, ErrorMessage["name-min"])
+      .max(40, ErrorMessage["name-max"]),
+
     email: yup
       .string()
       .required(ErrorMessage["email-required"])
       .email(ErrorMessage["email-valid"]),
- 
-    password: yup
-      .string()
-      .required(ErrorMessage["password-required"])
-      .min(8, ErrorMessage["password-min"])
+
+    phone: yup.string().required(ErrorMessage["phone-required"]),
   })
   .required();
 
-export const useHookFormSignInEmail = () => {
+export const useHookFormSignUp1 = () => {
   const {
     control,
     handleSubmit,
@@ -26,13 +29,12 @@ export const useHookFormSignInEmail = () => {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      email: "",
+      repeatPassword: "",
       password: "",
     },
   });
 
-  const onSubmit = handleSubmit((data) => console.log(data));
-
+  const onSubmit = handleSubmit((data) => console.log(control));
 
   return { onSubmit, control, errors };
 };
