@@ -23,14 +23,15 @@ const SignUp = () => {
         lastButton="Já tenho uma conta"
         lastButtonLink="entrar"
       >
-        <FormRegister onSubmit={handleNextStep}>
+        <FormRegister onSubmit={onSubmit}>
           {currentStep == 1 && (
             <>
               <CardStep>
                 Etapa {currentStep} de {totalStep}
               </CardStep>
-              {SignUpInputs.slice(0, 3).map((input) => (
+              {SignUpInputs.slice(0, 3).map((input, index) => (
                 <Input
+                  key={index}
                   nameLabel={input.label}
                   control={control}
                   //@ts-ignore
@@ -38,9 +39,7 @@ const SignUp = () => {
                   {...input}
                 />
               ))}
-              <Button type="submit" onClick={onSubmit}>
-                Próximo
-              </Button>
+              <Button type="submit">Próximo</Button>
             </>
           )}
           {currentStep == 2 && (
@@ -48,8 +47,9 @@ const SignUp = () => {
               <CardStep>
                 Etapa {currentStep} de {totalStep}
               </CardStep>
-              {SignUpInputs.slice(3, 5).map((input) => (
+              {SignUpInputs.slice(3, 5).map((input, index) => (
                 <Input
+                  key={index}
                   nameLabel={input.label}
                   control={control}
                   //@ts-ignore

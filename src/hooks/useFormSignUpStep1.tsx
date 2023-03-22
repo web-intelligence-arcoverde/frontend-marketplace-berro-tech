@@ -17,7 +17,15 @@ const schema = yup
       .required(ErrorMessage["email-required"])
       .email(ErrorMessage["email-valid"]),
 
-    phone: yup.string().required(ErrorMessage["phone-required"]),
+    phone: yup
+      .string()
+      .required(ErrorMessage["phone-required"])
+      .test("phone-test", "Informe um telefone valido", (value) => {
+        if (value && value.includes("_")) {
+          return false;
+        }
+        return true;
+      }),
   })
   .required();
 
@@ -34,7 +42,7 @@ export const useHookFormSignUp1 = () => {
     },
   });
 
-  const onSubmit = handleSubmit((data) => console.log(control));
+  const onSubmit = handleSubmit((data) => console.log(data));
 
   return { onSubmit, control, errors };
 };

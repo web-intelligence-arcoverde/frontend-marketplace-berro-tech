@@ -28,8 +28,9 @@ const SignIn = () => {
       >
         {loginWithEmail ? (
           <FormLogin onSubmit={onSubmit}>
-            {SignInInputs.map((input) => (
+            {SignInInputs.map((input, index) => (
               <Input
+                key={index}
                 nameLabel={input.label}
                 control={control}
                 //@ts-ignore
