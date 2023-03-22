@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addItem, signIn, removeItem,addProduct } from "./actions";
+import { addItem, signIn, removeItem, currentStep } from "./actions";
 
 import { initialState } from "./initial";
 
@@ -15,7 +15,7 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.lastSearchs = state.lastSearchs.filter(
         (item) => item !== action.payload
       );
-    }).addCase(addProduct,(state,action)=>{
-      state.registerProduct.push(action.payload)
-    });
+    }).addCase(currentStep,(state,action)=>{
+      state.currentStep = action.payload.step
+    })
 });

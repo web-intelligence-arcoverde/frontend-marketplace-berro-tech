@@ -13,6 +13,9 @@ export const CardInputUser = styled.div<{ width?: string }>`
   justify-content: space-between;
   height: 85px;
   position: relative;
+  div {
+    width: 100%;
+  }
   input {
     height: 42px;
     border: none;

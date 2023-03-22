@@ -3,6 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { ErrorMessage } from "../locale";
+import { currentStep } from "@/store/reducer/user/actions";
+import { useAppDispatch } from "./useSelectorHook";
 
 const schema = yup
   .object({
@@ -41,8 +43,14 @@ export const useHookFormSignUp1 = () => {
       password: "",
     },
   });
+  const dispatch = useAppDispatch();
+  const nextStep = () => {
+    dispatch(currentStep({step:2}));
+  };
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    nextStep();
+  });
 
-  return { onSubmit, control, errors };
+  return { onSubmit, control, errors, nextStep };
 };
