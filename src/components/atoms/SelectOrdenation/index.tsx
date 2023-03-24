@@ -30,7 +30,7 @@ export const SelectOrdenation = () => {
         <Image src={ICONS.Up} alt="direção da seta" />
       </SelectProduct>
       {open && (
-        <CardSelectProduct>
+        <CardSelectProduct open={open}>
           {DropdownMock.map((item, index) => (
             <span
               onClick={() => {

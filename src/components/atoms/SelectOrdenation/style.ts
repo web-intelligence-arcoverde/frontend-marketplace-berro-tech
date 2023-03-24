@@ -9,7 +9,7 @@ export const ContainerSelectProduct = styled.div`
   max-width: 160px;
 `;
 
-export const CardSelectProduct = styled.div`
+export const CardSelectProduct = styled.div<{ open: boolean }>`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -17,7 +17,7 @@ export const CardSelectProduct = styled.div`
   width: 100%;
   border: 1px solid ${COLORS.light._02};
   border-top: 0;
-  border-radius: 5px;
+  border-radius: ${(props) => (props.open ? `0 0 5px 5px ` : "5px")};
   background-color: ${COLORS.light._05};
 
   span {
@@ -39,7 +39,7 @@ export const SelectProduct = styled.div<{ open: boolean }>`
   width: 100%;
   border: 1px solid ${COLORS.light._02};
   background-color: ${(props) => (props.open ? `${COLORS.light._03}` : "")};
-  border-radius: 5px;
+  border-radius: ${(props) => (props.open ? `5px 5px 0 0` : "5px")};
   padding: 12px 18px;
   height: 48px;
   font-size: 12px;
