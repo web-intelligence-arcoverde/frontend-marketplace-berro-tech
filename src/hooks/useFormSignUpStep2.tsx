@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { ErrorMessage } from "../locale";
+import { useAppDispatch } from "./useSelectorHook";
+import { addPassword } from "@/store/reducer/user/actions";
+import { IRegisterUserProps } from "@/store/reducer/user/types";
 
 const schema = yup
   .object({
@@ -29,8 +32,10 @@ export const useHookFormSignUp1 = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const dispatch = useAppDispatch();
+  const onSubmit = handleSubmit((data: IRegisterUserProps) =>
+    dispatch(addPassword(data))
+  );
 
   return { onSubmit, control, errors };
 };

@@ -1,5 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addItem, signIn, removeItem, currentStep } from "./actions";
+import {
+  addItem,
+  signIn,
+  removeItem,
+  currentStep,
+  addUser,
+  addPassword,
+} from "./actions";
 
 import { initialState } from "./initial";
 
@@ -15,7 +22,24 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.lastSearchs = state.lastSearchs.filter(
         (item) => item !== action.payload
       );
-    }).addCase(currentStep,(state,action)=>{
-      state.currentStep = action.payload.step
     })
+    .addCase(currentStep, (state, action) => {
+      state.currentStep = action.payload.step;
+    })
+    .addCase(addUser, (state, action) => {
+      const { name, email, phone } = action.payload;
+      state.registerUser = {
+        name,
+        email,
+        phone,
+      };
+    })
+    .addCase(addPassword, (state, action) => {
+      const { password, repeatPassword } = action.payload;
+      state.registerUser = {
+        ...state.registerUser,
+        password,
+        repeatPassword,
+      };
+    });
 });
