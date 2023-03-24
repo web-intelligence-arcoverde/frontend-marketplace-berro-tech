@@ -39,8 +39,8 @@ export const SignUpInputs = [
   },
   {
     type: "password",
-    label: "Repita a senha",
+    label: "Confirme a senha",
     name: "repeatPassword",
-    placeholder: "Repita a senha",
+    placeholder: "Confirme a senha",
   },
 ];
