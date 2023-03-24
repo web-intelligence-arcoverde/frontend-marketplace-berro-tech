@@ -3,7 +3,7 @@ import {
   Footer,
   Header,
   ProductCard,
-  Select,
+  SelectOrdenation,
   Tabs,
 } from "@/components";
 import {
@@ -31,7 +31,7 @@ export const Business = () => {
                 <Tabs tabs={Bussinestabs} />
               </TabsContainer>
               <SelectContainer>
-                <Select />
+                <SelectOrdenation />
               </SelectContainer>
             </ProductHeaderContainer>
             <ProductCardContainer>

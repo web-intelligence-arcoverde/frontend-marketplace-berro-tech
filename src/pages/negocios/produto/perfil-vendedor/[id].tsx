@@ -6,13 +6,13 @@ import {
   ContainerSellerProductMain,
   ContainerSellerProfile,
 } from "@/style/perfil-vendedor-style";
-import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
+import { Container, Main, StyleDesktop } from "@/style";
 import {
   Breadcrumb,
   Footer,
   Header,
   ProductCard,
-  Select,
+  SelectOrdenation,
   SellerCard,
 } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
@@ -31,7 +31,7 @@ const SelleProfiler = () => {
                 <ContainerBreadcumb>
                   <Breadcrumb />
                 </ContainerBreadcumb>
-                <Select />
+                <SelectOrdenation />
               </ContainerSellerProductHeader>
             </StyleDesktop>
             <ContainerSellerProductMain>

@@ -12,7 +12,7 @@ export { Tabs } from "./Tabs";
 export { Breadcrumb } from "./Breadcumb";
 export { Accordion } from "./Accordion";
 export { Checkbox } from "./Checkbox";
-export { Select } from "./Select";
+export { SelectOrdenation } from "./SelectOrdenation";
 export { PriceProduct } from "./PriceProduct";
 export { ButtonsControl } from "./ButtonsControl";
 export { Dropdown } from "./Dropdown";

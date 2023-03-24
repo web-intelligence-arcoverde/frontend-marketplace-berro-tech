@@ -6,10 +6,9 @@ import {
   Modal,
   ProductCard,
   RegisterProduct,
-  Select,
+  SelectOrdenation,
   Tabs,
 } from "@/components";
-import { DropdownImage } from "@/components/atoms/Dropdown/style";
 import useModalOverflow from "@/hooks/useModalOverflow";
 import { BussinessHighlightProductMock, Bussinestabs, DropdownMock } from "@/mock";
 import {
@@ -73,7 +72,7 @@ const MyPublication = () => {
                   <Tabs tabs={Bussinestabs} />
                 </TabsContainer>
                 <StyleDesktop>
-                  <Select />
+                  <SelectOrdenation />
                 </StyleDesktop>
                 <StyleMobile>
                   <Dropdown
