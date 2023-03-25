@@ -3,6 +3,7 @@ export type UserState = {
   lastSearchs: string[];
   currentStep: any;
   registerUser: IRegisterUserProps;
+  allProducts:any
 };
 
 export interface IRegisterUserProps {

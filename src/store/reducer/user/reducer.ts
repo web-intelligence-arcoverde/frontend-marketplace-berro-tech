@@ -6,6 +6,7 @@ import {
   currentStep,
   addUser,
   addPassword,
+  filterItems,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -41,5 +42,9 @@ export const userReducer = createReducer(initialState, (builder) => {
         password,
         repeatPassword,
       };
+    })
+    .addCase(filterItems, (state, action) => {
+      const breed  = action.payload
+      state.allProducts = state.allProducts.filter((item: { breed: any; }) => item.breed.toLowerCase() === breed);
     });
 });

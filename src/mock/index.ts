@@ -160,7 +160,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
   {
     id: 4,
     photo: IMAGES.GadoFour,
-    breed: "senepol",
+    breed: "SRD",
     quantity: 3,
     name: " Senepol",
     city: "Campina Grande",
@@ -172,7 +172,7 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
   {
     id: 5,
     photo: IMAGES.GadoFive,
-    breed: "senepol",
+    breed: "SRD",
     quantity: 3,
     name: " Senepol",
     city: "Campina Grande",

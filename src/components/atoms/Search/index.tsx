@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ICONS } from "@/assets";
 import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
 import { ChangeEvent, MouseEventHandler, useState } from "react";
-import { addItem } from "@/store/reducer/user/actions";
+import { addItem, filterItems } from "@/store/reducer/user/actions";
 import { useAppDispatch } from "@/hooks/useSelectorHook";
 
 interface ISearch {
@@ -12,18 +12,16 @@ interface ISearch {
 
 export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const [search, setSearch] = useState("");
-  const dispath = useAppDispatch()
+  const dispath = useAppDispatch();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  const handleAddItem = (event: ChangeEvent<HTMLInputElement> |any) => {
+  const handleAddItem = (event: ChangeEvent<HTMLInputElement> | any) => {
     event.preventDefault();
-    dispath(addItem(search))
-    setSearch('')
+    dispath(addItem(search.toLocaleLowerCase()));
   };
-
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
     setSearch("");
@@ -37,6 +35,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const handleFocus = () => {
     setIsFocused(true);
   };
+
   return (
     <CardSearch
       width={isFocused ? "400px" : "250px"}
@@ -51,6 +50,11 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         onChange={handleChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
+        onKeyDown={(event) => {
+          if (event.keyCode === 13) {
+            dispath(filterItems(search));
+          }
+        }}
       />
       {search && (
         <button onClick={clearInput}>

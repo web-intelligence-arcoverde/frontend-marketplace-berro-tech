@@ -13,3 +13,4 @@ export const addProduct = createAction<any>("ADD_PRODUCT");
 export const currentStep = createAction<{ step: number }>("CURRENTE_STEP");
 export const addUser = createAction<IRegisterUserProps>("ADD_USER");
 export const addPassword = createAction<IRegisterUserProps>("ADD_PASSWORD")
+export const filterItems = createAction<any>('FILTER_ITEMS')
