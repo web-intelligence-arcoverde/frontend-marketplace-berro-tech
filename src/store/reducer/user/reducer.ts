@@ -44,7 +44,9 @@ export const userReducer = createReducer(initialState, (builder) => {
       };
     })
     .addCase(filterItems, (state, action) => {
-      const breed  = action.payload
-      state.allProducts = state.allProducts.filter((item: { breed: any; }) => item.breed.toLowerCase() === breed);
+      const filtro = action.payload;
+      state.allProducts = state.allProducts.filter(
+        (item: { breed: string }) => item.breed.toLowerCase() === filtro
+      );
     });
 });

@@ -6,7 +6,7 @@ export const ContainerSelectProduct = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  max-width: 160px;
+  max-width: 140px;
 `;
 
 export const CardSelectProduct = styled.div<{ open: boolean }>`
@@ -40,13 +40,14 @@ export const SelectProduct = styled.div<{ open: boolean }>`
   border: 1px solid ${COLORS.light._02};
   background-color: ${(props) => (props.open ? `${COLORS.light._03}` : "")};
   border-radius: ${(props) => (props.open ? `5px 5px 0 0` : "5px")};
-  padding: 12px 18px;
+  padding: 12px 12px 12px 18px;
   height: 48px;
   font-size: 12px;
   color: ${COLORS.gray._02};
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content:space-between;
+
   cursor: pointer;
   img {
     width: 20px;
