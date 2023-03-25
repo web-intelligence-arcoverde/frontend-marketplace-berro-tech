@@ -7,6 +7,7 @@ import {
   addUser,
   addPassword,
   filterItems,
+  productsWithOutFilters
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -48,5 +49,7 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.allProducts = state.allProducts.filter(
         (item: { breed: string }) => item.breed.toLowerCase() === filtro
       );
-    });
+    }).addCase(productsWithOutFilters,(state,action)=>{
+      state.allProducts = initialState.allProducts
+    })
 });

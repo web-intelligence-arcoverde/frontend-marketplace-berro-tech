@@ -1,20 +1,30 @@
 import Image from "next/image";
 import { ICONS } from "@/assets";
 import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
-import { ChangeEvent, MouseEventHandler, useState } from "react";
-import { addItem, filterItems } from "@/store/reducer/user/actions";
+import { ChangeEvent, MouseEventHandler, useEffect, useState } from "react";
+import {
+  addItem,
+  filterItems,
+  productsWithOutFilters,
+} from "@/store/reducer/user/actions";
 import { useAppDispatch } from "@/hooks/useSelectorHook";
 import { KeyboardEvent } from "react";
 import { useRouter } from "next/router";
-
+import {} from '../'
 interface ISearch {
   isFocused: boolean;
   setIsFocused: (state: boolean) => boolean;
 }
 
+
 export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const [search, setSearch] = useState("");
   const dispath = useAppDispatch();
+  useEffect(() => {
+    if (!search) {
+      dispath(productsWithOutFilters(''));
+    }
+  }, [search,dispath]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -68,7 +78,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         onKeyDown={searchEnter}
       />
       {search && (
-        <button onClick={clearInput}>
+        <button type="button" onClick={clearInput}>
           <Image src={ICONS.Close} alt="icone X" />
         </button>
       )}
