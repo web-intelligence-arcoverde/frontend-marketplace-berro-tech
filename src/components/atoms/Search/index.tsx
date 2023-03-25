@@ -4,6 +4,8 @@ import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
 import { ChangeEvent, MouseEventHandler, useState } from "react";
 import { addItem, filterItems } from "@/store/reducer/user/actions";
 import { useAppDispatch } from "@/hooks/useSelectorHook";
+import { KeyboardEvent } from "react";
+import { useRouter } from "next/router";
 
 interface ISearch {
   isFocused: boolean;
@@ -36,6 +38,19 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     setIsFocused(true);
   };
 
+  const router = useRouter();
+  const currentRouter = router.asPath;
+
+  const searchEnter = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.keyCode === 13) {
+      if (currentRouter !== "/negocios") {
+        router.push("/negocios");
+        dispath(filterItems(search));
+      }
+      dispath(filterItems(search));
+    }
+  };
+
   return (
     <CardSearch
       width={isFocused ? "400px" : "250px"}
@@ -50,11 +65,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         onChange={handleChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
-        onKeyDown={(event) => {
-          if (event.keyCode === 13) {
-            dispath(filterItems(search));
-          }
-        }}
+        onKeyDown={searchEnter}
       />
       {search && (
         <button onClick={clearInput}>
