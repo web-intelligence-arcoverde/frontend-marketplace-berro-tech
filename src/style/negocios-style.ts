@@ -37,7 +37,7 @@ export const SelectContainer = styled.div`
   justify-content: end;
   background: transparent;
   border-bottom: 1px solid ${COLORS.light._02};
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   @media (max-width: ${BREAKPOINTS.md}) {
     display: none;
   }
@@ -98,6 +98,7 @@ export const TabsContainer = styled.div`
         .tab{
           width: 100%;
           text-align: center;
+          font-size: 14px ;
         }
       }
     }

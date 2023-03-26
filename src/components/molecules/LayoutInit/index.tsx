@@ -10,7 +10,7 @@ interface LayoutInitProps {
 export const LayoutInit = ({ children }: LayoutInitProps) => {
   return (
     <Main>
-      <StyleImage src={ICONS.SimboloBackground} alt="simbolo berro tech" />
+      <StyleImage src={ICONS.SimboloBackground}alt="simbolo berro tech" />
       <StyleImageMobile>
         <Image src={ICONS.SimboloBackgroundMobile} alt="simbolo berro tech"/>
       </StyleImageMobile>

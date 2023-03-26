@@ -29,7 +29,9 @@ export const PrintImageMobile = styled(Image)`
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
     display: block;
-    object-fit: contain;
+    padding-top: 0;
+    border-top: 4px solid ${COLORS.brand_light._01};
+    border-radius: 5px;
   }
 `;
 
@@ -85,7 +87,7 @@ export const ContainerPresentation = styled.div`
       padding: 60px 20px 40px 20px;
       margin: 0 auto;
     }
-    h6{
+    h6 {
       padding-right: 20px;
     }
   }

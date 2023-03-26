@@ -8,19 +8,21 @@ export const CardNameLocation = ({
   name,
   city,
   state,
-  country,
   isAvaliation,
+  age,
 }: CardNameLocationProps) => {
   return (
     <div>
       <Flex>
-        <h4>{name}</h4>
+        <h4>
+          {age} {name}
+        </h4>
         {isAvaliation && <Avaliation avaliation="4.8" />}
       </Flex>
       <Flex>
         <Location>
           <Image src={ICONS.Location} alt="icone de localização" />
-          {city}, {state}, {country}
+          {city}, {state}
         </Location>
       </Flex>
     </div>

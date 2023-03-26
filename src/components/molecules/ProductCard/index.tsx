@@ -8,13 +8,12 @@ export const ProductCard = ({
   photo,
   breed,
   quantity,
-  country,
   state,
   city,
   age,
   sex,
   rank,
-  maxWidth
+  maxWidth,
 }: CardProductProps) => {
   return (
     <Card maxWidth={maxWidth}>
@@ -25,12 +24,7 @@ export const ProductCard = ({
           {quantity} <span>{quantity > 1 ? "restantes" : "restante"}</span>
         </h6>
       </Flex>
-      <CardNameLocation
-        name={name}
-        city={city}
-        state={state}
-        country={country}
-      />
+      <CardNameLocation name={name} city={city} state={state} age={age} />
       <CattleInfoContainer>
         <CattleCard>
           <h5>Sexo</h5>

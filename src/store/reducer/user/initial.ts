@@ -1,7 +1,16 @@
+import { BussinessHighlightProductMock } from "@/mock";
 import { UserState } from "./types";
 
 export const initialState: UserState = {
   token: "",
   lastSearchs: [],
-  registerProduct: [{ name: "", animal: "", breed: "" }],
+  currentStep: 1,
+  registerUser: {
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    repeatPassword: "",
+  },
+  allProducts:BussinessHighlightProductMock
 };

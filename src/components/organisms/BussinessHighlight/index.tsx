@@ -12,7 +12,7 @@ export const BussinessHighlight = () => {
     <Container>
       <TitleContainer>
         <h2>Negócios em destaque</h2>
-        <a href="./">Veja mais opções</a>
+        <a href="negocios">Veja mais opções</a>
       </TitleContainer>
       <ProductCardsContainer>
         {BussinessHighlightProductMock.map((item, index) => (
@@ -20,7 +20,7 @@ export const BussinessHighlight = () => {
         ))}
       </ProductCardsContainer>
       <LinkMobileContainer>
-        <a href="./">Veja mais opções</a>
+        <a href="negocios">Veja mais opções</a>
       </LinkMobileContainer>
     </Container>
   );

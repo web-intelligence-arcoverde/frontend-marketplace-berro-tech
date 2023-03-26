@@ -10,13 +10,13 @@ import {
   Title,
   CardTitle,
   CardSteps,
-  FirstCard
+  Content,
 } from "./style";
 
 interface LayoutSectionPros {
   children: ReactNode;
   title: string;
-  helperText: string;
+  helperText?: string;
 }
 
 export const LayoutSection = ({
@@ -26,12 +26,13 @@ export const LayoutSection = ({
 }: LayoutSectionPros) => {
   return (
     <Container>
-      <FirstCard>
+      <Content>
         <CardTitle>
           <Title>{title}</Title>
           <Arrow id="arrow" src={ICONS.ArrowBlue} alt="seta" />
         </CardTitle>
-        <p>{helperText}</p>
+        {helperText && <p>{helperText}</p>}
+
         <CardSteps>
           {MocksSteps.map((step, index) => (
             <CattleInfoContainer key={index}>
@@ -42,7 +43,7 @@ export const LayoutSection = ({
             </CattleInfoContainer>
           ))}
         </CardSteps>
-      </FirstCard>
+      </Content>
       <CardChildren>{children}</CardChildren>
     </Container>
   );

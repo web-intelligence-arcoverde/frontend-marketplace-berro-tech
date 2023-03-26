@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BREAKPOINTS, COLORS } from "@/common";
+import Link from "next/link";
 
 export const Container = styled.section`
   background: ${COLORS.light._05};
@@ -87,7 +88,7 @@ export const StampContainer = styled.div`
     }
   }
 `;
-export const LinkContainer = styled.a`
+export const LinkContainer = styled(Link)`
 width: 100%;
 display: flex;
 align-items: center;

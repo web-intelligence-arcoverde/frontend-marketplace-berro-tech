@@ -6,6 +6,7 @@ export const ContainerNotification = styled.div`
   flex-direction: column;
   border: solid 1.5px ${COLORS.light._02};
   padding-top: 24px;
+  background: ${COLORS.light._05};
 
   p {
     padding: 0 24px 24px 24px;
@@ -32,7 +33,7 @@ export const ButtonToogle = styled.button<{ isOn: boolean }>`
   border-radius: 50px;
   border: none;
   background-color: ${(props) =>
-    props.isOn ? `${COLORS.gray._01}` : `${COLORS.light._02}`};
+    props.isOn ? `${COLORS.sub_brand._03}` : `${COLORS.light._02}`};
   cursor: pointer;
   margin-right: 24px;
 
@@ -44,7 +45,9 @@ export const ButtonToogle = styled.button<{ isOn: boolean }>`
     width: 21px;
     height: 21px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: ${(props) =>
+    props.isOn ? `${COLORS.sub_brand._02}` : `${COLORS.light._05}`};
+  
     transition: left 0.3s ease-in-out;
   }
 `;

@@ -7,7 +7,7 @@ import {
   HeaderCard,
   ImagePerfil,
   Aside,
-  TitleSection,
+  TextGray,
   CardSection,
   InfoSeller,
   RowVertical,
@@ -26,12 +26,12 @@ export const CardPerfilVendedor = ({
         <ImagePerfil src={IMAGES.Avatar} alt="perfil do vendedor " />
         <Aside>
           <h5>{name}</h5>
-          <TitleSection>{email}</TitleSection>
+          <TextGray>{email}</TextGray>
           <Button onClick={() => {}}>Minha conta</Button>
         </Aside>
       </HeaderCard>
       <CardSection>
-        <TitleSection>Localização</TitleSection>
+        <TextGray>Localização</TextGray>
         {location ? (
           <h5>{location}</h5>
         ) : (
@@ -40,12 +40,12 @@ export const CardPerfilVendedor = ({
       </CardSection>
       <InfoSeller>
         <CardSection>
-          <TitleSection>Telefone</TitleSection>
+          <TextGray>Telefone</TextGray>
           <h5>{phoneNumber}</h5>
         </CardSection>
         <RowVertical></RowVertical>
         <CardSection>
-          <TitleSection>Avaliações</TitleSection>
+          <TextGray>Avaliações</TextGray>
           <h5>
             {avaliation}
             <Image src={ICONS.StarYellow} alt="estrela de pontuação" />

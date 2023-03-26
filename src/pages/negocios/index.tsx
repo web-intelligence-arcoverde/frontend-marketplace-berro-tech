@@ -3,7 +3,7 @@ import {
   Footer,
   Header,
   ProductCard,
-  Select,
+  SelectOrdenation,
   Tabs,
 } from "@/components";
 import {
@@ -14,11 +14,15 @@ import {
   ProductHeaderContainer,
   SelectContainer,
 } from "@/style/negocios-style";
-import { BussinessHighlightProductMock, Bussinestabs } from "@/mock";
+import { Bussinestabs } from "@/mock";
 
 import { Container, Main } from "@/style";
+import { useAppSelector } from "@/hooks/useSelectorHook";
+import { CardProductProps } from "@/types";
 
 export const Business = () => {
+  const allProduct = useAppSelector((state) => state.user.allProducts);
+
   return (
     <Container>
       <Header />
@@ -31,11 +35,11 @@ export const Business = () => {
                 <Tabs tabs={Bussinestabs} />
               </TabsContainer>
               <SelectContainer>
-                <Select />
+                <SelectOrdenation />
               </SelectContainer>
             </ProductHeaderContainer>
             <ProductCardContainer>
-              {BussinessHighlightProductMock.map((item, index) => (
+              {allProduct.map((item: CardProductProps, index: number) => (
                 <ProductCard key={`${item.name} ${index}`} {...item} />
               ))}
             </ProductCardContainer>

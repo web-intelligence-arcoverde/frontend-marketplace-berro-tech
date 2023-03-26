@@ -7,7 +7,6 @@ export const ControlProduct = ({
   name,
   breed,
   quantity,
-  country,
   state,
   city,
   age,
@@ -25,7 +24,6 @@ export const ControlProduct = ({
         name={name}
         city={city}
         state={state}
-        country={country}
         sex={sex}
         age={age}
         rank={rank}

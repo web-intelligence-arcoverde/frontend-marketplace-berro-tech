@@ -10,6 +10,7 @@ export const Container = styled.div`
   border-radius: 5px;
   max-width: 700px;
   width: 100%;
+  background-color: ${COLORS.light._05};
 `;
 
 export const CurrentImage = styled(Image)`

@@ -1,7 +1,7 @@
 import { ICONS, IMAGES } from "@/assets";
 import { Footer, Header, LayoutSection } from "@/components";
 import { MocksAbout } from "@/mock";
-import { Main, Container } from "@/style";
+import { Main, Container, StyleDesktop, StyleMobile } from "@/style";
 import Image from "next/image";
 import {
   ContainerPresentation,
@@ -20,10 +20,18 @@ const About = () => {
       <Main>
         <Presentation>
           <ContainerPresentation>
-            <h1>
-              Uma plataforma onde você pode comprar e vender caprinos e ovinos
-              de forma segura e sem burocracia
-            </h1>
+            <StyleDesktop>
+              <h1>
+                Uma plataforma onde você pode comprar e vender caprinos e ovinos
+                de forma segura e sem burocracia
+              </h1>
+            </StyleDesktop>
+            <StyleMobile>
+              <h1>
+                Uma plataforma onde você pode comprar<br/> e vender caprinos e ovinos
+                de forma segura e sem burocracia
+              </h1>
+            </StyleMobile>
             <h6>
               Somos a &nbsp; <strong>berro</strong>tech
               <Image src={ICONS.Hands} alt="mãos" />

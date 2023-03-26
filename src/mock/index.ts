@@ -9,23 +9,7 @@ export const NavigationHeader = [
   { name: "mensagens", icon: ICONS.Message },
   { name: "alerta", icon: ICONS.Alert },
 ];
-export const DropdownMock = ["Mais Recente", "Mais Antigo"];
-
-export const MocksCard: any[] = [
-  {
-    photo:
-      "https://www.petz.com.br/blog/wp-content/uploads/2022/05/diferenca-entre-boi-e-touro-topo.jpg",
-    breed: "senepol",
-    quantity: 3,
-    name: "Garrote Senepol",
-    city: "Campina Grande",
-    state: "Paraiba",
-    country: "Brasil",
-    sex: "Macho",
-    age: "3 anos",
-    rank: "Genética",
-  },
-];
+export const DropdownMock = ["Mais Recentes", "Mais Antigos"];
 
 export const PresentationInfoCardMock = [
   {
@@ -142,12 +126,11 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     photo: IMAGES.GadoOne,
     breed: "senepol",
     quantity: 3,
-    name: "Garrote Senepol",
+    name: " Senepol",
     city: "Campina Grande",
     state: "Paraiba",
-    country: "Brasil",
     sex: "Macho",
-    age: "3 anos",
+    age: "Garrote",
     rank: "Genética",
   },
   {
@@ -155,12 +138,11 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     photo: IMAGES.GadoTwo,
     breed: "senepol",
     quantity: 3,
-    name: "Garrote Himalaia",
+    name: " Himalaia",
     city: "Campina Grande",
     state: "Paraiba",
-    country: "Brasil",
     sex: "Macho",
-    age: "3 anos",
+    age: "Garrote",
     rank: "Genética",
   },
   {
@@ -168,38 +150,35 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     photo: IMAGES.GadoThree,
     breed: "senepol",
     quantity: 3,
-    name: "Garrote Pegasus",
+    name: " Pegasus",
     city: "Campina Grande",
     state: "Paraiba",
-    country: "Brasil",
     sex: "Macho",
-    age: "3 anos",
+    age: "Garrote",
     rank: "Genética",
   },
   {
     id: 4,
     photo: IMAGES.GadoFour,
-    breed: "senepol",
+    breed: "SRD",
     quantity: 3,
-    name: "Garrote Senepol",
+    name: " Senepol",
     city: "Campina Grande",
     state: "Paraiba",
-    country: "Brasil",
     sex: "Macho",
-    age: "3 anos",
+    age: "Garrote",
     rank: "Genética",
   },
   {
     id: 5,
     photo: IMAGES.GadoFive,
-    breed: "senepol",
+    breed: "SRD",
     quantity: 3,
-    name: "Garrote Senepol",
+    name: " Senepol",
     city: "Campina Grande",
     state: "Paraiba",
-    country: "Brasil",
     sex: "Macho",
-    age: "3 anos",
+    age: "Garrote",
     rank: "Genética",
   },
   {
@@ -207,12 +186,11 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
     photo: IMAGES.GadoSix,
     breed: "senepol",
     quantity: 3,
-    name: "Garrote Senepol",
+    name: " Senepol",
     city: "Campina Grande",
     state: "Paraiba",
-    country: "Brasil",
     sex: "Macho",
-    age: "3 anos",
+    age: "Garrote",
     rank: "Genética",
   },
 ];
@@ -241,11 +219,11 @@ export const tabs = [
 ];
 export const Bussinestabs = [
   {
-    title: "caprinos",
+    title: "Caprinos",
     content: "",
   },
   {
-    title: "ovinos",
+    title: "Ovinos",
     content: "",
   },
 ];
@@ -263,15 +241,9 @@ export const MocksAbout = [
   {
     title: "O que fazemos",
     text: "Conectamos compradores e vendedores de animais dos setores da capinocultura e ovinocultura. Oferecemos uma plataforma segura e fácil de usar para que você encontre animais de qualidade, consulte todas as informações que precisa e entre em contato pra fechar negócio",
-    continuationText: "",
-    helperText: "",
-    image: "",
-    image_mobile: "",
   },
   {
     title: "Publique seus animais para venda",
-    text: "",
-    continuationText: "",
     helperText:
       "Em três passos, você publica seus animais para outros produtores entrarem em contato",
     image: IMAGES.PrintPublishing,
@@ -279,9 +251,8 @@ export const MocksAbout = [
   },
   {
     title: "Entre em contato com quem vende",
-    text: "",
-    continuationText: "",
-    helperText: "",
+    helperText:
+      "Procure por bons negócios e consulte todas as informações que precisar",
     image: IMAGES.PrintProduct,
     image_mobile: IMAGES.PrintProductMobile,
   },

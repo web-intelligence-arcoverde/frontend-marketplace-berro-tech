@@ -6,6 +6,7 @@ export const CardButtons = styled.div`
   gap: 20px;
   border: 1.5px solid ${COLORS.light._02};
   padding: 0 24px;
+  background-color: ${COLORS.light._05};
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     padding: 10px 24px;

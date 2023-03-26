@@ -1,16 +1,24 @@
 import {
   AddFreeUser,
   CardPerfilVendedor,
+  Dropdown,
   Header,
   Modal,
   ProductCard,
   RegisterProduct,
-  Select,
+  SelectOrdenation,
   Tabs,
 } from "@/components";
 import useModalOverflow from "@/hooks/useModalOverflow";
-import { BussinessHighlightProductMock, Bussinestabs } from "@/mock";
-import { ButtonAddProduct, Container, Main, TabsContainer } from "@/style";
+import { BussinessHighlightProductMock, Bussinestabs, DropdownMock } from "@/mock";
+import {
+  ButtonAddProduct,
+  Container,
+  Main,
+  StyleDesktop,
+  StyleMobile,
+  TabsContainer,
+} from "@/style";
 import {
   CardProducts,
   ContainerMypublication,
@@ -63,7 +71,16 @@ const MyPublication = () => {
                 <TabsContainer>
                   <Tabs tabs={Bussinestabs} />
                 </TabsContainer>
-                <Select />
+                <StyleDesktop>
+                  <SelectOrdenation />
+                </StyleDesktop>
+                <StyleMobile>
+                  <Dropdown
+                    id="dropdown"
+                    options={DropdownMock}
+                    onOptionSelect={() => {}}
+                  />
+                </StyleMobile>
               </ContainerTabs>
             )}
 

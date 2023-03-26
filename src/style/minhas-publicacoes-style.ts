@@ -7,8 +7,17 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
   width: 100%;
   align-items: ${(props) => (props.empty ? "center" : "flex-start")};
   justify-content: space-between;
-  background-color: ${COLORS.light._05};
+  background-color: ${COLORS.brand_light._04};
   padding: 50px 100px;
+  #dropdown {
+    border: 1.5px solid ${COLORS.light._02};
+    padding: 8px 10px;
+    border-radius: 5px;
+    height: 48px;
+  }
+  .tabs{
+    border-bottom: none;
+  }
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
@@ -17,6 +26,21 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
     flex-direction: column;
     margin-bottom: 20px;
     position: relative;
+    .tabs {
+      padding: 0;
+      border-radius: 5px;
+      height: 48px;
+      width: 90%;
+      border: 1.5px solid ${COLORS.light._02};
+      .tab {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+      }
+      .active{
+       border: none;
+      }
+    }
   }
 `;
 export const ContentCard = styled.div`
@@ -39,7 +63,7 @@ export const CardProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: flex-start;
+  justify-content: flex-end;
   width: 100%;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
@@ -56,6 +80,7 @@ export const SectionProducts = styled.section`
   flex-direction: column;
   gap: 16px;
   padding-left: 32px;
+  align-items: end;
   @media (max-width: ${BREAKPOINTS.sm}) {
     padding-left: 0;
   }
@@ -91,6 +116,11 @@ export const ContainerTabs = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 780px;
+  width: 100%;
+  border-bottom: solid 1.5px ${COLORS.light._02};
+  @media(max-width:${BREAKPOINTS.md}){
+    border-bottom:none;
+  }
 `;
 // **********************************   Style da página de Id   *************************************
 
@@ -98,14 +128,13 @@ export const Content = styled.div`
   display: flex;
   padding: 44px 100px;
   gap: 32px;
-  background-color: ${COLORS.light._05};
+  background-color: ${COLORS.brand_light._04};
   @media (max-width: ${BREAKPOINTS.sm}) {
-    
     padding: 0;
     flex-direction: column;
-    @media (max-width: ${BREAKPOINTS.sm}){
-    gap: 0;
-  }
+    @media (max-width: ${BREAKPOINTS.sm}) {
+      gap: 0;
+    }
   }
 `;
 
@@ -114,5 +143,4 @@ export const InfoProduct = styled.div`
   flex-direction: column;
   max-width: 700px;
   gap: 32px;
- 
 `;

@@ -5,5 +5,6 @@ export const ContainerControlProduct = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: ${COLORS.light._05};
 `;
 

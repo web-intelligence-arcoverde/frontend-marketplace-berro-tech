@@ -1,5 +1,14 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addItem, signIn, removeItem,addProduct } from "./actions";
+import {
+  addItem,
+  signIn,
+  removeItem,
+  currentStep,
+  addUser,
+  addPassword,
+  filterItems,
+  productsWithOutFilters
+} from "./actions";
 
 import { initialState } from "./initial";
 
@@ -15,7 +24,32 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.lastSearchs = state.lastSearchs.filter(
         (item) => item !== action.payload
       );
-    }).addCase(addProduct,(state,action)=>{
-      state.registerProduct.push(action.payload)
-    });
+    })
+    .addCase(currentStep, (state, action) => {
+      state.currentStep = action.payload.step;
+    })
+    .addCase(addUser, (state, action) => {
+      const { name, email, phone } = action.payload;
+      state.registerUser = {
+        name,
+        email,
+        phone,
+      };
+    })
+    .addCase(addPassword, (state, action) => {
+      const { password, repeatPassword } = action.payload;
+      state.registerUser = {
+        ...state.registerUser,
+        password,
+        repeatPassword,
+      };
+    })
+    .addCase(filterItems, (state, action) => {
+      const filtro = action.payload;
+      state.allProducts = state.allProducts.filter(
+        (item: { breed: string }) => item.breed.toLowerCase() === filtro
+      );
+    }).addCase(productsWithOutFilters,(state,action)=>{
+      state.allProducts = initialState.allProducts
+    })
 });
