@@ -20,12 +20,12 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const [search, setSearch] = useState<any>(getSearch);
   const dispath = useAppDispatch();
   useEffect(() => {
+    localStorage.setItem("search", search);
     if (currentRouter !== "/negocios") {
       setSearch("");
     }
   }, []);
   useEffect(() => {
-    localStorage.setItem("search", search);
     if (!search) {
       dispath(productsWithOutFilters());
     }

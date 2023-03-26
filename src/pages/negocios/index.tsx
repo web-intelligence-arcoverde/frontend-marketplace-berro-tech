@@ -39,9 +39,9 @@ export const Business = () => {
               </SelectContainer>
             </ProductHeaderContainer>
             <ProductCardContainer>
-              {allProduct.map((item: CardProductProps, index: number) => (
+              {allProduct?.map((item: CardProductProps, index: number) => (
                 <ProductCard key={`${item.name} ${index}`} {...item} />
-              ))}
+              ))}        
             </ProductCardContainer>
           </ProductContainer>
         </BussinesContainer>
