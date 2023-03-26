@@ -80,7 +80,7 @@ const MyPublication = () => {
             )}
           </SectionProducts>
           <CardFixedMobile>
-            <ButtonFixedMobile>
+            <ButtonFixedMobile onClick={registerProduct}>
               {productsEmpty
                 ? "Adicionar novo negócio"
                 : "Adicionar meu primeiro negócio"}

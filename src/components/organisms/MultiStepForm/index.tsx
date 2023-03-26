@@ -1,4 +1,4 @@
-import { ContentStep, HeaderMultiSteps, LayoutRegisterConfig } from "./style";
+import { ContentStep, HeaderMultiSteps, LayoutRegisterConfig, StepsContainer } from "./style";
 import { useEffect, useState } from "react";
 
 interface Step {
@@ -30,7 +30,7 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
       <HeaderMultiSteps>
         {steps.map((step) => {
           return (
-            <div
+            <StepsContainer
               className={currentStep === step.id ? "active" : ""}
               key={step.id}
               onClick={() => {
@@ -39,7 +39,7 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
             >
               <h6>{step.step}</h6>
               <h4>{step.name}</h4>
-            </div>
+            </StepsContainer>
           );
         })}
       </HeaderMultiSteps>

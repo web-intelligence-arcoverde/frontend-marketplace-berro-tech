@@ -20,3 +20,5 @@ export { ModalFilters } from "./ModalFilters";
 export { Modal } from "./Modal";
 export { FloatingLabelInput } from "./FloatingLabelInput";
 export { FloatingLabelRadio } from "./FloatingLabelRadio";
+export { Dropzone } from "./Dropzone";
+export { DropedImages } from "./DropedImages";

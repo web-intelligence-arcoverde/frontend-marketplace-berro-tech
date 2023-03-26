@@ -2,6 +2,7 @@ import { COLORS } from "@/common";
 import styled from "styled-components";
 
 export const FormField = styled.div`
+  width: 100%;
   position: relative;
   margin-bottom: 1rem;
 `;

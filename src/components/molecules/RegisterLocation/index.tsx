@@ -1,23 +1,36 @@
+import { FloatingLabelInput } from "@/components";
+import { Container, ContainerInputs, NextButton, NextButtonContainer, ContainerTitle } from "./style";
+
 const RegisterLocation = ({ formValues, setFormValues }: any) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        name="firstName"
-        placeholder="teste3"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="teste3"
-        onChange={handleChange}
-      />
-    </div>
+    <Container>
+      <ContainerTitle>
+        <h2>Usar sua localização padrão</h2>
+        <ContainerInputs>
+          <FloatingLabelInput
+            type="text"
+            id="estado"
+            isWhite
+            name="Estado"
+            placeholder="Estado"
+          />
+          <FloatingLabelInput
+            type="text"
+            id="cidade"
+            isWhite
+            name="cidade"
+            placeholder="cidade"
+          />
+        </ContainerInputs>
+      </ContainerTitle>
+      <NextButtonContainer>
+        <NextButton>Salvar alterações</NextButton>
+      </NextButtonContainer>
+    </Container>
   );
 };
 

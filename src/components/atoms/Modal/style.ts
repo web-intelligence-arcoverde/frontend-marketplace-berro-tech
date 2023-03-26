@@ -21,9 +21,11 @@ export const ContainerModal = styled.div`
   animation: ${fadeIn} 0.3s ease-in-out forwards;
   @media (max-width:${BREAKPOINTS.md}) {
   width: 100%;
-  height: 100%;
+  transform: none;
+  top: 10%;
+  left: 0;
+  height: 90%;
   padding: 0;
-  padding-top: 100px;
   overflow: auto;
  }
 `;
