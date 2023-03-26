@@ -10,21 +10,26 @@ import {
 import { useAppDispatch } from "@/hooks/useSelectorHook";
 import { KeyboardEvent } from "react";
 import { useRouter } from "next/router";
-import {} from '../'
 interface ISearch {
   isFocused: boolean;
   setIsFocused: (state: boolean) => boolean;
 }
 
-
 export const Search = ({ isFocused, setIsFocused }: ISearch) => {
-  const [search, setSearch] = useState("");
+  const getSearch = localStorage.getItem("search");
+  const [search, setSearch] = useState<any>(getSearch);
   const dispath = useAppDispatch();
   useEffect(() => {
-    if (!search) {
-      dispath(productsWithOutFilters(''));
+    if (currentRouter !== "/negocios") {
+      setSearch("");
     }
-  }, [search,dispath]);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("search", search);
+    if (!search) {
+      dispath(productsWithOutFilters());
+    }
+  }, [search, dispath]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -41,11 +46,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   };
 
   const handleBlur = () => {
-    setIsFocused(false);
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
+    setIsFocused(!isFocused);
   };
 
   const router = useRouter();
@@ -55,7 +56,9 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     if (event.keyCode === 13) {
       if (currentRouter !== "/negocios") {
         router.push("/negocios");
-        dispath(filterItems(search));
+        setTimeout(() => {
+          dispath(filterItems(search));
+        }, 300);
       }
       dispath(filterItems(search));
     }
@@ -74,7 +77,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         value={search}
         onChange={handleChange}
         onBlur={handleBlur}
-        onFocus={handleFocus}
+        onFocus={handleBlur}
         onKeyDown={searchEnter}
       />
       {search && (
