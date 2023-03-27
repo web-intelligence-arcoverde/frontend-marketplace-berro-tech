@@ -70,6 +70,9 @@ export const ContainerPresentation = styled.div`
     font-weight: 400;
     display: flex;
     align-items: center;
+    span {
+      width: max-content;
+    }
   }
   img {
     margin-left: 10px;
