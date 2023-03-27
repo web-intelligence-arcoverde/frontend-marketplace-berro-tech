@@ -28,12 +28,13 @@ const About = () => {
             </StyleDesktop>
             <StyleMobile>
               <h1>
-                Uma plataforma onde você pode comprar<br/> e vender caprinos e ovinos
-                de forma segura e sem burocracia
+                Uma plataforma onde você pode comprar
+                <br /> e vender caprinos e ovinos de forma segura e sem
+                burocracia
               </h1>
             </StyleMobile>
             <h6>
-              Somos a &nbsp; <strong>berro</strong>tech
+              <span> Somos a &nbsp;</span> <strong>berro</strong>tech
               <Image src={ICONS.Hands} alt="mãos" />
             </h6>
           </ContainerPresentation>
