@@ -15,4 +15,5 @@ export const addUser = createAction<IRegisterUserProps>("ADD_USER");
 export const addPassword = createAction<IRegisterUserProps>("ADD_PASSWORD")
 export const filterItems = createAction<any>('FILTER_ITEMS')
 export const productsWithOutFilters = createAction('PRODUCTS_WITH_OUT_FILTERS')
+export const currentSearch = createAction<string>('CURRENT_SEARCH')
 

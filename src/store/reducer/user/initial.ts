@@ -5,6 +5,7 @@ export const initialState: UserState = {
   token: "",
   lastSearchs: [],
   currentStep: 1,
+  currentSearch:'',
   registerUser: {
     name: "",
     email: "",

@@ -4,6 +4,7 @@ export type UserState = {
   currentStep: any;
   registerUser: IRegisterUserProps;
   allProducts:any
+  currentSearch:string
 };
 
 export interface IRegisterUserProps {

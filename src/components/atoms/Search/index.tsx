@@ -4,10 +4,11 @@ import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
 import { ChangeEvent, MouseEventHandler, useEffect, useState } from "react";
 import {
   addItem,
+  currentSearch,
   filterItems,
   productsWithOutFilters,
 } from "@/store/reducer/user/actions";
-import { useAppDispatch } from "@/hooks/useSelectorHook";
+import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
 import { KeyboardEvent } from "react";
 import { useRouter } from "next/router";
 interface ISearch {
@@ -16,11 +17,12 @@ interface ISearch {
 }
 
 export const Search = ({ isFocused, setIsFocused }: ISearch) => {
-  const getSearch = localStorage.getItem("search");
-  const [search, setSearch] = useState<any>(getSearch);
+
+  const getSearch = useAppSelector((state) => state.user.currentSearch);
+  const [search, setSearch] = useState<string>(getSearch);
   const dispath = useAppDispatch();
   useEffect(() => {
-    localStorage.setItem("search", search);
+   
     if (currentRouter !== "/negocios") {
       setSearch("");
     }
@@ -38,10 +40,12 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const handleAddItem = (event: ChangeEvent<HTMLInputElement> | any) => {
     event.preventDefault();
     dispath(addItem(search.toLocaleLowerCase()));
+    dispath(currentSearch(search))
   };
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
     setSearch("");
+    dispath(currentSearch(''))
     event.preventDefault();
   };
 
