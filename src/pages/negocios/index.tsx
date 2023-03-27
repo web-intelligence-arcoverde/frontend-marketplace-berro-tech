@@ -2,6 +2,7 @@ import {
   BussinessAside,
   Footer,
   Header,
+  NotFoundFilter,
   ProductCard,
   SelectOrdenation,
   Tabs,
@@ -22,6 +23,7 @@ import { CardProductProps } from "@/types";
 
 export const Business = () => {
   const allProduct = useAppSelector((state) => state.user.allProducts);
+  const currentSearch = useAppSelector((state)=> state.user.currentSearch)
 
   return (
     <Container>
@@ -41,7 +43,11 @@ export const Business = () => {
             <ProductCardContainer>
               {allProduct?.map((item: CardProductProps, index: number) => (
                 <ProductCard key={`${item.name} ${index}`} {...item} />
-              ))}        
+              ))}
+              <NotFoundFilter
+                title={`Nenhum resultado para “${currentSearch}” `}
+                subtitle="Tente alterar os filtros para encontrar negócios"
+              />
             </ProductCardContainer>
           </ProductContainer>
         </BussinesContainer>
