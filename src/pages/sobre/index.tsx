@@ -20,19 +20,11 @@ const About = () => {
       <Main>
         <Presentation>
           <ContainerPresentation>
-            <StyleDesktop>
-              <h1>
-                Uma plataforma onde você pode comprar e vender caprinos e ovinos
-                de forma segura e sem burocracia
-              </h1>
-            </StyleDesktop>
-            <StyleMobile>
-              <h1>
-                Uma plataforma onde você pode comprar
-                <br /> e vender caprinos e ovinos de forma segura e sem
-                burocracia
-              </h1>
-            </StyleMobile>
+            <h1>
+              Uma plataforma onde você pode comprar e vender caprinos e ovinos
+              de forma segura e sem burocracia
+            </h1>
+
             <h6>
               <span> Somos a &nbsp;</span> <strong>berro</strong>tech
               <Image src={ICONS.Hands} alt="mãos" />

@@ -59,10 +59,11 @@ export const ContainerPresentation = styled.div`
   color: ${COLORS.dark._03};
 
   h1 {
-    width: 80%;
+    width: 100%;
     line-height: 80px;
     font-size: 2.5rem;
     font-weight: 700;
+    max-width: 900px;
   }
   h6 {
     line-height: 60px;
@@ -83,7 +84,7 @@ export const ContainerPresentation = styled.div`
     flex-direction: column;
 
     h1 {
-      width: 100%;
+      width: 90%;
       justify-content: center;
       font-size: 28px;
       line-height: 42px;
