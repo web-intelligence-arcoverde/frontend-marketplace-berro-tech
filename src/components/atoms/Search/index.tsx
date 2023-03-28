@@ -43,6 +43,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     dispath(addItem(search.toLocaleLowerCase()));
     dispath(currentSearch(search))
     dispath(searchMobile(false))
+    dispath(filterItems(search));
   };
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
@@ -65,7 +66,9 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         setTimeout(() => {
           dispath(filterItems(search));
         }, 300);
+
       }
+
       dispath(filterItems(search));
     }
   };
