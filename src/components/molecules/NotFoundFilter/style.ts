@@ -16,6 +16,10 @@ export const ContainerNotFound = styled.div`
     font-size: 18px;
     font-weight: 500;
     color: ${COLORS.gray._01};
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 100%;
+    width: 50ch !important;
   }
   h6 {
     font-size: 16px;
