@@ -1,7 +1,12 @@
 import { ICONS } from "@/assets";
 import { Search } from "@/components/atoms";
 import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
-import { removeItem } from "@/store/reducer/user/actions";
+import {
+  currentSearch,
+  filterItems,
+  removeItem,
+  searchMobile,
+} from "@/store/reducer/user/actions";
 import Image from "next/image";
 import { useState } from "react";
 import { ContainerSearchMobile, CardSearch, LastSearchs } from "./style";
@@ -11,6 +16,12 @@ export const SearchMobile = () => {
   const dispatch = useAppDispatch();
   const handleRemoveClick = (item: any) => {
     dispatch(removeItem(item));
+  };
+
+  const getNameFilter = (event: string) => {
+    dispatch(currentSearch(""));
+    dispatch(filterItems(event));
+    dispatch(searchMobile(false));
   };
 
   const lastSearchs = useAppSelector((state) => state.user.lastSearchs);
@@ -25,8 +36,13 @@ export const SearchMobile = () => {
       </CardSearch>
       <LastSearchs>
         {lastSearchs.length > 0 && <h6>Recentes</h6>}
-        {lastSearchs.map((search, index) => (
-          <li key={index}>
+        {lastSearchs.slice(0, 5).map((search, index) => (
+          <li
+            onClick={() => {
+              getNameFilter(search);
+            }}
+            key={index}
+          >
             {search}
             <Image
               onClick={() => {

@@ -19,24 +19,33 @@ import {
   CardArrowUp,
 } from "./style";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchMobile } from "@/store/reducer/user/actions";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.user.token);
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState(false);
-  const [container, setContainer] = useState(true);
+
   const [openDropDown, setOpenDropDown] = useState(false);
+  const container = useAppSelector((state) => state.user.searchMobile);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setSearch(!container);
+    setModal(!container);
+  }, [container]);
 
   const handleModal = () => {
     setModal(!modal);
-    setContainer(!container);
+    dispatch(searchMobile(container));
   };
   const handleSearch = () => {
     setSearch(!search);
-    setContainer(!container);
+    dispatch(searchMobile(container));
   };
   const handleContainer = () => {
-    setContainer(!container);
+    dispatch(searchMobile(container));
     setSearch(false);
     setModal(false);
   };

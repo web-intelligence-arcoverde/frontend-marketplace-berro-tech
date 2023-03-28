@@ -7,6 +7,7 @@ import {
   currentSearch,
   filterItems,
   productsWithOutFilters,
+  searchMobile,
 } from "@/store/reducer/user/actions";
 import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
 import { KeyboardEvent } from "react";
@@ -41,6 +42,8 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     event.preventDefault();
     dispath(addItem(search.toLocaleLowerCase()));
     dispath(currentSearch(search))
+    dispath(searchMobile(false))
+    dispath(filterItems(search));
   };
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
@@ -63,7 +66,9 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         setTimeout(() => {
           dispath(filterItems(search));
         }, 300);
+
       }
+
       dispath(filterItems(search));
     }
   };
