@@ -9,7 +9,7 @@ import {
   filterItems,
   productsWithOutFilters,
   currentSearch,
-  searchMobile
+  searchMobile,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -47,15 +47,21 @@ export const userReducer = createReducer(initialState, (builder) => {
       };
     })
     .addCase(filterItems, (state, action) => {
-      const filtro = action.payload;
-      state.allProducts = state.allProducts.filter(
-        (item: { breed: string }) => item.breed.toLowerCase() === filtro
-      );
-    }).addCase(productsWithOutFilters,(state,action)=>{
-      state.allProducts = initialState.allProducts
-    }).addCase(currentSearch,(state,action)=>{
-      state.currentSearch = action.payload
-    }).addCase(searchMobile,(state,action)=>{
-      state.searchMobile = !action.payload
+      const filtro = action.payload.toLowerCase();
+      state.allProducts = state.allProducts.filter((item:string) => {
+        return Object.values(item).some(
+          (value) =>
+            typeof value === "string" && value.toLowerCase().includes(filtro)
+        );
+      });
     })
+    .addCase(productsWithOutFilters, (state, action) => {
+      state.allProducts = initialState.allProducts;
+    })
+    .addCase(currentSearch, (state, action) => {
+      state.currentSearch = action.payload;
+    })
+    .addCase(searchMobile, (state, action) => {
+      state.searchMobile = !action.payload;
+    });
 });
