@@ -19,7 +19,7 @@ export const ContainerNotFound = styled.div`
     text-align: center;
     word-wrap: break-word;
     max-width: 100%;
-    width: 50ch !important;
+
   }
   h6 {
     font-size: 16px;
