@@ -19,7 +19,7 @@ export const userReducer = createReducer(initialState, (builder) => {
       console.log(action);
     })
     .addCase(addItem, (state, action) => {
-      state.lastSearchs.reverse().push(action.payload);
+      state.lastSearchs.unshift(action.payload);
     })
     .addCase(removeItem, (state, action) => {
       state.lastSearchs = state.lastSearchs.filter(

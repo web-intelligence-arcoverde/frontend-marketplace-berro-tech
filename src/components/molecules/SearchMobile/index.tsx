@@ -25,7 +25,7 @@ export const SearchMobile = () => {
       </CardSearch>
       <LastSearchs>
         {lastSearchs.length > 0 && <h6>Recentes</h6>}
-        {lastSearchs.map((search, index) => (
+        {lastSearchs.slice(0,5).map((search, index) => (
           <li key={index}>
             {search}
             <Image
