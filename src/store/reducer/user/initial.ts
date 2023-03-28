@@ -13,5 +13,6 @@ export const initialState: UserState = {
     password: "",
     repeatPassword: "",
   },
+  searchMobile:true,
   allProducts:BussinessHighlightProductMock
 };

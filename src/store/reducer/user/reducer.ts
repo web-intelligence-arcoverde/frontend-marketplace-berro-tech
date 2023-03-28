@@ -8,7 +8,8 @@ import {
   addPassword,
   filterItems,
   productsWithOutFilters,
-  currentSearch
+  currentSearch,
+  searchMobile
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -54,5 +55,7 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.allProducts = initialState.allProducts
     }).addCase(currentSearch,(state,action)=>{
       state.currentSearch = action.payload
+    }).addCase(searchMobile,(state,action)=>{
+      state.searchMobile = !action.payload
     })
 });
