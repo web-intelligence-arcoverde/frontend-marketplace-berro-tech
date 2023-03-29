@@ -12,11 +12,17 @@ import {useState} from 'react';
 import {FormLogin, LostPassword} from '@/style/entrar-style';
 import {useHookFormSignInEmail} from '@/hooks/useFormSignEmail';
 import {SignInInputs} from '@/mock/Inputs';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 
 const SignIn = () => {
   const [loginWithEmail, setLoginWithEmail] = useState(false);
 
+  const state = useAppSelector((state) => state.user.token);
+
+  console.log(state);
+
   const {control, errors, onSubmit} = useHookFormSignInEmail();
+
   return (
     <LayoutInit>
       <MiniContainer

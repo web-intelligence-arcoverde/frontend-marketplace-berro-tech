@@ -4,7 +4,10 @@ import {IRegisterUserProps, ISignIn} from './types';
 export const signUpRequest = createAction('user/sign-up-request');
 export const signUpSuccess = createAction('user/sign-up-success');
 
-export const signIn = createAction<ISignIn>('user/sign-in');
+export const signInRequest = createAction<ISignIn>('user/sign-in-request');
+export const signInSuccess = createAction<{token: string}>(
+  'user/sign-in-success',
+);
 
 export const addItem = createAction<string>('ADD_ITEM');
 export const removeItem = createAction<any>('REMOVE_ITEM');
