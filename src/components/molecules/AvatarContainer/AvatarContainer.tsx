@@ -36,10 +36,6 @@ export const AvatarContainer = () => {
     setModal(!container);
   }, [container]);
 
-  const handleModal = () => {
-    setModal(!modal);
-    dispatch(searchMobile(container));
-  };
   const handleSearch = () => {
     setSearch(!search);
     dispatch(searchMobile(container));
@@ -102,7 +98,11 @@ export const AvatarContainer = () => {
                     alt="icone lupa"
                   />
                 </CardIcons>
-                <ButtonMenu onClick={handleModal}>
+                <ButtonMenu
+                  onClick={() => {
+                    setModal(!modal);
+                  }}
+                >
                   <Image src={ICONS.Menu} alt="icone do menu" />
                 </ButtonMenu>
               </>
