@@ -1,6 +1,5 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import { InputUser } from "@/components";
-import styled from "styled-components";
+import {BREAKPOINTS, COLORS} from '@/common';
+import styled from 'styled-components';
 
 export const Container = styled.section`
   background: ${COLORS.light._05};

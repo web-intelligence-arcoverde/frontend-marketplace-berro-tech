@@ -1,20 +1,45 @@
-import { ICONS } from "@/assets";
+import {ICONS} from '@/assets';
 import {
   Button,
   ButtonLink,
-  InputUser,
+  Input,
   LayoutInit,
   MiniContainer,
   VerificationCode,
-} from "@/components";
-import { CardRecovery } from "@/style/recovery-password";
-import Image from "next/image";
-import { ChangeEvent, useEffect, useState } from "react";
+} from '@/components';
+import {CardRecovery} from '@/style/recovery-password';
+import Image from 'next/image';
+import {ChangeEvent, useEffect, useState} from 'react';
+
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import {ErrorMessage} from '@/locale';
+
+const schema = yup
+  .object({
+    email: yup
+      .string()
+      .required(ErrorMessage['email-required'])
+      .email(ErrorMessage['email-valid']),
+  })
+  .required();
 
 const RecoveryPassword = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [step, SetStep] = useState(0);
   const [countdown, setCountdown] = useState(59);
+
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      email: '',
+    },
+  });
 
   useEffect(() => {
     let timer: string | number | NodeJS.Timeout | undefined;
@@ -25,7 +50,7 @@ const RecoveryPassword = () => {
   }, [countdown, step]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
+    const {value} = event.target;
     setEmail(value);
   };
 
@@ -40,27 +65,26 @@ const RecoveryPassword = () => {
   return (
     <LayoutInit>
       <MiniContainer
-        title="Esqueci minha senha"
-        subTitle="Siga os passos abaixo para recuperar"
-        lastButtonLink="dsddsdsdsdsd"
+        title='Esqueci minha senha'
+        subTitle='Siga os passos abaixo para recuperar'
+        lastButtonLink='dsddsdsdsdsd'
       >
         <CardRecovery>
-          <ButtonLink id="back" link={"entrar"}>
-            <Image src={ICONS.Up} alt="voltar" />
+          <ButtonLink id='back' link={'entrar'}>
+            <Image src={ICONS.Up} alt='voltar' />
             Voltar
           </ButtonLink>
           {!step ? (
             <>
-              <InputUser
-                nameLabel="Email"
-                name="email"
-                type="email"
-                placeholder="Email da sua conta"
-                required ={true}
-                value={email}
-                onChange={handleChange}
+              <Input
+                nameLabel='Email'
+                name='email'
+                type='email'
+                placeholder='Email da sua conta'
+                control={control}
+                errors={errors}
               />
-              <Button type="submit" onClick={handleStep}>
+              <Button type='submit' onClick={handleStep}>
                 Recuperar senha
               </Button>
             </>
@@ -71,11 +95,11 @@ const RecoveryPassword = () => {
               <VerificationCode />
               <Button onClick={() => {}}>Confirmar</Button>
               {countdown === 0 ? (
-                <Button className="resend" onClick={handleResend}>
+                <Button className='resend' onClick={handleResend}>
                   Reenviar código
                 </Button>
               ) : (
-                <Button className="resend cursor" onClick={() => {}}>
+                <Button className='resend cursor' onClick={() => {}}>
                   Reenviar código (00:{countdown})
                 </Button>
               )}
