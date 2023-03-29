@@ -4,9 +4,11 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
 import {
   currentSearch,
   filterItems,
+  productsWithOutFilters,
   removeItem,
   searchMobile,
 } from "@/store/reducer/user/actions";
+import { initialState } from "@/store/reducer/user/initial";
 import Image from "next/image";
 import { useState } from "react";
 import { ContainerSearchMobile, CardSearch, LastSearchs } from "./style";
@@ -14,14 +16,17 @@ import { ContainerSearchMobile, CardSearch, LastSearchs } from "./style";
 export const SearchMobile = () => {
   const [isFocused, setIsFocused] = useState(false);
   const dispatch = useAppDispatch();
-  const handleRemoveClick = (item: any) => {
+  const handleRemoveClick = (item: string) => {
     dispatch(removeItem(item));
   };
 
+
   const getNameFilter = (event: string) => {
     dispatch(currentSearch(""));
+    dispatch(productsWithOutFilters())
     dispatch(filterItems(event));
     dispatch(searchMobile(false));
+    dispatch(currentSearch(event));
   };
 
   const lastSearchs = useAppSelector((state) => state.user.lastSearchs);
@@ -44,13 +49,14 @@ export const SearchMobile = () => {
             key={index}
           >
             {search}
-            <Image
-              onClick={() => {
+            <span
+              onClick={(event) => {
+                event.stopPropagation();
                 handleRemoveClick(search);
               }}
-              src={ICONS.Excluir}
-              alt="excluir"
-            />
+            >
+              <Image src={ICONS.Excluir} alt="excluir" />
+            </span>
           </li>
         ))}
       </LastSearchs>

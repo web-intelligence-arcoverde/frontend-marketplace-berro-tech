@@ -18,12 +18,10 @@ interface ISearch {
 }
 
 export const Search = ({ isFocused, setIsFocused }: ISearch) => {
-
   const getSearch = useAppSelector((state) => state.user.currentSearch);
   const [search, setSearch] = useState<string>(getSearch);
   const dispath = useAppDispatch();
   useEffect(() => {
-   
     if (currentRouter !== "/negocios") {
       setSearch("");
     }
@@ -41,14 +39,17 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const handleAddItem = (event: ChangeEvent<HTMLInputElement> | any) => {
     event.preventDefault();
     dispath(addItem(search.toLocaleLowerCase()));
-    dispath(currentSearch(search))
-    dispath(searchMobile(false))
+    dispath(currentSearch(search));
+    dispath(searchMobile(false));
     dispath(filterItems(search));
+    if (currentRouter !== "/negocios") {
+      router.push("/negocios");
+    }
   };
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
     setSearch("");
-    dispath(currentSearch(''))
+    dispath(currentSearch(""));
     event.preventDefault();
   };
 
@@ -66,7 +67,6 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         setTimeout(() => {
           dispath(filterItems(search));
         }, 300);
-
       }
 
       dispath(filterItems(search));

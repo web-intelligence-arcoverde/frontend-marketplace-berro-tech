@@ -34,9 +34,15 @@ export const LastSearchs = styled.ul`
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px ${COLORS.light._02};
-    padding: 20px 0;
-    img{
+    
+    height:64px;
+    span{
+      width: 40px;
+      height: 40px;
       z-index: 11;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
 
     :last-child{
