@@ -7,7 +7,9 @@ import {
   addUser,
   addPassword,
   filterItems,
-  productsWithOutFilters
+  productsWithOutFilters,
+  currentSearch,
+  searchMobile,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -18,7 +20,7 @@ export const userReducer = createReducer(initialState, (builder) => {
       console.log(action);
     })
     .addCase(addItem, (state, action) => {
-      state.lastSearchs.reverse().push(action.payload);
+      state.lastSearchs.unshift(action.payload);
     })
     .addCase(removeItem, (state, action) => {
       state.lastSearchs = state.lastSearchs.filter(
@@ -45,11 +47,21 @@ export const userReducer = createReducer(initialState, (builder) => {
       };
     })
     .addCase(filterItems, (state, action) => {
-      const filtro = action.payload;
-      state.allProducts = state.allProducts.filter(
-        (item: { breed: string }) => item.breed.toLowerCase() === filtro
-      );
-    }).addCase(productsWithOutFilters,(state,action)=>{
-      state.allProducts = initialState.allProducts
+      const filtro = action.payload.toLowerCase();
+      state.allProducts = state.allProducts.filter((item:string) => {
+        return Object.values(item).some(
+          (value) =>
+            typeof value === "string" && value.toLowerCase().includes(filtro)
+        );
+      });
     })
+    .addCase(productsWithOutFilters, (state, action) => {
+      state.allProducts = initialState.allProducts;
+    })
+    .addCase(currentSearch, (state, action) => {
+      state.currentSearch = action.payload;
+    })
+    .addCase(searchMobile, (state, action) => {
+      state.searchMobile = !action.payload;
+    });
 });

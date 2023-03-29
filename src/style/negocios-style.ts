@@ -10,25 +10,26 @@ export const BussinesContainer = styled.section`
   margin: 0 auto;
   padding: 45px 112px;
   max-width: ${BREAKPOINTS.xxg};
-  @media (max-width:${BREAKPOINTS.md}) {
+  min-height: 27vw;
+  @media (max-width: ${BREAKPOINTS.md}) {
     flex-direction: column;
     gap: 20px;
     padding: 0;
   }
-`
+`;
 export const ProductContainer = styled.div`
   display: flex;
   width: 70%;
   min-width: 800px;
   flex-direction: column;
-  @media (max-width:${BREAKPOINTS.md}) {
-   width: 100%;
-   padding: 0 20px;
+  @media (max-width: ${BREAKPOINTS.md}) {
+    width: 100%;
+    padding: 0 20px;
   }
-  @media (max-width:${BREAKPOINTS.largeScreen}) {
+  @media (max-width: ${BREAKPOINTS.largeScreen}) {
     min-width: auto;
   }
-`
+`;
 
 export const SelectContainer = styled.div`
   width: 30%;
@@ -45,8 +46,7 @@ export const SelectContainer = styled.div`
 
 export const ProductHeaderContainer = styled.div`
   display: flex;
-
-`
+`;
 
 export const ProductCardContainer = styled.div`
   margin-top: 16px;
@@ -62,18 +62,17 @@ export const ProductCardContainer = styled.div`
     justify-content: center;
     margin-top: 28px;
   }
-
-`
+`;
 
 export const TabsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
-  .tabs{
+  .tabs {
     border-bottom: 1px solid ${COLORS.light._02};
     display: flex;
-    padding-bottom:16px;
-    .tab{
+    padding-bottom: 16px;
+    .tab {
       border-radius: 5px;
       cursor: pointer;
       font-weight: 400;
@@ -81,26 +80,25 @@ export const TabsContainer = styled.div`
       color: ${COLORS.gray._03};
       padding: 12px 24px;
     }
-    .active{
+    .active {
       font-weight: 500;
-      color:${COLORS.brand_dark._03};
+      color: ${COLORS.brand_dark._03};
       background: ${COLORS.brand_light._03};
     }
   }
   flex-direction: column;
-  @media (max-width:${BREAKPOINTS.md}) {
+  @media (max-width: ${BREAKPOINTS.md}) {
+    width: 100%;
+    .tabs {
+      padding: 0;
+      border-radius: 7px;
       width: 100%;
-      .tabs{
-        padding: 0;
-        border-radius: 7px;
+      border: 1px solid ${COLORS.light._02};
+      .tab {
         width: 100%;
-        border: 1px solid ${COLORS.light._02};
-        .tab{
-          width: 100%;
-          text-align: center;
-          font-size: 14px ;
-        }
+        text-align: center;
+        font-size: 14px;
       }
     }
-  `
-
+  }
+`;

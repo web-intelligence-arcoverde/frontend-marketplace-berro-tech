@@ -4,27 +4,35 @@ import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
 import { ChangeEvent, MouseEventHandler, useEffect, useState } from "react";
 import {
   addItem,
+  currentSearch,
   filterItems,
   productsWithOutFilters,
+  searchMobile,
 } from "@/store/reducer/user/actions";
-import { useAppDispatch } from "@/hooks/useSelectorHook";
+import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
 import { KeyboardEvent } from "react";
 import { useRouter } from "next/router";
-import {} from '../'
 interface ISearch {
   isFocused: boolean;
   setIsFocused: (state: boolean) => boolean;
 }
 
-
 export const Search = ({ isFocused, setIsFocused }: ISearch) => {
-  const [search, setSearch] = useState("");
+
+  const getSearch = useAppSelector((state) => state.user.currentSearch);
+  const [search, setSearch] = useState<string>(getSearch);
   const dispath = useAppDispatch();
   useEffect(() => {
-    if (!search) {
-      dispath(productsWithOutFilters(''));
+   
+    if (currentRouter !== "/negocios") {
+      setSearch("");
     }
-  }, [search,dispath]);
+  }, []);
+  useEffect(() => {
+    if (!search) {
+      dispath(productsWithOutFilters());
+    }
+  }, [search, dispath]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -33,19 +41,19 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const handleAddItem = (event: ChangeEvent<HTMLInputElement> | any) => {
     event.preventDefault();
     dispath(addItem(search.toLocaleLowerCase()));
+    dispath(currentSearch(search))
+    dispath(searchMobile(false))
+    dispath(filterItems(search));
   };
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
     setSearch("");
+    dispath(currentSearch(''))
     event.preventDefault();
   };
 
   const handleBlur = () => {
-    setIsFocused(false);
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
+    setIsFocused(!isFocused);
   };
 
   const router = useRouter();
@@ -55,8 +63,12 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     if (event.keyCode === 13) {
       if (currentRouter !== "/negocios") {
         router.push("/negocios");
-        dispath(filterItems(search));
+        setTimeout(() => {
+          dispath(filterItems(search));
+        }, 300);
+
       }
+
       dispath(filterItems(search));
     }
   };
@@ -74,7 +86,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         value={search}
         onChange={handleChange}
         onBlur={handleBlur}
-        onFocus={handleFocus}
+        onFocus={handleBlur}
         onKeyDown={searchEnter}
       />
       {search && (

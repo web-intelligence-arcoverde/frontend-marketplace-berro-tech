@@ -47,6 +47,7 @@ import Union from "./union.svg"
 import Plus from "./plus.svg" 
 import DragIndicator from "./drag-indicator.svg" 
 import Trash from "./trash.svg" 
+import NotFound from './not-found.svg'
 
 
 export const ICONS = {
@@ -99,4 +100,5 @@ export const ICONS = {
   Plus,
   DragIndicator,
   Trash,
+  NotFound
 };

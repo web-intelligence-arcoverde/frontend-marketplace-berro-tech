@@ -5,6 +5,7 @@ export const initialState: UserState = {
   token: "",
   lastSearchs: [],
   currentStep: 1,
+  currentSearch:'',
   registerUser: {
     name: "",
     email: "",
@@ -12,5 +13,6 @@ export const initialState: UserState = {
     password: "",
     repeatPassword: "",
   },
+  searchMobile:true,
   allProducts:BussinessHighlightProductMock
 };
