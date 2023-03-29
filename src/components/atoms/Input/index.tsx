@@ -20,8 +20,6 @@ export const Input = ({
     setShowPassord(!showPassword);
   };
 
-  console.log(!!errors);
-
   return (
     <Controller
       name={name}

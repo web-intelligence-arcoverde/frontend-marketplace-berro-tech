@@ -3,9 +3,9 @@ export type UserState = {
   lastSearchs: string[];
   currentStep: any;
   registerUser: IRegisterUserProps;
-  allProducts:any
-  currentSearch:string
-  searchMobile:boolean
+  allProducts: any;
+  currentSearch: string;
+  searchMobile: boolean;
 };
 
 export interface IRegisterUserProps {
@@ -13,5 +13,10 @@ export interface IRegisterUserProps {
   email?: string;
   phone?: string;
   password?: string;
-  repeatPassword?: string;
+  confirmationPassword?: string;
+}
+
+export interface ISignIn {
+  email: string;
+  password: string;
 }

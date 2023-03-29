@@ -1,4 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
+import {createReducer} from '@reduxjs/toolkit';
 import {
   addItem,
   signIn,
@@ -10,9 +10,9 @@ import {
   productsWithOutFilters,
   currentSearch,
   searchMobile,
-} from "./actions";
+} from './actions';
 
-import { initialState } from "./initial";
+import {initialState} from './initial';
 
 export const userReducer = createReducer(initialState, (builder) => {
   builder
@@ -24,14 +24,14 @@ export const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(removeItem, (state, action) => {
       state.lastSearchs = state.lastSearchs.filter(
-        (item) => item !== action.payload
+        (item) => item !== action.payload,
       );
     })
     .addCase(currentStep, (state, action) => {
       state.currentStep = action.payload.step;
     })
     .addCase(addUser, (state, action) => {
-      const { name, email, phone } = action.payload;
+      const {name, email, phone} = action.payload;
       state.registerUser = {
         name,
         email,
@@ -39,19 +39,19 @@ export const userReducer = createReducer(initialState, (builder) => {
       };
     })
     .addCase(addPassword, (state, action) => {
-      const { password, repeatPassword } = action.payload;
+      const {password, confirmationPassword} = action.payload;
       state.registerUser = {
         ...state.registerUser,
         password,
-        repeatPassword,
+        confirmationPassword,
       };
     })
     .addCase(filterItems, (state, action) => {
       const filtro = action.payload.toLowerCase();
-      state.allProducts = state.allProducts.filter((item:string) => {
+      state.allProducts = state.allProducts.filter((item: string) => {
         return Object.values(item).some(
           (value) =>
-            typeof value === "string" && value.toLowerCase().includes(filtro)
+            typeof value === 'string' && value.toLowerCase().includes(filtro),
         );
       });
     })

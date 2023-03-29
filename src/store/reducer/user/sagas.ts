@@ -1,21 +1,20 @@
 import axios from 'axios';
 import {all, call, put, takeLatest} from 'redux-saga/effects';
 
-const getPosts = () =>
-  axios.get<any[]>('https://jsonplaceholder.typicode.com/todos');
+import api from '@/service';
+import {store} from '@/store';
 
-function* fetchPostsSaga(): any {
+function* signUpEmail(): any {
   try {
-    const response = yield call(getPosts);
-
-    console.log(response);
+    const user = store.getState().user.registerUser;
+    yield call(api.post, '/sign-up', user);
   } catch (e) {
     console.log(e);
   }
 }
 
 function* postsSaga() {
-  yield all([takeLatest('user/sign-in', fetchPostsSaga)]);
+  yield all([takeLatest('user/sign-up-request', signUpEmail)]);
 }
 
 export default postsSaga;

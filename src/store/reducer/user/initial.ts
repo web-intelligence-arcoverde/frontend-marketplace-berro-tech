@@ -1,18 +1,18 @@
-import { BussinessHighlightProductMock } from "@/mock";
-import { UserState } from "./types";
+import {BussinessHighlightProductMock} from '@/mock';
+import {UserState} from './types';
 
 export const initialState: UserState = {
-  token: "",
+  token: '',
   lastSearchs: [],
   currentStep: 1,
-  currentSearch:'',
+  currentSearch: '',
   registerUser: {
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-    repeatPassword: "",
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirmationPassword: '',
   },
-  searchMobile:true,
-  allProducts:BussinessHighlightProductMock
+  searchMobile: true,
+  allProducts: BussinessHighlightProductMock,
 };
