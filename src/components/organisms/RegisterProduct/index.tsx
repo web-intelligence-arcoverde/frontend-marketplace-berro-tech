@@ -1,18 +1,14 @@
 import { MultiStepForm } from "@/components";
 import { StepRegisterProduct } from "@/mock";
 
-export const RegisterProduct = () => {
-  const handleSubmit = () => {
-    // lógica de envio do formulário
-  };
+export const RegisterProduct = ({registerProduct}:{registerProduct:()=> void}) => {
+
 
   return (
     <>
       <MultiStepForm
         steps={StepRegisterProduct}
-        onSubmit={() => {
-          handleSubmit;
-        }}
+        registerProduct={()=>registerProduct()}
       />
     </>
   );

@@ -23,10 +23,9 @@ export const Label = styled.label<{ active: boolean }>`
   transition: all 0.2s ease-in-out;
   pointer-events: none;
 `;
-export const Input = styled.input<{ active: boolean; open: boolean }>`
+export const Input = styled.input<{ active: boolean; open: boolean; isWhite?: boolean;}>`
   height: 85px;
   width: 100%;
-  max-width: 460px;
   border-radius: ${(props) => (props.open ? "5px 5px 0 0" : "5px")};
   padding: 16px;
   color: ${COLORS.gray._01};
@@ -34,8 +33,11 @@ export const Input = styled.input<{ active: boolean; open: boolean }>`
   font-size: 16px;
   border: solid 2px ${COLORS.light._02};
   padding-top: ${(props) => (props.active ? "16px" : "40px")};
-  background: ${(props) =>
-    props.open ? `${COLORS.brand_light._04}` : `${COLORS.light._04}`};
+  background: ${(props) => props.isWhite ? 
+    `${COLORS.light._05}` 
+    :
+    props.open ? `${COLORS.brand_light._04}` : `${COLORS.light._04}`
+    };
   cursor: pointer;
   ::placeholder {
     font-weight: 400;
@@ -50,7 +52,7 @@ export const Input = styled.input<{ active: boolean; open: boolean }>`
     font-weight: 500;
   }
 `;
-export const CardOptions = styled.div`
+export const CardOptions = styled.div<{isWhite?:boolean;}>`
   border: solid 2px ${COLORS.light._02};
   border-radius: 0 0 5px 5px;
   border-top: none;
@@ -58,7 +60,11 @@ export const CardOptions = styled.div`
   flex-direction: column;
   gap: 50px;
   padding: 24px 16px;
-  background: ${COLORS.light._04};
+  background: ${(props) => props.isWhite ? 
+    `${COLORS.light._05}` 
+    :
+     `${COLORS.light._04}`
+    };
 
   input {
     margin-right: 16px;

@@ -97,7 +97,7 @@ const MyPublication = () => {
             )}
           </SectionProducts>
           <CardFixedMobile>
-            <ButtonFixedMobile>
+            <ButtonFixedMobile onClick={registerProduct}>
               {productsEmpty
                 ? "Adicionar novo negócio"
                 : "Adicionar meu primeiro negócio"}
@@ -106,7 +106,7 @@ const MyPublication = () => {
         </ContainerMypublication>
         {modal && (
           <Modal onClick={registerProduct}>
-            <RegisterProduct />
+            <RegisterProduct registerProduct={()=>registerProduct()} />
           </Modal>
         )}
       </Main>

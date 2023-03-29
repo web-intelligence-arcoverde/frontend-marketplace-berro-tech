@@ -43,6 +43,10 @@ import Race from "./race.svg";
 import ArrowSlide from "./arrow-slide.svg";
 import StarYellow from "./star-yellow.svg";
 import LogoGray from "./logo-gray.svg";
+import Union from "./union.svg" 
+import Plus from "./plus.svg" 
+import DragIndicator from "./drag-indicator.svg" 
+import Trash from "./trash.svg" 
 import NotFound from './not-found.svg'
 
 
@@ -92,5 +96,9 @@ export const ICONS = {
   ArrowSlide,
   StarYellow,
   LogoGray,
+  Union,
+  Plus,
+  DragIndicator,
+  Trash,
   NotFound
 };

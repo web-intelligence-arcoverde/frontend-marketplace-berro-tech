@@ -1,25 +1,24 @@
 import { Content } from "../../../style/minhas-publicacoes-style";
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import styled from "styled-components";
 
-export const LayoutRegisterConfig = styled.main`
+export const LayoutRegisterConfig = styled.div`
   display: flex;
   flex-direction: column;
   width: 800px;
+  height: 720px;
   border-radius: 5px 5px 0 0;
   background: ${COLORS.light._05};
-  padding: 24px 0;
-
+ @media (max-width:${BREAKPOINTS.md}) {
+  width: 100%;
+  height: 100%;
+}
 `;
 
-export const HeaderMultiSteps = styled.header`
+export const HeaderMultiSteps = styled.div`
   display: flex;
   justify-content: space-between;
 
-  * {
-    width: 50%;
-    padding-left: 6px;
-  }
   h6 {
     color: ${COLORS.gray._04};
     font-size: 14px;
@@ -35,17 +34,22 @@ export const HeaderMultiSteps = styled.header`
 
   .active {
     border-bottom: 2px solid ${COLORS.brand_light._01};
-    padding-bottom: 12px;
     h4 {
       font-family: 500;
       color: ${COLORS.gray._01};
     }
   }
+  `;
+export const StepsContainer = styled.div`
+width: 100%;
+      padding: 12px;
+border-bottom: 2px solid ${COLORS.light._02};
+border-right :2px solid ${COLORS.light._02}; ;
 `;
 
 export const ContentStep = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 24px;
   width: 100%;
+  height: 100%;
 `;
