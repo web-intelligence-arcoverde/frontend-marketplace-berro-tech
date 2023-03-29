@@ -5,9 +5,13 @@ import { ArrowDown, CardOptions, FormField, Input, Label } from "./style";
 
 interface FloatingLabelInputProps {
   placeholder: string;
+  name: string;
   id: string | undefined;
   labels: string[];
   isWhite?: boolean
+  required?: boolean
+  setOption?:(e:string)=>void
+  disable?:boolean
 }
 
 export const FloatingLabelRadio = ({
@@ -20,7 +24,7 @@ export const FloatingLabelRadio = ({
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleClick = () => {
-    setOpenForm(!openForm);
+    !props.disable && setOpenForm(!openForm);
   };
   const clearField = () => {
     setValue("");
@@ -30,6 +34,7 @@ export const FloatingLabelRadio = ({
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
+    props.setOption && props.setOption(event.target.value);
     setValue(event.target.defaultValue);
     setOpenForm(false);
   };
@@ -37,6 +42,8 @@ export const FloatingLabelRadio = ({
   return (
     <FormField>
       <Input
+        disabled={props.disable}
+        required={props.required}
         isWhite={props.isWhite}
         open={openForm}
         active={!value}
@@ -56,7 +63,7 @@ export const FloatingLabelRadio = ({
           {labels.map((item, index) => (
             <label key={index}>
               <input
-                name="radio-options"
+                name={props.name}
                 type="radio"
                 value={item}
                 checked={selectedOption === item}

@@ -106,7 +106,7 @@ const MyPublication = () => {
         </ContainerMypublication>
         {modal && (
           <Modal onClick={registerProduct}>
-            <RegisterProduct />
+            <RegisterProduct registerProduct={()=>registerProduct()} />
           </Modal>
         )}
       </Main>

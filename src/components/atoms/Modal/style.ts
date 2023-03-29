@@ -1,4 +1,4 @@
-import { BREAKPOINTS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import styled, { keyframes } from "styled-components";
 
 const fadeIn = keyframes`
@@ -38,5 +38,23 @@ export const ModalBackground = styled.div`
   background-color: #000;
   opacity: 0.7;
   z-index: 20;
+  cursor: pointer;
+`;
+export const ButtonClose = styled.button`
+  position: absolute;
+  top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  gap: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: ${COLORS.light._04};
+  right: 10px;
+  z-index: 21;
   cursor: pointer;
 `;

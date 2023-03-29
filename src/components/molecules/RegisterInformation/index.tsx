@@ -1,37 +1,108 @@
 import { FloatingLabelInput, FloatingLabelRadio } from "@/components";
-import { Ovino, TypeAnimal } from "@/mock";
+import { useAppDispatch } from "@/hooks/useSelectorHook";
+import { Ovino, TypeAnimal, Caprino } from "@/mock";
+import { addProductInfo } from "@/store/reducer/product/actions";
+import { ProductInfoType } from "@/store/reducer/product/types";
+import { useState } from "react";
 import { ContainerForm, FirstColumn, TitleStep, AboutBussinesColumn, AboutBussines, NextButtonContainer, NextButton } from "./style";
 
-const RegisterInformation = () => {
+
+
+const RegisterInformation = (props: any) => {
+  const dispatch = useAppDispatch()
+  const formData = {} as ProductInfoType
+  const [animalOption, setAnimalOption] = useState('')
+
+
+  const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;;
+    const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
+
+    inputs.forEach((input) => {
+      const { name, value } = input;
+        formData[name] = value;
+      });
+      
+      dispatch(addProductInfo(formData))
+    props.clickStep(2)
+  };
+
   return (
-    <ContainerForm>
+    <ContainerForm onSubmit={handleSubmit}>
       <FirstColumn>
         <TitleStep>Sobre o produto</TitleStep>
         <FloatingLabelInput
-          isWhite
+          required
           type="text"
-          id="name"
-          name="name"
+          id="animalName"
+          name="animalName"
           placeholder="Nome"
         />
         <FloatingLabelRadio
-          isWhite
+          required
+          setOption={setAnimalOption}
           placeholder={"Animal"}
+          name='animal'
           id="animal"
           labels={TypeAnimal}
         />
-        <FloatingLabelRadio placeholder={"Raça"} id="breed" labels={Ovino} />
+        <FloatingLabelRadio required disable={!animalOption} placeholder={"Raça"} name={'breed'} id="breed" labels={animalOption === 'Ovino' ? Ovino : Caprino} />
+        <FloatingLabelRadio
+          required
+          placeholder={"Classificação"}
+          id="classification"
+          name="classification"
+          labels={['Genética', 'Reposição']}
+        />
+        <FloatingLabelRadio
+          required
+          name="gender"
+          placeholder={"Sexo"}
+          id="gender"
+          labels={['Macho', 'Fêmea']}
+        />
+        <FloatingLabelInput
+          required
+          type="number"
+          id="age"
+          name="age"
+          placeholder="Idade"
+        />
+        <FloatingLabelInput
+          required
+          type="Number"
+          id="Weight"
+          name="Weight"
+          placeholder="Peso/kg"
+        />
+        <FloatingLabelInput
+          type="date"
+          id="birthday"
+          name="birthday"
+          placeholder="Data de nascimento"
+        />
+        <FloatingLabelInput
+          required
+          type="text"
+          id="description"
+          name="description"
+          placeholder="Descrição"
+        />
       </FirstColumn>
       <AboutBussinesColumn>
         <AboutBussines>
           <TitleStep>Sobre o negócio</TitleStep>
           <FloatingLabelRadio
+            required
             isWhite
             placeholder={"Tipo de venda"}
-            id="animal"
-            labels={TypeAnimal}
+            name='sellType'
+            id="sellType"
+            labels={["Em lote", "Por unidade"]}
           />
           <FloatingLabelInput
+            required
             isWhite
             type="number"
             id="quantity"
@@ -39,6 +110,7 @@ const RegisterInformation = () => {
             placeholder="quantidade de animais"
           />
           <FloatingLabelInput
+            required
             isWhite
             type="number"
             id="price"
@@ -46,6 +118,7 @@ const RegisterInformation = () => {
             placeholder="preço"
           />
           <FloatingLabelInput
+            required
             isWhite
             type="number"
             id="installments"
@@ -54,7 +127,7 @@ const RegisterInformation = () => {
           />
         </AboutBussines>
         <NextButtonContainer>
-          <NextButton>Próximo</NextButton>
+          <NextButton type="submit">Próximo</NextButton>
         </NextButtonContainer>
       </AboutBussinesColumn>
     </ContainerForm>

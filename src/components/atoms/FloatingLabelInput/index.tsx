@@ -7,15 +7,16 @@ interface FloatingLabelInputProps {
   name: string;
   type: string;
   isWhite?:boolean;
+  required?:boolean;
+  inputvalue?: (e:any)=> void;
 }
 
 export const FloatingLabelInput = ({
   placeholder,
-
   ...props
 }: FloatingLabelInputProps) => {
   const [value, setValue] = useState("");
-
+  
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
@@ -23,6 +24,7 @@ export const FloatingLabelInput = ({
   return (
     <FormField>
       <Input
+        required={props.required}
         isWhite={props.isWhite}
         active={!value}
         value={value}

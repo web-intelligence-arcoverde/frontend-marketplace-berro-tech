@@ -1,17 +1,14 @@
 import { ICONS } from "@/assets";
 import { DropedImages, Dropzone } from "@/components";
+import { useAppDispatch } from "@/hooks/useSelectorHook";
+import { addProductImages } from "@/store/reducer/product/actions";
 import { StyleDesktop, StyleMobile } from "@/style";
 import Image from "next/image";
 import { ChangeEvent, useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
 import { ButtonAddImage, Container, DropedContainer, DropedHeader, NextButton, ButtonsContainer, PaddingMobile, PaddingMobileDropzone, DropedImagesContainer } from './style'
 
-const RegisterPhotos = ({ formValues, setFormValues }: any) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-
-  };
-  
+const RegisterPhotos = (props:any) => {
+ const dispatch = useAppDispatch()
   const [content, setContent] = useState<File[]>([]);
   const [isDroped, setIsDroped] = useState<boolean>(false);
 
@@ -19,6 +16,8 @@ const RegisterPhotos = ({ formValues, setFormValues }: any) => {
     setContent(acceptedFiles)
     setIsDroped(true)
   }, []);
+
+  
 
   const handleAddMore = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -39,11 +38,16 @@ const RegisterPhotos = ({ formValues, setFormValues }: any) => {
     [content]
   );
 
+  
   const handleRemoveFile = (index: number) => {
     const newFiles = [...content];
     newFiles.splice(index, 1);
     setContent(newFiles);
   };
+  const handleSubmit = () => {
+    dispatch(addProductImages(content))
+    props.clickStep(3)
+  }
 
   return (
     <Container>
@@ -60,7 +64,7 @@ const RegisterPhotos = ({ formValues, setFormValues }: any) => {
                 <ButtonsContainer>
                   <input id="file-input" type="file" multiple onChange={handleFileInputChange} style={{ display: "none" }} />
                   <ButtonAddImage onClick={handleAddMore}><Image src={ICONS.Plus} alt='icone de adicionar imagem' /></ButtonAddImage>
-                  <NextButton>Próximo</NextButton>
+                  <NextButton onClick={handleSubmit}>Próximo</NextButton>
                 </ButtonsContainer>
               </StyleDesktop>
             </DropedHeader>
@@ -72,7 +76,7 @@ const RegisterPhotos = ({ formValues, setFormValues }: any) => {
             <ButtonsContainer>
               <input id="file-input" type="file" multiple onChange={handleFileInputChange} style={{ display: "none" }} />
               <ButtonAddImage onClick={handleAddMore}><Image src={ICONS.Plus} alt='icone de adicionar imagem' /></ButtonAddImage>
-              <NextButton>Próximo</NextButton>
+              <NextButton onClick={handleSubmit}>Próximo</NextButton>
             </ButtonsContainer>
           </StyleMobile>
         </DropedContainer>
@@ -87,3 +91,5 @@ const RegisterPhotos = ({ formValues, setFormValues }: any) => {
 };
 
 export default RegisterPhotos;
+
+
