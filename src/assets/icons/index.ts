@@ -31,12 +31,12 @@ import ArrowRight from "./arrow-right.svg";
 import Excluir from "./excluir.svg";
 import MyPulblication from "./my-pulblication.svg";
 import Exit from "./exit.svg";
-import Up from './up.svg'
-import Settings from './settings.svg'
-import DocumentArrowDown from './document-arrow-down.svg'
-import Classification from './classification.svg'
-import Date from './date.svg'
-import Gender from './gender.svg'
+import Up from "./up.svg";
+import Settings from "./settings.svg";
+import DocumentArrowDown from "./document-arrow-down.svg";
+import Classification from "./classification.svg";
+import Date from "./date.svg";
+import Gender from "./gender.svg";
 import LocationGray from "./location-gray.svg";
 import Quantity from "./quantity.svg";
 import Race from "./race.svg";
@@ -48,7 +48,8 @@ import Plus from "./plus.svg"
 import DragIndicator from "./drag-indicator.svg" 
 import Trash from "./trash.svg" 
 import NotFound from './not-found.svg'
-
+import Sucess from "./sucess.svg";
+import Error from "./error.svg";
 
 export const ICONS = {
   Search,
@@ -100,5 +101,7 @@ export const ICONS = {
   Plus,
   DragIndicator,
   Trash,
-  NotFound
+  NotFound,
+  Sucess,
+  Error,
 };

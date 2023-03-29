@@ -23,3 +23,4 @@ export { FloatingLabelRadio } from "./FloatingLabelRadio";
 export { Dropzone } from "./Dropzone";
 export { DropedImages } from "./DropedImages";
 export { VerificationCode } from "./VerificationCode";
+export {IconLoading} from './IconLoading'

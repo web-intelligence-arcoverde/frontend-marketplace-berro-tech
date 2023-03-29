@@ -21,3 +21,4 @@ export { ControlProduct } from "./ControlProduct";
 export { Notification } from "./Notification";
 export { ProductSellerCard } from "./ProductSellerCard";
 export { NotFoundFilter } from "./NotFoundFilter";
+export { ModalMessage } from "./ModalMessage";
