@@ -1,5 +1,4 @@
 import { BREAKPOINTS, COLORS } from "@/common";
-import { InputUser } from "@/components";
 import styled from "styled-components";
 
 export const Container = styled.section`
