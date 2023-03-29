@@ -82,7 +82,7 @@ const RecoveryPassword = () => {
                 type='email'
                 placeholder='Email da sua conta'
                 control={control}
-                errors={errors}
+                errors={errors?.email?.message}
               />
               <Button type='submit' onClick={handleStep}>
                 Recuperar senha
