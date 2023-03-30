@@ -1,6 +1,6 @@
 import { setMoneyMask, setWeightMask } from "@/util";
 import { useState } from "react";
-import { FormField, Input, Label } from "./style";
+import { FormField, Textarea, Label } from "./style";
 
 interface FloatingLabelInputProps {
   placeholder: string;
@@ -12,36 +12,21 @@ interface FloatingLabelInputProps {
   inputvalue?: (e:any)=> void;
 }
 
-export const FloatingLabelInput = ({
+export const FloatingLabelTextarea = ({
   placeholder,
   ...props
 }: FloatingLabelInputProps) => {
   const [value, setValue] = useState<string>('');
-  
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
   };
-  const handleChangeValueMask = () => {
-    switch (props.name) {
-      case 'price':
-         return setMoneyMask(value)
-      case 'Weight':
-        return setWeightMask(value)
-      default:
-        return  value
-    }
-  };
-
-  
-
-
   return (
     <FormField>
-      <Input
+      <Textarea
         required={props.required}
         isWhite={props.isWhite}
         active={!value}
-        value={handleChangeValueMask()}
+        value={value}
         onChange={handleInputChange}
         placeholder={placeholder}
         {...props}
