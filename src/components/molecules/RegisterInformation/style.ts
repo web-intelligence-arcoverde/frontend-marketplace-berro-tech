@@ -13,7 +13,6 @@ display: flex;
 height: 100%;
 @media (max-width:${BREAKPOINTS.md}) {
   flex-direction: column;
-  gap: 28px;
 }
 `;
 

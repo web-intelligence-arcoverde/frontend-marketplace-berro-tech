@@ -1,8 +1,9 @@
-import { FloatingLabelInput, FloatingLabelRadio } from "@/components";
+import { FloatingLabelInput, FloatingLabelRadio, FloatingLabelTextarea } from "@/components";
 import { useAppDispatch } from "@/hooks/useSelectorHook";
 import { Ovino, TypeAnimal, Caprino } from "@/mock";
 import { addProductInfo } from "@/store/reducer/product/actions";
 import { ProductInfoType } from "@/store/reducer/product/types";
+import { removeMoneyMask } from "@/util";
 import { useState } from "react";
 import { ContainerForm, FirstColumn, TitleStep, AboutBussinesColumn, AboutBussines, NextButtonContainer, NextButton } from "./style";
 
@@ -21,7 +22,11 @@ const RegisterInformation = (props: any) => {
 
     inputs.forEach((input) => {
       const { name, value } = input;
-        formData[name] = value;
+        if(name === 'price'){
+          formData[name] = removeMoneyMask(value);
+        }else{
+          formData[name] = value;
+        }  
       });
       
       dispatch(addProductInfo(formData))
@@ -62,16 +67,16 @@ const RegisterInformation = (props: any) => {
           id="gender"
           labels={['Macho', 'Fêmea']}
         />
-        <FloatingLabelInput
+        <FloatingLabelRadio
           required
-          type="number"
-          id="age"
           name="age"
-          placeholder="Idade"
+          placeholder={"Idade"}
+          id="age"
+          labels={['Garrote', 'Novilha','Bezerra']}
         />
         <FloatingLabelInput
           required
-          type="Number"
+          type="text"
           id="Weight"
           name="Weight"
           placeholder="Peso/kg"
@@ -82,7 +87,7 @@ const RegisterInformation = (props: any) => {
           name="birthday"
           placeholder="Data de nascimento"
         />
-        <FloatingLabelInput
+        <FloatingLabelTextarea
           required
           type="text"
           id="description"
@@ -112,7 +117,7 @@ const RegisterInformation = (props: any) => {
           <FloatingLabelInput
             required
             isWhite
-            type="number"
+            type="text"
             id="price"
             name="price"
             placeholder="preço"
