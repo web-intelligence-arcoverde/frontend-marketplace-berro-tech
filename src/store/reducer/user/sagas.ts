@@ -22,7 +22,7 @@ function* signInProvider({payload}: any): any {
       email,
       avatar_url: photoURL,
     });
-
+    window.location.replace('/');
     //yield put(signUpSuccess(response))
   } catch (e) {
     console.log(e);
