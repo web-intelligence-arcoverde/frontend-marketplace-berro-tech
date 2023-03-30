@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
-import {IRegisterUserProps, ISignIn} from './types';
+import { IRegisterUserProps, ISignIn} from './types';
 
 export const signUpRequest = createAction('user/sign-up-request');
 export const signUpSuccess = createAction('user/sign-up-success');
@@ -15,6 +15,7 @@ export const addPassword = createAction<IRegisterUserProps>('ADD_PASSWORD');
 export const filterItems = createAction<any>('FILTER_ITEMS');
 export const productsWithOutFilters = createAction('PRODUCTS_WITH_OUT_FILTERS');
 export const currentSearch = createAction<string>('CURRENT_SEARCH');
+export const loginSignProvider = createAction<any>('LOGIN_SIGN_PROVIDER')
 
 /* 
   searchMobile serve para controlar o fluxo do search na parte mobile
