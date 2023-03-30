@@ -7,23 +7,30 @@ import {
   MiniContainer,
 } from '@/components';
 import Image from 'next/image';
-import {firebase,auth} from '../../service/firebase'
+import {firebase, auth} from '../../service/firebase';
 import {useState} from 'react';
 import {FormLogin, LostPassword} from '@/style/entrar-style';
 import {useHookFormSignInEmail} from '@/hooks/useFormSignEmail';
 import {SignInInputs} from '@/mock/Inputs';
+import {useAppDispatch} from '@/hooks/useSelectorHook';
+import {loginSignProvider} from '@/store/reducer/user/actions';
 
 const SignIn = () => {
   const [loginWithEmail, setLoginWithEmail] = useState(false);
-  const handleClickButtonGoogle = () =>{
-      const provider = new firebase.auth.GoogleAuthProvider()
-      auth.signInWithPopup(provider).then((result)=>{
-        console.log(result)
-      }).catch((error) => {
-        // Erro na autenticação, trate aqui
-        console.error("Erro na autenticação:", error);
+  const dispatch = useAppDispatch();
+
+  const handleClickButtonGoogle = () => {
+    let provider = new firebase.auth.GoogleAuthProvider();
+
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        dispatch(loginSignProvider(result));
+      })
+      .catch((error) => {
+        console.error('Erro na autenticação:', error);
       });
-  }
+  };
 
   const {control, errors, onSubmit} = useHookFormSignInEmail();
   return (
@@ -63,11 +70,11 @@ const SignIn = () => {
               <Image src={ICONS.Email} alt='icone de email' />
               Entrar com Email
             </Button>
-            <ButtonAuthentication  onClick={handleClickButtonGoogle}>
+            <ButtonAuthentication onClick={handleClickButtonGoogle}>
               <Image src={ICONS.Google} alt='icone de google' /> Entrar com
               Google
             </ButtonAuthentication>
-            <ButtonAuthentication onClick={()=>console.log('teste facebook')}>
+            <ButtonAuthentication onClick={() => console.log('facebook')}>
               <Image src={ICONS.Facebook} alt='icone de facebook' />
               Entrar com Facebook
             </ButtonAuthentication>
