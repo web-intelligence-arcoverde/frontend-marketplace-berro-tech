@@ -61,5 +61,5 @@ export const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(searchMobile, (state, action) => {
       state.searchMobile = !action.payload;
-    });
+    })
 });

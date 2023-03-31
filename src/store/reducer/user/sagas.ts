@@ -1,9 +1,8 @@
-import axios from 'axios';
 import {all, call, put, takeLatest} from 'redux-saga/effects';
 
 import api from '@/service';
 import {store} from '@/store';
-import {signInSuccess} from './actions';
+import {signUpSuccess} from './actions';
 
 function* signUpEmail(): any {
   try {
@@ -14,19 +13,43 @@ function* signUpEmail(): any {
   }
 }
 
-function* signIn({payload}: any): any {
+function* signInProviderGmail({payload}: any): any {
   try {
-    const {data} = yield call(api.post, '/sign-in', payload);
-    localStorage.setItem('token', JSON.stringify(data.token));
-    yield put(signInSuccess({token: data.token}));
+    const {displayName, email, photoURL} = payload.user;
+
+    yield call(api.post, '/auth/google', {
+      name: displayName,
+      email,
+      avatar_url: photoURL,
+    });
+    window.location.replace('/');
+    //yield put(signUpSuccess(response))
+  } catch (e) {
+    console.log(e);
+  }
+}
+function* signInProviderFacebbok({payload}: any): any {
+  try {
+    const {displayName, email, photoURL} = payload.user;
+
+    yield call(api.post, '/auth/google', {
+      name: displayName,
+      email,
+      avatar_url: photoURL,
+    });
+    window.location.replace('/');
+    //yield put(signUpSuccess(response))
   } catch (e) {
     console.log(e);
   }
 }
 
 function* postsSaga() {
-  yield all([takeLatest('user/sign-up-request', signUpEmail)]);
-  yield all([takeLatest('user/sign-in-request', signIn)]);
+  yield all([
+    takeLatest('user/sign-up-request', signUpEmail),
+    takeLatest('LOGIN_SIGN_PROVIDER', signInProviderGmail),
+    takeLatest('LOGIN_SIGN_PROVIDER',signInProviderFacebbok)
+  ]);
 }
 
 export default postsSaga;
