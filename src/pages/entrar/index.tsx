@@ -26,6 +26,21 @@ const SignIn = () => {
       .signInWithPopup(provider)
       .then((result) => {
         dispatch(loginSignProvider(result));
+        console.log(result)
+      })
+      .catch((error) => {
+        console.error('Erro na autenticação:', error);
+      });
+  };
+
+  const handleClickButtonFacebook = () => {
+    let provider = new firebase.auth.FacebookAuthProvider();
+
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log(result)
+        dispatch(loginSignProvider(result));
       })
       .catch((error) => {
         console.error('Erro na autenticação:', error);
@@ -74,7 +89,7 @@ const SignIn = () => {
               <Image src={ICONS.Google} alt='icone de google' /> Entrar com
               Google
             </ButtonAuthentication>
-            <ButtonAuthentication onClick={() => console.log('facebook')}>
+            <ButtonAuthentication onClick={handleClickButtonFacebook}>
               <Image src={ICONS.Facebook} alt='icone de facebook' />
               Entrar com Facebook
             </ButtonAuthentication>

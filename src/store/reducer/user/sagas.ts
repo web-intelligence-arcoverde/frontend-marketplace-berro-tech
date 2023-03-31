@@ -13,7 +13,22 @@ function* signUpEmail(): any {
   }
 }
 
-function* signInProvider({payload}: any): any {
+function* signInProviderGmail({payload}: any): any {
+  try {
+    const {displayName, email, photoURL} = payload.user;
+
+    yield call(api.post, '/auth/google', {
+      name: displayName,
+      email,
+      avatar_url: photoURL,
+    });
+    window.location.replace('/');
+    //yield put(signUpSuccess(response))
+  } catch (e) {
+    console.log(e);
+  }
+}
+function* signInProviderFacebbok({payload}: any): any {
   try {
     const {displayName, email, photoURL} = payload.user;
 
@@ -32,7 +47,8 @@ function* signInProvider({payload}: any): any {
 function* postsSaga() {
   yield all([
     takeLatest('user/sign-up-request', signUpEmail),
-    takeLatest('LOGIN_SIGN_PROVIDER', signInProvider),
+    takeLatest('LOGIN_SIGN_PROVIDER', signInProviderGmail),
+    takeLatest('LOGIN_SIGN_PROVIDER',signInProviderFacebbok)
   ]);
 }
 
