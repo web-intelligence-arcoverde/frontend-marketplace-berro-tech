@@ -18,4 +18,5 @@ export const initialState: UserState = {
   },
   searchMobile: true,
   allProducts: BussinessHighlightProductMock,
+  loginSingProvider:{}
 };

@@ -18,6 +18,7 @@ export const addPassword = createAction<IRegisterUserProps>('ADD_PASSWORD');
 export const filterItems = createAction<any>('FILTER_ITEMS');
 export const productsWithOutFilters = createAction('PRODUCTS_WITH_OUT_FILTERS');
 export const currentSearch = createAction<string>('CURRENT_SEARCH');
+export const loginSignProvider = createAction<any>('LOGIN_SIGN_PROVIDER');
 
 /* 
   searchMobile serve para controlar o fluxo do search na parte mobile

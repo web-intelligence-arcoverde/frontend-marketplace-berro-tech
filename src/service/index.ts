@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {store} from 'src/store';
 
-const local = 'http://127.0.0.1:3333/api/v1';
+const local = 'https://api.berrotech.com.br/v1';
 
 const api = axios.create({
   baseURL: local,
