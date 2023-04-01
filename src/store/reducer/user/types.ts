@@ -6,6 +6,7 @@ export type UserState = {
   allProducts: any;
   currentSearch: string;
   searchMobile: boolean;
+  loginSingProvider:ILoginGoogle | any
 };
 
 export interface IRegisterUserProps {
@@ -19,4 +20,11 @@ export interface IRegisterUserProps {
 export interface ISignIn {
   email: string;
   password: string;
+}
+
+export interface ILoginGoogle {
+  email:string
+  name:string
+  photo:string
+  phoneNumber:string
 }

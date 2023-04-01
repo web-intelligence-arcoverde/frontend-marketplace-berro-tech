@@ -13,18 +13,20 @@ const pulse = keyframes`
   }
 `;
 
-export const ContainerModalMessage = styled.div<{error:boolean}>`
+export const ContainerModalMessage = styled.div<{ error: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 100%;
-  max-width: 600px;
+  width: 600px;
   max-height: 350px;
   border-radius: 5px 5px 0 0;
   justify-content: center;
   align-items: center;
   border-top: solid 3px ${COLORS.brand_light._01};
-  border-color: ${(props)=>props.error ? `${COLORS.auxiliary.red_state}`: `${COLORS.brand_light._01}`};
+  border-color: ${(props) =>
+    props.error
+      ? `${COLORS.auxiliary.red_state}`
+      : `${COLORS.brand_light._01}`};
   background-color: ${COLORS.light._05};
   padding: 80px 70px;
   position: relative;
@@ -43,11 +45,11 @@ export const ContainerModalMessage = styled.div<{error:boolean}>`
     font-weight: 400;
     font-size: 16px;
     color: ${COLORS.gray._04};
-  
   }
 
-  @media (max-width:${BREAKPOINTS.sm}){
+  @media (max-width: ${BREAKPOINTS.sm}) {
     padding: 80px 60px;
+    width:100%
   }
 `;
 
