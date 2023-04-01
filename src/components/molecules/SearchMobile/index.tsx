@@ -7,8 +7,8 @@ import {
   productsWithOutFilters,
   removeItem,
   searchMobile,
-} from "@/store/reducer/user/actions";
-import { initialState } from "@/store/reducer/user/initial";
+} from "@/store/reducer/product/actions";
+
 import Image from "next/image";
 import { useState } from "react";
 import { ContainerSearchMobile, CardSearch, LastSearchs } from "./style";
@@ -20,16 +20,15 @@ export const SearchMobile = () => {
     dispatch(removeItem(item));
   };
 
-
   const getNameFilter = (event: string) => {
     dispatch(currentSearch(""));
-    dispatch(productsWithOutFilters())
+    dispatch(productsWithOutFilters());
     dispatch(filterItems(event));
     dispatch(searchMobile(false));
     dispatch(currentSearch(event));
   };
 
-  const lastSearchs = useAppSelector((state) => state.user.lastSearchs);
+  const lastSearchs = useAppSelector((state) => state.product.lastSearchs);
 
   return (
     <ContainerSearchMobile>
@@ -41,7 +40,7 @@ export const SearchMobile = () => {
       </CardSearch>
       <LastSearchs>
         {lastSearchs.length > 0 && <h6>Recentes</h6>}
-        {lastSearchs.slice(0, 5).map((search, index) => (
+        {lastSearchs.slice(0, 5).map((search: string, index: string) => (
           <li
             onClick={() => {
               getNameFilter(search);

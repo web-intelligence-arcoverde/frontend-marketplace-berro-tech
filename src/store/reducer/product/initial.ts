@@ -1,6 +1,7 @@
+import { BussinessHighlightProductMock } from "@/mock";
 import { ProductInfoType, ProductLocationType } from "./types";
 
-export const initialState = {
+export const initialState:any = {
   productInfo: {
     animalName: '',
     animal: '',
@@ -22,5 +23,11 @@ export const initialState = {
     city: '',
   } as ProductLocationType,
   loading:false,
-  sucess:false
+  sucess:false,
+  lastSearchs: [],
+  allProducts: BussinessHighlightProductMock,
+  searchMobile: true,
+  currentSearch: '',
+  currentStep: 1,
+  
 };

@@ -20,7 +20,7 @@ import {
 } from "./style";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchMobile } from "@/store/reducer/user/actions";
+import { searchMobile } from "@/store/reducer/product/actions";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.user.token);
@@ -28,7 +28,7 @@ export const AvatarContainer = () => {
   const [search, setSearch] = useState(false);
 
   const [openDropDown, setOpenDropDown] = useState(false);
-  const container = useAppSelector((state) => state.user.searchMobile);
+  const container = useAppSelector((state) => state.product.searchMobile);
   const dispatch = useDispatch();
 
   useEffect(() => {

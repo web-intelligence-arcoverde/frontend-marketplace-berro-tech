@@ -4,7 +4,7 @@ import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {SingUpStep2, AuthLayout} from '@/components/';
 import {FC, useEffect} from 'react';
 import {useRouter} from 'next/router';
-import {currentStep} from '@/store/reducer/user/actions';
+import {currentStep} from '@/store/reducer/product/actions';
 interface StepsProps {
   [key: number]: FC<{}>;
 }
@@ -15,7 +15,7 @@ const Steps: StepsProps = {
 };
 
 const SignUp = () => {
-  const stateStep = useAppSelector((state) => state.user.currentStep);
+  const stateStep = useAppSelector((state) => state.product.currentStep);
   const Step = Steps[stateStep];
   const router = useRouter();
   let currenRoute = router.asPath;

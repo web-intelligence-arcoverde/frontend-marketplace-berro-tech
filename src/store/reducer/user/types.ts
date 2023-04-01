@@ -1,11 +1,6 @@
 export type UserState = {
   token: string;
-  lastSearchs: string[];
-  currentStep: any;
   registerUser: IRegisterUserProps;
-  allProducts: any;
-  currentSearch: string;
-  searchMobile: boolean;
   loginSingProvider:ILoginGoogle | any
 };
 

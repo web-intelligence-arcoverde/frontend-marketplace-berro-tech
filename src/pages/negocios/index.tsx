@@ -24,8 +24,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export const Business = () => {
-  const allProduct = useAppSelector((state) => state.user.allProducts);
-  const currentSearch = useAppSelector((state) => state.user.currentSearch);
+  const allProduct = useAppSelector((state) => state.product.allProducts);
+  const currentSearch = useAppSelector((state) => state.product.currentSearch);
   const router = useRouter();
   const routerBusiness = router.asPath;
   const [empty, setEmpty] = useState(false);
