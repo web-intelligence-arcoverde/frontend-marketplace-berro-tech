@@ -4,30 +4,34 @@ import {
   Footer,
   MainSearch,
   SecuritySection,
-} from "@/components";
-import { Main, Container } from "@/style";
-import dynamic from "next/dynamic";
+} from '@/components';
+import {Main, Container} from '@/style';
+import dynamic from 'next/dynamic';
+import {useEffect, useState} from 'react';
 
 const MyPresentation = dynamic(
-  () => import("../components/organisms/Presentation")
+  () => import('../components/organisms/Presentation'),
 );
 const MyBussinessHighlight = dynamic(
-  () => import("../components/organisms/BussinessHighlight/index")
+  () => import('../components/organisms/BussinessHighlight/index'),
 );
 
 const Home = () => {
   return (
-    <Container>
-      <Header />
-      <Main>
-        <MyPresentation />
-        <PresentationInfo />
-        <MyBussinessHighlight />
-        <MainSearch />
-        <SecuritySection />
-      </Main>
-      <Footer />
-    </Container>
+    <>
+      <Container>
+        <Header />
+        <Main>
+          <MyPresentation />
+          <PresentationInfo />
+          <MyBussinessHighlight />
+          <MainSearch />
+          <SecuritySection />
+        </Main>
+        <Footer />
+      </Container>
+      )
+    </>
   );
 };
 

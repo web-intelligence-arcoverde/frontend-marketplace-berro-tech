@@ -2,7 +2,7 @@ import {createAction} from '@reduxjs/toolkit';
 import {IRegisterUserProps, ISignIn} from './types';
 
 export const signUpRequest = createAction('user/sign-up-request');
-export const signUpSuccess = createAction('user/sign-up-success');
+export const signUpSuccess = createAction<any>('user/sign-up-success');
 
 export const signInRequest = createAction<ISignIn>('user/sign-in-request');
 export const signInSuccess = createAction<{token: string}>(

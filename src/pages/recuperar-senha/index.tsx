@@ -6,15 +6,20 @@ import {
   LayoutInit,
   MiniContainer,
   VerificationCode,
+  AuthPublicRouter,
+  SendEmailRecoveryAccount,
 } from '@/components';
 import {CardRecovery} from '@/style/recovery-password';
 import Image from 'next/image';
-import {ChangeEvent, useEffect, useState} from 'react';
 
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {ErrorMessage} from '@/locale';
+import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {recoveryAccountSendEmailRequest} from '@/store/reducer/auth/actions';
+import {setStepRecoveryAccount} from '@/store/reducer/step/actions';
+import {useChronometerHook} from '@/hooks';
 
 const schema = yup
   .object({
@@ -26,9 +31,9 @@ const schema = yup
   .required();
 
 const RecoveryPassword = () => {
-  const [email, setEmail] = useState('');
-  const [step, SetStep] = useState(0);
-  const [countdown, setCountdown] = useState(59);
+  const {recoveryEmail} = useAppSelector((state) => state.auth);
+
+  const {recovery_account_step} = useAppSelector((state) => state.step);
 
   const {
     control,
@@ -41,73 +46,70 @@ const RecoveryPassword = () => {
     },
   });
 
-  useEffect(() => {
-    let timer: string | number | NodeJS.Timeout | undefined;
-    if (countdown > 0 && step > 0) {
-      timer = setTimeout(() => setCountdown(countdown - 1), 1000);
-    }
-    return () => clearTimeout(timer);
-  }, [countdown, step]);
+  const {chronometer, handleStart} = useChronometerHook();
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const {value} = event.target;
-    setEmail(value);
+  const dispatch = useAppDispatch();
+
+  const handleSubmitEmail = (data: any) => {
+    dispatch(recoveryAccountSendEmailRequest({email: data}));
   };
 
-  const handleStep = () => {
-    SetStep(1);
+  const resendEmailRecoveryAccount = () => {
+    dispatch(recoveryAccountSendEmailRequest({email: recoveryEmail}));
+    handleStart();
   };
 
-  const handleResend = () => {
-    setCountdown(59);
-  };
+  console.log(recoveryEmail);
 
   return (
-    <LayoutInit>
-      <MiniContainer
-        title='Esqueci minha senha'
-        subTitle='Siga os passos abaixo para recuperar'
-        lastButtonLink='dsddsdsdsdsd'
-      >
-        <CardRecovery>
-          <ButtonLink id='back' link={'entrar'}>
-            <Image src={ICONS.Up} alt='voltar' />
-            Voltar
-          </ButtonLink>
-          {!step ? (
-            <>
-              <Input
-                nameLabel='Email'
-                name='email'
-                type='email'
-                placeholder='Email da sua conta'
-                control={control}
-                errors={errors?.email?.message}
+    <AuthPublicRouter>
+      <LayoutInit>
+        <MiniContainer
+          title='Esqueci minha senha'
+          subTitle='Siga os passos abaixo para recuperar'
+          lastButtonLink='dsddsdsdsdsd'
+        >
+          <CardRecovery>
+            <ButtonLink
+              id='back'
+              link={recovery_account_step === 0 ? 'entrar' : 'recuperar-senha'}
+            >
+              <Image
+                src={ICONS.Up}
+                alt='voltar'
+                onClick={() =>
+                  recovery_account_step === 1 &&
+                  dispatch(setStepRecoveryAccount(0))
+                }
               />
-              <Button type='submit' onClick={handleStep}>
-                Recuperar senha
-              </Button>
-            </>
-          ) : (
-            <>
-              <h4>Verifique o código que enviamos pro seu email:</h4>
-              <h6>{email}</h6>
-              <VerificationCode />
-              <Button onClick={() => {}}>Confirmar</Button>
-              {countdown === 0 ? (
-                <Button className='resend' onClick={handleResend}>
-                  Reenviar código
-                </Button>
-              ) : (
-                <Button className='resend cursor' onClick={() => {}}>
-                  Reenviar código (00:{countdown})
-                </Button>
-              )}
-            </>
-          )}
-        </CardRecovery>
-      </MiniContainer>
-    </LayoutInit>
+              Voltar
+            </ButtonLink>
+            {recovery_account_step === 0 ? (
+              <SendEmailRecoveryAccount />
+            ) : (
+              <>
+                <h4>Verifique o código que enviamos pro seu email:</h4>
+                <h6>{recoveryEmail?.email}</h6>
+                <VerificationCode />
+                <Button onClick={() => {}}>Confirmar</Button>
+                {chronometer === '00:00' ? (
+                  <Button
+                    className='resend'
+                    onClick={() => resendEmailRecoveryAccount()}
+                  >
+                    Reenviar código
+                  </Button>
+                ) : (
+                  <Button className='resend cursor' onClick={() => {}} disabled>
+                    {chronometer}
+                  </Button>
+                )}
+              </>
+            )}
+          </CardRecovery>
+        </MiniContainer>
+      </LayoutInit>
+    </AuthPublicRouter>
   );
 };
 

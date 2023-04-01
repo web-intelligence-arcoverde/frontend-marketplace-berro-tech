@@ -5,7 +5,7 @@ import {
   Input,
   LayoutInit,
   MiniContainer,
-  AuthLayout,
+  AuthPublicRouter,
 } from '@/components';
 import Image from 'next/image';
 import {firebase, auth} from '../../service/firebase';
@@ -50,7 +50,7 @@ const SignIn = () => {
   const {control, errors, onSubmit} = useHookFormSignInEmail();
 
   return (
-    <AuthLayout>
+    <AuthPublicRouter>
       <LayoutInit>
         <MiniContainer
           loginWithEmail={loginWithEmail}
@@ -99,7 +99,7 @@ const SignIn = () => {
           )}
         </MiniContainer>
       </LayoutInit>
-    </AuthLayout>
+    </AuthPublicRouter>
   );
 };
 

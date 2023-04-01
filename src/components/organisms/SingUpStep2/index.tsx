@@ -1,11 +1,11 @@
-import { Button, Input } from "@/components";
-import { useHookFormSignUp1 } from "@/hooks/useFormSignUpStep2";
-import { useAppSelector } from "@/hooks/useSelectorHook";
-import { SignUpInputs } from "@/mock/Inputs";
-import { CardStep, FormRegister } from "@/style/criar-conta-style";
+import {Button, Input} from '@/components';
+import {useHookFormSignUp1} from '@/hooks/useFormSignUpStep2';
+import {useAppSelector} from '@/hooks/useSelectorHook';
+import {SignUpInputs} from '@/mock/Inputs';
+import {CardStep, FormRegister} from '@/style/criar-conta-style';
 
 export const SingUpStep2 = () => {
-  const { control, errors, onSubmit } = useHookFormSignUp1();
+  const {control, errors, onSubmit} = useHookFormSignUp1();
   const stateStep = useAppSelector((state) => state.user.currentStep);
   const totalStep = 2;
   return (
@@ -23,7 +23,7 @@ export const SingUpStep2 = () => {
           {...input}
         />
       ))}
-      <Button type="submit">Criar conta</Button>
+      <Button type='submit'>Criar conta</Button>
     </FormRegister>
   );
 };
