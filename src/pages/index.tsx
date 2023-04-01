@@ -4,6 +4,7 @@ import {
   Footer,
   MainSearch,
   SecuritySection,
+  CountryRegion,
 } from "@/components";
 import { Main, Container } from "@/style";
 import dynamic from "next/dynamic";
@@ -23,6 +24,7 @@ const Home = () => {
         <MyPresentation />
         <PresentationInfo />
         <MyBussinessHighlight />
+        <CountryRegion />
         <MainSearch />
         <SecuritySection />
       </Main>
