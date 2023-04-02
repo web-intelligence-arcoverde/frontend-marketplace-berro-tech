@@ -1,6 +1,6 @@
 import { Button, Modal } from "@/components";
 import useModalOverflow from "@/hooks/useModalOverflow";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CardButtons, CardRemove } from "./style";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
@@ -30,10 +30,6 @@ export const ModalRemovePublication = () => {
   };
 
   useModalOverflow(modal, removeCancel);
-
-  useEffect(() => {
-    dispatch(removeProductModal(!controlModal));
-  }, [controlModal]);
 
   return (
     <>
