@@ -3,6 +3,8 @@ import {all, call, put, takeLatest} from 'redux-saga/effects';
 import api from '@/service';
 import {store} from '@/store';
 import {
+  changerPasswordSuccess,
+  confirmationVerificationCodeSuccess,
   signInEmailSuccess,
   signOutSuccess,
   signUpEmailSuccess,
@@ -77,6 +79,36 @@ function* recoveryAccountSendEmail({payload}: any): any {
   }
 }
 
+function* confirmationVerificationCode({payload}: any): any {
+  try {
+    const {data} = yield call(api.post, '/user/verify-token', {
+      token: payload.code,
+    });
+
+    yield put(
+      confirmationVerificationCodeSuccess({
+        codeVerificationCode: data.verifyToken,
+      }),
+    );
+
+    yield put(setStepRecoveryAccount(2));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* changerPassword({payload}: any): any {
+  try {
+    yield call(api.post, '/user/changer-password', payload);
+
+    window.location.href = '/entrar';
+
+    yield put(changerPasswordSuccess());
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 function* signOut() {
   try {
     localStorage.removeItem('token');
@@ -94,6 +126,11 @@ function* postsSaga() {
       'auth/recovery-account-send-email-request',
       recoveryAccountSendEmail,
     ),
+    takeLatest(
+      'auth/confirmation-verification-code-request',
+      confirmationVerificationCode,
+    ),
+    takeLatest('auth/changer-password-request', changerPassword),
   ]);
 }
 

@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
-import {ISignIn} from './types';
+import {ISignIn, IChangerPassword} from './types';
 
 export const signUpEmailRequest = createAction('auth/sign-up-email-request');
 export const signUpEmailSuccess = createAction<any>(
@@ -36,4 +36,20 @@ export const recoveryAccountSendEmailRequest = createAction<{email: string}>(
 
 export const recoveryAccountSendEmailSuccess = createAction(
   'auth/recovery-account-send-email-success',
+);
+
+export const confirmationVerificationCodeRequest = createAction<{code: string}>(
+  'auth/confirmation-verification-code-request',
+);
+
+export const confirmationVerificationCodeSuccess = createAction<{
+  codeVerificationCode: string;
+}>('auth/confirmation-verification-code-success');
+
+export const changerPasswordRequest = createAction<IChangerPassword>(
+  'auth/changer-password-request',
+);
+
+export const changerPasswordSuccess = createAction(
+  'auth/changer-password-success',
 );

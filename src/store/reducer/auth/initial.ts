@@ -7,4 +7,5 @@ export const initialState: IAuthState = {
     '',
   user: {},
   recoveryEmail: '',
+  codeVerificationCode: '',
 };

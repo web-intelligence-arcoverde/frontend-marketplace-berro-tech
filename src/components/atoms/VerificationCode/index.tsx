@@ -1,12 +1,17 @@
 import {useState, useRef, ChangeEvent} from 'react';
 import {CardInputs} from './style';
 
-export const VerificationCode = () => {
-  const [code, setCode] = useState<Array<string>>(['', '', '', '', '', '']);
+interface IVerificationCode {
+  code: string[];
+  setCode: any;
+}
+
+export const VerificationCode = ({code, setCode}: IVerificationCode) => {
   const codeInputs = useRef<Array<HTMLInputElement>>([]);
 
   const handleChange = (index: number, e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+
     if (value) {
       const newCode = [...code];
       newCode[index] = value.slice(0, 1);
@@ -31,7 +36,6 @@ export const VerificationCode = () => {
       } else {
         codeInputs.current[0].focus();
       }
-
       const newCode = [...code];
       newCode[indexLetter] = '';
       setCode(newCode);
