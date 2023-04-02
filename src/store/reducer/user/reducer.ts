@@ -1,7 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {
   addItem,
-  signInRequest,
   removeItem,
   currentStep,
   addUser,
@@ -10,18 +9,13 @@ import {
   productsWithOutFilters,
   currentSearch,
   searchMobile,
-  signUpSuccess,
-  signUpRequest,
 } from './actions';
 
 import {initialState} from './initial';
 
 export const userReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(signUpRequest, (state, action) => {
-      state.token = action.token.token;
-      state.user = action.newUser;
-    })
+
     .addCase(addItem, (state, action) => {
       state.lastSearchs.unshift(action.payload);
     })

@@ -26,6 +26,7 @@ const RecoveryPassword = () => {
 
   const dispatch = useAppDispatch();
 
+  //@ts-ignore
   const Step = Steps[recovery_account_step];
 
   const backStep = () => {

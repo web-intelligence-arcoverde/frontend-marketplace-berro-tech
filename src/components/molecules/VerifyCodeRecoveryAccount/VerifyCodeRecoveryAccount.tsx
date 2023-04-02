@@ -35,7 +35,12 @@ export const VerifyCodeRecoveryAccount = () => {
   return (
     <>
       <h4>Verifique o código que enviamos pro seu email:</h4>
-      <h6>{recoveryEmail?.email}</h6>
+      <h6>
+        {
+          //@ts-ignore
+          recoveryEmail?.email
+        }
+      </h6>
       <VerificationCode code={code} setCode={setCode} />
       <Button onClick={() => confirmationCode()}>Confirmar</Button>
       {chronometer === '00:00' ? (
