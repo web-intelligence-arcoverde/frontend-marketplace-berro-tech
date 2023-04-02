@@ -5,12 +5,21 @@ import {
   PhotosAnimal,
   Notification,
   ButtonsControl,
+  ModalRemovePublication,
 } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
 import { Content, InfoProduct } from "@/style/minhas-publicacoes-style";
+import { useState } from "react";
 
 const Product = () => {
+  const [removeItem, setRemoveItem] = useState<boolean>(false);
+
+  const handleModalRemove =() =>{
+    setRemoveItem(!removeItem)
+    console.log('tesste')
+  }
+
   let description =
     "Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.";
   return (
@@ -56,6 +65,7 @@ const Product = () => {
           <StyleMobile>
             <ButtonsControl />
           </StyleMobile>
+          {removeItem && <ModalRemovePublication />}
         </Content>
       </Main>
     </Container>
