@@ -15,10 +15,9 @@ import { useState } from "react";
 const Product = () => {
   const [removeItem, setRemoveItem] = useState<boolean>(false);
 
-  const handleModalRemove =() =>{
-    setRemoveItem(!removeItem)
-    console.log('tesste')
-  }
+  const handleModalRemove = () => {
+    setRemoveItem(!removeItem);
+  };
 
   let description =
     "Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.";
@@ -59,11 +58,13 @@ const Product = () => {
                 birthDate={"30/11/2020"}
               />
             </StyleMobile>
-
             <Notification />
           </InfoProduct>
           <StyleMobile>
-            <ButtonsControl />
+            <ButtonsControl           
+              editItem={() => {}}
+              removeItem={handleModalRemove}
+            />
           </StyleMobile>
           {removeItem && <ModalRemovePublication />}
         </Content>

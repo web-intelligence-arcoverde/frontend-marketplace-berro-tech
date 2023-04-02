@@ -10,6 +10,7 @@ import {
   currentSearch,
   searchMobile,
   currentStep,
+  removeProduct,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -53,5 +54,8 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(currentStep, (state, action) => {
       state.currentStep = action.payload.step;
+    })
+    .addCase(removeProduct, (state, action) => {
+      state.allProducts = state.allProducts.filter((item: any) => item.id !== action.payload);
     });
 });

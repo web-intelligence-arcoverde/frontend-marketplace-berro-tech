@@ -1,7 +1,14 @@
-import {  ButtonsControl, CardContact, PriceProduct, ProductCard } from "@/components";
+import {
+  ButtonsControl,
+  CardContact,
+  ModalRemovePublication,
+  PriceProduct,
+  ProductCard,
+} from "@/components";
 import { StyleDesktop } from "@/style";
 import { CardProductProps } from "@/types";
-import {  ContainerControlProduct } from "./style";
+import { ContainerControlProduct } from "./style";
+import { useState } from "react";
 
 export const ControlProduct = ({
   name,
@@ -14,7 +21,12 @@ export const ControlProduct = ({
   rank,
   isProductPage,
 }: CardProductProps) => {
- 
+  const [removeItem, setRemoveItem] = useState<boolean>(false);
+
+  const handleModalRemove = () => {
+    setRemoveItem(!removeItem);
+  };
+
   return (
     <ContainerControlProduct>
       <ProductCard
@@ -30,13 +42,14 @@ export const ControlProduct = ({
         maxWidth="100%"
       />
       <PriceProduct value={11000} installments={20} />
-        {isProductPage?
+      {isProductPage ? (
         <CardContact />
-        :
+      ) : (
         <StyleDesktop>
-          <ButtonsControl />
+          <ButtonsControl editItem={() => {}} removeItem={handleModalRemove} />
         </StyleDesktop>
-        }
+      )}
+      {removeItem && <ModalRemovePublication />}
     </ContainerControlProduct>
   );
 };

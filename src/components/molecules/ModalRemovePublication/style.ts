@@ -1,4 +1,4 @@
-import { COLORS } from "@/common";
+import { BREAKPOINTS, COLORS } from "@/common";
 import styled from "styled-components";
 
 export const CardRemove = styled.div`
@@ -20,6 +20,10 @@ export const CardRemove = styled.div`
     font-size: 16px;
     color: ${COLORS.gray._04};
   }
+
+  @media (max-width:${BREAKPOINTS.sm}){
+    width: 100%;
+  }
 `;
 
 export const CardButtons = styled.div`
@@ -38,5 +42,9 @@ export const CardButtons = styled.div`
       color: ${COLORS.light._05};
       background:${COLORS.sub_brand._02};
     }
+  }
+  @media (max-width:${BREAKPOINTS.sm}){
+
+    flex-direction:column-reverse;
   }
 `;

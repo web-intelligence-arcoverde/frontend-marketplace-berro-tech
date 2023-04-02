@@ -10,8 +10,9 @@ export const filterItems = createAction<any>("FILTER_ITEMS");
 export const productsWithOutFilters = createAction("PRODUCTS_WITH_OUT_FILTERS");
 export const currentSearch = createAction<string>("CURRENT_SEARCH");
 export const currentStep = createAction<{ step: number }>("CURRENTE_STEP");
-
+export const removeProduct = createAction<any>('REMOVE_PRODUCT')
 export const searchMobile = createAction<boolean>("SEARCH_MOBILE");
+
 /* 
   searchMobile serve para controlar o fluxo do search na parte mobile
   fechando os componentes de modal e indo pra pagina dos filtros 
