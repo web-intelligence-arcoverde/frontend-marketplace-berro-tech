@@ -8,7 +8,9 @@ import {
 import { StyleDesktop } from "@/style";
 import { CardProductProps } from "@/types";
 import { ContainerControlProduct } from "./style";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeProductModal } from "@/store/reducer/product/actions";
+import { useAppSelector } from "@/hooks/useSelectorHook";
 
 export const ControlProduct = ({
   name,
@@ -21,10 +23,11 @@ export const ControlProduct = ({
   rank,
   isProductPage,
 }: CardProductProps) => {
-  const [removeItem, setRemoveItem] = useState<boolean>(false);
 
+  const controlModal = useAppSelector((state) => state.product.removeProductModal);
+  const dispatch = useDispatch()
   const handleModalRemove = () => {
-    setRemoveItem(!removeItem);
+    dispatch(removeProductModal(controlModal))
   };
 
   return (
@@ -49,7 +52,7 @@ export const ControlProduct = ({
           <ButtonsControl editItem={() => {}} removeItem={handleModalRemove} />
         </StyleDesktop>
       )}
-      {removeItem && <ModalRemovePublication />}
+      {controlModal && <ModalRemovePublication />}
     </ContainerControlProduct>
   );
 };

@@ -1,33 +1,33 @@
 import { BussinessHighlightProductMock } from "@/mock";
 import { ProductInfoType, ProductLocationType } from "./types";
 
-export const initialState:any = {
+export const initialState: any = {
   productInfo: {
-    animalName: '',
-    animal: '',
-    race: '',
-    classification: '',
-    gender: '',
-    age: '',
-    Weight: '',
+    animalName: "",
+    animal: "",
+    race: "",
+    classification: "",
+    gender: "",
+    age: "",
+    Weight: "",
     birthday: null,
-    description: '',
-    sellType: '',
+    description: "",
+    sellType: "",
     quantity: null,
     price: null,
-    installments: null
+    installments: null,
   } as ProductInfoType,
   productImages: [] as File[],
   productLocation: {
-    state: '',
-    city: '',
+    state: "",
+    city: "",
   } as ProductLocationType,
-  loading:false,
-  sucess:false,
+  loading: false,
+  sucess: false,
   lastSearchs: [],
   allProducts: BussinessHighlightProductMock,
   searchMobile: true,
-  currentSearch: '',
+  currentSearch: "",
   currentStep: 1,
-  
+  removeProductModal: false,
 };

@@ -7,16 +7,21 @@ import {
   ButtonsControl,
   ModalRemovePublication,
 } from "@/components";
+import { useAppSelector } from "@/hooks/useSelectorHook";
 import { BussinessHighlightProductMock } from "@/mock";
+import { removeProductModal } from "@/store/reducer/product/actions";
 import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
 import { Content, InfoProduct } from "@/style/minhas-publicacoes-style";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const Product = () => {
-  const [removeItem, setRemoveItem] = useState<boolean>(false);
+  const controlModal = useAppSelector(
+    (state) => state.product.removeProductModal
+  );
+  const dispatch = useDispatch();
 
   const handleModalRemove = () => {
-    setRemoveItem(!removeItem);
+    dispatch(removeProductModal(controlModal));
   };
 
   let description =
@@ -61,12 +66,12 @@ const Product = () => {
             <Notification />
           </InfoProduct>
           <StyleMobile>
-            <ButtonsControl           
+            <ButtonsControl
               editItem={() => {}}
               removeItem={handleModalRemove}
             />
           </StyleMobile>
-          {removeItem && <ModalRemovePublication />}
+          {controlModal && <ModalRemovePublication />}
         </Content>
       </Main>
     </Container>
