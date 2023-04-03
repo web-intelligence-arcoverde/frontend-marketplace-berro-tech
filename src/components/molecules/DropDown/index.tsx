@@ -14,9 +14,9 @@ export const DropDown = () => {
         <Image src={ICONS.MyPulblication} alt='minhas pulblicações' />
         <Link href='./minhas-publicacoes'>Minhas publicações</Link>
       </li>
-      <li>
+      <li onClick={() => dispatch(signOutRequest())}>
         <Image src={ICONS.Exit} alt='minhas pulblicações' />
-        <span onClick={() => dispatch(signOutRequest())}>Sair</span>
+        <span>Sair</span>
       </li>
     </StyleDropDown>
   );
