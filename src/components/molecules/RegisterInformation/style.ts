@@ -28,7 +28,7 @@ export const FirstColumn = styled.div`
     overflow-y: visible;
   }
   `;
-export const AboutBussinesColumn = styled.div`
+export const SecondColumn = styled.div`
   width: 40%;
   border-left: 1.5px solid ${COLORS.light._02};
   background-color: ${COLORS.light._04};

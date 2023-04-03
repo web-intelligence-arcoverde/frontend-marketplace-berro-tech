@@ -23,3 +23,9 @@ export { ProductSellerCard } from "./ProductSellerCard";
 export { NotFoundFilter } from "./NotFoundFilter";
 export { ModalMessage } from "./ModalMessage";
 export {ModalRemovePublication} from './ModalRemovePublication'
+export {CreateProductInfo} from './CreateProductInfo'
+export {CreateProductBussines} from './CreateProductBussines'
+export {EditAccountInfo} from './EditAccountInfo'
+export {EditAccountLocation} from './EditAccountLocation'
+export {EditAccountImage} from './EditAccountImage'
+export {EditAccountPassword} from './EditAccountPassword'

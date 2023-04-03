@@ -1,11 +1,15 @@
 import { ContentStep, HeaderMultiSteps, LayoutRegisterConfig, StepsContainer } from "./style";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface Step {
   id: number;
   name: string;
   step: string;
-  component: React.FunctionComponent<{ formValues: any; setFormValues: any ,  clickStep:(e:any)=> void ,registerProduct?:()=> void;}>;
+  firstColumnTitle?:string;
+  secondColumnTitle?:string;
+  firstColumnChilren?:any;
+  secondColumnChilren?:any;
+  component: React.FunctionComponent<{ formValues: any; setFormValues: any ,  clickStep:(e:any)=> void ,registerProduct?:()=> void , firstColumnTitle?:string,secondColumnTitle?:string,firstColumnChilren?:any,secondColumnChilren?:any}>;
 }
 
 interface MultiStepFormProps {
@@ -25,6 +29,10 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   };
 
   const ComponentStep = steps[currentStep - 1].component;
+  const firstColumnTitle = steps[currentStep - 1].firstColumnTitle;
+  const firstColumnChilren = steps[currentStep - 1].firstColumnChilren;
+  const secondColumnTitle = steps[currentStep - 1].secondColumnTitle;
+  const secondColumnChilren = steps[currentStep - 1].secondColumnChilren;
 
   return (
     <LayoutRegisterConfig>
@@ -32,6 +40,7 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
         {steps.map((step) => {
           return (
             <StepsContainer
+              onClick={()=>setCurrentStep(step.id)}
               className={currentStep === step.id ? "active" : ""}
               key={step.id}
             >
@@ -42,7 +51,15 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
         })}
       </HeaderMultiSteps>
       <ContentStep>
-        <ComponentStep formValues={undefined} registerProduct={()=>registerProduct()} clickStep={(e)=> clickStep(e)}  setFormValues={undefined} />
+        <ComponentStep 
+        firstColumnTitle={firstColumnTitle}
+        firstColumnChilren={firstColumnChilren}
+        secondColumnTitle={secondColumnTitle} 
+        secondColumnChilren={secondColumnChilren} 
+        formValues={undefined} 
+        registerProduct={()=>registerProduct()} 
+        clickStep={(e)=> clickStep(e)} 
+        setFormValues={undefined} />
       </ContentStep>
     </LayoutRegisterConfig>
   );
