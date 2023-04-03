@@ -1,7 +1,7 @@
-import { COLORS } from "@/common";
-import styled from "styled-components";
+import {COLORS} from '@/common';
+import styled from 'styled-components';
 
-export const CardRecovery = styled.form`
+export const CardRecovery = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;

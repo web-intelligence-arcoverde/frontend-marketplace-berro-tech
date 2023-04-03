@@ -56,7 +56,12 @@ export const Business = () => {
                 <>
                   {allProduct.length > 0 ? (
                     allProduct?.map((item: CardProductProps, index: number) => (
-                      <ProductCard key={`${item.name} ${index}`} {...item} />
+                      <ProductCard
+                        widthTablet="80%"
+                        maxWidth="none"
+                        key={`${item.name} ${index}`}
+                        {...item}
+                      />
                     ))
                   ) : (
                     <NotFoundFilter

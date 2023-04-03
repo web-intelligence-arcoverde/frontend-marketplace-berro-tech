@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
   gap: 24px;
+  min-width:330px;
 
   button ,a {
     display: flex;

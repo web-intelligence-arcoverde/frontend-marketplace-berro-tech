@@ -1,10 +1,11 @@
 import axios from 'axios';
 import {store} from 'src/store';
 
-const local = 'https://api.berrotech.com.br/v1';
+const local = 'http://127.0.0.1:3333/v1';
+const dev = 'https://api.berrotech.com.br/v1';
 
 const api = axios.create({
-  baseURL: local,
+  baseURL: dev,
 });
 
 api.interceptors.request.use((config: any) => {

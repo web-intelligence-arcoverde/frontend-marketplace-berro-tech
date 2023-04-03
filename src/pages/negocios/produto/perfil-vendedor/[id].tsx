@@ -35,8 +35,14 @@ const SelleProfiler = () => {
               </ContainerSellerProductHeader>
             </StyleDesktop>
             <ContainerSellerProductMain>
-              {BussinessHighlightProductMock.slice(2).map((item, index) => (
-                <ProductCard key={`${item.name} ${index}`} {...item} />
+              {BussinessHighlightProductMock.slice(0, 4).map((item, index) => (
+                <ProductCard
+                  widthTablet="80%"
+                  minWidth="200px"
+                  maxWidth="none"
+                  key={`${item.name} ${index}`}
+                  {...item}
+                />
               ))}
             </ContainerSellerProductMain>
           </ContainerSellerProduct>

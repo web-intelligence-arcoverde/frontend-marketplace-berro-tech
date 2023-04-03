@@ -14,9 +14,19 @@ export const ProductCard = ({
   sex,
   rank,
   maxWidth,
+  onClick,
+  width,
+  minWidth,
+  widthTablet,
 }: CardProductProps) => {
   return (
-    <Card maxWidth={maxWidth}>
+    <Card
+      widthTablet={widthTablet}
+      minWidth={minWidth}
+      width={width}
+      maxWidth={maxWidth}
+      onClick={onClick}
+    >
       {photo && <Image src={photo} alt={`foto de um ${breed}`} />}
       <Flex>
         <p>{breed}</p>

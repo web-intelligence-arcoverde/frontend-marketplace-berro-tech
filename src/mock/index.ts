@@ -124,7 +124,7 @@ export const BusinessFiltersMock = [
 export const BussinessHighlightProductMock: CardProductProps[] = [
   {
     id: 1,
-    photo: IMAGES.GadoOne,
+    photo: IMAGES.GadoThree,
     breed: "senepol",
     quantity: 3,
     name: " Senepol",

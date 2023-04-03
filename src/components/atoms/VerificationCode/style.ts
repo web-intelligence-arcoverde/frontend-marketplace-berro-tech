@@ -1,9 +1,9 @@
-import { COLORS } from "@/common";
-import styled from "styled-components";
+import {COLORS} from '@/common';
+import styled from 'styled-components';
 
 export const CardInputs = styled.div`
   display: flex;
-  gap: 24px;
+  gap: 16px;
   align-items: center;
   justify-content: center;
   border-radius: 5px;

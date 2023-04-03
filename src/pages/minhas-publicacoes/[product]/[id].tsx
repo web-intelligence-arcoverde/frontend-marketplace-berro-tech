@@ -54,6 +54,7 @@ const Product = () => {
               age={"Garrote"}
               rank={"Genética"}
               maxWidth={"100%"}
+            
             />
             <StyleMobile>
               <DescriptionProduct

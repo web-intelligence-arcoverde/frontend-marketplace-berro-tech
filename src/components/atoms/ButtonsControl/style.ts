@@ -8,10 +8,13 @@ export const CardButtons = styled.div`
   padding: 0 24px;
   background-color: ${COLORS.light._05};
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${BREAKPOINTS.lg}) {
     padding: 10px 24px;
     border: none;
+    max-width: 700px;
+    margin: 0 auto;
   }
+
   Button {
     font-weight: 500;
     margin: 20px 0;

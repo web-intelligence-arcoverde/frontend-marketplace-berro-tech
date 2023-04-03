@@ -5,15 +5,15 @@ import {
   MainSearch,
   SecuritySection,
   CountryRegion,
-} from "@/components";
-import { Main, Container } from "@/style";
-import dynamic from "next/dynamic";
+} from '@/components';
+import {Main, Container} from '@/style';
+import dynamic from 'next/dynamic';
 
 const MyPresentation = dynamic(
-  () => import("../components/organisms/Presentation")
+  () => import('../components/organisms/Presentation'),
 );
 const MyBussinessHighlight = dynamic(
-  () => import("../components/organisms/BussinessHighlight/index")
+  () => import('../components/organisms/BussinessHighlight/index'),
 );
 
 const Home = () => {

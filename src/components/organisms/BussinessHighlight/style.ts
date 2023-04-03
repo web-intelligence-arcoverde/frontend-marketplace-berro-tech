@@ -8,7 +8,6 @@ export const Container = styled.section`
   @media (max-width: ${BREAKPOINTS.md}) {
     padding: 112px 0;
   }
-  
 `;
 export const LinkMobileContainer = styled.div`
   display: none;
@@ -16,7 +15,7 @@ export const LinkMobileContainer = styled.div`
     width: 100%;
     display: block;
     padding: 20px;
-    a{
+    a {
       border-radius: 5px;
       padding: 16px;
       display: block;
@@ -28,18 +27,16 @@ export const LinkMobileContainer = styled.div`
       color: ${COLORS.light._05};
     }
   }
-  
 `;
-export const ProductCardsContainer = styled.div`
+export const ProductCardsContainer = styled.div<{ moreProduct: boolean }>`
   margin-top: 48px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${(props) =>
+    props.moreProduct == true ? "flex-start" : "space-between"};
   flex-wrap: wrap;
   gap: 48px 16px;
-  @media (max-width: 1416px) {
-    justify-content: space-evenly;
-  }
+
   @media (max-width: ${BREAKPOINTS.md}) {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -65,9 +62,9 @@ export const TitleContainer = styled.div`
     font-size: 16px;
     color: ${COLORS.dark._03};
   }
-  @media (max-Width:${BREAKPOINTS.md}) {
+  @media (max-width: ${BREAKPOINTS.md}) {
     padding: 0 20px;
-    a{
+    a {
       display: none;
     }
   }
