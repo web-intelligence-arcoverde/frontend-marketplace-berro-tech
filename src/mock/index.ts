@@ -1,4 +1,5 @@
 import { ICONS, IMAGES } from "@/assets";
+import { CreateProductInfo,CreateProductBussines,EditAccountInfo, EditAccountLocation, EditAccountImage, EditAccountPassword } from "@/components";
 import RegisterInformation from "@/components/molecules/RegisterInformation";
 import RegisterLocation from "@/components/molecules/RegisterLocation";
 import RegisterPhotos from "@/components/molecules/RegisterPhotos";
@@ -284,10 +285,28 @@ export const StepRegisterProduct = [
     id: 1,
     name: "Informações",
     step: "Passo 1",
+    firstColumnTitle:'Sobre o produto',
+    secondColumnTitle:'Sobre o negócio',
+    firstColumnChilren: CreateProductInfo,
+    secondColumnChilren: CreateProductBussines,
     component: RegisterInformation,
   },
   { id: 2, name: "Fotos", step: "Passo 2", component: RegisterPhotos },
   { id: 3, name: "Localização", step: "Passo 3", component: RegisterLocation },
+];
+export const StepEditAccount = [
+  {
+    id: 1,
+    name: "Conta",
+    step: "Editar",
+    firstColumnTitle:'Suas informaçoes',
+    secondColumnTitle:'',
+    firstColumnChilren: EditAccountInfo,
+    secondColumnChilren: EditAccountImage,
+    component: RegisterInformation,
+  },
+  { id: 2, name: "Senha", step: "Editar", component: EditAccountPassword },
+  { id: 3, name: "Localização", step: "Editar", component: EditAccountLocation },
 ];
 
 export const TypeAnimal = ["Caprino", "Ovino"];

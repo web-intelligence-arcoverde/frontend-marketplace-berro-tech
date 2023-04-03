@@ -1,5 +1,5 @@
 import { ICONS, IMAGES } from "@/assets";
-import { Button } from "@/components";
+import { Button, Modal, MultiStepForm, RegisterProduct } from "@/components";
 import { UserPerfil } from "@/types/IUserProps";
 import Image from "next/image";
 import {
@@ -12,6 +12,9 @@ import {
   InfoSeller,
   RowVertical,
 } from "./style";
+import { useState } from "react";
+import { StepEditAccount } from "@/mock";
+import useModalOverflow from "@/hooks/useModalOverflow";
 
 export const CardPerfilVendedor = ({
   name,
@@ -20,6 +23,11 @@ export const CardPerfilVendedor = ({
   phoneNumber,
   avaliation,
 }: UserPerfil) => {
+  const [modal, setModal] = useState(false);
+  const registerProduct = () => {
+    setModal(!modal);
+  };
+  useModalOverflow(modal, registerProduct);
   return (
     <CardVendedor>
       <HeaderCard>
@@ -27,7 +35,7 @@ export const CardPerfilVendedor = ({
         <Aside>
           <h5>{name}</h5>
           <TextGray>{email}</TextGray>
-          <Button onClick={() => {}}>Minha conta</Button>
+          <Button onClick={registerProduct}>Minha conta</Button>
         </Aside>
       </HeaderCard>
       <CardSection>
@@ -52,6 +60,14 @@ export const CardPerfilVendedor = ({
           </h5>
         </CardSection>
       </InfoSeller>
+      {modal && (
+          <Modal onClick={registerProduct}>
+            <MultiStepForm
+            steps={StepEditAccount}
+            registerProduct={()=>registerProduct()}
+            />
+          </Modal>
+        )}
     </CardVendedor>
   );
 };
