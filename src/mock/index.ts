@@ -123,7 +123,7 @@ export const BusinessFiltersMock = [
 export const BussinessHighlightProductMock: CardProductProps[] = [
   {
     id: 1,
-    photo: IMAGES.GadoOne,
+    photo: IMAGES.GadoThree,
     breed: "senepol",
     quantity: 3,
     name: " Senepol",
@@ -340,3 +340,36 @@ export const Ovino = [
   "East Friesian",
   "Dohne Merino",
 ];
+
+export const regionMock = [
+  {
+    region: 'Centro-Oeste',
+    colorBackground: 'rgba(255, 140, 77, 0.05)',
+    colorIcon: '#FF8C4D',
+    description: 'Possui uma vasta área de pastagem que propicia a criação de maneira intensiva',
+  },
+  {
+    region: 'Sul',
+    colorBackground: ' rgba(77, 122, 209, 0.05)',
+    colorIcon: '#4D7AD1',
+    description: 'Com destaque pro estado do Rio Grande do Sul, é uma das principais regiões',
+  },
+  {
+    region: 'Sudeste',
+    colorBackground: 'rgba(255, 203, 4, 0.05)',
+    colorIcon: '#FFCB04',
+    description: 'Com uma vasta rede de comercialização de pequenos e médios produtores',
+  },
+  {
+    region: 'Nordeste',
+    colorBackground: 'rgba(250, 92, 92, 0.05)',
+    colorIcon: '#FA5C5C',
+    description: 'Conhecida pela diversidade de raças, o que aumenta a variedade de ofertas',
+  },
+  {
+    region: 'Norte',
+    colorBackground: 'rgba(64, 143, 112, 0.05)',
+    colorIcon: '#408F70',
+    description: 'Região de crescimento exponencial com mais produtores de médio porte',
+  }
+]

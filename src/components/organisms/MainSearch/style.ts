@@ -15,7 +15,7 @@ export const Container = styled.section`
   }
 `;
 export const SearchSideBar = styled.div`
-  width: 33%;
+  min-width: 310px;
   max-width: 360px;
   display: flex;
   flex-direction: column;
@@ -61,12 +61,16 @@ export const SearchSideBar = styled.div`
   }
 `;
 export const SearchResponseContainer = styled.div`
-  width: 77%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
   gap: 32px 16px;
+
+  @media (max-width: 1255px) and (min-width: 1200px) {
+    width: 800px;
+  }
 
   @media (max-width: ${BREAKPOINTS.md}) {
     justify-content: space-between;

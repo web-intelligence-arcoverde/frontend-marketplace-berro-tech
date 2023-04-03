@@ -3,9 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { ErrorMessage } from "../locale";
-import { currentStep,addUser} from "@/store/reducer/user/actions";
+import { addUser} from "@/store/reducer/user/actions";
 import { useAppDispatch } from "./useSelectorHook";
 import { IRegisterUserProps } from "@/store/reducer/user/types";
+import { currentStep } from "@/store/reducer/product/actions";
 
 const schema = yup
   .object({

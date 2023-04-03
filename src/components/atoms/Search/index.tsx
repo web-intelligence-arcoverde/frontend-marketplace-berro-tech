@@ -8,7 +8,7 @@ import {
   filterItems,
   productsWithOutFilters,
   searchMobile,
-} from "@/store/reducer/user/actions";
+} from "@/store/reducer/product/actions";
 import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
 import { KeyboardEvent } from "react";
 import { useRouter } from "next/router";
@@ -18,7 +18,7 @@ interface ISearch {
 }
 
 export const Search = ({ isFocused, setIsFocused }: ISearch) => {
-  const getSearch = useAppSelector((state) => state.user.currentSearch);
+  const getSearch = useAppSelector((state) => state.product.currentSearch);
   const [search, setSearch] = useState<string>(getSearch);
   const dispath = useAppDispatch();
   useEffect(() => {

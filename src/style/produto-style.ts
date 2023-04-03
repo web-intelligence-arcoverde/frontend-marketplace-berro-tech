@@ -40,7 +40,7 @@ export const InfoProduct = styled.div`
   gap: 32px;
   
   @media (max-width: ${BREAKPOINTS.md}){
-    max-width: none;
+    max-width: 700px;
   }
 `;
 
@@ -64,6 +64,7 @@ export const NearProducts = styled.div`
   gap: 16px;
   flex-wrap: wrap;
   overflow-x: auto;
+  justify-content:flex-start;
 @media (max-width: ${BREAKPOINTS.md}){
   flex-wrap: nowrap;
 }

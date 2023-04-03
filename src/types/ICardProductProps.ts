@@ -12,4 +12,8 @@ export interface CardProductProps {
   rank: string;
   maxWidth?: string;
   isProductPage?: boolean;
+  onClick?: () => void;
+  width?:string;
+  minWidth?:string
+  widthTablet?:string
 }

@@ -46,7 +46,7 @@ export const TabsContainer = styled.div`
     }
   }
   flex-direction: column;
-  @media (max-width: ${BREAKPOINTS.lg}) {
+  @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
     .tabs {
       width: 100%;
@@ -69,5 +69,6 @@ export const StyleMobile = styled.div`
   display: none;
   @media (max-width: ${BREAKPOINTS.md}) {
     display: block;
+    width: 100%;
   }
 `;

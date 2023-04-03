@@ -22,7 +22,8 @@ export {Notification} from './Notification';
 export {ProductSellerCard} from './ProductSellerCard';
 export {NotFoundFilter} from './NotFoundFilter';
 export {ModalMessage} from './ModalMessage';
+export {ModalRemovePublication} from './ModalRemovePublication';
+
 export {SendEmailRecoveryAccount} from './SendEmailRecoveryAccount/SendEmailRecoveryAccount';
 export {VerifyCodeRecoveryAccount} from './VerifyCodeRecoveryAccount/VerifyCodeRecoveryAccount';
-
 export {ChangerPasswordRecoveryAccount} from './ChangerPasswordRecoveryAccount/ChangerPasswordRecoveryAccount';

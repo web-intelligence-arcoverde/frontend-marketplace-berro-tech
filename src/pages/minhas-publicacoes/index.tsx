@@ -92,10 +92,15 @@ const MyPublication = () => {
 
               {productsEmpty ? (
                 <CardProducts>
-                  {products.map((item) => (
-                    <div key={item.id} onClick={() => handleAnimalClick(item)}>
-                      <ProductCard {...item} />
-                    </div>
+                  {products.map((item, index) => (
+                    <ProductCard
+                      key={index}
+                      minWidth='200px'
+                      widthTablet='80%'
+                      maxWidth='none'
+                      onClick={() => handleAnimalClick(item)}
+                      {...item}
+                    />
                   ))}
                 </CardProducts>
               ) : (
