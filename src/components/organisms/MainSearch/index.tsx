@@ -42,7 +42,7 @@ export const MainSearch = () => {
             {...item}
             width="48.5%"
             maxWidth="none"
-            widthTablet="100%"
+            widthTablet="80%"
           />
         ))}
       </SearchResponseContainer >
