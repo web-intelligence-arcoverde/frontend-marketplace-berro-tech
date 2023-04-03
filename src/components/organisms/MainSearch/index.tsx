@@ -36,10 +36,13 @@ export const MainSearch = () => {
         <Tabs tabs={tabs} />
       </SearchSideBar>
       <SearchResponseContainer >
-        {BussinessHighlightProductMock.slice(2).map((item, index) => (
+        {BussinessHighlightProductMock.slice(0,4).map((item, index) => (
           <ProductCard
             key={`${item.name} ${index}`}
             {...item}
+            width="48.5%"
+            maxWidth="none"
+            widthTablet="100%"
           />
         ))}
       </SearchResponseContainer >
