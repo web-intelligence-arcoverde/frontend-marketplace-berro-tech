@@ -6,6 +6,7 @@ import {useAppDispatch} from './useSelectorHook';
 import {addPassword, signUpRequest} from '@/store/reducer/user/actions';
 import {IRegisterUserProps} from '@/store/reducer/user/types';
 import {useRouter} from 'next/router';
+import {signUpEmailRequest} from '@/store/reducer/auth/actions';
 
 const schema = yup
   .object({
@@ -39,8 +40,7 @@ export const useHookFormSignUp1 = () => {
   const dispatch = useAppDispatch();
   const onSubmit = handleSubmit((data: IRegisterUserProps) => {
     dispatch(addPassword(data));
-    dispatch(signUpRequest());
-    router.push('/entrar');
+    dispatch(signUpEmailRequest());
   });
 
   return {onSubmit, control, errors};

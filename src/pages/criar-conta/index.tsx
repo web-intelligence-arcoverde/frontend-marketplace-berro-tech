@@ -1,7 +1,7 @@
 import {LayoutInit, MiniContainer, SingUpStep1} from '@/components';
 
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {SingUpStep2, AuthLayout} from '@/components/';
+import {SingUpStep2, AuthPublicRouter} from '@/components/';
 import {FC, useEffect} from 'react';
 import {useRouter} from 'next/router';
 import {currentStep} from '@/store/reducer/product/actions';
@@ -28,7 +28,7 @@ const SignUp = () => {
   }, [currenRoute]);
 
   return (
-    <AuthLayout>
+    <AuthPublicRouter>
       <LayoutInit>
         <MiniContainer
           title='Seja bem-vindo'
@@ -39,7 +39,7 @@ const SignUp = () => {
           <Step />
         </MiniContainer>
       </LayoutInit>
-    </AuthLayout>
+    </AuthPublicRouter>
   );
 };
 

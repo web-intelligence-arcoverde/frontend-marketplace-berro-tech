@@ -1,17 +1,36 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
-type Breakpoints = 'xsspecific' | 'xss' | 'xxs' | 'xs' | 'smspecific' | 'smspecifictable' | 'smedium' | 'sm' | 'md' | 'big' | 'ipadPro' | 'largeScreen' | 'specific' | 'lg' | 'lgg' | 'xg' | 'xxg';
+type Breakpoints =
+  | 'xsspecific'
+  | 'xss'
+  | 'xxs'
+  | 'xs'
+  | 'smspecific'
+  | 'smspecifictable'
+  | 'smedium'
+  | 'sm'
+  | 'md'
+  | 'big'
+  | 'ipadPro'
+  | 'largeScreen'
+  | 'specific'
+  | 'lg'
+  | 'lgg'
+  | 'xg'
+  | 'xxg';
 
 export const useMediaQuery = (breakpoint: Breakpoints) => {
   const [matches, setMatches] = useState<boolean>(
     typeof window !== 'undefined' &&
-    window.matchMedia(`(min-width: ${getBreakpointValue(breakpoint)}px)`).matches
+      window.matchMedia(`(min-width: ${getBreakpointValue(breakpoint)}px)`)
+        .matches,
   );
 
-
-
   useEffect(() => {
-    const mediaQuery = typeof window !== 'undefined' ? window.matchMedia(`(min-width: ${getBreakpointValue(breakpoint)}px)`) : null;
+    const mediaQuery =
+      typeof window !== 'undefined'
+        ? window.matchMedia(`(min-width: ${getBreakpointValue(breakpoint)}px)`)
+        : null;
 
     function handleMatchChange(e: MediaQueryListEvent) {
       setMatches(e.matches);

@@ -1,21 +1,22 @@
-import { ICONS } from "@/assets";
-import Image from "next/image";
-import Link from "next/link";
-import { StyleDropDown } from "./style";
+import {ICONS} from '@/assets';
+import {useAppDispatch} from '@/hooks/useSelectorHook';
+import {signOutRequest} from '@/store/reducer/auth/actions';
+import Image from 'next/image';
+import Link from 'next/link';
+import {StyleDropDown} from './style';
 
 export const DropDown = () => {
-  const Exit = () => {
-    localStorage.removeItem("token");
-  };
+  const dispatch = useAppDispatch();
+
   return (
     <StyleDropDown>
       <li>
-        <Image src={ICONS.MyPulblication} alt="minhas pulblicações" />
-        <Link href='./minhas-publicacoes'> Minhas publicações</Link>
+        <Image src={ICONS.MyPulblication} alt='minhas pulblicações' />
+        <Link href='./minhas-publicacoes'>Minhas publicações</Link>
       </li>
-      <li>
-        <Image src={ICONS.Exit} alt="minhas pulblicações" />
-        <span onClick={Exit}>Sair</span>
+      <li onClick={() => dispatch(signOutRequest())}>
+        <Image src={ICONS.Exit} alt='minhas pulblicações' />
+        <span>Sair</span>
       </li>
     </StyleDropDown>
   );

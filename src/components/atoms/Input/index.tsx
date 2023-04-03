@@ -38,7 +38,7 @@ export const Input = ({
             />
           </div>
           {type === 'password' && (
-            <button onClick={handleChangeIcon}>
+            <button onClick={handleChangeIcon} type='button'>
               {showPassword ? (
                 <Image src={ICONS.EyeOn} alt='icone mostrar password' />
               ) : (
