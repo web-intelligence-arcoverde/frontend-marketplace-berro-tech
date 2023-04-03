@@ -14,9 +14,18 @@ export const BussinessHighlight = () => {
         <h2>Negócios em destaque</h2>
         <a href="negocios">Veja mais opções</a>
       </TitleContainer>
-      <ProductCardsContainer>
+      <ProductCardsContainer
+        moreProduct={BussinessHighlightProductMock.length <= 2}
+      >
         {BussinessHighlightProductMock.map((item, index) => (
-          <ProductCard key={`${item.name} ${index}`} {...item} />
+          <ProductCard
+            minWidth="300px"
+            widthTablet="48%"
+            width="30%"
+            maxWidth="none"
+            key={`${item.name} ${index}`}
+            {...item}
+          />
         ))}
       </ProductCardsContainer>
       <LinkMobileContainer>

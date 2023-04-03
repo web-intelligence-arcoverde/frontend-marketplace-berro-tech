@@ -43,6 +43,7 @@ export const ControlProduct = ({
         age={age}
         rank={rank}
         maxWidth="100%"
+        width="100%"
       />
       <PriceProduct value={11000} installments={20} />
       {isProductPage ? (

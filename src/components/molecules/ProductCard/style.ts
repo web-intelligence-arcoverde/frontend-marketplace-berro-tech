@@ -1,13 +1,18 @@
 import styled from "styled-components";
 import { BREAKPOINTS, COLORS } from "@/common";
 
-export const Card = styled.div<{ maxWidth?: string }>`
+export const Card = styled.div<{
+  maxWidth?: string;
+  width?: string;
+  minWidth?: string;
+  widthTablet?: string;
+}>`
   background: ${COLORS.light._05};
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: ${(props) => (props.width ? props.width : "48%")};
   max-width: ${(props) => (props.maxWidth ? props.maxWidth : "380px")};
-  min-width: 300px;
+  min-width: ${(props) => (props.minWidth ? props.minWidth : "300px")};
   border-radius: 5px;
   cursor: pointer;
   img {
@@ -15,6 +20,17 @@ export const Card = styled.div<{ maxWidth?: string }>`
     max-height: 290px;
     object-fit: cover;
     border-radius: 5px 5px 0px 0px;
+  }
+  @media (max-width: ${BREAKPOINTS.lg}) {
+    border-top: none;
+    width: ${(props) => (props.widthTablet ? props.widthTablet : "100%")};
+    margin: 0 auto;
+  }
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    border-top: none;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
   }
 `;
 
@@ -59,6 +75,7 @@ export const Flex = styled.div`
 export const CattleInfoContainer = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
   & :first-child {
     border-radius: 0 0 0 5px;
   }

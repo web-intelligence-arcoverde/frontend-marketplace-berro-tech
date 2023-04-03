@@ -10,7 +10,11 @@ import {
   Tabs,
 } from "@/components";
 import useModalOverflow from "@/hooks/useModalOverflow";
-import { BussinessHighlightProductMock, Bussinestabs, DropdownMock } from "@/mock";
+import {
+  BussinessHighlightProductMock,
+  Bussinestabs,
+  DropdownMock,
+} from "@/mock";
 import {
   ButtonAddProduct,
   Container,
@@ -30,7 +34,7 @@ import {
 } from "@/style/minhas-publicacoes-style";
 import { CardProductProps } from "@/types";
 import router from "next/router";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 const MyPublication = () => {
   const [modal, setModal] = useState(false);
@@ -87,9 +91,11 @@ const MyPublication = () => {
             {productsEmpty ? (
               <CardProducts>
                 {products.map((item) => (
-                  <div key={item.id} onClick={() => handleAnimalClick(item)}>
-                    <ProductCard {...item} />
-                  </div>
+                  <ProductCard
+                    minWidth="200px"
+                    onClick={() => handleAnimalClick(item)}
+                    {...item}
+                  />
                 ))}
               </CardProducts>
             ) : (
@@ -106,7 +112,7 @@ const MyPublication = () => {
         </ContainerMypublication>
         {modal && (
           <Modal onClick={registerProduct}>
-            <RegisterProduct registerProduct={()=>registerProduct()} />
+            <RegisterProduct registerProduct={() => registerProduct()} />
           </Modal>
         )}
       </Main>
