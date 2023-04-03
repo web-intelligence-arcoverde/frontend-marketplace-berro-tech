@@ -8,6 +8,8 @@ import {
   signInEmailSuccess,
   signOutSuccess,
   signUpEmailSuccess,
+  signUpGoogleSuccess,
+  userLoggedInformationSuccess,
 } from './actions';
 import {setStepRecoveryAccount} from '../step/actions';
 
@@ -34,7 +36,7 @@ function* signUpEmail(): any {
   }
 }
 
-function* signInProviderGmail({payload}: any): any {
+function* signInGoogle({payload}: any): any {
   try {
     const {displayName, email, photoURL} = payload.user;
 
@@ -45,16 +47,14 @@ function* signInProviderGmail({payload}: any): any {
     });
 
     const {token} = data;
-
     localStorage.setItem('token', JSON.stringify(token.token));
-
-    //window.location.replace('/');
-    //yield put(signUpGoogleSuccess(data));
+    yield put(signUpGoogleSuccess(data));
+    //window.location.href = '/minhas-publicacoes';
   } catch (e) {
     console.log(e);
   }
 }
-function* signInProviderFacebbok({payload}: any): any {
+function* signInFacebook({payload}: any): any {
   try {
     const {displayName, email, photoURL} = payload.user;
 
@@ -109,6 +109,13 @@ function* changerPassword({payload}: any): any {
   }
 }
 
+function* userLoggedInformation() {
+  try {
+    const {data} = yield call(api.get, '/user-informations');
+    yield put(userLoggedInformationSuccess(data));
+  } catch (error) {}
+}
+
 function* signOut() {
   try {
     localStorage.removeItem('token');
@@ -131,6 +138,9 @@ function* postsSaga() {
       confirmationVerificationCode,
     ),
     takeLatest('auth/changer-password-request', changerPassword),
+    takeLatest('auth/sign-up-google-request', signInGoogle),
+    takeLatest('auth/sign-up-facebook-request', signInFacebook),
+    takeLatest('auth/user-logged-information-request', userLoggedInformation),
   ]);
 }
 

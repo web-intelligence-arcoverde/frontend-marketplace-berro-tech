@@ -6,6 +6,8 @@ import {
   signUpEmailSuccess,
   confirmationVerificationCodeSuccess,
   changerPasswordSuccess,
+  signUpGoogleSuccess,
+  userLoggedInformationSuccess,
 } from './actions';
 
 import {initialState} from './initial';
@@ -33,5 +35,12 @@ export const auth = createReducer(initialState, (builder) => {
     .addCase(changerPasswordSuccess, (state, action) => {
       state.codeVerificationCode = '';
       state.recoveryEmail = '';
+    })
+    .addCase(signUpGoogleSuccess, (state, action) => {
+      state.token = action.payload.token;
+      state.user = action.payload.newUser;
+    })
+    .addCase(userLoggedInformationSuccess, (state, action) => {
+      state.user = action.payload;
     });
 });

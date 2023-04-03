@@ -53,3 +53,11 @@ export const changerPasswordRequest = createAction<IChangerPassword>(
 export const changerPasswordSuccess = createAction(
   'auth/changer-password-success',
 );
+
+export const userLoggedInformationRequest = createAction(
+  'auth/user-logged-information-request',
+);
+
+export const userLoggedInformationSuccess = createAction<any>(
+  'auth/user-logged-information-success',
+);

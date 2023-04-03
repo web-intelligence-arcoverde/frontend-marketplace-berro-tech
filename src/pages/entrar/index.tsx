@@ -16,6 +16,7 @@ import {SignInInputs} from '@/mock/Inputs';
 
 import {useAppDispatch} from '@/hooks/useSelectorHook';
 import {loginSignProvider} from '@/store/reducer/user/actions';
+import {signUpGoogleRequest} from '@/store/reducer/auth/actions';
 
 const SignIn = () => {
   const [loginWithEmail, setLoginWithEmail] = useState(false);
@@ -27,7 +28,7 @@ const SignIn = () => {
     auth
       .signInWithPopup(provider)
       .then((result: any) => {
-        dispatch(loginSignProvider(result));
+        dispatch(signUpGoogleRequest(result));
       })
       .catch((error: any) => {
         console.error('Erro na autenticação:', error);
