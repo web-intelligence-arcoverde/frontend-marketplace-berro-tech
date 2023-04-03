@@ -40,7 +40,7 @@ export const InfoProduct = styled.div`
   gap: 32px;
   
   @media (max-width: ${BREAKPOINTS.md}){
-    max-width: none;
+    max-width: 700px;
   }
 `;
 
