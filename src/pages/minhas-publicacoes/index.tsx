@@ -90,8 +90,9 @@ const MyPublication = () => {
 
             {productsEmpty ? (
               <CardProducts>
-                {products.map((item) => (
+                {products.map((item, index) => (
                   <ProductCard
+                    key={index}
                     minWidth="200px"
                     widthTablet="80%"
                     maxWidth="none"
