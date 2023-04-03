@@ -64,6 +64,7 @@ export const NearProducts = styled.div`
   gap: 16px;
   flex-wrap: wrap;
   overflow-x: auto;
+  justify-content:flex-start;
 @media (max-width: ${BREAKPOINTS.md}){
   flex-wrap: nowrap;
 }

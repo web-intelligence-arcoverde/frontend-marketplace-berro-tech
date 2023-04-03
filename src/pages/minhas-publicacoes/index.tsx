@@ -93,6 +93,8 @@ const MyPublication = () => {
                 {products.map((item) => (
                   <ProductCard
                     minWidth="200px"
+                    widthTablet="80%"
+                    maxWidth="none"
                     onClick={() => handleAnimalClick(item)}
                     {...item}
                   />

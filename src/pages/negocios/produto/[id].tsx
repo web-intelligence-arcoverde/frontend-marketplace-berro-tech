@@ -79,8 +79,15 @@ const Product = () => {
             </StyleDesktop>
           </NearProductsTitleContainer>
           <NearProducts>
-            {BussinessHighlightProductMock.slice(3).map((item, index) => (
-              <ProductCard key={`${item.name} ${index}`} {...item} />
+            {BussinessHighlightProductMock.slice(0,3).map((item, index) => (
+              <ProductCard
+                minWidth="300px"
+                widthTablet="48%"
+                width="30%"
+                maxWidth="none"
+                key={`${item.name} ${index}`}
+                {...item}
+              />
             ))}
           </NearProducts>
         </NearProductsContainer>

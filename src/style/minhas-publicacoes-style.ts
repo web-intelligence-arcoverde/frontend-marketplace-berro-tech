@@ -63,7 +63,7 @@ export const CardProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 100%;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
