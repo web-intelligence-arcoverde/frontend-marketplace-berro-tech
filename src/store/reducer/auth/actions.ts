@@ -61,3 +61,11 @@ export const userLoggedInformationRequest = createAction(
 export const userLoggedInformationSuccess = createAction<any>(
   'auth/user-logged-information-success',
 );
+
+export const userEditBasicInformationRequest = createAction<any>(
+  'auth/user-edit-basic-information-request',
+);
+
+export const userEditBasicInformationSuccess = createAction<any>(
+  'auth/user-edit-basic-information-success',
+);

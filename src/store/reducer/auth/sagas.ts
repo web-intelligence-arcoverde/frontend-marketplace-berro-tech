@@ -116,6 +116,12 @@ function* userLoggedInformation() {
   } catch (error) {}
 }
 
+function* updateUserBasicInformation({payload}: any): any {
+  try {
+    console.log(payload);
+  } catch (error) {}
+}
+
 function* signOut() {
   try {
     localStorage.removeItem('token');
@@ -141,6 +147,10 @@ function* postsSaga() {
     takeLatest('auth/sign-up-google-request', signInGoogle),
     takeLatest('auth/sign-up-facebook-request', signInFacebook),
     takeLatest('auth/user-logged-information-request', userLoggedInformation),
+    takeLatest(
+      'auth/user-edit-basic-information-request',
+      updateUserBasicInformation,
+    ),
   ]);
 }
 
