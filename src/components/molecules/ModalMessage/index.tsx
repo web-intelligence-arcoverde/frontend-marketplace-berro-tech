@@ -1,4 +1,4 @@
-import {ICONS} from '@/assets';
+import { ICONS } from "@/assets";
 import { IconLoading, Modal } from "@/components/atoms";
 import Image from "next/image";
 import { ButtonClose, ContainerModalMessage } from "./style";
@@ -8,17 +8,19 @@ import useModalOverflow from "@/hooks/useModalOverflow";
 interface ModalMessageProps {
   typeMessage: "error" | "sucess" | "loading";
   messageError?: string;
+  messageSucess?: string;
 }
 
 export const ModalMessage = ({
   typeMessage,
   messageError,
+  messageSucess,
 }: ModalMessageProps) => {
   const [modal, setModal] = useState<boolean>(true);
   const handleModal = () => {
     setModal(!modal);
   };
-useModalOverflow(modal, handleModal);
+  useModalOverflow(modal, handleModal);
 
   return (
     <>
@@ -50,7 +52,11 @@ useModalOverflow(modal, handleModal);
               <>
                 <Image src={ICONS.Sucess} alt="imagem de sucesso" />
                 <h1>Tudo certo!</h1>
-                <h6>Sua publicação já está na plataforma</h6>
+                <h6>
+                  {messageSucess
+                    ? messageSucess
+                    : "Sua publicação já está na plataforma"}
+                </h6>
               </>
             )}
           </ContainerModalMessage>
