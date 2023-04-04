@@ -9,6 +9,7 @@ import {
   signOutSuccess,
   signUpEmailSuccess,
   signUpGoogleSuccess,
+  userEditBasicInformationSuccess,
   userLoggedInformationSuccess,
 } from './actions';
 import {setStepRecoveryAccount} from '../step/actions';
@@ -119,6 +120,8 @@ function* userLoggedInformation() {
 function* updateUserBasicInformation({payload}: any): any {
   try {
     console.log(payload);
+
+    yield put(userEditBasicInformationSuccess(payload));
   } catch (error) {}
 }
 
