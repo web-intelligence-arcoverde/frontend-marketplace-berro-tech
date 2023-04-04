@@ -5,12 +5,10 @@ import { useDispatch } from "react-redux";
 import { clearErros } from "@/store/reducer/auth/actions";
 
 interface ModalGenericProps {
-  typeMessage: "error" | "sucess" | "loading";
   messageSucess?: string;
 }
 
 export const ModalGeneric = ({
-  typeMessage,
   messageSucess,
 }: ModalGenericProps) => {
   const message = useAppSelector((state) => state.auth.error);
@@ -24,8 +22,8 @@ export const ModalGeneric = ({
   return (
     <>
       <ModalMessage
-        typeMessage={typeMessage}
-        messageError={message !== null ? message : ""}
+        typeMessage={!!message ? message.type : ""}
+        messageError={!!message ? message.message : ""}
         messageSucess={messageSucess}
       />
     </>

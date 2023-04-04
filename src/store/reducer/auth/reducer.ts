@@ -1,4 +1,4 @@
-import {createReducer} from '@reduxjs/toolkit';
+import { createReducer } from "@reduxjs/toolkit";
 import {
   recoveryAccountSendEmailRequest,
   signInEmailSuccess,
@@ -11,9 +11,9 @@ import {
   signUpEmailError,
   controlModal,
   clearErros,
-} from './actions';
+} from "./actions";
 
-import {initialState} from './initial';
+import { initialState } from "./initial";
 
 export const auth = createReducer(initialState, (builder) => {
   builder
@@ -26,7 +26,7 @@ export const auth = createReducer(initialState, (builder) => {
       state.user = action.payload.user;
     })
     .addCase(signOutSuccess, (state, action) => {
-      state.token = '';
+      state.token = "";
       state.user = {};
     })
     .addCase(recoveryAccountSendEmailRequest, (state, action) => {
@@ -36,8 +36,8 @@ export const auth = createReducer(initialState, (builder) => {
       state.codeVerificationCode = action.payload.codeVerificationCode;
     })
     .addCase(changerPasswordSuccess, (state, action) => {
-      state.codeVerificationCode = '';
-      state.recoveryEmail = '';
+      state.codeVerificationCode = "";
+      state.recoveryEmail = "";
     })
     .addCase(signUpGoogleSuccess, (state, action) => {
       state.token = action.payload.token;
@@ -46,13 +46,16 @@ export const auth = createReducer(initialState, (builder) => {
     .addCase(userLoggedInformationSuccess, (state, action) => {
       state.user = action.payload;
     })
-    .addCase(signUpEmailError,(state,action)=>{
-      state.error = action.payload
+    .addCase(signUpEmailError, (state, action) => {
+      state.error = {
+        type: action.payload.type,
+        message: action.payload.message,
+      };
     })
-    .addCase(controlModal,(state,action)=>{
-      state.modalError = !action.payload
+    .addCase(controlModal, (state, action) => {
+      state.modalError = !action.payload;
     })
-    .addCase(clearErros,(state,action)=>{
-      state.error = initialState.error
-    })
+    .addCase(clearErros, (state, action) => {
+      state.error = initialState.error;
+    });
 });

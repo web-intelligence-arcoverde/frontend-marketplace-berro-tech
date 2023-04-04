@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
-import {ISignIn, IChangerPassword} from './types';
+import {ISignIn, IChangerPassword, CustomError} from './types';
 
 export const signUpEmailRequest = createAction('auth/sign-up-email-request');
 export const signUpEmailSuccess = createAction<any>(
@@ -62,7 +62,7 @@ export const userLoggedInformationSuccess = createAction<any>(
   'auth/user-logged-information-success',
 );
 
-export const signUpEmailError = createAction<string>('SIGN_UP_EMAIL_ERROR')
+export const signUpEmailError = createAction<CustomError>('SIGN_UP_EMAIL_ERROR')
 
 export const controlModal = createAction<boolean>('CONTROL_MODAL')
 

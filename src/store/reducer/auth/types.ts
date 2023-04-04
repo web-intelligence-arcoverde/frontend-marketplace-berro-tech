@@ -3,8 +3,8 @@ export type IAuthState = {
   user: any;
   recoveryEmail: string;
   codeVerificationCode: string;
-  error?:string | null
-  modalError:boolean
+  error?: any;
+  modalError: boolean;
 };
 
 export interface ISignIn {
@@ -16,4 +16,8 @@ export interface IChangerPassword {
   token: string;
   password: string;
   confirmationPassword: string;
+}
+export interface CustomError {
+  type: "error" | "sucess" | "loading";
+  message: string;
 }
