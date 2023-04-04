@@ -6,9 +6,12 @@ import Head from 'next/head';
 
 import {Provider} from 'react-redux';
 import {store} from '../store';
+import { ModalGeneric, ModalMessage } from '@/components';
 
 function MyApp({Component, pageProps}: AppProps) {
   const [domLoaded, setDomLoaded] = useState(false);
+
+  
 
   useEffect(() => {
     setDomLoaded(true);
@@ -27,6 +30,7 @@ function MyApp({Component, pageProps}: AppProps) {
         </Head>
         <Provider store={store}>
           <Component {...pageProps} />
+          <ModalGeneric typeMessage='error'/>
         </Provider>
       </>
     );

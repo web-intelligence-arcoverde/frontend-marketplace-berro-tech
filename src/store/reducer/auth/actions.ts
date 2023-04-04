@@ -61,3 +61,9 @@ export const userLoggedInformationRequest = createAction(
 export const userLoggedInformationSuccess = createAction<any>(
   'auth/user-logged-information-success',
 );
+
+export const signUpEmailError = createAction<string>('SIGN_UP_EMAIL_ERROR')
+
+export const controlModal = createAction<boolean>('CONTROL_MODAL')
+
+export const clearErros = createAction('CLEAR_ERROR')

@@ -5,22 +5,29 @@ import {store} from '@/store';
 import {
   changerPasswordSuccess,
   confirmationVerificationCodeSuccess,
+  controlModal,
   signInEmailSuccess,
   signOutSuccess,
+  signUpEmailError,
   signUpEmailSuccess,
   signUpGoogleSuccess,
   userLoggedInformationSuccess,
 } from './actions';
 import {setStepRecoveryAccount} from '../step/actions';
 
+
+
 function* signInEmail({payload}: any): any {
   try {
-    const {data} = yield call(api.post, '/sign-in', payload);
+    const {data} = yield call(api.post, '/sign-in', payload); 
     localStorage.setItem('token', JSON.stringify(data.token.token));
     yield put(signInEmailSuccess(data));
     window.location.href = '/minhas-publicacoes';
-  } catch (error) {
-    console.log(error);
+  } catch (error:any) {
+    yield put(signUpEmailError('Credenciais inválidas'))
+  }
+  finally {
+    yield put(controlModal(false))
   }
 }
 

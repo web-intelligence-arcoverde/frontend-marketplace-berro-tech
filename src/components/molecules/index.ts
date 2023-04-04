@@ -34,3 +34,4 @@ export {SendEmailRecoveryAccount} from './SendEmailRecoveryAccount/SendEmailReco
 export {VerifyCodeRecoveryAccount} from './VerifyCodeRecoveryAccount/VerifyCodeRecoveryAccount';
 export {ChangerPasswordRecoveryAccount} from './ChangerPasswordRecoveryAccount/ChangerPasswordRecoveryAccount';
 export {UserLoggedBasicInformation} from './UserLoggedBasicInformation/UserLoggedBasicInformation';
+export {ModalGeneric} from './ModalGeneric'

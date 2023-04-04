@@ -8,6 +8,9 @@ import {
   changerPasswordSuccess,
   signUpGoogleSuccess,
   userLoggedInformationSuccess,
+  signUpEmailError,
+  controlModal,
+  clearErros,
 } from './actions';
 
 import {initialState} from './initial';
@@ -42,5 +45,14 @@ export const auth = createReducer(initialState, (builder) => {
     })
     .addCase(userLoggedInformationSuccess, (state, action) => {
       state.user = action.payload;
-    });
+    })
+    .addCase(signUpEmailError,(state,action)=>{
+      state.error = action.payload
+    })
+    .addCase(controlModal,(state,action)=>{
+      state.modalError = !action.payload
+    })
+    .addCase(clearErros,(state,action)=>{
+      state.error = initialState.error
+    })
 });

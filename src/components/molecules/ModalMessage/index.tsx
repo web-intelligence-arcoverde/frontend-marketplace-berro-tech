@@ -4,6 +4,9 @@ import Image from "next/image";
 import { ButtonClose, ContainerModalMessage } from "./style";
 import { useState } from "react";
 import useModalOverflow from "@/hooks/useModalOverflow";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "@/hooks/useSelectorHook";
+import { controlModal } from "@/store/reducer/auth/actions";
 
 interface ModalMessageProps {
   typeMessage: "error" | "sucess" | "loading";
@@ -16,10 +19,12 @@ export const ModalMessage = ({
   messageError,
   messageSucess,
 }: ModalMessageProps) => {
-  const [modal, setModal] = useState<boolean>(true);
   const handleModal = () => {
-    setModal(!modal);
+   dispath(controlModal(modal))
   };
+  const modal = useAppSelector((state)=>state.auth.modalError)
+  const dispath = useDispatch()
+
   useModalOverflow(modal, handleModal);
 
   return (
