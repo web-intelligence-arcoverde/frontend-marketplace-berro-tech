@@ -30,7 +30,7 @@ export const signInEmailSuccess = createAction<any>(
 export const signOutRequest = createAction('auth/sign-out-request');
 export const signOutSuccess = createAction('auth/sign-out-success');
 
-export const recoveryAccountSendEmailRequest = createAction<{email: string}>(
+export const recoveryAccountSendEmailRequest = createAction<string>(
   'auth/recovery-account-send-email-request',
 );
 

@@ -78,7 +78,7 @@ function* signInFacebook({ payload }: any): any {
 
 function* recoveryAccountSendEmail({ payload }: any): any {
   try {
-    yield call(api.post, "/user/forgot-password", payload.email);
+    yield call(api.post, "/user/forgot-password", payload);
     yield put(setStepRecoveryAccount(1));
   } catch (e) {
     console.log(e);

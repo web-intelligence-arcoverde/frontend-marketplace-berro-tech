@@ -31,7 +31,7 @@ export const SendEmailRecoveryAccount = () => {
   });
 
   const handleSubmitEmail = (data: any) => {
-    dispatch(recoveryAccountSendEmailRequest({email: data}));
+    dispatch(recoveryAccountSendEmailRequest(data.email));
   };
 
   return (

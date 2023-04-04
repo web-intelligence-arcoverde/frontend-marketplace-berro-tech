@@ -30,7 +30,7 @@ export const auth = createReducer(initialState, (builder) => {
       state.user = {};
     })
     .addCase(recoveryAccountSendEmailRequest, (state, action) => {
-      state.recoveryEmail = action.payload.email;
+      state.recoveryEmail = action.payload;
     })
     .addCase(confirmationVerificationCodeSuccess, (state, action) => {
       state.codeVerificationCode = action.payload.codeVerificationCode;
