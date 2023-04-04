@@ -23,7 +23,7 @@ function* signInEmail({ payload }: any): any {
     window.location.href = "/minhas-publicacoes";
   } catch (error: any) {
     yield put(
-      signUpEmailError({ type:'sucess', message: "Credenciais inválidas" })
+      signUpEmailError({ type:'error', message: "Credenciais inválidas" })
     );
   } finally {
     yield put(controlModal(false));
