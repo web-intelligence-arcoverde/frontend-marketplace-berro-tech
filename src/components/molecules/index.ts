@@ -33,3 +33,4 @@ export {ModalRemovePublication} from './ModalRemovePublication';
 export {SendEmailRecoveryAccount} from './SendEmailRecoveryAccount/SendEmailRecoveryAccount';
 export {VerifyCodeRecoveryAccount} from './VerifyCodeRecoveryAccount/VerifyCodeRecoveryAccount';
 export {ChangerPasswordRecoveryAccount} from './ChangerPasswordRecoveryAccount/ChangerPasswordRecoveryAccount';
+export {UserLoggedBasicInformation} from './UserLoggedBasicInformation/UserLoggedBasicInformation';

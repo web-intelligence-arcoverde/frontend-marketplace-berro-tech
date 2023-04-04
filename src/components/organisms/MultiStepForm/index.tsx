@@ -1,27 +1,44 @@
-import { ContentStep, HeaderMultiSteps, LayoutRegisterConfig, StepsContainer } from "./style";
-import React, { useEffect, useState } from "react";
+import {
+  ContentStep,
+  HeaderMultiSteps,
+  LayoutRegisterConfig,
+  StepsContainer,
+} from './style';
+import React, {useState} from 'react';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 
 interface Step {
   id: number;
   name: string;
   step: string;
-  firstColumnTitle?:string;
-  secondColumnTitle?:string;
-  firstColumnChilren?:any;
-  secondColumnChilren?:any;
-  component: React.FunctionComponent<{ formValues: any; setFormValues: any ,  clickStep:(e:any)=> void ,registerProduct?:()=> void , firstColumnTitle?:string,secondColumnTitle?:string,firstColumnChilren?:any,secondColumnChilren?:any}>;
+  firstColumnTitle?: string;
+  secondColumnTitle?: string;
+  firstColumnChilren?: any;
+  secondColumnChilren?: any;
+  component: React.FunctionComponent<{
+    formValues: any;
+    setFormValues: any;
+    clickStep: (e: any) => void;
+    registerProduct?: () => void;
+    firstColumnTitle?: string;
+    secondColumnTitle?: string;
+    firstColumnChilren?: any;
+    secondColumnChilren?: any;
+  }>;
 }
 
 interface MultiStepFormProps {
   steps: Step[];
   onSubmit?: (formValues: any) => void;
-  registerProduct:()=> void
+  registerProduct: () => void;
 }
 
 export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   steps,
-  registerProduct
+  registerProduct,
 }) => {
+  const {step_edit_user} = useAppSelector((state) => state.user);
+
   const [currentStep, setCurrentStep] = useState(1);
 
   const clickStep = (stepNumber: number) => {
@@ -40,8 +57,8 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
         {steps.map((step) => {
           return (
             <StepsContainer
-              onClick={()=>setCurrentStep(step.id)}
-              className={currentStep === step.id ? "active" : ""}
+              onClick={() => setCurrentStep(step.id)}
+              className={currentStep === step.id ? 'active' : ''}
               key={step.id}
             >
               <h6>{step.step}</h6>
@@ -51,15 +68,16 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
         })}
       </HeaderMultiSteps>
       <ContentStep>
-        <ComponentStep 
-        firstColumnTitle={firstColumnTitle}
-        firstColumnChilren={firstColumnChilren}
-        secondColumnTitle={secondColumnTitle} 
-        secondColumnChilren={secondColumnChilren} 
-        formValues={undefined} 
-        registerProduct={()=>registerProduct()} 
-        clickStep={(e)=> clickStep(e)} 
-        setFormValues={undefined} />
+        <ComponentStep
+          firstColumnTitle={firstColumnTitle}
+          firstColumnChilren={firstColumnChilren}
+          secondColumnTitle={secondColumnTitle}
+          secondColumnChilren={secondColumnChilren}
+          formValues={undefined}
+          registerProduct={() => registerProduct()}
+          clickStep={(e) => clickStep(e)}
+          setFormValues={undefined}
+        />
       </ContentStep>
     </LayoutRegisterConfig>
   );

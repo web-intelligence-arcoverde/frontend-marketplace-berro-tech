@@ -1,6 +1,5 @@
 import {
   AddFreeUser,
-  CardPerfilVendedor,
   Dropdown,
   Header,
   Modal,
@@ -9,15 +8,13 @@ import {
   SelectOrdenation,
   Tabs,
   AuthPrivateRouter,
+  UserLoggedBasicInformation,
 } from '@/components';
 import useModalOverflow from '@/hooks/useModalOverflow';
+import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {Bussinestabs, DropdownMock} from '@/mock';
+import {setVisibilityModalAddProduct} from '@/store/reducer/user/actions';
 import {
-  BussinessHighlightProductMock,
-  Bussinestabs,
-  DropdownMock,
-} from '@/mock';
-import {
-  ButtonAddProduct,
   Container,
   Main,
   StyleDesktop,
@@ -27,7 +24,6 @@ import {
 import {
   CardProducts,
   ContainerMypublication,
-  ContentCard,
   SectionProducts,
   ButtonFixedMobile,
   CardFixedMobile,
@@ -35,22 +31,24 @@ import {
 } from '@/style/minhas-publicacoes-style';
 import {CardProductProps} from '@/types';
 import router from 'next/router';
-import {useState} from 'react';
 
 const MyPublication = () => {
-  const [modal, setModal] = useState(false);
+  const {visibility_modal_add_product} = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
-  const products = BussinessHighlightProductMock;
-  const productsEmpty = products.length > 0 ? true : false;
+  const {products} = useAppSelector((state) => state.auth.user);
+
+  const productsEmpty =
+    Array.isArray(products) && products.length > 0 ? true : false;
 
   const handleAnimalClick = (animal: CardProductProps) => {
     router.push(`/minhas-publicacoes/${animal.name}/${animal.id}`);
   };
 
   const registerProduct = () => {
-    setModal(!modal);
+    dispatch(setVisibilityModalAddProduct(!visibility_modal_add_product));
   };
-  useModalOverflow(modal, registerProduct);
+  useModalOverflow(visibility_modal_add_product, registerProduct);
 
   return (
     <AuthPrivateRouter>
@@ -58,19 +56,7 @@ const MyPublication = () => {
         <Header />
         <Main>
           <ContainerMypublication empty={!productsEmpty}>
-            <ContentCard>
-              <CardPerfilVendedor
-                name='Brenno Guedes'
-                email='brennoguedes9@gmail.com'
-                phoneNumber='(83) 98736-8275'
-                avaliation={4.8}
-              />
-              {productsEmpty && (
-                <ButtonAddProduct id='first-add' onClick={registerProduct}>
-                  Adicionar novo negócio
-                </ButtonAddProduct>
-              )}
-            </ContentCard>
+            <UserLoggedBasicInformation />
             <SectionProducts>
               {productsEmpty && (
                 <ContainerTabs>
@@ -90,7 +76,7 @@ const MyPublication = () => {
                 </ContainerTabs>
               )}
 
-              {productsEmpty ? (
+              {productsEmpty && Array.isArray(products) ? (
                 <CardProducts>
                   {products.map((item, index) => (
                     <ProductCard
@@ -104,18 +90,18 @@ const MyPublication = () => {
                   ))}
                 </CardProducts>
               ) : (
-                <AddFreeUser addProduct={() => {}} />
+                <AddFreeUser addProduct={() => registerProduct()} />
               )}
             </SectionProducts>
             <CardFixedMobile>
-              <ButtonFixedMobile onClick={registerProduct}>
+              <ButtonFixedMobile onClick={() => registerProduct()}>
                 {productsEmpty
                   ? 'Adicionar novo negócio'
                   : 'Adicionar meu primeiro negócio'}
               </ButtonFixedMobile>
             </CardFixedMobile>
           </ContainerMypublication>
-          {modal && (
+          {visibility_modal_add_product && (
             <Modal onClick={registerProduct}>
               <RegisterProduct registerProduct={() => registerProduct()} />
             </Modal>

@@ -1,7 +1,11 @@
 export type UserState = {
-  token: string;
   registerUser: IRegisterUserProps;
-  loginSingProvider:ILoginGoogle | any
+
+  user: any;
+
+  visibility_modal_add_product: boolean;
+  step_edit_user: number;
+  visibility_modal_edit_user: boolean;
 };
 
 export interface IRegisterUserProps {
@@ -10,16 +14,4 @@ export interface IRegisterUserProps {
   phone?: string;
   password?: string;
   confirmationPassword?: string;
-}
-
-export interface ISignIn {
-  email: string;
-  password: string;
-}
-
-export interface ILoginGoogle {
-  email:string
-  name:string
-  photo:string
-  phoneNumber:string
 }

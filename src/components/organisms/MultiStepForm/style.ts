@@ -1,6 +1,5 @@
-import { Content } from "../../../style/minhas-publicacoes-style";
-import { BREAKPOINTS, COLORS } from "@/common";
-import styled from "styled-components";
+import {BREAKPOINTS, COLORS} from '@/common';
+import styled from 'styled-components';
 
 export const LayoutRegisterConfig = styled.div`
   display: flex;
@@ -9,10 +8,10 @@ export const LayoutRegisterConfig = styled.div`
   height: 720px;
   border-radius: 5px 5px 0 0;
   background: ${COLORS.light._05};
- @media (max-width:${BREAKPOINTS.md}) {
-  width: 100%;
-  height: 100%;
-}
+  @media (max-width: ${BREAKPOINTS.md}) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const HeaderMultiSteps = styled.div`
@@ -39,12 +38,12 @@ export const HeaderMultiSteps = styled.div`
       color: ${COLORS.gray._01};
     }
   }
-  `;
+`;
 export const StepsContainer = styled.div`
-width: 100%;
-      padding: 12px;
-border-bottom: 2px solid ${COLORS.light._02};
-border-right :2px solid ${COLORS.light._02}; ;
+  width: 100%;
+  padding: 12px;
+  border-bottom: 2px solid ${COLORS.light._02};
+  border-right: 2px solid ${COLORS.light._02}; ;
 `;
 
 export const ContentStep = styled.div`

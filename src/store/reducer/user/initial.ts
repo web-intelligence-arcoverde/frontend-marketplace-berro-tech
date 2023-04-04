@@ -1,18 +1,16 @@
-import { UserState } from "./types";
+import {UserState} from './types';
 
 export const initialState: UserState = {
-  token:
-    (typeof window !== "undefined" &&
-      JSON.parse(localStorage?.getItem("token") as string)) ||
-    "",
-
   registerUser: {
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-    confirmationPassword: "",
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirmationPassword: '',
   },
 
-  loginSingProvider: {},
+  user: {},
+  step_edit_user: 0,
+  visibility_modal_add_product: false,
+  visibility_modal_edit_user: false,
 };

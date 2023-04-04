@@ -1,12 +1,12 @@
-import Image from "next/image";
-import { useAppSelector } from "@/hooks/useSelectorHook";
-import { ICONS, IMAGES } from "@/assets";
+import Image from 'next/image';
+import {useAppSelector} from '@/hooks/useSelectorHook';
+import {ICONS, IMAGES} from '@/assets';
 import {
   ButtonLink,
   DropDown,
   MenuNavigationMobile,
   SearchMobile,
-} from "@/components";
+} from '@/components';
 
 import {
   ButtonMenu,
@@ -17,13 +17,13 @@ import {
   StyleAvatar,
   CardDropDown,
   CardArrowUp,
-} from "./style";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { searchMobile } from "@/store/reducer/product/actions";
+} from './style';
+import {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {searchMobile} from '@/store/reducer/product/actions';
 
 export const AvatarContainer = () => {
-  const token = useAppSelector((state) => state.user.token);
+  const token = useAppSelector((state) => state.auth.token);
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState(false);
 
@@ -50,24 +50,24 @@ export const AvatarContainer = () => {
   };
   useEffect(() => {
     const handleClickOutside = (event: any) => {
-      if (openDropDown && !event.target.closest("#avatar-container")) {
+      if (openDropDown && !event.target.closest('#avatar-container')) {
         setOpenDropDown(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [openDropDown]);
 
   return (
     <>
       {!!token ? (
-        <CardAvatar id="avatar-container">
+        <CardAvatar id='avatar-container'>
           {openDropDown ? (
             <>
               <CardArrowUp onClick={handleDropDown}>
-                <Image src={ICONS.Up} alt="arrowUp" />
+                <Image src={ICONS.Up} alt='arrowUp' />
               </CardArrowUp>
               <CardDropDown>
                 <DropDown />
@@ -77,14 +77,14 @@ export const AvatarContainer = () => {
             <StyleAvatar
               onClick={handleDropDown}
               src={IMAGES.Avatar}
-              alt="foto perfil"
+              alt='foto perfil'
             />
           )}
         </CardAvatar>
       ) : (
         <>
           <CardButton>
-            <ButtonLink id="to-enter" link="entrar">
+            <ButtonLink id='to-enter' link='entrar'>
               Entrar
             </ButtonLink>
           </CardButton>
@@ -95,7 +95,7 @@ export const AvatarContainer = () => {
                   <Image
                     onClick={handleSearch}
                     src={ICONS.Search}
-                    alt="icone lupa"
+                    alt='icone lupa'
                   />
                 </CardIcons>
                 <ButtonMenu
@@ -103,7 +103,7 @@ export const AvatarContainer = () => {
                     setModal(!modal);
                   }}
                 >
-                  <Image src={ICONS.Menu} alt="icone do menu" />
+                  <Image src={ICONS.Menu} alt='icone do menu' />
                 </ButtonMenu>
               </>
             ) : (
@@ -111,7 +111,7 @@ export const AvatarContainer = () => {
                 <Image
                   onClick={handleContainer}
                   src={ICONS.Excluir}
-                  alt="close"
+                  alt='close'
                 />
               </CardIcons>
             )}

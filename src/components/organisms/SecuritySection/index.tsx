@@ -3,18 +3,18 @@ import {
   DescriptionContainer,
   StampContainer,
   LinkContainer,
-} from "./style";
-import Image from "next/image";
-import { ICONS } from "@/assets";
-import { useAppSelector } from "@/hooks/useSelectorHook";
+} from './style';
+import Image from 'next/image';
+import {ICONS} from '@/assets';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 
 export const SecuritySection = () => {
-  const token = useAppSelector((state) => state.user.token);
+  const token = useAppSelector((state) => state.auth.token);
   return (
     <Container>
       <DescriptionContainer>
         <figure>
-          <Image src={ICONS.SecurityShield} alt="iconde de escudo" />
+          <Image src={ICONS.SecurityShield} alt='iconde de escudo' />
         </figure>
         <p>
           Prezamos pela facilidade e segurança na nossa plataforma, acreditamos
@@ -28,11 +28,11 @@ export const SecuritySection = () => {
       </DescriptionContainer>
       <StampContainer>
         <figure>
-          <Image src={ICONS.SecurityShield} alt="iconde de escudo" />
+          <Image src={ICONS.SecurityShield} alt='iconde de escudo' />
         </figure>
-        <LinkContainer href={!!token ? "minhas-publicacoes" : "entrar"}>
+        <LinkContainer href={!!token ? 'minhas-publicacoes' : 'entrar'}>
           <h6>Quero vender na BerroTech</h6>
-          <Image src={ICONS.ArrowDown} alt="seta para direita" />
+          <Image src={ICONS.ArrowDown} alt='seta para direita' />
         </LinkContainer>
       </StampContainer>
     </Container>

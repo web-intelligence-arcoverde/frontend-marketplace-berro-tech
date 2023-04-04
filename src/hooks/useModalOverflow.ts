@@ -1,10 +1,10 @@
 //********O componente recebe 2 parâmetros o do estado , e uma função pra fechar o modal *************/
 
-import { useEffect } from "react";
+import {useEffect} from 'react';
 
 function useModalOverflow(isOpen: boolean, onClose?: () => void) {
   useEffect(() => {
-    if (typeof document === "undefined") {
+    if (typeof document === 'undefined') {
       return;
     }
 
@@ -13,24 +13,24 @@ function useModalOverflow(isOpen: boolean, onClose?: () => void) {
     }
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape" && onClose) {
+      if (event.key === 'Escape' && onClose) {
         onClose();
       }
     }
 
-    setOverflow(isOpen ? "hidden" : "auto");
-    window.addEventListener("keydown", handleKeyDown);
+    setOverflow(isOpen ? 'hidden' : 'auto');
+    window.addEventListener('keydown', handleKeyDown);
 
-    const body = document.querySelector("body");
+    const body = document.querySelector('body');
     if (isOpen && body) {
-      body.classList.add("modal-open");
+      body.classList.add('modal-open');
     }
 
     return () => {
-      setOverflow("auto");
-      window.removeEventListener("keydown", handleKeyDown);
+      setOverflow('auto');
+      window.removeEventListener('keydown', handleKeyDown);
       if (body) {
-        body.classList.remove("modal-open");
+        body.classList.remove('modal-open');
       }
     };
   }, [isOpen, onClose]);
