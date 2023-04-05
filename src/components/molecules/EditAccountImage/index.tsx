@@ -29,7 +29,7 @@ export const EditAccountImage = () => {
         <Image src={imagePreview} width={100} height={100} alt="Preview" />
       )}
       <Overlay onClick={handleOverlayClick}>
-        <input type="file" accept="image/*" onChange={handleImageChange} ref={inputRef} style={{ display: 'none' }} onKeyDown={handleKeyDown} />
+        <input name='accountUrl' type="file" accept="image/*" onChange={handleImageChange} ref={inputRef} style={{ display: 'none' }} onKeyDown={handleKeyDown} />
          <Button><Image src={ICONS.EditImage} alt='icone de edição de imagem' /></Button>
       </Overlay>
     </Container>

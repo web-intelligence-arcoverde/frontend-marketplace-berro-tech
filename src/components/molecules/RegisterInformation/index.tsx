@@ -6,29 +6,35 @@ import { ProductInfoType } from "@/store/reducer/product/types";
 import { removeMoneyMask } from "@/util";
 import { useState } from "react";
 import { ContainerForm, FirstColumn, TitleStep, SecondColumn, AboutBussines, NextButtonContainer, NextButton } from "./style";
+import { userEditBasicInformationRequest } from "@/store/reducer/auth/actions";
+import { IEditUserInfoProps } from "@/store/reducer/auth/types";
 
 
 
 const RegisterInformation = (props: any) => {
   const dispatch = useAppDispatch()
-  const formData = {} as ProductInfoType
+  const formData = {} as ProductInfoType & IEditUserInfoProps
 
 
   const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;;
     const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
-    inputs.forEach((input) => {
+    inputs.forEach((input:any) => {
       const { name, value } = input;
         if(name === 'price'){
           formData[name] = removeMoneyMask(value);
-        }else{
+        }else if(input.type === 'file'){
+          formData[name] = input?.files[0]
+        }
+        else{
           formData[name] = value;
         }  
       });
       
       dispatch(addProductInfo(formData))
-    props.clickStep(2)
+      dispatch(userEditBasicInformationRequest(formData))
+      props.submitButtonText === 'Próximo' && props.clickStep(2)
   };
   return (
     <ContainerForm onSubmit={handleSubmit}>
@@ -42,7 +48,7 @@ const RegisterInformation = (props: any) => {
           <props.secondColumnChilren/>
         </AboutBussines>
         <NextButtonContainer>
-          <NextButton type="submit">Próximo</NextButton>
+          <NextButton type="submit">{props.submitButtonText}</NextButton>
         </NextButtonContainer>
       </SecondColumn>
     </ContainerForm>

@@ -15,3 +15,21 @@ export interface IChangerPassword {
   password: string;
   confirmationPassword: string;
 }
+
+export interface IEditUserInfoProps {
+  [key: string]: any;
+  name?: string;
+  email?: string;
+  phone?: string;
+  accountUrl?: string;
+}
+export interface IEditUserPasswordProps {
+  [key: string]: any;
+  password?: string;
+  confirmationPassword?: string;
+}
+export interface IEditUserLocationProps {
+  [key: string]: any;
+  state?: string;
+  city?: string;
+}
