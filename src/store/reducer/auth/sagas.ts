@@ -15,6 +15,8 @@ import {
   userLoggedInformationSuccess,
 } from "./actions";
 import { setStepRecoveryAccount } from "../step/actions";
+import { currentStep } from "../product/actions";
+
 
 function* signInEmail({ payload }: any): any {
   try {
@@ -26,6 +28,7 @@ function* signInEmail({ payload }: any): any {
     yield put(
       signUpEmailError({ type: "error", message: "Credenciais inválidas" })
     );
+    yield put(currentStep({ step: 1 }));
     yield put(controlModal(true));
   }
 }
@@ -45,6 +48,7 @@ function* signUpEmail(): any {
           "Este email já está em uso. Por favor, tente outro endereço de email",
       })
     );
+    yield put(currentStep({ step: 1 }))
     yield put(controlModal(true));
   }
 }
