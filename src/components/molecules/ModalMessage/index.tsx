@@ -1,24 +1,31 @@
-import {ICONS} from '@/assets';
+import { ICONS } from "@/assets";
 import { IconLoading, Modal } from "@/components/atoms";
 import Image from "next/image";
 import { ButtonClose, ContainerModalMessage } from "./style";
 import { useState } from "react";
 import useModalOverflow from "@/hooks/useModalOverflow";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "@/hooks/useSelectorHook";
+import { controlModal } from "@/store/reducer/auth/actions";
 
 interface ModalMessageProps {
   typeMessage: "error" | "sucess" | "loading";
   messageError?: string;
+  messageSucess?: string;
 }
 
 export const ModalMessage = ({
   typeMessage,
   messageError,
+  messageSucess,
 }: ModalMessageProps) => {
-  const [modal, setModal] = useState<boolean>(true);
   const handleModal = () => {
-    setModal(!modal);
+   dispath(controlModal(!modal))
   };
-useModalOverflow(modal, handleModal);
+  const modal = useAppSelector((state)=>state.auth.modalError)
+  const dispath = useDispatch()
+
+  useModalOverflow(modal, handleModal);
 
   return (
     <>
@@ -50,7 +57,11 @@ useModalOverflow(modal, handleModal);
               <>
                 <Image src={ICONS.Sucess} alt="imagem de sucesso" />
                 <h1>Tudo certo!</h1>
-                <h6>Sua publicação já está na plataforma</h6>
+                <h6>
+                  {messageSucess
+                    ? messageSucess
+                    : "Sua publicação já está na plataforma"}
+                </h6>
               </>
             )}
           </ContainerModalMessage>

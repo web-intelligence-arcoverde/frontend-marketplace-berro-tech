@@ -1,35 +1,34 @@
-import {VerificationCode, Button} from '@/components';
-import {useChronometerHook} from '@/hooks';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { VerificationCode, Button } from "@/components";
+import { useChronometerHook } from "@/hooks";
+import { useAppSelector } from "@/hooks/useSelectorHook";
 import {
   confirmationVerificationCodeRequest,
   recoveryAccountSendEmailRequest,
-} from '@/store/reducer/auth/actions';
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+} from "@/store/reducer/auth/actions";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 export const VerifyCodeRecoveryAccount = () => {
-  const {recoveryEmail} = useAppSelector((state) => state.auth);
+  const recoveryEmail = useAppSelector((state) => state.auth.recoveryEmail);
 
   const dispatch = useDispatch();
-
   const resendEmailRecoveryAccount = () => {
-    dispatch(recoveryAccountSendEmailRequest({email: recoveryEmail}));
+    dispatch(recoveryAccountSendEmailRequest(recoveryEmail));
     handleStart();
   };
 
-  const {chronometer, handleStart} = useChronometerHook();
+  const { chronometer, handleStart } = useChronometerHook();
 
-  const [code, setCode] = useState<Array<string>>(['', '', '', '', '', '']);
+  const [code, setCode] = useState<Array<string>>(["", "", "", "", "", ""]);
 
   const confirmationCode = () => {
-    let codeConvert = '';
+    let codeConvert = "";
 
     code.map((item) => {
       codeConvert += item;
     });
 
-    dispatch(confirmationVerificationCodeRequest({code: codeConvert}));
+    dispatch(confirmationVerificationCodeRequest({ code: codeConvert }));
   };
 
   return (
@@ -43,12 +42,16 @@ export const VerifyCodeRecoveryAccount = () => {
       </h6>
       <VerificationCode code={code} setCode={setCode} />
       <Button onClick={() => confirmationCode()}>Confirmar</Button>
-      {chronometer === '00:00' ? (
-        <Button className='resend' onClick={() => resendEmailRecoveryAccount()}>
+      {chronometer === "00:00" ? (
+        <Button
+          type="button"
+          className="resend"
+          onClick={() => resendEmailRecoveryAccount()}
+        >
           Reenviar código
         </Button>
       ) : (
-        <Button className='resend cursor' onClick={() => {}} disabled>
+        <Button className="resend cursor" onClick={() => {}} disabled>
           {chronometer}
         </Button>
       )}

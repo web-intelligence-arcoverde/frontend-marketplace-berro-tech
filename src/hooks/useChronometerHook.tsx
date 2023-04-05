@@ -23,7 +23,7 @@ function useInterval(callback: any, delay: any) {
   }, [delay]);
 }
 
-const INITIAL_COUNT = 10;
+const INITIAL_COUNT = 59;
 
 const STATUS = {
   STARTED: 'Started',

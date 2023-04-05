@@ -1,13 +1,14 @@
-import '@/styles/globals.css';
-import type {AppProps} from 'next/app';
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
 
-import React, {useEffect, useState} from 'react';
-import Head from 'next/head';
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
 
-import {Provider} from 'react-redux';
-import {store} from '../store';
+import { Provider } from "react-redux";
+import { store } from "../store";
+import { ModalGeneric, ModalMessage } from "@/components";
 
-function MyApp({Component, pageProps}: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [domLoaded, setDomLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ function MyApp({Component, pageProps}: AppProps) {
     return null;
   }
 
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return <></>;
   } else {
     return (
@@ -27,6 +28,7 @@ function MyApp({Component, pageProps}: AppProps) {
         </Head>
         <Provider store={store}>
           <Component {...pageProps} />
+          <ModalGeneric />
         </Provider>
       </>
     );

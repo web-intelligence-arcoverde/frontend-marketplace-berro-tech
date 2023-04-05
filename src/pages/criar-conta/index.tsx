@@ -1,10 +1,10 @@
-import {LayoutInit, MiniContainer, SingUpStep1} from '@/components';
+import { LayoutInit, MiniContainer, SingUpStep1 } from "@/components";
 
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {SingUpStep2, AuthPublicRouter} from '@/components/';
-import {FC, useEffect} from 'react';
-import {useRouter} from 'next/router';
-import {currentStep} from '@/store/reducer/product/actions';
+import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
+import { SingUpStep2, AuthPublicRouter } from "@/components/";
+import { FC, useEffect } from "react";
+import { useRouter } from "next/router";
+import { currentStep } from "@/store/reducer/product/actions";
 interface StepsProps {
   [key: number]: FC<{}>;
 }
@@ -22,8 +22,8 @@ const SignUp = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (currenRoute !== '/criar-rota') {
-      dispatch(currentStep({step: 1}));
+    if (currenRoute !== "/criar-rota") {
+      dispatch(currentStep({ step: 1 }));
     }
   }, [currenRoute]);
 
@@ -31,10 +31,10 @@ const SignUp = () => {
     <AuthPublicRouter>
       <LayoutInit>
         <MiniContainer
-          title='Seja bem-vindo'
-          subTitle='Preencha os campos para criar sua conta'
-          lastButton='Já tenho uma conta'
-          lastButtonLink='entrar'
+          title="Seja bem-vindo"
+          subTitle="Preencha os campos para criar sua conta"
+          lastButton="Já tenho uma conta"
+          lastButtonLink="entrar"
         >
           <Step />
         </MiniContainer>
