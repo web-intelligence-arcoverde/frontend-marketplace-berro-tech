@@ -31,11 +31,11 @@ export const SendEmailRecoveryAccount = () => {
   });
 
   const handleSubmitEmail = (data: any) => {
-    dispatch(recoveryAccountSendEmailRequest({email: data}));
+    dispatch(recoveryAccountSendEmailRequest(data));
   };
 
   return (
-    <ContainerForm onSubmit={handleSubmit((data) => handleSubmitEmail(data))}>
+    <ContainerForm onSubmit={handleSubmit((data) => handleSubmitEmail(data.email))}>
       <Input
         nameLabel='Email'
         name='email'

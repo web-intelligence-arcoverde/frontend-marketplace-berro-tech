@@ -3,6 +3,8 @@ export type IAuthState = {
   user: any;
   recoveryEmail: string;
   codeVerificationCode: string;
+  error?: any;
+  modalError: boolean;
 };
 
 export interface ISignIn {
@@ -32,4 +34,8 @@ export interface IEditUserLocationProps {
   [key: string]: any;
   state?: string;
   city?: string;
+}
+export interface CustomError {
+  type: "error" | "sucess" | "loading";
+  message: string;
 }

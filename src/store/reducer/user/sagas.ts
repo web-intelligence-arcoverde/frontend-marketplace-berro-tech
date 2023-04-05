@@ -2,7 +2,6 @@ import {all, call, put, takeLatest} from 'redux-saga/effects';
 
 import api from '@/service';
 import {store} from '@/store';
-import {signUpSuccess} from './actions';
 
 function* signUpEmail(): any {
   try {
@@ -58,3 +57,7 @@ function* postsSaga() {
 }
 
 export default postsSaga;
+function signUpSuccess(data: any): any {
+  throw new Error('Function not implemented.');
+}
+

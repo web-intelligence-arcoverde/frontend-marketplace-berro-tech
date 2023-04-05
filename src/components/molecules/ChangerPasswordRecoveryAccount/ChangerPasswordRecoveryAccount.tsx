@@ -53,7 +53,7 @@ export const ChangerPasswordRecoveryAccount = () => {
         nameLabel='Senha'
         name='password'
         type='password'
-        placeholder='Email da sua conta'
+        placeholder='Senha'
         control={control}
         errors={errors?.password?.message}
       />
@@ -61,7 +61,7 @@ export const ChangerPasswordRecoveryAccount = () => {
         nameLabel='Confirmação de senha'
         name='confirmationPassword'
         type='password'
-        placeholder='Email da sua conta'
+        placeholder='Confirmação'
         control={control}
         errors={errors?.confirmationPassword?.message}
       />

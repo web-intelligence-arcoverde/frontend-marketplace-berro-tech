@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
-import {ISignIn, IChangerPassword} from './types';
+import {ISignIn, IChangerPassword, CustomError} from './types';
 
 export const signUpEmailRequest = createAction('auth/sign-up-email-request');
 export const signUpEmailSuccess = createAction<any>(
@@ -30,7 +30,7 @@ export const signInEmailSuccess = createAction<any>(
 export const signOutRequest = createAction('auth/sign-out-request');
 export const signOutSuccess = createAction('auth/sign-out-success');
 
-export const recoveryAccountSendEmailRequest = createAction<{email: string}>(
+export const recoveryAccountSendEmailRequest = createAction<string>(
   'auth/recovery-account-send-email-request',
 );
 
@@ -83,3 +83,8 @@ export const userEditLocationInformationRequest = createAction<any>(
   'auth/user-edit-location-information-request',
 );
 
+export const signUpEmailError = createAction<CustomError>('SIGN_UP_EMAIL_ERROR')
+
+export const controlModal = createAction<boolean>('CONTROL_MODAL')
+
+export const clearErros = createAction('CLEAR_ERROR')

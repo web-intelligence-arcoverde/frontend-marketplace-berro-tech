@@ -4,7 +4,6 @@ import * as yup from 'yup';
 
 import {ErrorMessage} from '../locale';
 import {useAppDispatch} from './useSelectorHook';
-import {signInRequest} from '@/store/reducer/user/actions';
 import {signInEmailRequest} from '@/store/reducer/auth/actions';
 
 const schema = yup

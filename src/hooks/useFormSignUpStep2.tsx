@@ -3,7 +3,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {ErrorMessage} from '../locale';
 import {useAppDispatch} from './useSelectorHook';
-import {addPassword, signUpRequest} from '@/store/reducer/user/actions';
+import {addPassword} from '@/store/reducer/user/actions';
 import {IRegisterUserProps} from '@/store/reducer/user/types';
 import {useRouter} from 'next/router';
 import {signUpEmailRequest} from '@/store/reducer/auth/actions';
