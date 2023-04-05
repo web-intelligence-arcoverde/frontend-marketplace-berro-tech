@@ -1,13 +1,14 @@
-import { COLORS } from "@/common";
-import styled from "styled-components";
+import {COLORS} from '@/common';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction:column;
-  gap:16px;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
 `;
 
-export const CardInputUser = styled.div<{ width?: string }>`
+export const CardInputUser = styled.div<{width?: string}>`
   display: flex;
   align-items: center;
   border: 1.5px solid ${COLORS.light._02};
@@ -26,7 +27,7 @@ export const CardInputUser = styled.div<{ width?: string }>`
     border: none;
     font-size: 16px;
     font-weight: 500;
-    width: ${(props) => (props.width ? props.width : "100%")};
+    width: ${(props) => (props.width ? props.width : '100%')};
     font-size: 16px;
     background-color: ${COLORS.light._04};
     ::placeholder {

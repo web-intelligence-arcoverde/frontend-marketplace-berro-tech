@@ -1,23 +1,19 @@
-import { FloatingLabelInput } from '@/components';
-import { useAppSelector } from '@/hooks/useSelectorHook';
+import {Button} from '@/components';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 import React from 'react';
 import MaskedInput from 'react-input-mask';
-import { CardInputUser, Container, TextLabel } from './style';
+import {CardInputUser, Container, TextLabel} from './style';
 
 export const EditAccountInfo = () => {
-  const { user } = useAppSelector((state) => state.auth);
+  const {user} = useAppSelector((state) => state.auth);
 
   return (
     <Container>
+      <h3>Suas Informações</h3>
       <CardInputUser>
         <div>
           <TextLabel>Nome</TextLabel>
-          <MaskedInput
-            mask={''}
-            name='name'
-            type={'text'}
-            placeholder={''}
-          />
+          <MaskedInput mask={''} name='name' type={'text'} placeholder={''} />
         </div>
       </CardInputUser>
       <CardInputUser>
@@ -42,6 +38,9 @@ export const EditAccountInfo = () => {
           />
         </div>
       </CardInputUser>
+      <div style={{marginTop: '24px'}}>
+        <Button>Excluir minha conta</Button>
+      </div>
     </Container>
   );
 };

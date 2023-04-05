@@ -15,13 +15,13 @@ interface Step {
   secondColumnTitle?: string;
   firstColumnChilren?: any;
   secondColumnChilren?: any;
-  submitButtonText?: string,
+  submitButtonText?: string;
   component: React.FunctionComponent<{
     formValues: any;
     setFormValues: any;
     clickStep: (e: any) => void;
     registerProduct?: () => void;
-    submitButtonText?: string,
+    submitButtonText?: string;
     firstColumnTitle?: string;
     secondColumnTitle?: string;
     firstColumnChilren?: any;
