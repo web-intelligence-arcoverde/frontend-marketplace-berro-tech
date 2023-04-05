@@ -1,33 +1,36 @@
-import { ICONS } from "@/assets"
-import { ProductCard, Tabs } from "@/components"
-import { BussinessHighlightProductMock, tabs } from "@/mock"
-import Image from "next/image"
-import { ChangeEvent, FormEvent, useState } from "react"
-import { Container, SearchSideBar, SearchResponseContainer, InputSearchBar, InputContainer } from "./style"
+import { ICONS } from "@/assets";
+import { ProductCard, Tabs } from "@/components";
+import Image from "next/image";
+import { ChangeEvent, useState } from "react";
+import {
+  Container,
+  SearchSideBar,
+  SearchResponseContainer,
+  InputSearchBar,
+  InputContainer,
+} from "./style";
+import { useAppSelector } from "@/hooks/useSelectorHook";
+import { tabs } from "@/mock";
 
 export const MainSearch = () => {
-  const [form, setForm] = useState({
-    mainSearch: '',
-  });
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setForm((prevForm) => ({ ...prevForm, [name]: value }));
+    const { value } = event.target;
+    setSearch(value);
   };
-
-  const submitForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setForm({ mainSearch: '' });
-    console.log('Formulário enviado', form);
-  };
+  const topSearches = useAppSelector((state) => state.product.topSearches);
 
   return (
     <Container>
-      <SearchSideBar >
-        <h2>Encontre <br />o que procura</h2>
-        <InputContainer onSubmit={submitForm}>
+      <SearchSideBar>
+        <h2>
+          Encontre <br />o que procura
+        </h2>
+        <InputContainer>
           <Image src={ICONS.Search} alt="Icone de pesquisa" />
           <InputSearchBar
-            name={"mainSearch"}
+            name={"search"}
             type={"text"}
             placeholder="Buscar"
             onChange={handleChange}
@@ -35,8 +38,8 @@ export const MainSearch = () => {
         </InputContainer>
         <Tabs tabs={tabs} />
       </SearchSideBar>
-      <SearchResponseContainer >
-        {BussinessHighlightProductMock.slice(0,4).map((item, index) => (
+      <SearchResponseContainer>
+        {topSearches.slice(0, 4).map((item: any, index: number) => (
           <ProductCard
             key={`${item.name} ${index}`}
             {...item}
@@ -45,7 +48,7 @@ export const MainSearch = () => {
             widthTablet="80%"
           />
         ))}
-      </SearchResponseContainer >
+      </SearchResponseContainer>
     </Container>
-  )
-}
+  );
+};

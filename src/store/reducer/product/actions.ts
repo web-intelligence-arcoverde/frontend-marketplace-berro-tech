@@ -12,6 +12,7 @@ export const currentSearch = createAction<string>("CURRENT_SEARCH");
 export const currentStep = createAction<{ step: number }>("CURRENTE_STEP");
 export const removeProduct = createAction<any>('REMOVE_PRODUCT')
 export const removeProductModal = createAction<boolean>('REMOVE_PRODUCT_MODAL')
+export const topSearches = createAction<any>('TOP_SEARCHES')
 
 export const searchMobile = createAction<boolean>("SEARCH_MOBILE");
 /* 
