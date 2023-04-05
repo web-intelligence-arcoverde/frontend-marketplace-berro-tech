@@ -53,7 +53,7 @@ export const auth = createReducer(initialState, (builder) => {
       };
     })
     .addCase(controlModal, (state, action) => {
-      state.modalError = !action.payload;
+      state.modalError = action.payload
     })
     .addCase(clearErros, (state, action) => {
       state.error = initialState.error;

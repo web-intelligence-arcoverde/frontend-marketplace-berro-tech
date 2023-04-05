@@ -5,18 +5,19 @@ import {
   confirmationVerificationCodeRequest,
   recoveryAccountSendEmailRequest,
 } from '@/store/reducer/auth/actions';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 
 export const VerifyCodeRecoveryAccount = () => {
-  const {recoveryEmail} = useAppSelector((state) => state.auth);
+  const recoveryEmail = useAppSelector((state) => state.auth.recoveryEmail);
 
   const dispatch = useDispatch();
-
   const resendEmailRecoveryAccount = () => {
-    dispatch(recoveryAccountSendEmailRequest({email: recoveryEmail}));
+    dispatch(recoveryAccountSendEmailRequest(recoveryEmail));
     handleStart();
   };
+
+
 
   const {chronometer, handleStart} = useChronometerHook();
 
@@ -32,6 +33,8 @@ export const VerifyCodeRecoveryAccount = () => {
     dispatch(confirmationVerificationCodeRequest({code: codeConvert}));
   };
 
+
+
   return (
     <>
       <h4>Verifique o código que enviamos pro seu email:</h4>
@@ -44,11 +47,11 @@ export const VerifyCodeRecoveryAccount = () => {
       <VerificationCode code={code} setCode={setCode} />
       <Button onClick={() => confirmationCode()}>Confirmar</Button>
       {chronometer === '00:00' ? (
-        <Button className='resend' onClick={() => resendEmailRecoveryAccount()}>
+        <Button type='button' className='resend' onClick={() => resendEmailRecoveryAccount()}>
           Reenviar código
         </Button>
       ) : (
-        <Button className='resend cursor' onClick={() => {}} disabled>
+        <Button  className='resend cursor' onClick={() => {}} disabled>
           {chronometer}
         </Button>
       )}

@@ -23,10 +23,9 @@ function* signInEmail({ payload }: any): any {
     window.location.href = "/minhas-publicacoes";
   } catch (error: any) {
     yield put(
-      signUpEmailError({ type:'error', message: "Credenciais inválidas" })
+      signUpEmailError({ type: "error", message: "Credenciais inválidas" })
     );
-  } finally {
-    yield put(controlModal(false));
+    yield put(controlModal(true));
   }
 }
 
@@ -38,7 +37,14 @@ function* signUpEmail(): any {
     yield put(signUpEmailSuccess(data));
     window.location.href = "/minhas-publicacoes";
   } catch (e) {
-    console.log(e);
+    yield put(
+      signUpEmailError({
+        type: "error",
+        message:
+          "Este email já está em uso. Por favor, tente outro endereço de email",
+      })
+    );
+    yield put(controlModal(true));
   }
 }
 
@@ -80,8 +86,16 @@ function* recoveryAccountSendEmail({ payload }: any): any {
   try {
     yield call(api.post, "/user/forgot-password", payload);
     yield put(setStepRecoveryAccount(1));
-  } catch (e) {
+  } catch (e: any) {
     console.log(e);
+    yield put(
+      signUpEmailError({
+        type: "error",
+        message:
+          " Email não encontrado. Cadastre-se ou contate-nos para ajuda. ",
+      })
+    );
+    yield put(controlModal(true));
   }
 }
 
@@ -99,7 +113,13 @@ function* confirmationVerificationCode({ payload }: any): any {
 
     yield put(setStepRecoveryAccount(2));
   } catch (e) {
-    console.log(e);
+    yield put(
+      signUpEmailError({
+        type: "error",
+        message: "Código de verificação inválido",
+      })
+    );
+    yield put(controlModal(true));
   }
 }
 

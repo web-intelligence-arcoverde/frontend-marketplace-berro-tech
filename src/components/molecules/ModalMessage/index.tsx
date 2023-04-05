@@ -20,7 +20,7 @@ export const ModalMessage = ({
   messageSucess,
 }: ModalMessageProps) => {
   const handleModal = () => {
-   dispath(controlModal(modal))
+   dispath(controlModal(!modal))
   };
   const modal = useAppSelector((state)=>state.auth.modalError)
   const dispath = useDispatch()
