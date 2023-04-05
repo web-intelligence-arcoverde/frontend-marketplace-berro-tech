@@ -1,33 +1,51 @@
-import {Button} from '@/components/atoms';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { ContainerForm, FirstColumn, SecondColumn, AboutBussines, NextButtonContainer, NextButton } from "./style";
 import {
   EditAccountImage,
   EditAccountInfo,
   EditAccountLocation,
   EditAccountPassword,
 } from '../../';
+import { userEditBasicInformationRequest } from '@/store/reducer/auth/actions';
+import { IEditUserInfoProps } from '@/store/reducer/auth/types';
 
 export const EditUserBasicInformations = () => {
+
+  const dispatch = useAppDispatch()
+  const formData = {} as  IEditUserInfoProps
+
+
+  const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;;
+    const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
+    inputs.forEach((input:any) => {
+      const { name, value } = input;
+        if(input.type === 'file'){
+          formData[name] = input?.files[0]
+        }
+        else{
+          formData[name] = value;
+        }  
+      });
+      
+      dispatch(userEditBasicInformationRequest(formData))
+  };
+
   return (
-    <div style={{display: 'flex', flexDirection: 'row', height: '100%'}}>
-      <div style={{padding: '24px', width: '506px'}}>
+    <ContainerForm onSubmit={handleSubmit} >
+      <FirstColumn>
         <EditAccountInfo />
-      </div>
-      <div
-        style={{
-          width: '294px',
-          backgroundColor: '#FAFAFC',
-          padding: '24px',
-        }}
-      >
-        <div style={{height: '296px', marginBottom: '24px'}}>
+      </FirstColumn>
+      <SecondColumn>
+        <AboutBussines>
           <EditAccountImage />
-        </div>
-        <div style={{padding: '0'}}>
-          <Button>Salvar alterações</Button>
-        </div>
-      </div>
-    </div>
+        </AboutBussines>
+        <NextButtonContainer>
+          <NextButton type="submit">Salvar alterações</NextButton>
+        </NextButtonContainer>
+      </SecondColumn>
+    </ContainerForm>
   );
 };
 
@@ -38,9 +56,9 @@ const Steps = {
 };
 
 export const StepsEditUser = () => {
-  const {step_edit_user} = useAppSelector((state) => state.user);
+  const { step_edit_user } = useAppSelector((state) => state.user);
 
-  const Step = Steps[step_edit_user];
+  const Step = Steps[0];
 
   return <Step />;
 };

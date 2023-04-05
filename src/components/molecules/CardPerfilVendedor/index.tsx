@@ -1,5 +1,5 @@
 import {ICONS, IMAGES} from '@/assets';
-import {Button, Modal, MultiStepForm} from '@/components';
+import {Button, ContainerStepsEditUser, Modal, ModalInformation, MultiStepForm} from '@/components';
 import {UserPerfil} from '@/types/IUserProps';
 import Image from 'next/image';
 import {
@@ -32,8 +32,9 @@ export const CardPerfilVendedor = ({
   const registerProduct = (step?: number) => {
     dispatch(showModalEditUser({user, step}));
   };
+  console.log(visibility_modal_edit_user)
   useModalOverflow(visibility_modal_edit_user, registerProduct);
-
+    
   return (
     <CardVendedor>
       <HeaderCard>
@@ -77,12 +78,9 @@ export const CardPerfilVendedor = ({
         )}
       </InfoSeller>
       {visibility_modal_edit_user && (
-        <Modal onClick={registerProduct}>
-          <MultiStepForm
-            steps={StepEditAccount}
-            registerProduct={() => registerProduct()}
-          />
-        </Modal>
+        <ModalInformation onClick={registerProduct}>
+          <ContainerStepsEditUser/>
+        </ModalInformation>
       )}
     </CardVendedor>
   );

@@ -35,8 +35,25 @@ export const ModalBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
-  opacity: 0.7;
+  background-color: ${COLORS.opacity.black_07};
   z-index: 20;
+  cursor: pointer;
+`;
+export const ButtonClose = styled.button`
+  position: absolute;
+  top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  gap: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: ${COLORS.light._04};
+  right: 10px;
+  z-index: 21;
   cursor: pointer;
 `;
