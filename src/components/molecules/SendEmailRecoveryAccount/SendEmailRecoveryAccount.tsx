@@ -35,7 +35,7 @@ export const SendEmailRecoveryAccount = () => {
   };
 
   return (
-    <ContainerForm onSubmit={handleSubmit((data) => handleSubmitEmail(data))}>
+    <ContainerForm onSubmit={handleSubmit((data) => handleSubmitEmail(data.email))}>
       <Input
         nameLabel='Email'
         name='email'
