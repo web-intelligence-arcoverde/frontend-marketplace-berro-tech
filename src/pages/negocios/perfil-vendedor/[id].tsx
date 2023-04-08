@@ -17,9 +17,24 @@ import {
 } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useRouter } from "next/router";
+import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
+import { ParsedUrlQuery } from "querystring";
+import { getSellerId } from "@/store/reducer/user/actions";
+import { useEffect } from "react";
 
 const SelleProfiler = () => {
+  const router = useRouter();
+  const product = useAppSelector((state)=>state.product.product)
+  const dispatch = useAppDispatch()
+  const { id }: ParsedUrlQuery = router.query;
+
+  useEffect(()=>{
+    dispatch(getSellerId(id))
+  },[])
+  
   const isMobile = !useMediaQuery("md");
+
   return (
     <Container>
       <Header />
