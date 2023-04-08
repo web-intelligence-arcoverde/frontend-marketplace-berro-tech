@@ -1,41 +1,37 @@
 import {ContentStep, Header, Container, StepsContainer} from './style';
-import React, {useState} from 'react';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 
-import {EditUserBasicInformations,EditAccountPassword,EditAccountLocation} from '@/components';
+import {
+  EditUserBasicInformations,
+  EditAccountPassword,
+  EditAccountLocation,
+} from '@/components';
 import {useDispatch} from 'react-redux';
 import {setStepEditUser} from '@/store/reducer/user/actions';
 
 interface StepsProps {
-  [index: number]:any
-  0:any;
-  1:any;
-  2:any;
+  [index: number]: any;
+  0: any;
+  1: any;
+  2: any;
 }
 
 export const ContainerStepsEditUser = ({}) => {
   const {step_edit_user} = useAppSelector((state) => state.user);
 
-  const [currentStep, setCurrentStep] = useState(0);
   const dispatch = useDispatch();
 
-  const clickStep = (stepNumber: number) => {
-    dispatch(setStepEditUser(stepNumber));
-  };
-
-
-  const Steps:StepsProps = {
+  const Steps: StepsProps = {
     0: EditUserBasicInformations,
     1: EditAccountPassword,
     2: EditAccountLocation,
   };
-  
+
   const StepsEditUser = () => {
     const Step = Steps[step_edit_user];
-  
+
     return <Step />;
   };
-
 
   return (
     <Container>
