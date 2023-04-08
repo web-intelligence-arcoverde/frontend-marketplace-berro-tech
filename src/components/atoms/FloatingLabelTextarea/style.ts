@@ -8,7 +8,6 @@ export const FormField = styled.div`
 `;
 
 export const Label = styled.label<{ active: boolean }>`
-  display: ${(props) => (props.active ? "none" : "block")};
   position: absolute;
   top: 0;
   left: 0;
@@ -16,9 +15,11 @@ export const Label = styled.label<{ active: boolean }>`
   color: #999;
   transition: all 0.2s ease-in-out;
   pointer-events: none;
+
+ 
 `;
 export const Textarea = styled.textarea<{ active: boolean ; isWhite?:boolean;}>`
-  height: 85px;
+  min-height: 85px;
   width: 100%;
   border-radius: 5px;
   padding: 16px;
@@ -27,7 +28,6 @@ export const Textarea = styled.textarea<{ active: boolean ; isWhite?:boolean;}>`
   font-size: 16px;
   border: solid 2px ${COLORS.light._02};
   padding-top: ${(props) => (props.active ? "16px" : "40px")};
-  background: ${COLORS.light._04};
   background: ${(props) => props.isWhite ? 
     `${COLORS.light._05}` 
     :
@@ -39,10 +39,18 @@ export const Textarea = styled.textarea<{ active: boolean ; isWhite?:boolean;}>`
   }
   &:focus + label,
   &:not(:placeholder-shown) + label {
-    top: 16px;
+    top: 2px;
     left: 16px;
     color: ${COLORS.sub_brand._02};
     font-size: 14px;
     font-weight: 500;
+    width: 90%;
+    background:${COLORS.light._04};
+    height:40px;
+    display:flex;
+    align-items:center;
+    padding-top:10px
+
   }
+
 `;

@@ -292,6 +292,7 @@ export const StepRegisterProduct = [
     step: "Passo 1",
     firstColumnTitle: "Sobre o produto",
     secondColumnTitle: "Sobre o negócio",
+    submitButtonText:'Próximo',
     firstColumnChilren: CreateProductInfo,
     secondColumnChilren: CreateProductBussines,
     component: RegisterInformation,

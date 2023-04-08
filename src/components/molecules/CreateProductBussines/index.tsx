@@ -18,7 +18,7 @@ export const CreateProductBussines = () => {
             type="number"
             id="quantity"
             name="quantity"
-            placeholder="quantidade de animais"
+            placeholder="Quantidade de animais"
           />
           <FloatingLabelInput
             required
@@ -26,7 +26,8 @@ export const CreateProductBussines = () => {
             type="text"
             id="price"
             name="price"
-            placeholder="preço"
+            placeholder="Preço"
+            maxLength={13}
           />
           <FloatingLabelInput
             required
@@ -34,7 +35,7 @@ export const CreateProductBussines = () => {
             type="number"
             id="installments"
             name="installments"
-            placeholder="parcelas"
+            placeholder="Parcelas"
           />
     </div>
   )

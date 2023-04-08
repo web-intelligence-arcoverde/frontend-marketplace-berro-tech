@@ -1,8 +1,8 @@
-import {setCellphoneMask, setMoneyMask, setWeightMask} from '@/util';
-import {useState} from 'react';
-import {FormField, Input, Label, EyeButton} from './style';
-import Image from 'next/image';
-import {ICONS} from '@/assets';
+import { setCellphoneMask, setMoneyMask, setWeightMask } from "@/util";
+import { useState } from "react";
+import { FormField, Input, Label, EyeButton } from "./style";
+import Image from "next/image";
+import { ICONS } from "@/assets";
 
 interface FloatingLabelInputProps {
   placeholder: string;
@@ -20,22 +20,30 @@ export const FloatingLabelInput = ({
   placeholder,
   ...props
 }: FloatingLabelInputProps) => {
-  const [value, setValue] = useState<string>('');
-  const [passwordType, setPasswordType] = useState<string>('password');
+  const [value, setValue] = useState<string>("");
+  const [passwordType, setPasswordType] = useState<string>("password");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
   const handleChangeValueMask = () => {
     switch (props.name) {
-      case 'price':
+      case "price":
         return setMoneyMask(value);
-      case 'Weight':
+      case "Weight":
         return setWeightMask(value);
-      case 'phone':
+      case "phone":
         return setCellphoneMask(value);
       default:
         return value;
+    }
+  };
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (props.type === "number") {
+      const value = Number(event.currentTarget.value + event.key);
+      if (value < 1 || value > 99) {
+        event.preventDefault();
+      }
     }
   };
 
@@ -51,18 +59,19 @@ export const FloatingLabelInput = ({
         value={handleChangeValueMask()}
         onChange={handleInputChange}
         placeholder={placeholder}
+        onKeyPress={handleKeyPress}
       />
       <Label active={!value} htmlFor={props.id}>
         {placeholder}
       </Label>
-      {passwordType === 'password' && props.isPassword && (
-        <EyeButton onClick={() => setPasswordType('text')}>
-          <Image src={ICONS.EyeOn} alt='icone de vizualizar senha' />
+      {passwordType === "password" && props.isPassword && (
+        <EyeButton onClick={() => setPasswordType("text")}>
+          <Image src={ICONS.EyeOn} alt="icone de vizualizar senha" />
         </EyeButton>
       )}
-      {passwordType === 'text' && props.isPassword && (
-        <EyeButton onClick={() => setPasswordType('password')}>
-          <Image src={ICONS.EyeOff} alt='icone de vizualizar senha' />
+      {passwordType === "text" && props.isPassword && (
+        <EyeButton onClick={() => setPasswordType("password")}>
+          <Image src={ICONS.EyeOff} alt="icone de vizualizar senha" />
         </EyeButton>
       )}
     </FormField>

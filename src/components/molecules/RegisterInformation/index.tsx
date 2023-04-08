@@ -1,10 +1,8 @@
-import { CreateProductInfo, FloatingLabelInput, FloatingLabelRadio, FloatingLabelTextarea } from "@/components";
+
 import { useAppDispatch } from "@/hooks/useSelectorHook";
-import { Ovino, TypeAnimal, Caprino } from "@/mock";
 import { addProductInfo } from "@/store/reducer/product/actions";
 import { ProductInfoType } from "@/store/reducer/product/types";
 import { removeMoneyMask } from "@/util";
-import { useState } from "react";
 import { ContainerForm, FirstColumn, TitleStep, SecondColumn, AboutBussines, NextButtonContainer, NextButton } from "./style";
 import { userEditBasicInformationRequest } from "@/store/reducer/auth/actions";
 import { IEditUserInfoProps } from "@/store/reducer/auth/types";
