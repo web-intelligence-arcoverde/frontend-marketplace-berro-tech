@@ -1,15 +1,14 @@
 import { FloatingLabelInput } from "@/components";
 import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
-import { addProductLocation } from "@/store/reducer/product/actions";
 import { ProductLocationType } from "@/store/reducer/product/types";
 import { Container, ContainerInputs, NextButton, NextButtonContainer, ContainerTitle } from "./style";
+import { userEditLocationInformationRequest } from "@/store/reducer/auth/actions";
+import { IEditUserLocationProps } from "@/store/reducer/auth/types";
 
 
 export const EditAccountLocation = (props: any) => {
   const dispatch = useAppDispatch()
-  const Loading = useAppSelector(state => state.product.loading)
-  const sucess = useAppSelector(state => state.product.sucess)
-  const formData = {} as ProductLocationType
+  const formData = {} as IEditUserLocationProps
 
 
   const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
@@ -22,8 +21,7 @@ export const EditAccountLocation = (props: any) => {
         formData[name] = value;
       });
       
-      dispatch(addProductLocation(formData))
-      props?.registerProduct()
+      dispatch(userEditLocationInformationRequest(formData))
   };
 
   return (

@@ -2,13 +2,13 @@ import {
   AddFreeUser,
   Dropdown,
   Header,
-  Modal,
   ProductCard,
   RegisterProduct,
   SelectOrdenation,
   Tabs,
   AuthPrivateRouter,
   UserLoggedBasicInformation,
+  ModalInformation,
 } from '@/components';
 import useModalOverflow from '@/hooks/useModalOverflow';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
@@ -102,9 +102,9 @@ const MyPublication = () => {
             </CardFixedMobile>
           </ContainerMypublication>
           {visibility_modal_add_product && (
-            <Modal onClick={registerProduct}>
+            <ModalInformation onClick={registerProduct}>
               <RegisterProduct registerProduct={() => registerProduct()} />
-            </Modal>
+            </ModalInformation>
           )}
         </Main>
       </Container>

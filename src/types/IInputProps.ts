@@ -3,6 +3,6 @@ export interface InputProps {
   type: string;
   placeholder: string;
   nameLabel: string;
-  control: any;
-  errors: string | any;
+  control?: any;
+  errors?: string | any;
 }

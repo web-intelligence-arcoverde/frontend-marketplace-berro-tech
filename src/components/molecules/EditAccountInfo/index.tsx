@@ -1,35 +1,46 @@
-import {FloatingLabelInput} from '@/components';
+import {Button} from '@/components';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 import React from 'react';
-import {Container} from './style';
+import MaskedInput from 'react-input-mask';
+import {CardInputUser, Container, TextLabel} from './style';
 
 export const EditAccountInfo = () => {
   const {user} = useAppSelector((state) => state.auth);
 
   return (
     <Container>
-      <FloatingLabelInput
-        required
-        type='text'
-        id='accountName'
-        name='accountName'
-        placeholder='Nome'
-      />
-      <FloatingLabelInput
-        required
-        type='text'
-        id='email'
-        name='email'
-        placeholder='E-mail'
-      />
-      <FloatingLabelInput
-        required
-        type='tel'
-        maxLength={11}
-        id='cellphone'
-        name='cellphone'
-        placeholder='Telefone'
-      />
+      <h3>Suas Informações</h3>
+      <CardInputUser>
+        <div>
+          <TextLabel>Nome</TextLabel>
+          <MaskedInput mask={''} name='name' type={'text'} placeholder={''} />
+        </div>
+      </CardInputUser>
+      <CardInputUser>
+        <div>
+          <TextLabel>E-mail</TextLabel>
+          <MaskedInput
+            mask={''}
+            name='email'
+            type={'email'}
+            placeholder={'****@gmail.com'}
+          />
+        </div>
+      </CardInputUser>
+      <CardInputUser>
+        <div>
+          <TextLabel>Telefone</TextLabel>
+          <MaskedInput
+            mask={'(99) 99999-9999'}
+            name='phone'
+            type={'tel'}
+            placeholder={'(_ _) _ _ _ _ _-_ _ _ _'}
+          />
+        </div>
+      </CardInputUser>
+      <div style={{marginTop: '24px'}}>
+        <Button>Excluir minha conta</Button>
+      </div>
     </Container>
   );
 };

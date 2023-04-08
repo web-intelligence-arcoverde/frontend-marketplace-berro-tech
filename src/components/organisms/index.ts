@@ -12,6 +12,9 @@ export {MenuNavigationMobile} from './MenuNavigationMobile';
 export {RegisterProduct} from './RegisterProduct';
 export {MultiStepForm} from './MultiStepForm';
 export {SingUpStep1} from './SingUpStep1';
-export {CountryRegion} from './CountryRegion'
+export {CountryRegion} from './CountryRegion';
 
 export {SingUpStep2} from './SingUpStep2';
+
+export {ContainerStepsEditUser} from './ContainerStepsEditUser/ContainerStepsEditUser';
+export {EditUserBasicInformations} from './StepsEditUser/StepsEditUser';

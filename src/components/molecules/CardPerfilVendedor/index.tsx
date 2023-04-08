@@ -1,5 +1,5 @@
 import {ICONS, IMAGES} from '@/assets';
-import {Button, Modal, MultiStepForm} from '@/components';
+import {Button, ContainerStepsEditUser, ModalInformation} from '@/components';
 import {UserPerfil} from '@/types/IUserProps';
 import Image from 'next/image';
 import {
@@ -12,7 +12,6 @@ import {
   InfoSeller,
   RowVertical,
 } from './style';
-import {StepEditAccount} from '@/mock';
 import useModalOverflow from '@/hooks/useModalOverflow';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {showModalEditUser} from '@/store/reducer/user/actions';
@@ -32,8 +31,9 @@ export const CardPerfilVendedor = ({
   const registerProduct = (step?: number) => {
     dispatch(showModalEditUser({user, step}));
   };
+  console.log(visibility_modal_edit_user)
   useModalOverflow(visibility_modal_edit_user, registerProduct);
-
+    
   return (
     <CardVendedor>
       <HeaderCard>
@@ -49,7 +49,7 @@ export const CardPerfilVendedor = ({
         {location ? (
           <h5>{location}</h5>
         ) : (
-          <button onClick={() => registerProduct(1)}>
+          <button onClick={() => registerProduct(3)}>
             Adicione uma localização
           </button>
         )}
@@ -60,7 +60,7 @@ export const CardPerfilVendedor = ({
           {phoneNumber ? (
             <h5>{phoneNumber}</h5>
           ) : (
-            <button onClick={() => registerProduct(2)}>
+            <button onClick={() => registerProduct(1)}>
               Adicione um telefone
             </button>
           )}
@@ -77,12 +77,9 @@ export const CardPerfilVendedor = ({
         )}
       </InfoSeller>
       {visibility_modal_edit_user && (
-        <Modal onClick={registerProduct}>
-          <MultiStepForm
-            steps={StepEditAccount}
-            registerProduct={() => registerProduct()}
-          />
-        </Modal>
+        <ModalInformation onClick={registerProduct}>
+          <ContainerStepsEditUser/>
+        </ModalInformation>
       )}
     </CardVendedor>
   );
