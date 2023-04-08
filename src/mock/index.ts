@@ -212,18 +212,23 @@ export const BussinessHighlightProductMock: CardProductProps[] = [
 export const tabs = [
   {
     title: "Principais buscas",
+    typeFilter:'top'
   },
   {
     title: "Classificação",
+    typeFilter:'rank'
   },
   {
     title: "Genética",
+    typeFilter:'genetics'
   },
   {
     title: "Raça",
+    typeFilter:'breed'
   },
   {
     title: "Sexo",
+    typeFilter:'sex'
   },
 ];
 export const Bussinestabs = [

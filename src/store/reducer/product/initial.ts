@@ -30,5 +30,6 @@ export const initialState: any = {
   currentSearch: "",
   currentStep: 1,
   removeProductModal: false,
-  topSearches:BussinessHighlightProductMock
+  topSearches:BussinessHighlightProductMock,
+  topSearchesFilter:'top'
 };

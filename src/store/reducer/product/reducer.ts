@@ -13,6 +13,7 @@ import {
   removeProduct,
   removeProductModal,
   topSearches,
+  topSearchesFilter,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -65,5 +66,8 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(topSearches, (state, action) => {
       state.allProducts = initialState.allProducts;
+    })
+    .addCase(topSearchesFilter,(state,action)=>{
+      state.topSearchesFilter = action.payload
     })
 });
