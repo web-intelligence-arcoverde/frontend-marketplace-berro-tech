@@ -1,12 +1,12 @@
 import {COLORS} from '@/common';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 16px;
-  h3{
+  h3 {
     font-weight: 500;
     font-size: 16px;
     color: ${COLORS.gray._01};
@@ -52,13 +52,12 @@ export const ButtonContainer = styled.div`
   padding: 33px 0;
   display: flex;
   justify-content: center;
-  button{
+  button {
     color: ${COLORS.auxiliary.red_state};
     height: fit-content;
     width: fit-content;
-    padding:0;
+    padding: 0;
     background: none;
     border: none;
   }
 `;
-
