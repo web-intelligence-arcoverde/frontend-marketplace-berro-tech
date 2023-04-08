@@ -53,7 +53,7 @@ export const CreateProductInfo = () => {
         name='age'
         placeholder={'Idade'}
         id='age'
-        labels={['Garrote', 'Novilha', 'Bezerra']}
+        labels={["Vaca", "Bezerro", "Garrote", "Novilha", "Aspiração"]}
       />
       <FloatingLabelInput
         required

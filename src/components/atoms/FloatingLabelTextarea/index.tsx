@@ -30,6 +30,7 @@ export const FloatingLabelTextarea = ({
         onChange={handleInputChange}
         placeholder={placeholder}
         {...props}
+        rows={3}
       />
       <Label active={!value} htmlFor={props.id}>
         {placeholder}
