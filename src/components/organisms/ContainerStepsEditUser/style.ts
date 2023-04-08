@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 800px;
+  min-height: 520px;
   border-radius: 5px;
   background: ${COLORS.light._05};
   @media (max-width: ${BREAKPOINTS.md}) {
@@ -41,6 +42,7 @@ export const Header = styled.div`
 export const StepsContainer = styled.div`
   width: 100%;
   padding: 12px;
+  cursor: pointer;
   border-bottom: 2px solid ${COLORS.light._02};
   border-right: 2px solid ${COLORS.light._02}; ;
 `;

@@ -1,11 +1,14 @@
 import {Button} from '@/components';
-import {useAppSelector} from '@/hooks/useSelectorHook';
-import React from 'react';
 import MaskedInput from 'react-input-mask';
-import {CardInputUser, Container, TextLabel} from './style';
+import {ButtonContainer, CardInputUser, Container, TextLabel} from './style';
+
+import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {userLoggedDeleteRequest} from '@/store/reducer/auth/actions';
 
 export const EditAccountInfo = () => {
   const {user} = useAppSelector((state) => state.auth);
+
+  const dispatch = useAppDispatch();
 
   return (
     <Container>
@@ -13,13 +16,14 @@ export const EditAccountInfo = () => {
       <CardInputUser>
         <div>
           <TextLabel>Nome</TextLabel>
-          <MaskedInput mask={''} name='name' type={'text'} placeholder={''} />
+          <MaskedInput mask={''} type={'text'} placeholder={''} required />
         </div>
       </CardInputUser>
       <CardInputUser>
         <div>
           <TextLabel>E-mail</TextLabel>
           <MaskedInput
+            required
             mask={''}
             name='email'
             type={'email'}
@@ -31,6 +35,7 @@ export const EditAccountInfo = () => {
         <div>
           <TextLabel>Telefone</TextLabel>
           <MaskedInput
+            required
             mask={'(99) 99999-9999'}
             name='phone'
             type={'tel'}
@@ -38,9 +43,11 @@ export const EditAccountInfo = () => {
           />
         </div>
       </CardInputUser>
-      <div style={{marginTop: '24px'}}>
-        <Button>Excluir minha conta</Button>
-      </div>
+      <ButtonContainer>
+        <Button onClick={() => dispatch(userLoggedDeleteRequest())}>
+          Excluir minha conta
+        </Button>
+      </ButtonContainer>
     </Container>
   );
 };

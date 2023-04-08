@@ -14,7 +14,7 @@ export const ModalInformation = ({ children, onClick }: ModalProps) => {
     <>
       <ModalBackground onClick={onClick}>
         <StyleMobile>
-          <ButtonClose onClick={onClick}>
+          <ButtonClose>
             <Image src={ICONS.Close} alt='icone de fechar' />
           </ButtonClose>
         </StyleMobile>
