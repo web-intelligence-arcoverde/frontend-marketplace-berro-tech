@@ -16,4 +16,5 @@ export interface CardProductProps {
   width?:string;
   minWidth?:string
   widthTablet?:string
+  visit?:number
 }
