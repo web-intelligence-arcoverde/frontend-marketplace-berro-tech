@@ -12,6 +12,8 @@ import {
   signUpEmailSuccess,
   signUpGoogleSuccess,
   userEditBasicInformationSuccess,
+  userEditPasswordInformationSuccess,
+  userEditLocationInformationSuccess,
   userLoggedInformationSuccess,
 } from "./actions";
 import { setStepRecoveryAccount } from "../step/actions";
@@ -154,6 +156,20 @@ function* updateUserBasicInformation({ payload }: any): any {
     yield put(userEditBasicInformationSuccess(payload));
   } catch (error) {}
 }
+function* updateUserPasswordInformation({payload}: any): any {
+  try {
+    console.log(payload);
+
+    yield put(userEditPasswordInformationSuccess(payload));
+  } catch (error) {}
+}
+function* updateUserLocationInformation({payload}: any): any {
+  try {
+    console.log(payload);
+
+    yield put(userEditLocationInformationSuccess(payload));
+  } catch (error) {}
+}
 
 function* signOut() {
   try {
@@ -183,6 +199,14 @@ function* postsSaga() {
     takeLatest(
       "auth/user-edit-basic-information-request",
       updateUserBasicInformation
+    ),
+    takeLatest(
+      'auth/user-edit-password-information-request',
+      updateUserPasswordInformation,
+    ),
+    takeLatest(
+      'auth/user-edit-location-information-request',
+      updateUserLocationInformation,
     ),
     takeLatest("auth/changer-password-request", changerPassword),
     takeLatest("auth/sign-up-google-request", signInGoogle),

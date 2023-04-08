@@ -13,7 +13,7 @@ function useModalOverflow(isOpen: boolean, onClose?: () => void) {
     }
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape' && onClose) {
+      if (event.key === 'Escape' && onClose && isOpen) {
         onClose();
       }
     }

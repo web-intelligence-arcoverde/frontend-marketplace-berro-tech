@@ -32,7 +32,7 @@ export const FloatingLabelInput = ({
         return setMoneyMask(value);
       case 'Weight':
         return setWeightMask(value);
-      case 'cellphone':
+      case 'phone':
         return setCellphoneMask(value);
       default:
         return value;
@@ -42,6 +42,7 @@ export const FloatingLabelInput = ({
   return (
     <FormField>
       <Input
+        name={props.name}
         type={props.isPassword ? passwordType : props.type}
         required={props.required}
         isWhite={props.isWhite}
@@ -51,6 +52,9 @@ export const FloatingLabelInput = ({
         onChange={handleInputChange}
         placeholder={placeholder}
       />
+      <Label active={!value} htmlFor={props.id}>
+        {placeholder}
+      </Label>
       {passwordType === 'password' && props.isPassword && (
         <EyeButton onClick={() => setPasswordType('text')}>
           <Image src={ICONS.EyeOn} alt='icone de vizualizar senha' />
@@ -61,9 +65,6 @@ export const FloatingLabelInput = ({
           <Image src={ICONS.EyeOff} alt='icone de vizualizar senha' />
         </EyeButton>
       )}
-      <Label active={!value} htmlFor={props.id}>
-        {placeholder}
-      </Label>
     </FormField>
   );
 };

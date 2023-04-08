@@ -5,6 +5,7 @@ import {
   setVisibilityModalAddProduct,
   showModalEditUser,
   hideModalEditUser,
+  setStepEditUser,
 } from './actions';
 import {initialState} from './initial';
 
@@ -28,6 +29,9 @@ export const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(setVisibilityModalAddProduct, (state, action) => {
       state.visibility_modal_add_product = action.payload;
+    })
+    .addCase(setStepEditUser, (state, action) => {
+      state.step_edit_user = action.payload;
     })
     .addCase(showModalEditUser, (state, action) => {
       state.visibility_modal_edit_user = !state.visibility_modal_edit_user;

@@ -70,7 +70,8 @@ export const COLORS = {
     blue_01: 'rgba(27, 93, 224, 0.1)',
     blue_05: 'rgba(27, 93, 224, 0.05)',
     blue_08: 'rgba(27, 93, 224, 0.08)',
-    black_04: 'rgba(0, 0, 0, 0.4)'
+    black_04: 'rgba(0, 0, 0, 0.4)',
+    black_07: 'rgba(0, 0, 0, 0.7)',
   },
 
 };

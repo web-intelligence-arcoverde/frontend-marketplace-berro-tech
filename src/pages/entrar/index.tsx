@@ -6,7 +6,6 @@ import {
   LayoutInit,
   MiniContainer,
   AuthPublicRouter,
-  ModalMessage,
 } from '@/components';
 import Image from 'next/image';
 import {firebase, auth} from '../../service/firebase';
@@ -17,8 +16,6 @@ import {SignInInputs} from '@/mock/Inputs';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {loginSignProvider} from '@/store/reducer/user/actions';
 import {signUpGoogleRequest} from '@/store/reducer/auth/actions';
-
-import {signInWithPopup} from 'firebase/auth';
 
 const SignIn = () => {
   const [loginWithEmail, setLoginWithEmail] = useState(false);
@@ -49,7 +46,6 @@ const SignIn = () => {
         console.error('Erro na autenticação:', error);
       });
   };
-
   const {control, errors, onSubmit} = useHookFormSignInEmail();
 
   return (
