@@ -39,7 +39,6 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   steps,
   registerProduct,
 }) => {
-  const {step_edit_user} = useAppSelector((state) => state.user);
 
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -60,7 +59,6 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
         {steps.map((step) => {
           return (
             <StepsContainer
-              onClick={() => setCurrentStep(step.id)}
               className={currentStep === step.id ? 'active' : ''}
               key={step.id}
             >

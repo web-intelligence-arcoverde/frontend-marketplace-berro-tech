@@ -27,7 +27,7 @@ export const CreateProductBussines = () => {
             id="price"
             name="price"
             placeholder="Preço"
-            maxLength={13}
+            maxLength={14}
           />
           <FloatingLabelInput
             required
