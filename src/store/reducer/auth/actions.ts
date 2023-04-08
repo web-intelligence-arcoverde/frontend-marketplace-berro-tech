@@ -65,10 +65,24 @@ export const userLoggedInformationSuccess = createAction<any>(
 export const userEditBasicInformationRequest = createAction<any>(
   'auth/user-edit-basic-information-request',
 );
-
 export const userEditBasicInformationSuccess = createAction<any>(
   'auth/user-edit-basic-information-success',
 );
+
+export const userEditPasswordInformationRequest = createAction<any>(
+  'auth/user-edit-password-information-request',
+);
+export const userEditPasswordInformationSuccess = createAction<any>(
+  'auth/user-edit-password-information-success',
+);
+
+export const userEditLocationInformationSuccess = createAction<any>(
+  'auth/user-edit-location-information-success',
+);
+export const userEditLocationInformationRequest = createAction<any>(
+  'auth/user-edit-location-information-request',
+);
+
 export const signUpEmailError = createAction<CustomError>('SIGN_UP_EMAIL_ERROR')
 
 export const controlModal = createAction<boolean>('CONTROL_MODAL')

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-
-
 export const Container = styled.div`
   position: relative;
   width: 100%;
@@ -39,8 +37,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-
-  background:rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   border: none;
   cursor: pointer;

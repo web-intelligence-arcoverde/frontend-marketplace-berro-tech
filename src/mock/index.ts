@@ -219,10 +219,10 @@ export const MockNavigation = [
 export const StepRegisterProduct = [
   {
     id: 1,
-    name: "Informações",
-    step: "Passo 1",
-    firstColumnTitle: "Sobre o produto",
-    secondColumnTitle: "Sobre o negócio",
+    name: 'Informações',
+    step: 'Passo 1',
+    firstColumnTitle: 'Sobre o produto',
+    secondColumnTitle: 'Sobre o negócio',
     firstColumnChilren: CreateProductInfo,
     secondColumnChilren: CreateProductBussines,
     component: RegisterInformation,
@@ -233,21 +233,16 @@ export const StepRegisterProduct = [
 export const StepEditAccount = [
   {
     id: 1,
-    name: "Conta",
-    step: "Editar",
-    firstColumnTitle: "Suas informaçoes",
-    secondColumnTitle: "",
+    name: 'Conta',
+    step: 'Editar',
+    firstColumnTitle: 'Suas informaçoes',
+    secondColumnTitle: '',
     firstColumnChilren: EditAccountInfo,
     secondColumnChilren: EditAccountImage,
     component: RegisterInformation,
   },
-  { id: 2, name: "Senha", step: "Editar", component: EditAccountPassword },
-  {
-    id: 3,
-    name: "Localização",
-    step: "Editar",
-    component: EditAccountLocation,
-  },
+  {id: 2, name: 'Senha', step: 'Editar', component: EditAccountPassword},
+  {id: 3, name: 'Localização', step: 'Editar', component: EditAccountLocation},
 ];
 
 export const TypeAnimal = ["Caprino", "Ovino"];

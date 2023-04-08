@@ -11,4 +11,10 @@ export const setVisibilityModalAddProduct = createAction<any>(
 
 export const showModalEditUser = createAction<any>('user/show-modal-edit-user');
 
+export const setStepEditUser = createAction<number>('user/set-step-edit-user');
+
 export const hideModalEditUser = createAction('user/hide-modal-edit-user');
+
+export const editUserInfo = createAction('user/edit-user-info');
+export const editUserPassword = createAction('user/edit-user-password');
+export const editUserLocation = createAction('user/edit-user-location');
