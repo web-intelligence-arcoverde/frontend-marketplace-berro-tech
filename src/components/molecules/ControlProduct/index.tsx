@@ -21,6 +21,7 @@ export const ControlProduct = ({
   age,
   sex,
   rank,
+  phone,
   isProductPage,
 }: CardProductProps) => {
 
@@ -47,7 +48,7 @@ export const ControlProduct = ({
       />
       <PriceProduct value={11000} installments={20} />
       {isProductPage ? (
-        <CardContact />
+        <CardContact phone={phone} />
       ) : (
         <StyleDesktop>
           <ButtonsControl editItem={() => {}} removeItem={handleModalRemove} />

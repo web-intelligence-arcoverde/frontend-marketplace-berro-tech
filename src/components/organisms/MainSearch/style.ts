@@ -28,6 +28,7 @@ export const SearchSideBar = styled.div`
     width: 100%;
     margin-top: 32px;
     .tab {
+      text-align: start;
       cursor: pointer;
       font-weight: 400;
       font-size: 16px;

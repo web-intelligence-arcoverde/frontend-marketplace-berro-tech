@@ -3,6 +3,7 @@ import {IRegisterUserProps} from './types';
 
 export const addUser = createAction<IRegisterUserProps>('ADD_USER');
 export const addPassword = createAction<IRegisterUserProps>('ADD_PASSWORD');
+export const getSellerId = createAction<any>('GET_SELLER_ID');
 export const loginSignProvider = createAction<any>('LOGIN_SIGN_PROVIDER');
 
 export const setVisibilityModalAddProduct = createAction<any>(

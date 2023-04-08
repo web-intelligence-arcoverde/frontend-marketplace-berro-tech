@@ -32,6 +32,14 @@ function* signInProviderGmail({payload}: any): any {
     console.log(e);
   }
 }
+function* getSellerById({payload}: any): any {
+  const {id} = payload.product;
+  try {
+    yield call(api.get, `/auth/googl/${payload.id}`,);
+  } catch (e) {
+    console.log(e);
+  }
+}
 function* signInProviderFacebbok({payload}: any): any {
   try {
     const {displayName, email, photoURL} = payload.user;
@@ -50,6 +58,7 @@ function* signInProviderFacebbok({payload}: any): any {
 
 function* postsSaga() {
   yield all([
+    takeLatest('GET_SELLER_ID', getSellerById),
     takeLatest('user/sign-up-request', signUpEmail),
     takeLatest('LOGIN_SIGN_PROVIDER', signInProviderGmail),
     takeLatest('LOGIN_SIGN_PROVIDER', signInProviderFacebbok),

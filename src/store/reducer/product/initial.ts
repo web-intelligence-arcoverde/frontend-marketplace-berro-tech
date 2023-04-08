@@ -32,5 +32,6 @@ export const initialState: any = {
   removeProductModal: false,
   topSearches:BussinessHighlightProductMock,
   topSearchesFilter:'top',
-  allFilterSelected:[]
+  allFilterSelected:[],
+  product:{} as ProductInfoType & ProductLocationType & File[],
 };

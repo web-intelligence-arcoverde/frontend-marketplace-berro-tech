@@ -7,7 +7,9 @@ import {
   ProductCard,
   ProductSellerCard,
 } from "@/components";
+import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
 import { BussinessHighlightProductMock } from "@/mock";
+import { GetProductId } from "@/store/reducer/product/actions";
 import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
 import {
   Content,
@@ -20,12 +22,18 @@ import {
 } from "@/style/produto-style";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
+import { useEffect } from "react";
 
 const Product = () => {
   const router = useRouter();
-
+  const product = useAppSelector((state)=>state.product.product)
+  const dispatch = useAppDispatch()
   const { id }: ParsedUrlQuery = router.query;
 
+  useEffect(()=>{
+    dispatch(GetProductId(id))
+  },[])
+  
   const description =
     "Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.";
   return (
