@@ -1,4 +1,4 @@
-import { ProductCard } from "@/components";
+import { NotFoundFilter, ProductCard } from "@/components";
 import { BussinessHighlightProductMock } from "@/mock";
 import {
   Container,
@@ -27,6 +27,12 @@ export const BussinessHighlight = () => {
             {...item}
           />
         ))}
+        {BussinessHighlightProductMock.length == 0 && (
+          <NotFoundFilter
+            title={`Lamentamos informar que não há produtos disponíveis no momento `}
+            subtitle="Fique à vontade para verificar novamente mais tarde."
+          />
+        )}
       </ProductCardsContainer>
       <LinkMobileContainer>
         <a href="negocios">Veja mais opções</a>

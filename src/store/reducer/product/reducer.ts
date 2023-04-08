@@ -12,6 +12,10 @@ import {
   currentStep,
   removeProduct,
   removeProductModal,
+  topSearches,
+  topSearchesFilter,
+  allFilterSelected,
+  deleteFilterSelected,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -57,9 +61,31 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.currentStep = action.payload.step;
     })
     .addCase(removeProduct, (state, action) => {
-      state.allProducts = state.allProducts.filter((item: any) => item.id !== action.payload);
+      state.allProducts = state.allProducts.filter(
+        (item: any) => item.id !== action.payload
+      );
     })
     .addCase(removeProductModal, (state, action) => {
       state.removeProductModal = !action.payload;
     })
+    .addCase(topSearches, (state, action) => {
+      state.allProducts = initialState.allProducts;
+    })
+    .addCase(topSearchesFilter, (state, action) => {
+      state.topSearchesFilter = action.payload;
+    })
+    .addCase(allFilterSelected, (state, action) => {
+      if (action.payload && action.payload.length > 0) {
+        action.payload.forEach((item: string) => {
+          if (!state.allFilterSelected.includes(item)) {
+            state.allFilterSelected = [...state.allFilterSelected, item];
+          }
+        });
+      }
+    })
+    .addCase(deleteFilterSelected, (state, action) => {
+      state.allFilterSelected = state.allFilterSelected.filter(
+        (item: string) => item !== action.payload
+      );
+    });
 });
