@@ -51,6 +51,7 @@ import NotFound from './not-found.svg'
 import Sucess from "./sucess.svg";
 import Error from "./error.svg";
 import EditImage from "./edit-image.svg";
+import Avatar from './avatar.svg'
 
 export const ICONS = {
   Search,
@@ -106,4 +107,5 @@ export const ICONS = {
   Sucess,
   Error,
   EditImage,
+  Avatar
 };

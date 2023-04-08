@@ -11,13 +11,14 @@ import {
   SellerLink,
   InfoCardToMobile,
   TitleToMobile,
-  AvaliationBorderToMobile,
 } from "./style";
-import { IMAGES } from "@/assets";
-import { Avaliation } from "@/components";
+import { ICONS } from "@/assets";
+
 import { StyleDesktop, StyleMobile } from "@/style";
+import { useAppSelector } from "@/hooks/useSelectorHook";
 
 export const ProductSellerCard = () => {
+  const avatar = useAppSelector((state)=>state.user.avatar)
   return (
     <ProductSellerContainer>
           <StyleMobile>
@@ -35,9 +36,9 @@ export const ProductSellerCard = () => {
                 <h6>nome</h6>
                 <NameAvaliation>
                   <p>Brenno Guedes</p>
-                  <StyleDesktop>
+                  {/* <StyleDesktop>
                     <Avaliation avaliation="4.8" />
-                  </StyleDesktop>
+                  </StyleDesktop> */}
                 </NameAvaliation>
             </DescriptionCard>
             <DescriptionCard>
@@ -47,7 +48,7 @@ export const ProductSellerCard = () => {
           </InfoCardToMobile>
           <StyleMobile>
             <ImageContainer>
-             <Image src={IMAGES.Seller} alt="imagem do vendedor" />
+             <Image  src={!!avatar ? avatar : ICONS.Avatar} alt="imagem do vendedor" />
             </ImageContainer>
           </StyleMobile>
         </InfoCard>
@@ -64,14 +65,14 @@ export const ProductSellerCard = () => {
             <SellerLink href="/negocios/produto/perfil-vendedor/1">
               Ver mais
             </SellerLink>
-            <AvaliationBorderToMobile>
+            {/* <AvaliationBorderToMobile>
               <Avaliation avaliation="4.8" />
-            </AvaliationBorderToMobile>
+            </AvaliationBorderToMobile> */}
           </LinkContainer>
         </StyleMobile>
       <StyleDesktop>
         <ImageContainer>
-          <Image src={IMAGES.Seller} alt="imagem do vendedor" />
+          <Image src={!!avatar ? avatar : ICONS.Avatar} alt="imagem do vendedor" />
         </ImageContainer>
       </StyleDesktop>
     </ProductSellerContainer>
