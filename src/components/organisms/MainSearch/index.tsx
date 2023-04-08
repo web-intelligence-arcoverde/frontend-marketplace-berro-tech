@@ -1,5 +1,5 @@
 import { ICONS } from "@/assets";
-import { ProductCard, Tabs } from "@/components";
+import { NotFoundFilter, ProductCard, Tabs } from "@/components";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import {
@@ -11,6 +11,7 @@ import {
 } from "./style";
 import { useAppSelector } from "@/hooks/useSelectorHook";
 import { tabs } from "@/mock";
+import { CardProductProps } from "@/types";
 
 export const MainSearch = () => {
   const [search, setSearch] = useState("");
@@ -67,15 +68,21 @@ export const MainSearch = () => {
         <Tabs tabs={tabs} />
       </SearchSideBar>
       <SearchResponseContainer>
-        {topSearches.slice(0, 4).map((item: any, index: number) => (
+        {topSearches.slice(0, 4).map((item: CardProductProps) => (
           <ProductCard
-            key={`${item.name} ${index}`}
+            key={` ${item.id}`}
             {...item}
             width="48.5%"
             maxWidth="none"
             widthTablet="80%"
           />
         ))}
+        {topSearches.length == 0 && (
+          <NotFoundFilter
+            title={`Lamentamos informar que não há produtos disponíveis no momento `}
+            subtitle="Fique à vontade para verificar novamente mais tarde."
+          />
+        )}
       </SearchResponseContainer>
     </Container>
   );
