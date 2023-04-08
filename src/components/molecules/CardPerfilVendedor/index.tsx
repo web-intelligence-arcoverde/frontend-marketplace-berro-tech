@@ -1,5 +1,5 @@
 import {ICONS, IMAGES} from '@/assets';
-import {Button, ContainerStepsEditUser, Modal, ModalInformation, MultiStepForm} from '@/components';
+import {Button, ContainerStepsEditUser, ModalInformation} from '@/components';
 import {UserPerfil} from '@/types/IUserProps';
 import Image from 'next/image';
 import {
@@ -12,7 +12,6 @@ import {
   InfoSeller,
   RowVertical,
 } from './style';
-import {StepEditAccount} from '@/mock';
 import useModalOverflow from '@/hooks/useModalOverflow';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {showModalEditUser} from '@/store/reducer/user/actions';

@@ -3,8 +3,6 @@ import { ContainerForm, FirstColumn, SecondColumn, AboutBussines, NextButtonCont
 import {
   EditAccountImage,
   EditAccountInfo,
-  EditAccountLocation,
-  EditAccountPassword,
 } from '../../';
 import { userEditBasicInformationRequest } from '@/store/reducer/auth/actions';
 import { IEditUserInfoProps } from '@/store/reducer/auth/types';
@@ -49,16 +47,3 @@ export const EditUserBasicInformations = () => {
   );
 };
 
-const Steps = {
-  0: EditUserBasicInformations,
-  1: EditAccountPassword,
-  2: EditAccountLocation,
-};
-
-export const StepsEditUser = () => {
-  const { step_edit_user } = useAppSelector((state) => state.user);
-
-  const Step = Steps[0];
-
-  return <Step />;
-};

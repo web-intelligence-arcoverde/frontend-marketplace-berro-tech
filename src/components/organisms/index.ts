@@ -17,4 +17,4 @@ export {CountryRegion} from './CountryRegion';
 export {SingUpStep2} from './SingUpStep2';
 
 export {ContainerStepsEditUser} from './ContainerStepsEditUser/ContainerStepsEditUser';
-export {StepsEditUser} from './StepsEditUser/StepsEditUser';
+export {EditUserBasicInformations} from './StepsEditUser/StepsEditUser';

@@ -23,7 +23,7 @@ const SignIn = () => {
   const dispatch = useAppDispatch();
 
   const handleClickButtonGoogle = () => {
-    let provider = new firebase.auth.GoogleAuthProvider();
+   /*  let provider = new firebase.auth.GoogleAuthProvider();
 
     auth
       .signInWithPopup(provider)
@@ -32,11 +32,12 @@ const SignIn = () => {
       })
       .catch((error: any) => {
         console.error("Erro na autenticação:", error);
-      });
+      }); */
   };
 
+
   const handleClickButtonFacebook = () => {
-    let provider = new firebase.auth.FacebookAuthProvider();
+   /*  let provider = new firebase.auth.FacebookAuthProvider();
 
     auth
       .signInWithPopup(provider)
@@ -45,9 +46,8 @@ const SignIn = () => {
       })
       .catch((error: any) => {
         console.error("Erro na autenticação:", error);
-      });
+      }); */
   };
-
   const { control, errors, onSubmit } = useHookFormSignInEmail();
 
   return (

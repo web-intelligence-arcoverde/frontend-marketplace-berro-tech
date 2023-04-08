@@ -302,21 +302,6 @@ export const StepRegisterProduct = [
   {id: 2, name: 'Fotos', step: 'Passo 2', component: RegisterPhotos},
   {id: 3, name: 'Localização', step: 'Passo 3', component: RegisterLocation},
 ];
-export const StepEditAccount = [
-  {
-    id: 1,
-    name: 'Conta',
-    step: 'Editar',
-    submitButtonText:'Confimar Alterações',
-    firstColumnTitle: 'Suas informaçoes',
-    secondColumnTitle: '',
-    firstColumnChilren: EditAccountInfo,
-    secondColumnChilren: EditAccountImage,
-    component: RegisterInformation,
-  },
-  {id: 2, name: 'Senha', step: 'Editar', component: EditAccountPassword},
-  {id: 3, name: 'Localização', step: 'Editar', component: EditAccountLocation},
-];
 
 export const TypeAnimal = ['Caprino', 'Ovino'];
 

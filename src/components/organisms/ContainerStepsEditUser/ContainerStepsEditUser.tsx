@@ -2,7 +2,7 @@ import {ContentStep, Header, Container, StepsContainer} from './style';
 import React, {useState} from 'react';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 
-import {StepsEditUser} from '../../';
+import {EditUserBasicInformations,EditAccountPassword,EditAccountLocation} from '@/components';
 import {useDispatch} from 'react-redux';
 import {setStepEditUser} from '@/store/reducer/user/actions';
 
@@ -17,6 +17,19 @@ export const ContainerStepsEditUser = ({}) => {
   };
 
   console.log(step_edit_user);
+
+  const Steps = {
+    0: EditUserBasicInformations,
+    1: EditAccountPassword,
+    2: EditAccountLocation,
+  };
+  
+  const StepsEditUser = () => {
+    const Step = Steps[1];
+  
+    return <Step />;
+  };
+
 
   return (
     <Container>
