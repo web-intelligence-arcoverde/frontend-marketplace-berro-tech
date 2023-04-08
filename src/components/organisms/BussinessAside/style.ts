@@ -65,7 +65,7 @@ export const HeaderFilterMobile = styled.div`
 `
 
 
-export const Badge = styled.div`
+export const Badge = styled.span`
 font-weight: 500;
 font-size: 14px;
 color: ${COLORS.sub_brand._02};
@@ -75,6 +75,7 @@ padding: 8px 12px;
 background: ${COLORS.opacity.blue_05};
 border: 1.5px solid ${COLORS.opacity.blue_01};
 border-radius: 5px;
+min-width: fit-content;
 `
 
 export const FilterButtonContainer = styled.div`
