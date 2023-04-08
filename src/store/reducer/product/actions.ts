@@ -17,6 +17,7 @@ export const topSearches = createAction<any>('TOP_SEARCHES')
 export const topSearchesFilter = createAction<string>('TOP_SEARCHES_FILTER')
 export const allFilterSelected = createAction<any>('ALL_FILTER_SELECTED')
 export const deleteFilterSelected = createAction<string>('DELETE_FILTER_SELECTED')
+export const clearFiltersSelecteds = createAction('CLEAR_FILTERS_SELECTEDS')
 
 export const searchMobile = createAction<boolean>("SEARCH_MOBILE");
 /* 

@@ -1,37 +1,39 @@
-import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
-import { ContainerForm, FirstColumn, SecondColumn, AboutBussines, NextButtonContainer, NextButton } from "./style";
+import {useAppDispatch} from '@/hooks/useSelectorHook';
 import {
-  EditAccountImage,
-  EditAccountInfo,
-} from '../../';
-import { userEditBasicInformationRequest } from '@/store/reducer/auth/actions';
-import { IEditUserInfoProps } from '@/store/reducer/auth/types';
+  ContainerForm,
+  FirstColumn,
+  SecondColumn,
+  AboutBussines,
+  NextButtonContainer,
+  NextButton,
+} from './style';
+import {EditAccountImage, EditAccountInfo} from '../../';
+import {userEditBasicInformationRequest} from '@/store/reducer/auth/actions';
+import {IEditUserInfoProps} from '@/store/reducer/auth/types';
 
 export const EditUserBasicInformations = () => {
+  const dispatch = useAppDispatch();
+  const formData = {} as IEditUserInfoProps;
 
-  const dispatch = useAppDispatch()
-  const formData = {} as  IEditUserInfoProps
-
-
-  const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target as HTMLFormElement;;
+
+    const form = event.target as HTMLFormElement;
     const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
-    inputs.forEach((input:any) => {
-      const { name, value } = input;
-        if(input.type === 'file'){
-          formData[name] = input?.files[0]
-        }
-        else{
-          formData[name] = value;
-        }  
-      });
-      
-      dispatch(userEditBasicInformationRequest(formData))
+    inputs.forEach((input: any) => {
+      const {name, value} = input;
+      if (input.type === 'file') {
+        formData[name] = input?.files[0];
+      } else {
+        formData[name] = value;
+      }
+    });
+
+    dispatch(userEditBasicInformationRequest(formData));
   };
 
   return (
-    <ContainerForm onSubmit={handleSubmit} >
+    <ContainerForm onSubmit={handleSubmit}>
       <FirstColumn>
         <EditAccountInfo />
       </FirstColumn>
@@ -40,10 +42,9 @@ export const EditUserBasicInformations = () => {
           <EditAccountImage />
         </AboutBussines>
         <NextButtonContainer>
-          <NextButton type="submit">Salvar alterações</NextButton>
+          <NextButton type='submit'>Salvar alterações</NextButton>
         </NextButtonContainer>
       </SecondColumn>
     </ContainerForm>
   );
 };
-

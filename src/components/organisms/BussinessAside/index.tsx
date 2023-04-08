@@ -5,7 +5,10 @@ import Image from "next/image"
 import { BusinessFiltersMock, DropdownMock } from '@/mock'
 import { useMediaQuery } from "@/hooks/useMediaQuery"
 
-import { useState } from "react"
+import { Key, use, useState } from "react"
+import { useDispatch } from "react-redux"
+import { clearFiltersSelecteds } from "@/store/reducer/product/actions"
+import { useAppSelector } from "@/hooks/useSelectorHook"
 
 export const BussinessAside = () => {
   const [filters, setFilters] = useState<string[]>();
@@ -14,7 +17,8 @@ export const BussinessAside = () => {
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
-
+  const dispatch = useDispatch()
+  const lastFilters = useAppSelector((state)=>state.product.allFilterSelected)
   return (
     <Container>
       {IsDesktop ?
@@ -45,13 +49,13 @@ export const BussinessAside = () => {
 
           </FiltersHeaderContainer>
           <BadgeContainer>
-            {[1, 3, 2, 4, 5, 4, 7, 4, 7].map((item, index) => <Badge key={index}>Paraiba</Badge>)}
+            {lastFilters?.map((item: string, index: number) => <Badge key={index}>{item}</Badge>)}
           </BadgeContainer>
           <ModalFilters isOpen={isOpen} handleToggle={handleToggle}>
             <HeaderFilterMobile>
               <h3>Filtros</h3>
               <FilterButtonContainer>
-                <CleanFilterButton>
+                <CleanFilterButton onClick={()=>{dispatch(clearFiltersSelecteds())}}>
                   Limpar
                 </CleanFilterButton>
                 <ApplyFilterButton>

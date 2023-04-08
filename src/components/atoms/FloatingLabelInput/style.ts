@@ -5,7 +5,7 @@ export const FormField = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 1rem;
-  `;
+`;
 export const EyeButton = styled.button`
   background: transparent;
   width: fit-content;
@@ -14,8 +14,8 @@ export const EyeButton = styled.button`
   bottom: 25%;
   border: none;
   right: 20px;
-  img{
-s    width: 24px;
+  img {
+    width: 24px;
     height: 24px;
   }
 `;
@@ -30,7 +30,7 @@ export const Label = styled.label<{ active: boolean }>`
   transition: all 0.2s ease-in-out;
   pointer-events: none;
 `;
-export const Input = styled.input<{ active: boolean; isWhite?: boolean; }>`
+export const Input = styled.input<{ active: boolean; isWhite?: boolean }>`
   height: 85px;
   width: 100%;
   border-radius: 5px;
@@ -41,11 +41,8 @@ export const Input = styled.input<{ active: boolean; isWhite?: boolean; }>`
   border: solid 2px ${COLORS.light._02};
   padding-top: ${(props) => (props.active ? "16px" : "40px")};
   background: ${COLORS.light._04};
-  background: ${(props) => props.isWhite ?
-    `${COLORS.light._05}`
-    :
-    `${COLORS.light._04}`
-  };
+  background: ${(props) =>
+    props.isWhite ? `${COLORS.light._05}` : `${COLORS.light._04}`};
   ::placeholder {
     font-weight: 400;
     color: ${COLORS.gray._03};
@@ -57,5 +54,10 @@ export const Input = styled.input<{ active: boolean; isWhite?: boolean; }>`
     color: ${COLORS.sub_brand._02};
     font-size: 14px;
     font-weight: 500;
+  }
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;

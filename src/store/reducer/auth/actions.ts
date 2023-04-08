@@ -62,6 +62,14 @@ export const userLoggedInformationSuccess = createAction<any>(
   'auth/user-logged-information-success',
 );
 
+export const userLoggedDeleteRequest = createAction(
+  'auth/user-logged-delete-request',
+);
+
+export const userLoggedDeleteSuccess = createAction<any>(
+  'auth/user-logged-delete-success',
+);
+
 export const userEditBasicInformationRequest = createAction<any>(
   'auth/user-edit-basic-information-request',
 );
@@ -83,8 +91,10 @@ export const userEditLocationInformationRequest = createAction<any>(
   'auth/user-edit-location-information-request',
 );
 
-export const signUpEmailError = createAction<CustomError>('SIGN_UP_EMAIL_ERROR')
+export const signUpEmailError = createAction<CustomError>(
+  'SIGN_UP_EMAIL_ERROR',
+);
 
-export const controlModal = createAction<boolean>('CONTROL_MODAL')
+export const controlModal = createAction<boolean>('CONTROL_MODAL');
 
-export const clearErros = createAction('CLEAR_ERROR')
+export const clearErros = createAction('CLEAR_ERROR');

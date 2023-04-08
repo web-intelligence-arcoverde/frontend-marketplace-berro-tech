@@ -16,6 +16,7 @@ import {
   topSearchesFilter,
   allFilterSelected,
   deleteFilterSelected,
+  clearFiltersSelecteds,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -87,5 +88,8 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.allFilterSelected = state.allFilterSelected.filter(
         (item: string) => item !== action.payload
       );
+    })
+    .addCase(clearFiltersSelecteds, (state, action) => {
+      state.allFilterSelected = [];
     });
 });
