@@ -13,8 +13,7 @@ import {useState} from 'react';
 import {FormLogin, LostPassword} from '@/style/entrar-style';
 import {useHookFormSignInEmail} from '@/hooks/useFormSignEmail';
 import {SignInInputs} from '@/mock/Inputs';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {loginSignProvider} from '@/store/reducer/user/actions';
+import {useAppDispatch} from '@/hooks/useSelectorHook';
 import {signUpGoogleRequest} from '@/store/reducer/auth/actions';
 
 const SignIn = () => {
@@ -34,18 +33,19 @@ const SignIn = () => {
       });
   };
 
+  /*
   const handleClickButtonFacebook = () => {
     let provider = new firebase.auth.FacebookAuthProvider();
 
     auth
       .signInWithPopup(provider)
       .then((result: any) => {
-        dispatch(loginSignProvider(result));
+        console.log(result);
       })
       .catch((error: any) => {
         console.error('Erro na autenticação:', error);
       });
-  };
+  };*/
   const {control, errors, onSubmit} = useHookFormSignInEmail();
 
   return (
@@ -89,10 +89,11 @@ const SignIn = () => {
                 <Image src={ICONS.Google} alt='icone de google' /> Entrar com
                 Google
               </ButtonAuthentication>
+              {/*
               <ButtonAuthentication onClick={handleClickButtonFacebook}>
                 <Image src={ICONS.Facebook} alt='icone de facebook' />
                 Entrar com Facebook
-              </ButtonAuthentication>
+              </ButtonAuthentication>*/}
             </FormLogin>
           )}
         </MiniContainer>
