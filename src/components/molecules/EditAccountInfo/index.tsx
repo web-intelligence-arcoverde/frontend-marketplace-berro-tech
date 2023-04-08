@@ -2,7 +2,7 @@ import {Button} from '@/components';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 import React from 'react';
 import MaskedInput from 'react-input-mask';
-import {CardInputUser, Container, TextLabel} from './style';
+import {ButtonContainer, CardInputUser, Container, TextLabel} from './style';
 
 export const EditAccountInfo = () => {
   const {user} = useAppSelector((state) => state.auth);
@@ -38,9 +38,9 @@ export const EditAccountInfo = () => {
           />
         </div>
       </CardInputUser>
-      <div style={{marginTop: '24px'}}>
+      <ButtonContainer>
         <Button>Excluir minha conta</Button>
-      </div>
+      </ButtonContainer>
     </Container>
   );
 };

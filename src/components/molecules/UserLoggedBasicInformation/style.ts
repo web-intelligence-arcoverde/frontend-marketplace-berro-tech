@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  background-color: ${COLORS.brand_light._04};
 
   #first-add {
     @media (max-width: ${BREAKPOINTS.sm}) {
@@ -14,6 +15,7 @@ export const Container = styled.div`
   }
   @media (max-width: ${BREAKPOINTS.sm}) {
     margin-bottom: 34px;
+    padding: 0 20px;
     width: 100%;
   }
 `;

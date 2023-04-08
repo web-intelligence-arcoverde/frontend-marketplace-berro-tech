@@ -38,7 +38,7 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.user = state.visibility_modal_edit_user ? action.payload.user : {};
       state.step_edit_user = state.visibility_modal_edit_user
         ? action.payload.step
-        : 0;
+        : null;
     })
     .addCase(hideModalEditUser, (state, action) => {
       state.visibility_modal_edit_user = false;

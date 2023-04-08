@@ -49,7 +49,7 @@ export const CardPerfilVendedor = ({
         {location ? (
           <h5>{location}</h5>
         ) : (
-          <button onClick={() => registerProduct(3)}>
+          <button onClick={() => registerProduct(2)}>
             Adicione uma localização
           </button>
         )}
@@ -60,7 +60,7 @@ export const CardPerfilVendedor = ({
           {phoneNumber ? (
             <h5>{phoneNumber}</h5>
           ) : (
-            <button onClick={() => registerProduct(1)}>
+            <button onClick={() => registerProduct(0)}>
               Adicione um telefone
             </button>
           )}

@@ -7,7 +7,6 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
   width: 100%;
   align-items: ${(props) => (props.empty ? "center" : "flex-start")};
   justify-content: space-between;
-  background-color: ${COLORS.brand_light._04};
   padding: 50px 100px;
   #dropdown {
     border: 1.5px solid ${COLORS.light._02};
@@ -21,7 +20,7 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100%;
-    padding: 0 20px;
+    padding: unset;
     margin-top: 0;
     flex-direction: column;
     margin-bottom: 20px;
