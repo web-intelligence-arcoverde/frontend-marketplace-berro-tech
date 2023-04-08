@@ -1,8 +1,7 @@
-import { MapLocation } from '@/assets/icons/map-location'
-import React from 'react'
-import { CardInfo, Container, CardRegion, RegionContainer } from './style'
-import { regionMock } from '@/mock'
-
+import {MapLocation} from '@/assets/icons/map-location';
+import React from 'react';
+import {CardInfo, Container, CardRegion, RegionContainer} from './style';
+import {regionMock} from '@/mock';
 
 export const CountryRegion = () => {
   return (
@@ -18,7 +17,11 @@ export const CountryRegion = () => {
       </CardInfo>
       <RegionContainer>
         {regionMock.map((item) => (
-          <CardRegion iconColor={item.colorIcon} backgroundColor={item.colorBackground} key={item.region}>
+          <CardRegion
+            iconColor={item.colorIcon}
+            backgroundColor={item.colorBackground}
+            key={item.region}
+          >
             <figure>
               <MapLocation />
             </figure>
@@ -27,9 +30,8 @@ export const CountryRegion = () => {
               <p>{item.description}</p>
             </div>
           </CardRegion>
-        ))
-        }
+        ))}
       </RegionContainer>
     </Container>
-  )
-}
+  );
+};
