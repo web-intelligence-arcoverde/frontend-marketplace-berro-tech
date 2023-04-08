@@ -35,7 +35,7 @@ const SelleProfiler = () => {
               </ContainerSellerProductHeader>
             </StyleDesktop>
             <ContainerSellerProductMain>
-              {BussinessHighlightProductMock.slice(0, 4).map((item, index) => (
+              {BussinessHighlightProductMock.map((item, index) => (
                 <ProductCard
                   widthTablet="80%"
                   minWidth="200px"

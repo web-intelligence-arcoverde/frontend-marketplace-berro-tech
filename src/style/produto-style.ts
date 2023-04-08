@@ -58,13 +58,13 @@ gap: 48px;
 }
 `;
 
-export const NearProducts = styled.div`
+export const NearProducts = styled.div<{moreProduct:boolean}>`
   width: 100%;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   overflow-x: auto;
-  justify-content:flex-start;
+  justify-content: ${(props)=>props.moreProduct ? 'space-between':'flex-start'};
 @media (max-width: ${BREAKPOINTS.md}){
   flex-wrap: nowrap;
 }

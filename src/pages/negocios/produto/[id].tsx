@@ -78,7 +78,7 @@ const Product = () => {
               <LinkNearProducts>Ver mais animais</LinkNearProducts>
             </StyleDesktop>
           </NearProductsTitleContainer>
-          <NearProducts>
+          <NearProducts moreProduct={BussinessHighlightProductMock.length > 2 }>
             {BussinessHighlightProductMock.slice(0,3).map((item, index) => (
               <ProductCard
                 minWidth="300px"
