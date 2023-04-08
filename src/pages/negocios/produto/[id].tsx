@@ -26,7 +26,6 @@ const Product = () => {
 
   const { id }: ParsedUrlQuery = router.query;
 
-  console.log(id);
   const description =
     "Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.";
   return (

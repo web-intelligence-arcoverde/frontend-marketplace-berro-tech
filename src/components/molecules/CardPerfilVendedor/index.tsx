@@ -31,7 +31,7 @@ export const CardPerfilVendedor = ({
   const registerProduct = (step?: number) => {
     dispatch(showModalEditUser({user, step}));
   };
-  console.log(visibility_modal_edit_user)
+
   useModalOverflow(visibility_modal_edit_user, registerProduct);
     
   return (

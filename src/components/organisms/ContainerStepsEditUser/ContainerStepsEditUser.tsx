@@ -16,7 +16,6 @@ export const ContainerStepsEditUser = ({}) => {
     dispatch(setStepEditUser(stepNumber));
   };
 
-  console.log(step_edit_user);
 
   const Steps = {
     0: EditUserBasicInformations,

@@ -1,41 +1,68 @@
-import { ICONS } from '@/assets'
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import Image from "next/image"
-import { Container, InputSearchBar, InputContainer, CheckboxContainer } from "./style"
-import { Checkbox } from '@/components/atoms'
+import { ICONS } from "@/assets";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import Image from "next/image";
+import {
+  Container,
+  InputSearchBar,
+  InputContainer,
+  CheckboxContainer,
+} from "./style";
+import { Checkbox } from "@/components/atoms";
+import { useDispatch } from "react-redux";
+import {
+  allFilterSelected,
+  deleteFilterSelected,
+} from "@/store/reducer/product/actions";
+import { useAppSelector } from "@/hooks/useSelectorHook";
 
 interface BussinessfilterProps {
-  data:any;
-  returnFilters:(e:string[])=>void
+  data: any;
+  returnFilters: (e: string[]) => void;
 }
 
-export const BussinessFilter = ({ data, returnFilters }: BussinessfilterProps) => {
+export const BussinessFilter = ({
+  data,
+  returnFilters,
+}: BussinessfilterProps) => {
   const [checkedArray, setCheckedArray] = useState<string[]>([]);
   const [filteredData, setFilterData] = useState<[]>(data.filters);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newData = data?.filters?.filter((item: string) => (
+    const newData = data?.filters?.filter((item: string) =>
       item?.toLowerCase()?.includes(event?.target?.value?.toLowerCase())
-    ))
-    setFilterData(newData)
+    );
+    setFilterData(newData);
   };
-  const handleCheck = (e: { name: string, value: boolean }) => {
+  const handleCheck = (e: { name: string; value: boolean }) => {
     if (e.value) {
-      setCheckedArray(prevArray => [...prevArray, e.name])
+      setCheckedArray((prevArray) => [...prevArray, e.name]);
     } else {
-      setCheckedArray(prevArray => prevArray.filter(item => item !== e.name))
+      setCheckedArray((prevArray) =>
+        prevArray.filter((item) => item !== e.name)
+      );
+      dispath(deleteFilterSelected(e.name.toString()));
     }
-    return e
-  }
-  
-  useEffect(()=>{
-    returnFilters(checkedArray)
-  },[checkedArray,returnFilters])
+    return e;
+  };
 
+  const allFiltersSelected = useAppSelector(
+    (state) => state.product.allFilterSelected
+  );
 
+  useEffect(() => {
+    console.log(allFiltersSelected);
+  }, [allFiltersSelected]);
+
+  useEffect(() => {
+    dispath(allFilterSelected(checkedArray));
+    returnFilters(checkedArray);
+
+  }, [checkedArray, returnFilters]);
+
+  const dispath = useDispatch();
 
   return (
     <Container>
-      <InputContainer >
+      <InputContainer>
         <Image src={ICONS.Search} alt="Icone de pesquisa" />
         <InputSearchBar
           name={"mainSearch"}
@@ -50,5 +77,5 @@ export const BussinessFilter = ({ data, returnFilters }: BussinessfilterProps) =
         ))}
       </CheckboxContainer>
     </Container>
-  )
-}
+  );
+};

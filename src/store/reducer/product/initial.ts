@@ -31,5 +31,6 @@ export const initialState: any = {
   currentStep: 1,
   removeProductModal: false,
   topSearches:BussinessHighlightProductMock,
-  topSearchesFilter:'top'
+  topSearchesFilter:'top',
+  allFilterSelected:[]
 };
