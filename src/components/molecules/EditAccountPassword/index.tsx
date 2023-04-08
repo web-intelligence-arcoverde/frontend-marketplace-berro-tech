@@ -6,7 +6,7 @@ import { userEditPasswordInformationRequest } from '@/store/reducer/auth/actions
 import { IEditUserPasswordProps } from '@/store/reducer/auth/types';
 
 
-export const EditAccountPassword = (props: any) => {
+export const EditAccountPassword = () => {
   const dispatch = useAppDispatch()
   const formData:IEditUserPasswordProps = {}
 
@@ -21,7 +21,6 @@ export const EditAccountPassword = (props: any) => {
         formData[name] = value;
       });
       dispatch(userEditPasswordInformationRequest(formData))
-      props.clickStep(3)
   };
 
   return (

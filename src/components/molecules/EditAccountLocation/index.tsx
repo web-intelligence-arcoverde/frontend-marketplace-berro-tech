@@ -6,7 +6,7 @@ import { userEditLocationInformationRequest } from "@/store/reducer/auth/actions
 import { IEditUserLocationProps } from "@/store/reducer/auth/types";
 
 
-export const EditAccountLocation = (props: any) => {
+export const EditAccountLocation = () => {
   const dispatch = useAppDispatch()
   const formData = {} as IEditUserLocationProps
 
