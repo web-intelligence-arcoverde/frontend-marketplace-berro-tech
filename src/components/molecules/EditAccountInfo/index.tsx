@@ -7,6 +7,7 @@ import {userLoggedDeleteRequest} from '@/store/reducer/auth/actions';
 
 export const EditAccountInfo = () => {
   const {user} = useAppSelector((state) => state.auth);
+  console.log(user)
 
   const dispatch = useAppDispatch();
 
@@ -16,13 +17,14 @@ export const EditAccountInfo = () => {
       <CardInputUser>
         <div>
           <TextLabel>Nome</TextLabel>
-          <MaskedInput mask={''} type={'text'} placeholder={''} required />
+          <MaskedInput defaultValue={user?.name} mask={''} type={'text'} placeholder={''} required />
         </div>
       </CardInputUser>
       <CardInputUser>
         <div>
           <TextLabel>E-mail</TextLabel>
           <MaskedInput
+            defaultValue={user?.email}
             required
             mask={''}
             name='email'
@@ -36,6 +38,7 @@ export const EditAccountInfo = () => {
           <TextLabel>Telefone</TextLabel>
           <MaskedInput
             required
+            defaultValue={user?.phone}
             mask={'(99) 99999-9999'}
             name='phone'
             type={'tel'}

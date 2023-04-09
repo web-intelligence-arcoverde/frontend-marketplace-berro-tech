@@ -2,11 +2,11 @@ import {ICONS, IMAGES} from '@/assets';
 import Image from 'next/image';
 import {useState, useRef} from 'react';
 import {Container, Overlay, Button} from './style';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
 export const EditAccountImage = () => {
-  const [imagePreview, setImagePreview] = useState<string | null>(
-    IMAGES.Seller.src,
-  );
+  const avatar = useAppSelector((state)=>state.auth.user.avatar_url)
+  const [imagePreview, setImagePreview] = useState<string | null>(avatar?avatar:ICONS.Avatar);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const handleImageChange = (event: any) => {
     const file = event.target.files?.[0];
@@ -32,7 +32,7 @@ export const EditAccountImage = () => {
       )}
       <Overlay onClick={handleOverlayClick}>
         <input
-          name='accountUrl'
+          name='avatar_url'
           type='file'
           accept='image/*'
           onChange={handleImageChange}
