@@ -18,7 +18,7 @@ import { StyleDesktop, StyleMobile } from "@/style";
 import { useAppSelector } from "@/hooks/useSelectorHook";
 
 export const ProductSellerCard = () => {
-  const avatar = useAppSelector((state)=>state.user.avatar)
+  const avatar = useAppSelector((state)=>state.auth.user.avatar_url)
   return (
     <ProductSellerContainer>
           <StyleMobile>

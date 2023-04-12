@@ -23,12 +23,12 @@ export const EditUserBasicInformations = () => {
     inputs.forEach((input: any) => {
       const {name, value} = input;
       if (input.type === 'file') {
-        formData[name] = input?.files[0];
+        formData[name] = URL?.createObjectURL(input?.files[0]);
       } else {
         formData[name] = value;
       }
     });
-
+    console.log(formData)
     dispatch(userEditBasicInformationRequest(formData));
   };
 

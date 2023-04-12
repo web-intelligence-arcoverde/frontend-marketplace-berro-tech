@@ -5,7 +5,7 @@ import { Container, ImageSeller } from "./style";
 import { useAppSelector } from "@/hooks/useSelectorHook";
 
 export const SellerCard = () => {
-  const avatar = useAppSelector((state) => state.user.avatar);
+  const avatar = useAppSelector((state)=>state.auth.user.avatar_url)
   return (
     <Container>
       <ImageSeller
