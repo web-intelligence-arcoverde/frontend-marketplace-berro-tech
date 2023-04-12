@@ -6,7 +6,7 @@ import {
   addItem,
   currentSearch,
   filterItems,
-  productsWithOutFilters,
+  getAllProducts,
   searchMobile,
 } from "@/store/reducer/product/actions";
 import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
@@ -28,7 +28,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   }, []);
   useEffect(() => {
     if (!search) {
-      dispath(productsWithOutFilters());
+      dispath(getAllProducts());
     }
   }, [search, dispath]);
 

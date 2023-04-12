@@ -11,7 +11,7 @@ import {
 } from "./style";
 import { useAppSelector } from "@/hooks/useSelectorHook";
 import { tabs } from "@/mock";
-import { CardProductProps } from "@/types";
+import { IProduct } from "@/types/ICardProductProps";
 
 export const MainSearch = () => {
   const [search, setSearch] = useState("");
@@ -68,13 +68,21 @@ export const MainSearch = () => {
         <Tabs tabs={tabs} />
       </SearchSideBar>
       <SearchResponseContainer>
-        {topSearches.slice(0, 4).map((item: CardProductProps) => (
+        {topSearches.slice(0, 4).map((item: IProduct) => (
           <ProductCard
-            key={` ${item.id}`}
-            {...item}
             width="48.5%"
             maxWidth="none"
             widthTablet="80%"
+            key={item.id}
+            id={item.id}
+            breed={item.breed.name}
+            quantity={item.business.amount}
+            name={item.name}
+            city={item.address.city}
+            state={item.address.state}
+            sex={item.gender}
+            age={item.age}
+            rank={item.classification.name}
           />
         ))}
         {topSearches.length == 0 && (

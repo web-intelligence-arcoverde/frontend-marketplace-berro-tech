@@ -1,13 +1,14 @@
 import { NotFoundFilter, ProductCard } from "@/components";
-import { BussinessHighlightProductMock } from "@/mock";
 import {
   Container,
   TitleContainer,
   ProductCardsContainer,
   LinkMobileContainer,
 } from "./style";
+import { useAppSelector } from "@/hooks/useSelectorHook";
 
 export const BussinessHighlight = () => {
+  const topSearches = useAppSelector((state) => state.product.topSearches);
   return (
     <Container>
       <TitleContainer>
@@ -15,19 +16,27 @@ export const BussinessHighlight = () => {
         <a href="negocios">Veja mais opções</a>
       </TitleContainer>
       <ProductCardsContainer
-        moreProduct={BussinessHighlightProductMock.length <= 2}
+        moreProduct={topSearches.length <= 2}
       >
-        {BussinessHighlightProductMock.map((item, index) => (
+        {topSearches.map((item:any, index:number) => (
           <ProductCard
             minWidth="300px"
             widthTablet="48%"
             width="30%"
             maxWidth="none"
-            key={`${item.name} ${index}`}
-            {...item}
+            key={item.id}
+            id={item.id}
+            breed={item.breed.name}
+            quantity={item.business.amount}
+            name={item.name}
+            city={item.address.city}
+            state={item.address.state}
+            sex={item.gender}
+            age={item.age}
+            rank={item.classification.name}
           />
         ))}
-        {BussinessHighlightProductMock.length == 0 && (
+        {topSearches.length == 0 && (
           <NotFoundFilter
             title={`Lamentamos informar que não há produtos disponíveis no momento `}
             subtitle="Fique à vontade para verificar novamente mais tarde."

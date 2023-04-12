@@ -17,6 +17,7 @@ import {
   allFilterSelected,
   deleteFilterSelected,
   clearFiltersSelecteds,
+
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -50,7 +51,7 @@ export const productReducer = createReducer(initialState, (builder) => {
       });
     })
     .addCase(productsWithOutFilters, (state, action) => {
-      state.allProducts = initialState.allProducts;
+      state.allProducts = action.payload
     })
     .addCase(searchMobile, (state, action) => {
       state.searchMobile = !action.payload;
@@ -64,16 +65,20 @@ export const productReducer = createReducer(initialState, (builder) => {
     .addCase(removeProduct, (state, action) => {
       state.allProducts = state.allProducts.filter(
         (item: any) => item.id !== action.payload
+        
       );
+
     })
     .addCase(removeProductModal, (state, action) => {
       state.removeProductModal = !action.payload;
     })
     .addCase(topSearches, (state, action) => {
-      state.allProducts = initialState.allProducts;
+      state.topSearches = action.payload;
+
     })
     .addCase(topSearchesFilter, (state, action) => {
       state.topSearchesFilter = action.payload;
+
     })
     .addCase(allFilterSelected, (state, action) => {
       if (action.payload && action.payload.length > 0) {
@@ -91,5 +96,6 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(clearFiltersSelecteds, (state, action) => {
       state.allFilterSelected = [];
-    });
+
+    })
 });

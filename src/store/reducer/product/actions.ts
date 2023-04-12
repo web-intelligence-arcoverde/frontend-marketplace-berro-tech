@@ -8,7 +8,7 @@ export const addProductLocation = createAction<any>("ADD_PRODUCT_LOCATION");
 export const addItem = createAction<string>("ADD_ITEM");
 export const removeItem = createAction<any>("REMOVE_ITEM");
 export const filterItems = createAction<any>("FILTER_ITEMS");
-export const productsWithOutFilters = createAction("PRODUCTS_WITH_OUT_FILTERS");
+export const productsWithOutFilters = createAction<any>("PRODUCTS_WITH_OUT_FILTERS");
 export const currentSearch = createAction<string>("CURRENT_SEARCH");
 export const currentStep = createAction<{ step: number }>("CURRENTE_STEP");
 export const removeProduct = createAction<any>('REMOVE_PRODUCT')
@@ -18,6 +18,7 @@ export const topSearchesFilter = createAction<string>('TOP_SEARCHES_FILTER')
 export const allFilterSelected = createAction<any>('ALL_FILTER_SELECTED')
 export const deleteFilterSelected = createAction<string>('DELETE_FILTER_SELECTED')
 export const clearFiltersSelecteds = createAction('CLEAR_FILTERS_SELECTEDS')
+export const getAllProducts = createAction('GET_ALL_PRODUCTS')
 
 export const searchMobile = createAction<boolean>("SEARCH_MOBILE");
 /* 

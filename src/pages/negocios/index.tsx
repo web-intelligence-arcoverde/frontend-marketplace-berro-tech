@@ -19,9 +19,9 @@ import { Bussinestabs } from "@/mock";
 
 import { Container, Main } from "@/style";
 import { useAppSelector } from "@/hooks/useSelectorHook";
-import { CardProductProps } from "@/types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { IProduct } from "@/types/ICardProductProps";
 
 export const Business = () => {
   const allProduct = useAppSelector((state) => state.product.allProducts);
@@ -31,10 +31,10 @@ export const Business = () => {
   const [empty, setEmpty] = useState(false);
 
   useEffect(() => {
-    if (routerBusiness == "/negocios" && allProduct.length > 0) {
+    if (routerBusiness == "/negocios" && allProduct && allProduct.length > 0) {
       setEmpty(true);
     }
-  }, []);
+  }, [allProduct]);
 
   return (
     <Container>
@@ -54,13 +54,21 @@ export const Business = () => {
             <ProductCardContainer>
               {empty ? (
                 <>
-                  {allProduct.length > 0 ? (
-                    allProduct?.map((item: CardProductProps, index: number) => (
+                  {allProduct && allProduct.length > 0 ? (
+                    allProduct?.map((item: IProduct) => (
                       <ProductCard
-                        widthTablet="80%"
+                        widthTablet="60%"
                         maxWidth="none"
-                        key={`${item.name} ${index}`}
-                        {...item}
+                        key={item.id}
+                        id={item.id}
+                        breed={item.breed.name}
+                        quantity={item.business.amount}
+                        name={item.name}
+                        city={item.address.city}
+                        state={item.address.state}
+                        sex={item.gender}
+                        age={item.age}
+                        rank={item.classification.name}
                       />
                     ))
                   ) : (
@@ -72,7 +80,7 @@ export const Business = () => {
                 </>
               ) : (
                 <NotFoundFilter
-                  title={`Não temos negócios no momento  `}
+                  title={`Não temos negócios no momento `}
                   subtitle={`Tente novamente mais tarde`}
                 />
               )}

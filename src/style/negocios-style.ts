@@ -26,9 +26,7 @@ export const ProductContainer = styled.div`
     width: 100%;
     padding: 0 20px;
   }
-  @media (max-width: ${BREAKPOINTS.largeScreen}) {
-    min-width: auto;
-  }
+ 
 `;
 
 export const SelectContainer = styled.div`
@@ -55,9 +53,7 @@ export const ProductCardContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 32px 16px;
-  @media (max-width: 1416px) {
-    justify-content: space-evenly;
-  }
+
   @media (max-width: ${BREAKPOINTS.md}) {
     justify-content: center;
     margin-top: 28px;

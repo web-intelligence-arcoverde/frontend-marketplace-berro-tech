@@ -13,6 +13,7 @@ export interface ProductInfoType {
   quantity: number | null;
   price: number | null;
   installments: number | null;
+  
 }
 export interface ProductLocationType {
   [key: string]: any;
