@@ -33,6 +33,7 @@ export const SearchSideBar = styled.div`
       font-size: 16px;
       color: ${COLORS.gray._03};
       padding: 16px 24px;
+      text-align: start;
     }
     .active {
       color: ${COLORS.dark._03};
