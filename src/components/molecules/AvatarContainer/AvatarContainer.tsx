@@ -24,7 +24,8 @@ import { searchMobile } from "@/store/reducer/product/actions";
 
 export const AvatarContainer = () => {
   const token = useAppSelector((state) => state.auth.token);
-  const avatar = useAppSelector((state)=>state.user.avatar)
+  const avatar = useAppSelector((state)=>state.auth.user.avatar_url)
+  console.log(avatar)
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState(false);
 
@@ -76,6 +77,7 @@ export const AvatarContainer = () => {
             </>
           ) : (
             <StyleAvatar
+              isEmpty={!avatar}
               onClick={handleDropDown}
               src={!!avatar ? avatar : ICONS.Avatar}
               alt="foto perfil"

@@ -12,12 +12,13 @@ export const CardDropDown = styled.div`
   top: 46px;
   z-index: 20;
 `;
-export const StyleAvatar = styled(Image)`
+export const StyleAvatar = styled(Image)<{isEmpty:boolean}>`
   width: 46px;
   height: 46px;
   object-fit: cover;
   border-radius: 5px;
   border: solid 2px ${COLORS.light._05};
+  border: ${(props)=>props.isEmpty && 'none'};
   margin-top: 4px;
 `;
 export const CardArrowUp = styled.div`

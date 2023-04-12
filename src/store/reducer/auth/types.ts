@@ -1,11 +1,15 @@
 export type IAuthState = {
   token: string;
-  user: any;
+  user: IEditUserInfoProps & IEditUserPasswordProps & IEditUserLocationProps;
   recoveryEmail: string;
   codeVerificationCode: string;
   error?: any;
   modalError: boolean;
 };
+
+interface userProps {
+};
+
 
 export interface ISignIn {
   email: string;
@@ -22,8 +26,8 @@ export interface IEditUserInfoProps {
   [key: string]: any;
   name?: string;
   email?: string;
-  phone?: string;
-  accountUrl?: string;
+  phone?:any;
+  avatar_url?: any;
 }
 export interface IEditUserPasswordProps {
   [key: string]: any;
@@ -32,8 +36,8 @@ export interface IEditUserPasswordProps {
 }
 export interface IEditUserLocationProps {
   [key: string]: any;
-  state?: string;
-  city?: string;
+  uf?: any;
+  city?: any;
 }
 export interface CustomError {
   type: "error" | "sucess" | "loading";
