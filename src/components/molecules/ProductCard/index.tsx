@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CattleCard, Flex, CattleInfoContainer } from "./style";
 import { CardProductProps } from "@/types";
 import { CardNameLocation } from "@/components";
+import { useRouter } from "next/router";
 
 export const ProductCard = ({
   name,
@@ -18,14 +19,19 @@ export const ProductCard = ({
   width,
   minWidth,
   widthTablet,
+  id
 }: CardProductProps) => {
+  const router = useRouter()
+  const handleRedirect = ()=>{
+    router.push({ pathname: `/negocios/produto/${id}}`});
+  }
   return (
     <Card
       widthTablet={widthTablet}
       minWidth={minWidth}
       width={width}
       maxWidth={maxWidth}
-      onClick={onClick}
+      onClick={handleRedirect}
     >
       {photo && <Image src={photo} alt={`foto de um ${breed}`} />}
       <Flex>

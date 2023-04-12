@@ -8,6 +8,7 @@ export interface CardProductProps {
   city: string;
   state: string;
   sex: string;
+  phone?: string
   age: string;
   rank: string;
   maxWidth?: string;

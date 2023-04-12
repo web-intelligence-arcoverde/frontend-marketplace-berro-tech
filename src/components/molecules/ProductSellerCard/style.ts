@@ -17,21 +17,24 @@ export const ProductSellerContainer = styled.div`
     flex-direction: column;
     max-height: none;
   }
-  `;
+`;
 
 export const DescriptionContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  `;
+`;
+
 export const LinkContainer = styled.div`
   display: flex;
   gap:16px;
   width: 100%;
   padding: 24px;
 `;
-export const SellerLink = styled.a`
+
+export const SellerLink = styled.button`
   display: flex;
+  border: none;
   justify-content: center;
   width: 100%;
   border-radius: 5px;
@@ -110,17 +113,18 @@ export const ImageContainer = styled.div`
   border-left: 1.5px solid ${COLORS.light._02};
   display: flex;
   padding: 24px;
-  width: fit-content;
   height: 100%;
-  
+  width: 100%;
+
   @media (max-width: ${BREAKPOINTS.md}){
     border:none;
     padding-right:0;
-    height: 100%;
+    width: unset;
+    height: unset;
     img{
-      width: fit-content;
+      width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
   }
   }
   img{
