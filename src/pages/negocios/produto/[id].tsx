@@ -20,13 +20,14 @@ import {
   NearProductsTitleContainer,
   NearProductsContainer,
 } from "@/style/produto-style";
+import { IProduct } from "@/types/ICardProductProps";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import { useEffect } from "react";
 
 const Product = () => {
   const router = useRouter();
-  const product = useAppSelector((state)=>state.product.product)
+  const allProducts = useAppSelector((state)=>state.product.allProducts)
   const dispatch = useAppDispatch()
   const { id }: ParsedUrlQuery = router.query;
 
@@ -85,16 +86,25 @@ const Product = () => {
               <LinkNearProducts>Ver mais animais</LinkNearProducts>
             </StyleDesktop>
           </NearProductsTitleContainer>
-          <NearProducts moreProduct={BussinessHighlightProductMock.length > 2 }>
-            {BussinessHighlightProductMock.slice(0,3).map((item, index) => (
-              <ProductCard
-                minWidth="300px"
-                widthTablet="48%"
-                width="30%"
-                maxWidth="none"
-                key={`${item.name} ${index}`}
-                {...item}
-              />
+          <NearProducts moreProduct={allProducts.length > 2 }>
+            {allProducts.slice(0,3).map((item:IProduct) => (
+               <ProductCard
+               minWidth="300px"
+               widthTablet="48%"
+               width="30%"
+               maxWidth="none"
+               key={item.id}
+               id={item.id}
+               breed={item.breed.name}
+               quantity={item.business.amount}
+               name={item.name}
+               city={item.address.city}
+               state={item.address.state}
+               sex={item.gender}
+               age={item.age}
+               rank={item.classification.name}
+               photo={item.documents[0].url}
+             />
             ))}
           </NearProducts>
         </NearProductsContainer>
