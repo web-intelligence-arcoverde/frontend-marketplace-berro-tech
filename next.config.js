@@ -8,6 +8,9 @@ const nextConfig = {
   optimization: {
     minimize: false,
   },
+  images: {
+    domains: ['berro-tech-bucket.s3.sa-east-1.amazonaws.com'],
+  },
 };
 
 module.exports = nextConfig;

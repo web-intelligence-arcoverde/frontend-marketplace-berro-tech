@@ -83,6 +83,7 @@ export const MainSearch = () => {
             sex={item.gender}
             age={item.age}
             rank={item.classification.name}
+            photo={item.documents[0].url}
           />
         ))}
         {topSearches.length == 0 && (

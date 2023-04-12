@@ -33,7 +33,7 @@ export const ProductCard = ({
       maxWidth={maxWidth}
       onClick={handleRedirect}
     >
-      {photo && <Image src={photo} alt={`foto de um ${breed}`} />}
+      {photo && <Image width={500} height={500} src={photo} alt={`foto de um ${breed}`} />}
       <Flex>
         <p>{breed}</p>
         <h6>

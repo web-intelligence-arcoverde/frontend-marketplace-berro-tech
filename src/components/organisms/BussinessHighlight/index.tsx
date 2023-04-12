@@ -6,6 +6,7 @@ import {
   LinkMobileContainer,
 } from "./style";
 import { useAppSelector } from "@/hooks/useSelectorHook";
+import { IProduct } from "@/types/ICardProductProps";
 
 export const BussinessHighlight = () => {
   const topSearches = useAppSelector((state) => state.product.topSearches);
@@ -18,7 +19,7 @@ export const BussinessHighlight = () => {
       <ProductCardsContainer
         moreProduct={topSearches.length <= 2}
       >
-        {topSearches.map((item:any, index:number) => (
+        {topSearches.map((item:IProduct) => (
           <ProductCard
             minWidth="300px"
             widthTablet="48%"
@@ -34,6 +35,7 @@ export const BussinessHighlight = () => {
             sex={item.gender}
             age={item.age}
             rank={item.classification.name}
+            photo={item.documents[0].url}
           />
         ))}
         {topSearches.length == 0 && (

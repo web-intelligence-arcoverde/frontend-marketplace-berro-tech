@@ -9,18 +9,20 @@ import {
   AuthPrivateRouter,
   UserLoggedBasicInformation,
   ModalInformation,
-} from '@/components';
-import useModalOverflow from '@/hooks/useModalOverflow';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {Bussinestabs, DropdownMock} from '@/mock';
-import {setVisibilityModalAddProduct} from '@/store/reducer/user/actions';
+} from "@/components";
+import useModalOverflow from "@/hooks/useModalOverflow";
+import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
+import { Bussinestabs, DropdownMock } from "@/mock";
+import { getMyProducts } from "@/store/reducer/auth/actions";
+import { setVisibilityModalAddProduct } from "@/store/reducer/user/actions";
+
 import {
   Container,
   Main,
   StyleDesktop,
   StyleMobile,
   TabsContainer,
-} from '@/style';
+} from "@/style";
 import {
   CardProducts,
   ContainerMypublication,
@@ -28,15 +30,19 @@ import {
   ButtonFixedMobile,
   CardFixedMobile,
   ContainerTabs,
-} from '@/style/minhas-publicacoes-style';
-import {CardProductProps} from '@/types';
-import router from 'next/router';
+} from "@/style/minhas-publicacoes-style";
+import { CardProductProps } from "@/types";
+import { IProduct } from "@/types/ICardProductProps";
+import router from "next/router";
+import { useEffect } from "react";
 
 const MyPublication = () => {
-  const {visibility_modal_add_product} = useAppSelector((state) => state.user);
+  const { visibility_modal_add_product } = useAppSelector(
+    (state) => state.user
+  );
   const dispatch = useAppDispatch();
 
-  const {products} = useAppSelector((state) => state.auth.user);
+  const products = useAppSelector((state) => state.auth.myProducts);
   const productsEmpty =
     Array.isArray(products) && products.length > 0 ? true : false;
 
@@ -48,6 +54,10 @@ const MyPublication = () => {
     dispatch(setVisibilityModalAddProduct(!visibility_modal_add_product));
   };
   useModalOverflow(visibility_modal_add_product, registerProduct);
+
+  useEffect(() => {
+    dispatch(getMyProducts());
+  }, []);
 
   return (
     <AuthPrivateRouter>
@@ -67,7 +77,7 @@ const MyPublication = () => {
                   </StyleDesktop>
                   <StyleMobile>
                     <Dropdown
-                      id='dropdown'
+                      id="dropdown"
                       options={DropdownMock}
                       onOptionSelect={() => {}}
                     />
@@ -77,14 +87,21 @@ const MyPublication = () => {
 
               {productsEmpty && Array.isArray(products) ? (
                 <CardProducts>
-                  {products.map((item, index) => (
+                  {products.map((item: IProduct) => (
                     <ProductCard
-                      key={index}
-                      minWidth='200px'
-                      widthTablet='80%'
-                      maxWidth='none'
-                      onClick={() => handleAnimalClick(item)}
-                      {...item}
+                      widthTablet="60%"
+                      maxWidth="none"
+                      key={item.id}
+                      id={item.id}
+                      breed={item.breed.name}
+                      quantity={item.business.amount}
+                      name={item.name}
+                      city={item.address.city}
+                      state={item.address.state}
+                      sex={item.gender}
+                      age={item.age}
+                      rank={item.classification.name}
+                      photo={item.documents[0].url}
                     />
                   ))}
                 </CardProducts>
@@ -95,8 +112,8 @@ const MyPublication = () => {
             <CardFixedMobile>
               <ButtonFixedMobile onClick={() => registerProduct()}>
                 {productsEmpty
-                  ? 'Adicionar novo negócio'
-                  : 'Adicionar meu primeiro negócio'}
+                  ? "Adicionar novo negócio"
+                  : "Adicionar meu primeiro negócio"}
               </ButtonFixedMobile>
             </CardFixedMobile>
           </ContainerMypublication>

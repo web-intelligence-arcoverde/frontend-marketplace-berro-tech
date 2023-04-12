@@ -25,6 +25,7 @@ export const ProductContainer = styled.div`
   @media (max-width: ${BREAKPOINTS.md}) {
     width: 100%;
     padding: 0 20px;
+    min-width: 0;
   }
  
 `;

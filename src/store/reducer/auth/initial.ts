@@ -10,4 +10,5 @@ export const initialState: IAuthState = {
   codeVerificationCode: "",
   error: {},
   modalError: false,
+  myProducts:[]
 };

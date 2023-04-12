@@ -98,3 +98,7 @@ export const signUpEmailError = createAction<CustomError>(
 export const controlModal = createAction<boolean>('CONTROL_MODAL');
 
 export const clearErros = createAction('CLEAR_ERROR');
+
+export const getMyProducts = createAction('GET_MY_PRODUCTS')
+
+export const getAllMyProducts = createAction<any>('GET_ALL_MY_PRODUCTS')

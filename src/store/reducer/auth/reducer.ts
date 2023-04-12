@@ -12,6 +12,7 @@ import {
   controlModal,
   clearErros,
   userEditBasicInformationSuccess,
+  getAllMyProducts,
 } from "./actions";
 
 import { initialState } from "./initial";
@@ -63,5 +64,8 @@ export const auth = createReducer(initialState, (builder) => {
     })
     .addCase(clearErros, (state, action) => {
       state.error = initialState.error;
-    });
+    })
+    .addCase(getAllMyProducts,(state,action) =>{
+      state.myProducts = action.payload
+    })
 });
