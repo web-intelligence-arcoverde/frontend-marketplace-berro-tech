@@ -1,4 +1,4 @@
-import { IUserOffice } from "./SubTypes/IUserOffice";
+import {IUserOffice} from './SubTypes/IUserOffice';
 
 export interface UserProps {
   id: number;
@@ -17,8 +17,8 @@ export interface UserProps {
 }
 
 export interface UserPerfil {
-  name: string;
-  email: string;
+  name: string | undefined;
+  email: string | undefined;
   location?: string;
   phoneNumber: string;
   avaliation: number;
