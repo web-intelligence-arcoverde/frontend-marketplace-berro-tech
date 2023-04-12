@@ -18,7 +18,6 @@ export const Container = styled.div`
 export const ImageSeller = styled(Image)`
   width: 100%;
   border-radius: 5px 5px 0 0;
-  object-fit: cover;
   @media (max-width:${BREAKPOINTS.md}){
     border-radius: 0;
   }

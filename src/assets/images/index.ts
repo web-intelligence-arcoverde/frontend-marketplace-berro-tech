@@ -1,4 +1,3 @@
-import Avatar from "./avatar.webp";
 import BackgroundPresentation from "./background-presentation.webp";
 import GadoOne from "./gado-1.webp";
 import GadoTwo from "./gado-2.webp";
@@ -15,7 +14,6 @@ import PrintPublishingMobile from "./print-screen-publishing-mobile.webp";
 import PrintProductMobile from "./print-screen-product-mobile.webp";
 
 export const IMAGES = {
-  Avatar,
   BackgroundPresentation,
   Seller,
   GadoOne,

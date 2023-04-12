@@ -1,5 +1,5 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 import {
   ProductSellerContainer,
   DescriptionContainer,
@@ -11,20 +11,22 @@ import {
   SellerLink,
   InfoCardToMobile,
   TitleToMobile,
-  AvaliationBorderToMobile,
-} from "./style";
-import { IMAGES } from "@/assets";
-import { Avaliation } from "@/components";
-import { StyleDesktop, StyleMobile } from "@/style";
-import { useRouter } from "next/router";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+} from './style';
+import {ICONS, IMAGES} from '@/assets';
+
+import {StyleDesktop, StyleMobile} from '@/style';
+import {useRouter} from 'next/router';
+import {useMediaQuery} from '@/hooks/useMediaQuery';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 
 export const ProductSellerCard = () => {
-  const router = useRouter()
-  const isMobile = !useMediaQuery("md");
+  const router = useRouter();
+  const isMobile = !useMediaQuery('md');
   const handleRedirect = () => {
-    router.push(`/negocios/perfil-vendedor/${1}`)
-  }
+    router.push(`/negocios/perfil-vendedor/${1}`);
+  };
+
+  const avatar = useAppSelector((state) => state.auth.user.avatar_url);
 
   return (
     <ProductSellerContainer>
@@ -53,25 +55,21 @@ export const ProductSellerCard = () => {
               <p>Campina grande, PB</p>
             </DescriptionCard>
           </InfoCardToMobile>
-          {isMobile &&
+          {isMobile && (
             <ImageContainer>
-              <Image src={IMAGES.Seller} alt="imagem do vendedor" />
+              <Image src={IMAGES.Seller} alt='imagem do vendedor' />
             </ImageContainer>
-          }
+          )}
         </InfoCard>
         <StyleDesktop>
           <LinkContainer>
-            <SellerLink onClick={handleRedirect}>
-              Ver mais
-            </SellerLink>
+            <SellerLink onClick={handleRedirect}>Ver mais</SellerLink>
           </LinkContainer>
         </StyleDesktop>
       </DescriptionContainer>
       <StyleMobile>
         <LinkContainer>
-          <SellerLink onClick={handleRedirect}>
-            Ver mais
-          </SellerLink>
+          <SellerLink onClick={handleRedirect}>Ver mais</SellerLink>
           {/* <AvaliationBorderToMobile>
               <Avaliation avaliation="4.8" />
             </AvaliationBorderToMobile> */}
@@ -79,7 +77,10 @@ export const ProductSellerCard = () => {
       </StyleMobile>
       <StyleDesktop>
         <ImageContainer>
-          <Image src={IMAGES.Seller} alt="imagem do vendedor" />
+          <Image
+            src={!!avatar ? avatar : ICONS.Avatar}
+            alt='imagem do vendedor'
+          />
         </ImageContainer>
       </StyleDesktop>
     </ProductSellerContainer>

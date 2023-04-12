@@ -1,14 +1,18 @@
-import { IMAGES } from "@/assets";
+import { ICONS } from "@/assets";
 import { CardContact, CardNameLocation } from "@/components";
 import React from "react";
 import { Container, ImageSeller } from "./style";
+import { useAppSelector } from "@/hooks/useSelectorHook";
 
 export const SellerCard = () => {
+  const avatar = useAppSelector((state) => state.user.avatar);
   return (
     <Container>
-      <ImageSeller src={IMAGES.Seller} alt="imagem do vendedor" />
-      <CardNameLocation
-        isAvaliation
+      <ImageSeller
+        src={!!avatar ? avatar : ICONS.Avatar}
+        alt="imagem do vendedor"
+      />
+      <CardNameLocation     
         name={"Brunno guedes"}
         city={"Campina Grande"}
         state={"paraiba"}

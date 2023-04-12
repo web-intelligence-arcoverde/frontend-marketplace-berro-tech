@@ -25,6 +25,7 @@ export const CardPerfilVendedor = ({
 }: UserPerfil) => {
   const {visibility_modal_edit_user} = useAppSelector((state) => state.user);
   const {user} = useAppSelector((state) => state.auth);
+  const avatar = useAppSelector((state)=>state.user.avatar)
 
   const dispatch = useAppDispatch();
 
@@ -37,7 +38,7 @@ export const CardPerfilVendedor = ({
   return (
     <CardVendedor>
       <HeaderCard>
-        <ImagePerfil src={IMAGES.Avatar} alt='perfil do vendedor ' />
+        <ImagePerfil  src={!!avatar ? avatar : ICONS.Avatar} alt='perfil do vendedor ' />
         <Aside>
           <h5>{name}</h5>
           <TextGray>{email}</TextGray>
