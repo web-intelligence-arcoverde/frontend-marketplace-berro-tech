@@ -37,7 +37,6 @@ const MyPublication = () => {
   const dispatch = useAppDispatch();
 
   const {products} = useAppSelector((state) => state.auth.user);
-
   const productsEmpty =
     Array.isArray(products) && products.length > 0 ? true : false;
 

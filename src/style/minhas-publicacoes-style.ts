@@ -62,8 +62,9 @@ export const CardProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
+  max-width: 900px;
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     width: 100% !important;
@@ -80,6 +81,7 @@ export const SectionProducts = styled.section`
   gap: 16px;
   padding-left: 32px;
   align-items: end;
+  width: 100%;
   @media (max-width: ${BREAKPOINTS.sm}) {
     padding-left: 0;
   }
@@ -114,9 +116,9 @@ export const CardFixedMobile = styled.div`
 export const ContainerTabs = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 780px;
   width: 100%;
   border-bottom: solid 1.5px ${COLORS.light._02};
+  max-width:900px;
   @media(max-width:${BREAKPOINTS.md}){
     border-bottom:none;
   }

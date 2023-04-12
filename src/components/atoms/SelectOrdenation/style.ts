@@ -7,6 +7,7 @@ export const ContainerSelectProduct = styled.div`
   position: relative;
   width: 100%;
   max-width: 140px;
+  background-color: ${COLORS.light._05};
 `;
 
 export const CardSelectProduct = styled.div<{ open: boolean }>`

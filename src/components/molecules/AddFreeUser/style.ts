@@ -8,8 +8,7 @@ export const ContainerAddFreeUser = styled.section`
   align-items: center;
   justify-content: center;
   gap: 32px;
-  text-align: center;
-  margin-right: 150px;
+  width: 100%;
   h5 {
     font-size: 18px;
     font-weight: 500;
