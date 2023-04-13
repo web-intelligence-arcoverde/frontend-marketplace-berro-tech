@@ -19,5 +19,5 @@ export const SellerCard = () => {
       />
       <CardContact />
     </Container>
-  );
+  ); 
 };

@@ -18,6 +18,8 @@ export interface CardProductProps {
   minWidth?:string
   widthTablet?:string
   visit?:number
+  productPrice?:any
+  productInstallments?:any
 }
 export interface IProduct {
   id: number;

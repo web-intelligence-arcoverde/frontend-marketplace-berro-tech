@@ -45,6 +45,7 @@ const Product = () => {
           </InfoProduct>
           <InfoProduct>
             <ControlProduct
+             
               id={0}
               breed={"Senepol"}
               quantity={3}

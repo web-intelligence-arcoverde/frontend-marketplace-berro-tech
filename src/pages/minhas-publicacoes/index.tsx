@@ -59,7 +59,6 @@ const MyPublication = () => {
       axios
         .get(`${dev}/products/user/${idUser}`)
         .then((response) => {
-          console.log("aquiii", response.data);
           dispatch(getAllMyProducts(response.data));
         })
         .catch((error) => {

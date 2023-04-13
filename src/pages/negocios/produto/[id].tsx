@@ -32,7 +32,6 @@ const Product = () => {
   const productSelected = useAppSelector(
     (state) => state.product.productSelected
   );
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -68,6 +67,8 @@ const Product = () => {
           </ImagesProduct>
           <InfoProduct>
             <ControlProduct
+              productPrice={productSelected.business?.price}
+              productInstallments={productSelected.business?.installments}
               id={productSelected?.id}
               isProductPage
               breed={productSelected?.breed?.name}
