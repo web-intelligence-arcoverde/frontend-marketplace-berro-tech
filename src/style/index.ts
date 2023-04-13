@@ -19,7 +19,7 @@ export const ButtonAddProduct = styled(CardButton)`
   color: ${COLORS.light._05};
   width: 100%;
 
-  @media (max-width: ${BREAKPOINTS.lg}) {
+  @media (max-width: ${BREAKPOINTS.sm}) {
     display: none;
   }
 `;
