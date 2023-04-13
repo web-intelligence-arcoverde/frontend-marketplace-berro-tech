@@ -26,7 +26,7 @@ export const ProductSellerCard = () => {
     router.push(`/negocios/perfil-vendedor/${1}`);
   };
 
-  const avatar = useAppSelector((state) => state.auth.user.avatar_url);
+  const {avatar_url,name} = useAppSelector((state) => state.auth.user);
 
   return (
     <ProductSellerContainer>
@@ -44,7 +44,7 @@ export const ProductSellerCard = () => {
             <DescriptionCard>
               <h6>nome</h6>
               <NameAvaliation>
-                <p>Brenno Guedes</p>
+                <p>{name}</p>
                 <StyleDesktop>
                   {/* <Avaliation avaliation="4.8" /> */}
                 </StyleDesktop>
@@ -52,7 +52,7 @@ export const ProductSellerCard = () => {
             </DescriptionCard>
             <DescriptionCard>
               <h6>Localização</h6>
-              <p>Campina grande, PB</p>
+              <p>...</p>
             </DescriptionCard>
           </InfoCardToMobile>
           {isMobile && (
@@ -78,7 +78,7 @@ export const ProductSellerCard = () => {
       <StyleDesktop>
         <ImageContainer>
           <Image
-            src={!!avatar ? avatar : ICONS.Avatar}
+            src={!!avatar_url ? avatar_url : ICONS.Avatar}
             alt='imagem do vendedor'
           />
         </ImageContainer>

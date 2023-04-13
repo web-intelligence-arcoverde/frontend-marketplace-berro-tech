@@ -99,3 +99,12 @@ export interface IProduct {
   minWidth?:string
   widthTablet?:string
   }
+  export interface IDocument {
+    id: number;
+    file: string;
+    url: string;
+    user_id: number | null;
+    product_id: number;
+    created_at: string;
+    updated_at: string;
+  }

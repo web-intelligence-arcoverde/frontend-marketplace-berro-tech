@@ -3,6 +3,8 @@ import { Card, CattleCard, Flex, CattleInfoContainer } from "./style";
 import { CardProductProps } from "@/types";
 import { CardNameLocation } from "@/components";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { idProductSelected } from "@/store/reducer/product/actions";
 
 export const ProductCard = ({
   name,
@@ -19,12 +21,15 @@ export const ProductCard = ({
   width,
   minWidth,
   widthTablet,
-  id
+  id,
 }: CardProductProps) => {
-  const router = useRouter()
-  const handleRedirect = ()=>{
-    router.push({ pathname: `/negocios/produto/${id}}`});
-  }
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const handleRedirect = () => {
+    dispatch(idProductSelected(id));
+    router.push({ pathname: `/negocios/produto/${id}}` });
+  };
   return (
     <Card
       widthTablet={widthTablet}
@@ -33,7 +38,14 @@ export const ProductCard = ({
       maxWidth={maxWidth}
       onClick={handleRedirect}
     >
-      {photo && <Image width={500} height={500} src={photo} alt={`foto de um ${breed}`} />}
+      {photo && (
+        <Image
+          width={500}
+          height={500}
+          src={photo}
+          alt={`foto de um ${breed}`}
+        />
+      )}
       <Flex>
         <p>{breed}</p>
         <h6>

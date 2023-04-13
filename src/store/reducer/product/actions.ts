@@ -1,3 +1,4 @@
+import { IProduct } from "@/types/ICardProductProps";
 import { createAction } from "@reduxjs/toolkit";
 
 export const addProduct = createAction<any>("ADD_PRODUCT");
@@ -19,6 +20,9 @@ export const allFilterSelected = createAction<any>('ALL_FILTER_SELECTED')
 export const deleteFilterSelected = createAction<string>('DELETE_FILTER_SELECTED')
 export const clearFiltersSelecteds = createAction('CLEAR_FILTERS_SELECTEDS')
 export const getAllProducts = createAction('GET_ALL_PRODUCTS')
+export const idProductSelected = createAction<number>('ID_PRODUCT_SELECTED')
+export const getProductSelected = createAction<IProduct>('GET_PRODUCT_SELECTED')
+export const currentPhoto = createAction<string>('CURRENT_PHOTO')
 
 export const searchMobile = createAction<boolean>("SEARCH_MOBILE");
 /* 

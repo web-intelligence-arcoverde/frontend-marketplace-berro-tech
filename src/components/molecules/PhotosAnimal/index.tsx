@@ -4,12 +4,21 @@ import { useEffect, useState } from "react";
 import { PhotosAnimalMobile } from "../PhotosAnimalMobile";
 import { Container, CurrentImage, ListPhotos, SeeMore } from "./style";
 
+import { useAppSelector } from "@/hooks/useSelectorHook";
+
 export const PhotosAnimal = (arrayPhoto: any) => {
   const [modal, setModal] = useState(false);
   const allPhotos = arrayPhoto.arrayPhoto;
-  const RestPhotos = allPhotos.length - 5;
-  const MinPhotos = allPhotos.length;
-  const [currentphoto, setCurrentPhoto] = useState(allPhotos[0].photo);
+  const RestPhotos = allPhotos?.length - 5;
+  const MinPhotos = allPhotos?.length;
+  const FirstLoadingPhoto = useAppSelector(
+    (state) => state.product.currentPhoto
+  );
+  const [currentphoto, setCurrentPhoto] = useState(FirstLoadingPhoto);
+
+  useEffect(() => {
+    setCurrentPhoto(FirstLoadingPhoto);
+  }, [FirstLoadingPhoto]);
 
   const handleClick = (image: StaticImageData | any) => {
     setCurrentPhoto(image);
@@ -21,13 +30,20 @@ export const PhotosAnimal = (arrayPhoto: any) => {
   return (
     <Container>
       <Breadcrumb />
-      <CurrentImage src={currentphoto} alt="imagem atual" />
+      <CurrentImage
+        width={500}
+        height={500}
+        src={currentphoto}
+        alt="imagem atual"
+      />
       <ListPhotos>
-        {allPhotos.slice(0, 5).map((image: any, index: number) => (
+        {allPhotos?.slice(0, 5).map((image: any, index: number) => (
           <li key={index} id={index === 4 && MinPhotos > 5 ? "see-more" : ""}>
             <Image
-              onClick={() => handleClick(image?.photo)}
-              src={image?.photo}
+              width={500}
+              height={500}
+              onClick={() => handleClick(image?.url)}
+              src={image?.url}
               alt="imagem do animal"
             />
           </li>
@@ -35,7 +51,9 @@ export const PhotosAnimal = (arrayPhoto: any) => {
         {MinPhotos > 5 && <SeeMore onClick={handleModal}>{RestPhotos}</SeeMore>}
       </ListPhotos>
       <PhotosAnimalMobile allPhotos={allPhotos} />
-      {modal && <SlideProduct allPhotos={allPhotos} handleModal={handleModal} />}
+      {modal && (
+        <SlideProduct allPhotos={allPhotos} handleModal={handleModal} />
+      )}
     </Container>
   );
 };

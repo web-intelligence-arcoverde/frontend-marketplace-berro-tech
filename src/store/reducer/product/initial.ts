@@ -1,5 +1,5 @@
-import { BussinessHighlightProductMock } from "@/mock";
 import { ProductInfoType, ProductLocationType } from "./types";
+import { IProduct } from "@/types/ICardProductProps";
 
 export const initialState: any = {
   productInfo: {
@@ -34,4 +34,7 @@ export const initialState: any = {
   topSearchesFilter:'top',
   allFilterSelected:[],
   product:{} as ProductInfoType & ProductLocationType & File[],
-};
+  idProductSelected:null,
+  productSelected:{} as IProduct,
+  currentPhoto:'' as string
+}; 

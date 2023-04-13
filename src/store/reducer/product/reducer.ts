@@ -17,6 +17,9 @@ import {
   allFilterSelected,
   deleteFilterSelected,
   clearFiltersSelecteds,
+  idProductSelected,
+  getProductSelected,
+  currentPhoto,
 
 } from "./actions";
 
@@ -96,6 +99,14 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(clearFiltersSelecteds, (state, action) => {
       state.allFilterSelected = [];
-
+    })
+    .addCase(idProductSelected,(state,action)=>{
+      state.idProductSelected = action.payload
+    })
+    .addCase(getProductSelected,(state,action)=>{
+      state.productSelected = action.payload
+    })
+    .addCase(currentPhoto,(state,action)=>{
+      state.currentPhoto = action.payload
     })
 });
