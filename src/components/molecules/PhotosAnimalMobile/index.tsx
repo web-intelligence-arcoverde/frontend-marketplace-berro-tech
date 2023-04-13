@@ -20,7 +20,7 @@ export const PhotosAnimalMobile = ({ allPhotos }: any) => {
       >
         {allPhotos?.map((item: IDocument) => (
           <SwiperSlide key={item.id} >
-            <SlideImage src={item.url} alt="foto animal" />
+            <SlideImage width={500} height={500} src={item.url} alt="foto animal" />
           </SwiperSlide>
         ))}
       </Swiper>

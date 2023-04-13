@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  background-color: ${COLORS.brand_light._04};
 
   #first-add {
     @media (max-width: ${BREAKPOINTS.sm}) {

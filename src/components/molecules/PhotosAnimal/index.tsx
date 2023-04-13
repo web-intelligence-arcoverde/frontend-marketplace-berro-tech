@@ -5,6 +5,7 @@ import { PhotosAnimalMobile } from "../PhotosAnimalMobile";
 import { Container, CurrentImage, ListPhotos, SeeMore } from "./style";
 
 import { useAppSelector } from "@/hooks/useSelectorHook";
+import { IDocument } from "@/types/ICardProductProps";
 
 export const PhotosAnimal = (arrayPhoto: any) => {
   const [modal, setModal] = useState(false);
@@ -37,7 +38,7 @@ export const PhotosAnimal = (arrayPhoto: any) => {
         alt="imagem atual"
       />
       <ListPhotos>
-        {allPhotos?.slice(0, 5).map((image: any, index: number) => (
+        {allPhotos?.slice(0, 5).map((image: IDocument, index: number) => (
           <li key={index} id={index === 4 && MinPhotos > 5 ? "see-more" : ""}>
             <Image
               width={500}

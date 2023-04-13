@@ -3,8 +3,6 @@ import { Card, CattleCard, Flex, CattleInfoContainer } from "./style";
 import { CardProductProps } from "@/types";
 import { CardNameLocation } from "@/components";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { idProductSelected } from "@/store/reducer/product/actions";
 
 export const ProductCard = ({
   name,
@@ -17,18 +15,15 @@ export const ProductCard = ({
   sex,
   rank,
   maxWidth,
-  onClick,
   width,
   minWidth,
   widthTablet,
   id,
 }: CardProductProps) => {
   const router = useRouter();
-  const dispatch = useDispatch();
 
   const handleRedirect = () => {
-    dispatch(idProductSelected(id));
-    router.push({ pathname: `/negocios/produto/${id}}` });
+    router.push({ pathname: `/negocios/produto/${id}` });
   };
   return (
     <Card

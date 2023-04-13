@@ -22,11 +22,13 @@ import {
 } from "@/style/produto-style";
 import { IProduct } from "@/types/ICardProductProps";
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const Product = () => {
   const allProducts = useAppSelector((state) => state.product.allProducts);
-  const idProduct = useAppSelector((state) => state.product.idProductSelected);
+  const router = useRouter()
+  const { id } = router.query
   const productSelected = useAppSelector(
     (state) => state.product.productSelected
   );
@@ -34,16 +36,18 @@ const Product = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    axios
-      .get(`${dev}/product/${idProduct}`)
-      .then((response) => {
-        dispatch(getProductSelected(response.data));
-        dispatch(currentPhoto(response.data.documents[0].url))
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    if (id) {
+      axios
+        .get(`${dev}/product/${id}`)
+        .then((response) => {
+          dispatch(getProductSelected(response.data));
+          dispatch(currentPhoto(response.data.documents[0].url))
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [id]);
 
   return (
     <Container>

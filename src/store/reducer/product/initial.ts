@@ -34,7 +34,6 @@ export const initialState: any = {
   topSearchesFilter:'top',
   allFilterSelected:[],
   product:{} as ProductInfoType & ProductLocationType & File[],
-  idProductSelected:null,
   productSelected:{} as IProduct,
   currentPhoto:'' as string
 }; 

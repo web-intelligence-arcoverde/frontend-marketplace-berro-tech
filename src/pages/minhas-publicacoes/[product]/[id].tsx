@@ -9,7 +9,7 @@ import {
 } from "@/components";
 import { useAppSelector } from "@/hooks/useSelectorHook";
 import { BussinessHighlightProductMock } from "@/mock";
-import { removeProductModal } from "@/store/reducer/product/actions";
+import {  removeProductModal } from "@/store/reducer/product/actions";
 import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
 import { Content, InfoProduct } from "@/style/minhas-publicacoes-style";
 import { useDispatch } from "react-redux";
@@ -23,6 +23,7 @@ const Product = () => {
   const handleModalRemove = () => {
     dispatch(removeProductModal(controlModal));
   };
+
 
   let description =
     "Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.";
