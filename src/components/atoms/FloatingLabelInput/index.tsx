@@ -23,6 +23,7 @@ export const FloatingLabelInput = ({
   placeholder,
   ...props
 }: FloatingLabelInputProps) => {
+  //@ts-ignore
   const [value, setValue] = useState<string>(props?.value);
   const [passwordType, setPasswordType] = useState<string>('password');
 

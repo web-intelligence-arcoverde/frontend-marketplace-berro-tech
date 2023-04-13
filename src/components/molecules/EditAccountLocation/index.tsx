@@ -49,6 +49,7 @@ export const EditAccountLocation = () => {
             isWhite
             name='state'
             placeholder='Estado'
+            //@ts-ignore
             value={address.state}
           />
           <FloatingLabelInput
@@ -57,6 +58,7 @@ export const EditAccountLocation = () => {
             isWhite
             name='city'
             placeholder='Cidade'
+            //@ts-ignore
             value={address.city}
           />
         </ContainerInputs>
