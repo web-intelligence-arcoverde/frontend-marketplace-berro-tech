@@ -20,8 +20,6 @@ export const CardProfileInformation = () => {
 
   const {user} = useAppSelector((state) => state.auth);
 
-  console.log(user);
-
   const {avatar_url, contacts, addresses, name, email, avaliation} =
     useAppSelector((state) => state.auth.user);
 

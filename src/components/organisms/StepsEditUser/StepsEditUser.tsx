@@ -64,11 +64,10 @@ export const EditUserBasicInformations = () => {
     }
 
     dispatch(userEditBasicInformationRequest(formData));
-
     dispatch(showModalEditUser({data, step: 0}));
   };
   return (
-    <ContainerForm onSubmit={(data) => handleSubmit(onSubmit)(data)}>
+    <ContainerForm onSubmit={handleSubmit(onSubmit)}>
       <FirstColumn>
         <EditAccountInfo control={control} errors={errors} />
       </FirstColumn>
