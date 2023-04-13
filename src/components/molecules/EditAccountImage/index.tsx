@@ -1,17 +1,19 @@
-import {ICONS, IMAGES} from '@/assets';
+import {ICONS} from '@/assets';
 import Image from 'next/image';
-import {useState, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import {Container, Overlay, Button} from './style';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 
 export const EditAccountImage = () => {
-  const avatar = useAppSelector((state) => state.auth.user.avatar_url);
+  const {avatar_url} = useAppSelector((state) => state.auth.user);
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  let showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
 
   const [imagePreview, setImagePreview] = useState<string | null>(
-    !!avatar ? avatar : ICONS.Avatar,
+    showAvatarImage,
   );
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleImageChange = (event: any) => {
     const file = event.target.files?.[0];
@@ -46,9 +48,16 @@ export const EditAccountImage = () => {
           ref={inputRef}
           style={{display: 'none', height: '271px', width: '271px'}}
           onKeyDown={handleKeyDown}
+          id='fileInput'
         />
-        <Button>
-          <Image src={ICONS.EditImage} alt='icone de edição de imagem' />
+
+        <Button type='button'>
+          <Image
+            src={ICONS.EditImage}
+            alt='icone de edição de imagem'
+            height='58'
+            width='58'
+          />
         </Button>
       </Overlay>
     </Container>
