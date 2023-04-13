@@ -1,5 +1,6 @@
 import {createAction} from '@reduxjs/toolkit';
 import {ISignIn, IChangerPassword, CustomError} from './types';
+import { IProduct } from '@/types/ICardProductProps';
 
 export const signUpEmailRequest = createAction('auth/sign-up-email-request');
 export const signUpEmailSuccess = createAction<any>(

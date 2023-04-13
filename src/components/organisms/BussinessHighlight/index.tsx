@@ -27,15 +27,15 @@ export const BussinessHighlight = () => {
             maxWidth="none"
             key={item.id}
             id={item.id}
-            breed={item.breed.name}
-            quantity={item.business.amount}
+            breed={item.breed?.name}
+            quantity={item.business?.amount}
             name={item.name}
-            city={item.address.city}
-            state={item.address.state}
+            city={item.address?.city}
+            state={item.address?.state}
             sex={item.gender}
             age={item.age}
-            rank={item.classification.name}
-            photo={item.documents[0].url}
+            rank={item.classification?.name}
+            photo={item.documents?.[0]?.url}
           />
         ))}
         {topSearches.length == 0 && (

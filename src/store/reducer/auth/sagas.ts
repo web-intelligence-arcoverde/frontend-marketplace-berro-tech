@@ -185,15 +185,6 @@ function* userDelete() {
     yield put(signOutSuccess());
   } catch (error) {}
 }
-function* getMyProducts() {
-  try {
-  
-      const { data } = yield call(api.get, `/products/user/1`);
-      yield put(getAllMyProducts(data))
-  } catch (e) {
-    console.log("error", e);
-  } 
-}
 
 function* postsSaga() {
   yield all([
@@ -229,7 +220,6 @@ function* postsSaga() {
     takeLatest("auth/sign-up-facebook-request", signInFacebook),
     takeLatest("auth/user-logged-information-request", userLoggedInformation),
     takeLatest("auth/user-logged-delete-request", userDelete),
-    takeLatest("GET_MY_PRODUCTS", getMyProducts),
   ]);
 }
 
