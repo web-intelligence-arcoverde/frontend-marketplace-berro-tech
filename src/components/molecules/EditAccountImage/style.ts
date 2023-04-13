@@ -9,10 +9,9 @@ export const Container = styled.div`
 
   img {
     width: 100% !important;
-    height: 100%; !importante
+    height: 100% !importante;
     object-fit: cover;
   }
-
 `;
 
 export const Overlay = styled.div`

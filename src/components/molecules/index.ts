@@ -20,7 +20,7 @@ export {DropDown} from './DropDown';
 export {PhotosAnimal} from './PhotosAnimal';
 export {SlideProduct} from './SlideProduct';
 export {PhotosAnimalMobile} from './PhotosAnimalMobile';
-export {CardPerfilVendedor} from './CardPerfilVendedor';
+export {CardProfileInformation} from './CardProfileInformation/CardProfileInformation';
 export {AddFreeUser} from './AddFreeUser';
 export {DescriptionProduct} from './DescriptionProduct';
 export {ControlProduct} from './ControlProduct';
@@ -34,4 +34,4 @@ export {SendEmailRecoveryAccount} from './SendEmailRecoveryAccount/SendEmailReco
 export {VerifyCodeRecoveryAccount} from './VerifyCodeRecoveryAccount/VerifyCodeRecoveryAccount';
 export {ChangerPasswordRecoveryAccount} from './ChangerPasswordRecoveryAccount/ChangerPasswordRecoveryAccount';
 export {UserLoggedBasicInformation} from './UserLoggedBasicInformation/UserLoggedBasicInformation';
-export {ModalGeneric} from './ModalGeneric'
+export {ModalGeneric} from './ModalGeneric';

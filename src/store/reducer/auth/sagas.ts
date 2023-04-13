@@ -15,6 +15,7 @@ import {
   userEditPasswordInformationSuccess,
   userEditLocationInformationSuccess,
   userLoggedInformationSuccess,
+  userLoggedInformationRequest,
 } from './actions';
 import {setStepRecoveryAccount} from '../step/actions';
 import {currentStep} from '../product/actions';
@@ -150,20 +151,28 @@ function* userLoggedInformation() {
 
 function* updateUserBasicInformation({payload}: any): any {
   try {
-    console.log(payload);
-    yield put(userEditBasicInformationSuccess(payload));
+    const id = store.getState().auth.user.id;
+
+    yield call(api.put, `/user/${id}`, payload, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    yield put(userLoggedInformationRequest());
   } catch (error) {}
 }
 function* updateUserPasswordInformation({payload}: any): any {
   try {
-    console.log(payload);
+    const id = store.getState().auth.user.id;
+    yield call(api.put, `/change-password/${id}`, payload);
     yield put(userEditPasswordInformationSuccess(payload));
   } catch (error) {}
 }
 function* updateUserLocationInformation({payload}: any): any {
   try {
-    console.log(payload);
-    yield put(userEditLocationInformationSuccess(payload));
+    yield call(api.post, `/address-user`, payload);
+    yield put(userLoggedInformationRequest());
   } catch (error) {}
 }
 
