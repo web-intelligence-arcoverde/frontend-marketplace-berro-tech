@@ -23,6 +23,8 @@ export const ControlProduct = ({
   rank,
   phone,
   isProductPage,
+  productPrice,
+  productInstallments
 }: CardProductProps) => {
 
   const controlModal = useAppSelector((state) => state.product.removeProductModal);
@@ -46,7 +48,7 @@ export const ControlProduct = ({
         maxWidth="100%"
         width="100%"
       />
-      <PriceProduct value={11000} installments={20} />
+      <PriceProduct value={productPrice} installments={productInstallments} />
       {isProductPage ? (
         <CardContact phone={phone} />
       ) : (

@@ -1,5 +1,6 @@
 import {createAction} from '@reduxjs/toolkit';
 import {ISignIn, IChangerPassword, CustomError} from './types';
+import { IProduct } from '@/types/ICardProductProps';
 
 export const signUpEmailRequest = createAction('auth/sign-up-email-request');
 export const signUpEmailSuccess = createAction<any>(
@@ -98,3 +99,7 @@ export const signUpEmailError = createAction<CustomError>(
 export const controlModal = createAction<boolean>('CONTROL_MODAL');
 
 export const clearErros = createAction('CLEAR_ERROR');
+
+export const getMyProducts = createAction('GET_MY_PRODUCTS')
+
+export const getAllMyProducts = createAction<any>('GET_ALL_MY_PRODUCTS')

@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
 import {
   currentSearch,
   filterItems,
-  productsWithOutFilters,
+  getAllProducts,
   removeItem,
   searchMobile,
 } from "@/store/reducer/product/actions";
@@ -22,7 +22,7 @@ export const SearchMobile = () => {
 
   const getNameFilter = (event: string) => {
     dispatch(currentSearch(""));
-    dispatch(productsWithOutFilters());
+    dispatch(getAllProducts());
     dispatch(filterItems(event));
     dispatch(searchMobile(false));
     dispatch(currentSearch(event));

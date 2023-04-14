@@ -15,16 +15,16 @@ export const ProductCard = ({
   sex,
   rank,
   maxWidth,
-  onClick,
   width,
   minWidth,
   widthTablet,
-  id
+  id,
 }: CardProductProps) => {
-  const router = useRouter()
-  const handleRedirect = ()=>{
-    router.push({ pathname: `/negocios/produto/${id}}`});
-  }
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push({ pathname: `/negocios/produto/${id}` });
+  };
   return (
     <Card
       widthTablet={widthTablet}
@@ -33,7 +33,14 @@ export const ProductCard = ({
       maxWidth={maxWidth}
       onClick={handleRedirect}
     >
-      {photo && <Image src={photo} alt={`foto de um ${breed}`} />}
+      {photo && (
+        <Image
+          width={500}
+          height={500}
+          src={photo}
+          alt={`foto de um ${breed}`}
+        />
+      )}
       <Flex>
         <p>{breed}</p>
         <h6>
