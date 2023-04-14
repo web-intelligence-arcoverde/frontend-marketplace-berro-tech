@@ -6,7 +6,7 @@ import {
   ProductCard,
   SelectOrdenation,
   Tabs,
-} from "@/components";
+} from '@/components';
 import {
   BussinesContainer,
   ProductContainer,
@@ -14,14 +14,14 @@ import {
   TabsContainer,
   ProductHeaderContainer,
   SelectContainer,
-} from "@/style/negocios-style";
-import { Bussinestabs } from "@/mock";
+} from '@/style/negocios-style';
+import {Bussinestabs} from '@/mock';
 
-import { Container, Main } from "@/style";
-import { useAppSelector } from "@/hooks/useSelectorHook";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { IProduct } from "@/types/ICardProductProps";
+import {Container, Main} from '@/style';
+import {useAppSelector} from '@/hooks/useSelectorHook';
+import {useEffect, useState} from 'react';
+import {useRouter} from 'next/router';
+import {IProduct} from '@/types/ICardProductProps';
 
 export const Business = () => {
   const allProduct = useAppSelector((state) => state.product.allProducts);
@@ -31,7 +31,7 @@ export const Business = () => {
   const [empty, setEmpty] = useState(false);
 
   useEffect(() => {
-    if (routerBusiness == "/negocios" && allProduct && allProduct.length > 0) {
+    if (routerBusiness == '/negocios' && allProduct && allProduct.length > 0) {
       setEmpty(true);
     }
   }, [allProduct]);
@@ -57,8 +57,8 @@ export const Business = () => {
                   {allProduct && allProduct.length > 0 ? (
                     allProduct?.map((item: IProduct) => (
                       <ProductCard
-                        widthTablet="60%"
-                        maxWidth="none"
+                        widthTablet='60%'
+                        maxWidth='none'
                         key={item.id}
                         id={item.id}
                         breed={item.breed?.name}
@@ -75,7 +75,7 @@ export const Business = () => {
                   ) : (
                     <NotFoundFilter
                       title={`Nenhum resultado para “${currentSearch}” `}
-                      subtitle="Tente alterar os filtros para encontrar negócios"
+                      subtitle='Tente alterar os filtros para encontrar negócios'
                     />
                   )}
                 </>

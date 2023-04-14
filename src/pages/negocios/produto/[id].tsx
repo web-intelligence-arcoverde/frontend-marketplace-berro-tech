@@ -6,11 +6,14 @@ import {
   PhotosAnimal,
   ProductCard,
   ProductSellerCard,
-} from "@/components";
-import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
-import { dev } from "@/service";
-import { currentPhoto, getProductSelected } from "@/store/reducer/product/actions";
-import { Container, Main, StyleDesktop, StyleMobile } from "@/style";
+} from '@/components';
+import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {dev} from '@/service';
+import {
+  currentPhoto,
+  getProductSelected,
+} from '@/store/reducer/product/actions';
+import {Container, Main, StyleDesktop, StyleMobile} from '@/style';
 import {
   Content,
   ImagesProduct,
@@ -19,18 +22,18 @@ import {
   NearProducts,
   NearProductsTitleContainer,
   NearProductsContainer,
-} from "@/style/produto-style";
-import { IProduct } from "@/types/ICardProductProps";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+} from '@/style/produto-style';
+import {IProduct} from '@/types/ICardProductProps';
+import axios from 'axios';
+import {useRouter} from 'next/router';
+import {useEffect} from 'react';
 
 const Product = () => {
   const allProducts = useAppSelector((state) => state.product.allProducts);
-  const router = useRouter()
-  const { id } = router.query
+  const router = useRouter();
+  const {id} = router.query;
   const productSelected = useAppSelector(
-    (state) => state.product.productSelected
+    (state) => state.product.productSelected,
   );
   const dispatch = useAppDispatch();
 
@@ -40,13 +43,15 @@ const Product = () => {
         .get(`${dev}/product/${id}`)
         .then((response) => {
           dispatch(getProductSelected(response.data));
-          dispatch(currentPhoto(response.data.documents[0].url))
+          dispatch(currentPhoto(response.data.documents[0].url));
         })
         .catch((error) => {
           console.log(error);
         });
     }
   }, [id]);
+
+  console.log(productSelected);
 
   return (
     <Container>
@@ -60,7 +65,7 @@ const Product = () => {
                 description={productSelected?.description}
                 genetics={productSelected?.classification?.name}
                 weight={productSelected?.weight}
-                birthDate={"30/11/2020"}
+                birthDate={'30/11/2020'}
               />
               <ProductSellerCard />
             </StyleDesktop>
@@ -79,7 +84,7 @@ const Product = () => {
               sex={productSelected?.gender}
               age={productSelected?.age}
               rank={productSelected?.classification?.name}
-              maxWidth={"100%"}
+              maxWidth={'100%'}
             />
           </InfoProduct>
           <StyleMobile>
@@ -102,10 +107,10 @@ const Product = () => {
           <NearProducts moreProduct={allProducts.length > 2}>
             {allProducts.slice(0, 3).map((item: IProduct) => (
               <ProductCard
-                minWidth="300px"
-                widthTablet="48%"
-                width="30%"
-                maxWidth="none"
+                minWidth='300px'
+                widthTablet='48%'
+                width='30%'
+                maxWidth='none'
                 key={item.id}
                 id={item.id}
                 breed={item.breed?.name}

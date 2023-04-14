@@ -1,27 +1,35 @@
-import { ICONS } from "@/assets";
-import { DropedImages, Dropzone } from "@/components";
-import { useAppDispatch } from "@/hooks/useSelectorHook";
-import { addProductImages } from "@/store/reducer/product/actions";
-import { StyleDesktop, StyleMobile } from "@/style";
-import Image from "next/image";
-import { ChangeEvent, useCallback, useState } from "react";
-import { ButtonAddImage, Container, DropedContainer, DropedHeader, NextButton, ButtonsContainer, PaddingMobile, PaddingMobileDropzone, DropedImagesContainer } from './style'
+import {ICONS} from '@/assets';
+import {DropedImages, Dropzone} from '@/components';
+import {useAppDispatch} from '@/hooks/useSelectorHook';
+import {addProductImages} from '@/store/reducer/product/actions';
+import {StyleDesktop, StyleMobile} from '@/style';
+import Image from 'next/image';
+import {ChangeEvent, useCallback, useState} from 'react';
+import {
+  ButtonAddImage,
+  Container,
+  DropedContainer,
+  DropedHeader,
+  NextButton,
+  ButtonsContainer,
+  PaddingMobile,
+  PaddingMobileDropzone,
+  DropedImagesContainer,
+} from './style';
 
-const RegisterPhotos = (props:any) => {
- const dispatch = useAppDispatch()
+const RegisterPhotos = (props: any) => {
+  const dispatch = useAppDispatch();
   const [content, setContent] = useState<File[]>([]);
   const [isDroped, setIsDroped] = useState<boolean>(false);
 
   const handleDrop = useCallback((acceptedFiles: File[]) => {
-    setContent(acceptedFiles)
-    setIsDroped(true)
+    setContent(acceptedFiles);
+    setIsDroped(true);
   }, []);
-
-  
 
   const handleAddMore = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const fileInput = document.getElementById("file-input");
+    const fileInput = document.getElementById('file-input');
     if (fileInput) {
       fileInput.click();
     }
@@ -35,26 +43,24 @@ const RegisterPhotos = (props:any) => {
         setContent([...content, ...filesArray]);
       }
     },
-    [content]
+    [content],
   );
 
-  
   const handleRemoveFile = (index: number) => {
     const newFiles = [...content];
     newFiles.splice(index, 1);
     setContent(newFiles);
   };
   const handleSubmit = () => {
-    dispatch(addProductImages(content))
-    props.clickStep(3)
-  }
+    dispatch(addProductImages(content));
+    props.clickStep(3);
+  };
 
   return (
     <Container>
-      {isDroped && content.length > 0 ?
+      {isDroped && content.length > 0 ? (
         <DropedContainer>
           <PaddingMobile>
-
             <DropedHeader>
               <div>
                 <p>Você fez upload de {content?.length} arquivos</p>
@@ -62,34 +68,54 @@ const RegisterPhotos = (props:any) => {
               </div>
               <StyleDesktop>
                 <ButtonsContainer>
-                  <input id="file-input" type="file" multiple onChange={handleFileInputChange} style={{ display: "none" }} />
-                  <ButtonAddImage onClick={handleAddMore}><Image src={ICONS.Plus} alt='icone de adicionar imagem' /></ButtonAddImage>
+                  <input
+                    id='file-input'
+                    type='file'
+                    multiple
+                    onChange={handleFileInputChange}
+                    style={{display: 'none'}}
+                  />
+                  <ButtonAddImage onClick={handleAddMore}>
+                    <Image src={ICONS.Plus} alt='icone de adicionar imagem' />
+                  </ButtonAddImage>
                   <NextButton onClick={handleSubmit}>Próximo</NextButton>
                 </ButtonsContainer>
               </StyleDesktop>
             </DropedHeader>
             <DropedImagesContainer>
-              {content?.map((file, index) => <DropedImages index={index} key={index} Files={file}  handleRemove={handleRemoveFile}/> )}
+              {content?.map((file, index) => (
+                <DropedImages
+                  index={index}
+                  key={index}
+                  Files={file}
+                  handleRemove={handleRemoveFile}
+                />
+              ))}
             </DropedImagesContainer>
           </PaddingMobile>
           <StyleMobile>
             <ButtonsContainer>
-              <input id="file-input" type="file" multiple onChange={handleFileInputChange} style={{ display: "none" }} />
-              <ButtonAddImage onClick={handleAddMore}><Image src={ICONS.Plus} alt='icone de adicionar imagem' /></ButtonAddImage>
+              <input
+                id='file-input'
+                type='file'
+                multiple
+                onChange={handleFileInputChange}
+                style={{display: 'none'}}
+              />
+              <ButtonAddImage onClick={handleAddMore}>
+                <Image src={ICONS.Plus} alt='icone de adicionar imagem' />
+              </ButtonAddImage>
               <NextButton onClick={handleSubmit}>Próximo</NextButton>
             </ButtonsContainer>
           </StyleMobile>
         </DropedContainer>
-        :
+      ) : (
         <PaddingMobileDropzone>
           <Dropzone onDrop={handleDrop} />
         </PaddingMobileDropzone>
-      }
+      )}
     </Container>
-
   );
 };
 
 export default RegisterPhotos;
-
-

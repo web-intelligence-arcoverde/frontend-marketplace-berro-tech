@@ -5,7 +5,6 @@ import {
   StepsContainer,
 } from './style';
 import React, {useState} from 'react';
-import {useAppSelector} from '@/hooks/useSelectorHook';
 
 interface Step {
   id: number;
@@ -16,7 +15,6 @@ interface Step {
     setFormValues: any;
     clickStep: (e: any) => void;
     registerProduct?: () => void;
-    
   }>;
 }
 
@@ -30,7 +28,6 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   steps,
   registerProduct,
 }) => {
-
   const [currentStep, setCurrentStep] = useState(1);
 
   const clickStep = (stepNumber: number) => {
@@ -38,7 +35,7 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
   };
 
   const ComponentStep = steps[currentStep - 1].component;
-  
+
   return (
     <LayoutRegisterConfig>
       <HeaderMultiSteps>

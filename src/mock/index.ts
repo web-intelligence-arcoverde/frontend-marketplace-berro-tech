@@ -1,5 +1,4 @@
 import {ICONS, IMAGES} from '@/assets';
-import {CreateProductInfo, CreateProductBussines} from '@/components';
 import RegisterInformation from '@/components/molecules/RegisterInformation';
 import RegisterLocation from '@/components/molecules/RegisterLocation';
 import RegisterPhotos from '@/components/molecules/RegisterPhotos';
