@@ -11,4 +11,5 @@ export const initialState: IAuthState = {
   error: {},
   modalError: false,
   loading: true,
+  myProducts: [],
 };

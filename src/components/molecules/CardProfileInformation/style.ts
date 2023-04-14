@@ -8,6 +8,7 @@ export const CardVendedor = styled.div`
   border-radius: 5px;
   border: solid 2px ${COLORS.light._02};
   padding-bottom: 24px;
+  background-color: ${COLORS.light._05};
 
   @media (max-width: ${BREAKPOINTS.sm}) {
     border-left: none;

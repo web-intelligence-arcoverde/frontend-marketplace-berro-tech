@@ -11,12 +11,11 @@ import {
   signUpEmailError,
   signUpEmailSuccess,
   signUpGoogleSuccess,
-  userEditBasicInformationSuccess,
   userEditPasswordInformationSuccess,
-  userEditLocationInformationSuccess,
   userLoggedInformationSuccess,
   userLoggedInformationRequest,
 } from './actions';
+
 import {setStepRecoveryAccount} from '../step/actions';
 import {currentStep} from '../product/actions';
 

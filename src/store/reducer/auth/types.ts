@@ -5,6 +5,7 @@ export type IAuthState = {
   codeVerificationCode: string;
   error?: any;
   modalError: boolean;
+  myProducts: [];
   loading: boolean;
 };
 
