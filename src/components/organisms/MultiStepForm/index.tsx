@@ -11,21 +11,12 @@ interface Step {
   id: number;
   name: string;
   step: string;
-  firstColumnTitle?: string;
-  secondColumnTitle?: string;
-  firstColumnChilren?: any;
-  secondColumnChilren?: any;
-  submitButtonText?: string;
   component: React.FunctionComponent<{
     formValues: any;
     setFormValues: any;
     clickStep: (e: any) => void;
     registerProduct?: () => void;
-    submitButtonText?: string;
-    firstColumnTitle?: string;
-    secondColumnTitle?: string;
-    firstColumnChilren?: any;
-    secondColumnChilren?: any;
+    
   }>;
 }
 
@@ -46,13 +37,8 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
     setCurrentStep(stepNumber);
   };
 
-  const submitButtonText = steps[currentStep - 1].submitButtonText;
   const ComponentStep = steps[currentStep - 1].component;
-  const firstColumnTitle = steps[currentStep - 1].firstColumnTitle;
-  const firstColumnChilren = steps[currentStep - 1].firstColumnChilren;
-  const secondColumnTitle = steps[currentStep - 1].secondColumnTitle;
-  const secondColumnChilren = steps[currentStep - 1].secondColumnChilren;
-
+  
   return (
     <LayoutRegisterConfig>
       <HeaderMultiSteps>
@@ -70,11 +56,6 @@ export const MultiStepForm: React.FC<MultiStepFormProps> = ({
       </HeaderMultiSteps>
       <ContentStep>
         <ComponentStep
-          submitButtonText={submitButtonText}
-          firstColumnTitle={firstColumnTitle}
-          firstColumnChilren={firstColumnChilren}
-          secondColumnTitle={secondColumnTitle}
-          secondColumnChilren={secondColumnChilren}
           formValues={undefined}
           registerProduct={() => registerProduct()}
           clickStep={(e) => clickStep(e)}

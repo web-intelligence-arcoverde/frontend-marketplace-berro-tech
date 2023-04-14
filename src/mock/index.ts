@@ -279,17 +279,7 @@ export const MockNavigation = [
 ];
 
 export const StepRegisterProduct = [
-  {
-    id: 1,
-    name: 'Informações',
-    step: 'Passo 1',
-    firstColumnTitle: 'Sobre o produto',
-    secondColumnTitle: 'Sobre o negócio',
-    submitButtonText: 'Próximo',
-    firstColumnChilren: CreateProductInfo,
-    secondColumnChilren: CreateProductBussines,
-    component: RegisterInformation,
-  },
+  {id: 1, name: 'Informações', step: 'Passo 1', component: RegisterInformation},
   {id: 2, name: 'Fotos', step: 'Passo 2', component: RegisterPhotos},
   {id: 3, name: 'Localização', step: 'Passo 3', component: RegisterLocation},
 ];
