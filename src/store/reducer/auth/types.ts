@@ -5,12 +5,9 @@ export type IAuthState = {
   codeVerificationCode: string;
   error?: any;
   modalError: boolean;
-  myProducts:[]
+  myProducts: [];
+  loading: boolean;
 };
-
-interface userProps {
-};
-
 
 export interface ISignIn {
   email: string;
@@ -27,7 +24,7 @@ export interface IEditUserInfoProps {
   [key: string]: any;
   name?: string;
   email?: string;
-  phone?:any;
+  phone?: any;
   avatar_url?: any;
 }
 export interface IEditUserPasswordProps {
@@ -41,6 +38,6 @@ export interface IEditUserLocationProps {
   city?: any;
 }
 export interface CustomError {
-  type: "error" | "sucess" | "loading";
+  type: 'error' | 'sucess' | 'loading';
   message: string;
 }

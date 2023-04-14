@@ -1,4 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
+import {createReducer} from '@reduxjs/toolkit';
 import {
   recoveryAccountSendEmailRequest,
   signInEmailSuccess,
@@ -13,9 +13,10 @@ import {
   clearErros,
   userEditBasicInformationSuccess,
   getAllMyProducts,
-} from "./actions";
+  userLoggedInformationRequest,
+} from './actions';
 
-import { initialState } from "./initial";
+import {initialState} from './initial';
 
 export const auth = createReducer(initialState, (builder) => {
   builder
@@ -28,7 +29,7 @@ export const auth = createReducer(initialState, (builder) => {
       state.user = action.payload.user;
     })
     .addCase(signOutSuccess, (state, action) => {
-      state.token = "";
+      state.token = '';
       state.user = {};
     })
     .addCase(recoveryAccountSendEmailRequest, (state, action) => {
@@ -38,18 +39,22 @@ export const auth = createReducer(initialState, (builder) => {
       state.codeVerificationCode = action.payload.codeVerificationCode;
     })
     .addCase(changerPasswordSuccess, (state, action) => {
-      state.codeVerificationCode = "";
-      state.recoveryEmail = "";
+      state.codeVerificationCode = '';
+      state.recoveryEmail = '';
     })
     .addCase(signUpGoogleSuccess, (state, action) => {
       state.token = action.payload.token;
       state.user = action.payload.newUser;
     })
+    .addCase(userLoggedInformationRequest, (state, action) => {
+      state.loading = true;
+    })
     .addCase(userLoggedInformationSuccess, (state, action) => {
       state.user = action.payload;
+      state.loading = false;
     })
     .addCase(userEditBasicInformationSuccess, (state, action) => {
-      const { name, avatar_url, email, phone } = action.payload;
+      const {name, avatar_url, email, phone} = action.payload;
       state.user.name = name;
       state.user.name = name;
     })
@@ -65,7 +70,7 @@ export const auth = createReducer(initialState, (builder) => {
     .addCase(clearErros, (state, action) => {
       state.error = initialState.error;
     })
-    .addCase(getAllMyProducts,(state,action) =>{
-      state.myProducts = action.payload
-    })
+    .addCase(getAllMyProducts, (state, action) => {
+      state.myProducts = action.payload;
+    });
 });

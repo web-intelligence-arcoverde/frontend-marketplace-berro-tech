@@ -1,5 +1,5 @@
-import { COLORS } from "@/common";
-import styled from "styled-components";
+import {COLORS} from '@/common';
+import styled from 'styled-components';
 
 export const FormField = styled.div`
   width: 100%;
@@ -20,8 +20,8 @@ export const EyeButton = styled.button`
   }
 `;
 
-export const Label = styled.label<{ active: boolean }>`
-  display: ${(props) => (props.active ? "none" : "block")};
+export const Label = styled.label<{active: boolean}>`
+  display: ${(props) => (props.active ? 'none' : 'block')};
   position: absolute;
   top: 0;
   left: 0;
@@ -30,7 +30,7 @@ export const Label = styled.label<{ active: boolean }>`
   transition: all 0.2s ease-in-out;
   pointer-events: none;
 `;
-export const Input = styled.input<{ active: boolean; isWhite?: boolean }>`
+export const Input = styled.input<{active: boolean; isWhite?: boolean}>`
   height: 85px;
   width: 100%;
   border-radius: 5px;
@@ -39,7 +39,7 @@ export const Input = styled.input<{ active: boolean; isWhite?: boolean }>`
   font-weight: 500;
   font-size: 16px;
   border: solid 2px ${COLORS.light._02};
-  padding-top: ${(props) => (props.active ? "16px" : "40px")};
+  padding-top: ${(props) => (props.active ? '16px' : '40px')};
   background: ${COLORS.light._04};
   background: ${(props) =>
     props.isWhite ? `${COLORS.light._05}` : `${COLORS.light._04}`};

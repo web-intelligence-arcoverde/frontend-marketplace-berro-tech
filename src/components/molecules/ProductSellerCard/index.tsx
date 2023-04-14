@@ -80,6 +80,8 @@ export const ProductSellerCard = () => {
           <Image
             src={!!avatar_url ? avatar_url : ICONS.Avatar}
             alt='imagem do vendedor'
+            width='100'
+            height='100'
           />
         </ImageContainer>
       </StyleDesktop>

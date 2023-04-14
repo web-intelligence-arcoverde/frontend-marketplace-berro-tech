@@ -1,6 +1,5 @@
-import {ICONS, IMAGES} from '@/assets';
+import {ICONS} from '@/assets';
 import {Button, ContainerStepsEditUser, ModalInformation} from '@/components';
-import {UserPerfil} from '@/types/IUserProps';
 import Image from 'next/image';
 import {
   CardVendedor,
@@ -16,41 +15,56 @@ import useModalOverflow from '@/hooks/useModalOverflow';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {showModalEditUser} from '@/store/reducer/user/actions';
 
-export const CardPerfilVendedor = ({
-  name,
-  email,
-  location,
-  phoneNumber,
-  avaliation,
-}: UserPerfil) => {
+export const CardProfileInformation = () => {
   const {visibility_modal_edit_user} = useAppSelector((state) => state.user);
+
   const {user} = useAppSelector((state) => state.auth);
-  const avatar = useAppSelector((state)=>state.auth.user.avatar_url)
+
+  const {avatar_url, contacts, addresses, name, email, avaliation} =
+    useAppSelector((state) => state.auth.user);
+
+  let showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
+
+  let phone = contacts.length > 0 && contacts[0].phone_number;
+
+  let address = addresses.length > 0 && {
+    state: addresses[0].state,
+    city: addresses[0].city,
+  };
 
   const dispatch = useAppDispatch();
 
-  const registerProduct = (step?: number) => {
+  const handleVisibleModalEditUser = (step?: number) => {
     dispatch(showModalEditUser({user, step}));
   };
 
-  useModalOverflow(visibility_modal_edit_user, registerProduct);
-    
+  useModalOverflow(visibility_modal_edit_user, handleVisibleModalEditUser);
+
   return (
     <CardVendedor>
       <HeaderCard>
-        <ImagePerfil  src={!!avatar ? avatar : ICONS.Avatar} alt='perfil do vendedor ' />
+        <ImagePerfil
+          src={showAvatarImage}
+          alt='perfil do vendedor'
+          width='50'
+          height='50'
+        />
         <Aside>
           <h5>{name}</h5>
           <TextGray>{email}</TextGray>
-          <Button onClick={() => registerProduct(0)}>Minha conta</Button>
+          <Button onClick={() => handleVisibleModalEditUser(0)}>
+            Minha conta
+          </Button>
         </Aside>
       </HeaderCard>
       <CardSection>
         <TextGray>Localização</TextGray>
-        {location ? (
-          <h5>{location}</h5>
+        {address ? (
+          <h5>
+            {address.state}, {address.city}
+          </h5>
         ) : (
-          <button onClick={() => registerProduct(2)}>
+          <button onClick={() => handleVisibleModalEditUser(2)}>
             Adicione uma localização
           </button>
         )}
@@ -58,10 +72,10 @@ export const CardPerfilVendedor = ({
       <InfoSeller>
         <CardSection>
           <TextGray>Telefone</TextGray>
-          {phoneNumber ? (
-            <h5>{phoneNumber}</h5>
+          {phone ? (
+            <h5>{phone}</h5>
           ) : (
-            <button onClick={() => registerProduct(0)}>
+            <button onClick={() => handleVisibleModalEditUser(0)}>
               Adicione um telefone
             </button>
           )}
@@ -78,8 +92,8 @@ export const CardPerfilVendedor = ({
         )}
       </InfoSeller>
       {visibility_modal_edit_user && (
-        <ModalInformation onClick={registerProduct}>
-          <ContainerStepsEditUser/>
+        <ModalInformation onClick={handleVisibleModalEditUser}>
+          <ContainerStepsEditUser />
         </ModalInformation>
       )}
     </CardVendedor>
