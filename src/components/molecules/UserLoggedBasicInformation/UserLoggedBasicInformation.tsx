@@ -1,14 +1,16 @@
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {setVisibilityModalAddProduct} from '@/store/reducer/product/actions';
 import {CardProfileInformation} from '../../';
 
 import {Container, Button} from './style';
-import {setVisibilityModalAddProduct} from '@/store/reducer/user/actions';
 
 export const UserLoggedBasicInformation = () => {
   const {
     user: {products},
   } = useAppSelector((state) => state.auth);
-  const {visibility_modal_add_product} = useAppSelector((state) => state.user);
+  const {visibility_modal_add_product} = useAppSelector(
+    (state) => state.product,
+  );
 
   const dispatch = useAppDispatch();
 

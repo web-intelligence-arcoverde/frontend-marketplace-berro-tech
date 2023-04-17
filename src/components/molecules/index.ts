@@ -35,3 +35,5 @@ export {VerifyCodeRecoveryAccount} from './VerifyCodeRecoveryAccount/VerifyCodeR
 export {ChangerPasswordRecoveryAccount} from './ChangerPasswordRecoveryAccount/ChangerPasswordRecoveryAccount';
 export {UserLoggedBasicInformation} from './UserLoggedBasicInformation/UserLoggedBasicInformation';
 export {ModalGeneric} from './ModalGeneric';
+
+export {SelectAnimal} from './SelectAnimal/SelectAnimal';

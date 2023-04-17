@@ -1,17 +1,17 @@
-import { ICONS } from "@/assets";
-import Image from "next/image";
-import { useState } from "react";
-import { ArrowDown, CardOptions, FormField, Input, Label } from "./style";
+import {ICONS} from '@/assets';
+import Image from 'next/image';
+import {useState} from 'react';
+import {ArrowDown, CardOptions, FormField, Input, Label} from './style';
 
 interface FloatingLabelInputProps {
   placeholder: string;
-  name: string;
-  id: string | undefined;
-  labels: string[];
-  isWhite?: boolean
-  required?: boolean
-  setOption?:(e:string)=>void
-  disable?:boolean
+  name?: string;
+  id?: string | undefined;
+  labels: any[];
+  isWhite?: boolean;
+  required?: boolean;
+  setOption?: (e: string) => void;
+  disable?: boolean;
 }
 
 export const FloatingLabelRadio = ({
@@ -19,23 +19,27 @@ export const FloatingLabelRadio = ({
   labels,
   ...props
 }: FloatingLabelInputProps) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<any>('');
   const [openForm, setOpenForm] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState('');
 
   const handleClick = () => {
     !props.disable && setOpenForm(!openForm);
   };
+
   const clearField = () => {
-    setValue("");
-    setSelectedOption("");
+    setValue('');
+    setSelectedOption('');
     setOpenForm(false);
   };
 
-  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOptionChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    item?: any,
+  ) => {
     setSelectedOption(event.target.value);
     props.setOption && props.setOption(event.target.value);
-    setValue(event.target.defaultValue);
+    setValue(item);
     setOpenForm(false);
   };
 
@@ -47,9 +51,9 @@ export const FloatingLabelRadio = ({
         isWhite={props.isWhite}
         open={openForm}
         active={!value}
-        value={value}
+        value={value?.name}
         placeholder={placeholder}
-        type={"text"}
+        type={'text'}
         {...props}
         onClick={handleClick}
       />
@@ -59,28 +63,28 @@ export const FloatingLabelRadio = ({
       </Label>
 
       {openForm && (
-        <CardOptions isWhite={props.isWhite} >
-          {labels.map((item, index) => (
-            <label key={index}>
+        <CardOptions isWhite={props.isWhite}>
+          {labels.map((item) => (
+            <label key={`${item.id} - ${item.name}`}>
               <input
                 name={props.name}
-                type="radio"
-                value={item}
+                type='radio'
+                value={item.name}
                 checked={selectedOption === item}
-                onChange={handleOptionChange}
+                onChange={(event) => handleOptionChange(event, item)}
                 onClick={() => {
                   handleOptionChange;
                 }}
               />
-              {item}
+              {item.name}
             </label>
           ))}
         </CardOptions>
       )}
       {openForm || value.length > 0 ? (
-        <Image onClick={clearField} src={ICONS.Excluir} alt="excluir" />
+        <Image onClick={clearField} src={ICONS.Excluir} alt='excluir' />
       ) : (
-        <ArrowDown onClick={handleClick} src={ICONS.Up} alt="seta para cima" />
+        <ArrowDown onClick={handleClick} src={ICONS.Up} alt='seta para cima' />
       )}
     </FormField>
   );

@@ -2,64 +2,73 @@ import {
   FloatingLabelInput,
   FloatingLabelRadio,
   FloatingLabelTextarea,
+  SelectAnimal,
 } from '@/components';
-import {TypeAnimal, Ovino, Caprino} from '@/mock';
-import React, {useState} from 'react';
+import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {
+  readAgeCategoriesRequest,
+  readClassificationsRequest,
+} from '@/store/reducer/product/actions';
+import {useEffect} from 'react';
 
 export const CreateProductInfo = () => {
-  const [animalOption, setAnimalOption] = useState('');
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(readAgeCategoriesRequest());
+    dispatch(readClassificationsRequest());
+  }, []);
+
+  const {breeds, age_categories, classifications} = useAppSelector(
+    (state) => state.product,
+  );
+
+  const isExistBreeds = breeds.length > 1;
 
   return (
     <div>
       <FloatingLabelInput
         required
         type='text'
-        id='animalName'
-        name='animalName'
+        id='name'
+        name='name'
         placeholder='Nome'
       />
+      <SelectAnimal />
       <FloatingLabelRadio
         required
-        setOption={setAnimalOption}
-        placeholder={'Animal'}
-        name='animal'
-        id='animal'
-        labels={TypeAnimal}
-      />
-      <FloatingLabelRadio
-        required
-        disable={!animalOption}
-        placeholder={'Raça'}
-        name={'breed'}
+        disable={!isExistBreeds}
+        placeholder='Raça'
+        name='breed'
         id='breed'
-        labels={animalOption === 'Ovino' ? Ovino : Caprino}
+        labels={breeds}
       />
       <FloatingLabelRadio
         required
         placeholder={'Classificação'}
         id='classification'
         name='classification'
-        labels={['Genética', 'Reposição']}
+        labels={classifications}
       />
       <FloatingLabelRadio
         required
         name='gender'
         placeholder={'Sexo'}
         id='gender'
-        labels={['Macho', 'Fêmea']}
+        labels={[{name: 'Macho'}, {name: 'Fêmea'}]}
       />
       <FloatingLabelRadio
         required
-        name='age'
-        placeholder={'Idade'}
+        name='date'
+        placeholder='Idade'
         id='age'
-        labels={['Vaca', 'Bezerro', 'Garrote', 'Novilha', 'Aspiração']}
+        labels={age_categories}
       />
       <FloatingLabelInput
         required
         type='text'
-        id='Weight'
-        name='Weight'
+        id='weight'
+        name='weight'
         placeholder='Peso/kg'
       />
       <FloatingLabelInput

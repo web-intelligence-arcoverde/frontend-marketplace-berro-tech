@@ -2,7 +2,6 @@ import {createReducer} from '@reduxjs/toolkit';
 import {
   addUser,
   addPassword,
-  setVisibilityModalAddProduct,
   showModalEditUser,
   hideModalEditUser,
   setStepEditUser,
@@ -27,9 +26,7 @@ export const userReducer = createReducer(initialState, (builder) => {
         confirmationPassword,
       };
     })
-    .addCase(setVisibilityModalAddProduct, (state, action) => {
-      state.visibility_modal_add_product = action.payload;
-    })
+
     .addCase(setStepEditUser, (state, action) => {
       state.step_edit_user = action.payload;
     })

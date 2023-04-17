@@ -13,7 +13,7 @@ import {
 import useModalOverflow from '@/hooks/useModalOverflow';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {Bussinestabs, DropdownMock} from '@/mock';
-import {setVisibilityModalAddProduct} from '@/store/reducer/user/actions';
+import {setVisibilityModalAddProduct} from '@/store/reducer/product/actions';
 
 import {
   Container,
@@ -34,7 +34,9 @@ import {
 import {IProduct} from '@/types/ICardProductProps';
 
 const MyPublication = () => {
-  const {visibility_modal_add_product} = useAppSelector((state) => state.user);
+  const {visibility_modal_add_product} = useAppSelector(
+    (state) => state.product,
+  );
   const dispatch = useAppDispatch();
 
   const {
@@ -45,11 +47,11 @@ const MyPublication = () => {
   const productsEmpty =
     Array.isArray(products) && products.length > 0 ? true : false;
 
-  const registerProduct = () => {
+  const openModalRegisterProduct = () => {
     dispatch(setVisibilityModalAddProduct(!visibility_modal_add_product));
   };
 
-  useModalOverflow(visibility_modal_add_product, registerProduct);
+  useModalOverflow(visibility_modal_add_product, openModalRegisterProduct);
 
   return (
     <AuthPrivateRouter>
@@ -101,11 +103,11 @@ const MyPublication = () => {
                     ))}
                   </CardProducts>
                 ) : (
-                  <AddFreeUser addProduct={() => registerProduct()} />
+                  <AddFreeUser addProduct={() => openModalRegisterProduct()} />
                 )}
               </SectionProducts>
               <CardFixedMobile>
-                <ButtonFixedMobile onClick={() => registerProduct()}>
+                <ButtonFixedMobile onClick={() => openModalRegisterProduct()}>
                   {productsEmpty
                     ? 'Adicionar novo negócio'
                     : 'Adicionar meu primeiro negócio'}
@@ -114,8 +116,10 @@ const MyPublication = () => {
             </ContainerMypublication>
           )}
           {visibility_modal_add_product && (
-            <ModalInformation onClick={registerProduct}>
-              <RegisterProduct registerProduct={() => registerProduct()} />
+            <ModalInformation onClick={openModalRegisterProduct}>
+              <RegisterProduct
+                registerProduct={() => openModalRegisterProduct()}
+              />
             </ModalInformation>
           )}
         </Main>
