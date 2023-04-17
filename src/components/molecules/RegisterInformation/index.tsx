@@ -1,7 +1,6 @@
 import {useAppDispatch} from '@/hooks/useSelectorHook';
 import {addProductInfo} from '@/store/reducer/product/actions';
-import {ProductInfoType} from '@/store/reducer/product/types';
-import {removeMoneyMask} from '@/util';
+
 import {
   ContainerForm,
   FirstColumn,
@@ -13,22 +12,23 @@ import {
 } from './style';
 import {CreateProductInfo} from '../CreateProductInfo';
 import {CreateProductBussines} from '../CreateProductBussines';
+import {ProductLocationType} from '@/store/reducer/product/types';
 
 const RegisterInformation = (props: any) => {
   const dispatch = useAppDispatch();
-  const formData = new FormData()
+  const formData = {} as ProductLocationType;
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
     inputs.forEach((input: any) => {
       const {name, value} = input;
-        formData.append(name, value);
+      formData[name] = value;
     });
-    
+
     dispatch(addProductInfo(formData));
     props.clickStep(2);
-  
   };
 
   return (

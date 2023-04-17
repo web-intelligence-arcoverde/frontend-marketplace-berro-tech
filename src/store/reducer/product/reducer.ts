@@ -1,4 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
+import {createReducer} from '@reduxjs/toolkit';
 import {
   addProductInfo,
   addProductLocation,
@@ -19,10 +19,15 @@ import {
   clearFiltersSelecteds,
   getProductSelected,
   currentPhoto,
+  readAnimalSuccess,
+  readBreedSuccess,
+  setVisibilityModalAddProduct,
+  readAgeCategoriesSuccess,
+  readClassificationsSuccess,
+  readSaleTypeSuccess,
+} from './actions';
 
-} from "./actions";
-
-import { initialState } from "./initial";
+import {initialState} from './initial';
 
 export const productReducer = createReducer(initialState, (builder) => {
   builder
@@ -40,7 +45,7 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(removeItem, (state, action) => {
       state.lastSearchs = state.lastSearchs.filter(
-        (item: string) => item !== action.payload
+        (item: string) => item !== action.payload,
       );
     })
     .addCase(filterItems, (state, action) => {
@@ -48,12 +53,12 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.allProducts = state.allProducts.filter((item: string) => {
         return Object.values(item).some(
           (value) =>
-            typeof value === "string" && value.toLowerCase().includes(filtro)
+            typeof value === 'string' && value.toLowerCase().includes(filtro),
         );
       });
     })
     .addCase(productsWithOutFilters, (state, action) => {
-      state.allProducts = action.payload
+      state.allProducts = action.payload;
     })
     .addCase(searchMobile, (state, action) => {
       state.searchMobile = !action.payload;
@@ -66,21 +71,17 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(removeProduct, (state, action) => {
       state.allProducts = state.allProducts.filter(
-        (item: any) => item.id !== action.payload
-        
+        (item: any) => item.id !== action.payload,
       );
-
     })
     .addCase(removeProductModal, (state, action) => {
       state.removeProductModal = !action.payload;
     })
     .addCase(topSearches, (state, action) => {
       state.topSearches = action.payload;
-
     })
     .addCase(topSearchesFilter, (state, action) => {
       state.topSearchesFilter = action.payload;
-
     })
     .addCase(allFilterSelected, (state, action) => {
       if (action.payload && action.payload.length > 0) {
@@ -93,16 +94,39 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(deleteFilterSelected, (state, action) => {
       state.allFilterSelected = state.allFilterSelected.filter(
-        (item: string) => item !== action.payload
+        (item: string) => item !== action.payload,
       );
     })
     .addCase(clearFiltersSelecteds, (state, action) => {
       state.allFilterSelected = [];
     })
-    .addCase(getProductSelected,(state,action)=>{
-      state.productSelected = action.payload
+    .addCase(getProductSelected, (state, action) => {
+      state.productSelected = action.payload;
     })
-    .addCase(currentPhoto,(state,action)=>{
-      state.currentPhoto = action.payload
+    .addCase(currentPhoto, (state, action) => {
+      state.currentPhoto = action.payload;
     })
+    .addCase(readAnimalSuccess, (state, action) => {
+      state.animals = action.payload;
+    })
+    .addCase(readBreedSuccess, (state, action) => {
+      state.breeds = action.payload;
+    })
+    .addCase(readAgeCategoriesSuccess, (state, action) => {
+      state.age_categories = action.payload;
+    })
+    .addCase(readClassificationsSuccess, (state, action) => {
+      state.classifications = action.payload;
+    })
+    .addCase(readSaleTypeSuccess, (state, action) => {
+      state.sale = action.payload;
+    })
+    .addCase(setVisibilityModalAddProduct, (state, action) => {
+      state.visibility_modal_add_product = action.payload;
+
+      if (!action.payload) {
+        state.animals = [];
+        state.breeds = [];
+      }
+    });
 });

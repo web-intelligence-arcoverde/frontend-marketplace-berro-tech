@@ -34,7 +34,7 @@ export const FloatingLabelInput = ({
     switch (props.name) {
       case 'price':
         return setMoneyMask(value);
-      case 'Weight':
+      case 'weight':
         return setWeightMask(value);
       case 'phone':
         return setCellphoneMask(value);
