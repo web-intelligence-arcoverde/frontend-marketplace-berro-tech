@@ -1,31 +1,31 @@
-import { Button, Modal } from "@/components";
-import useModalOverflow from "@/hooks/useModalOverflow";
-import { useState } from "react";
-import { CardButtons, CardRemove } from "./style";
-import { useDispatch } from "react-redux";
-import { useRouter } from "next/router";
+import {Button, Modal} from '@/components';
+import useModalOverflow from '@/hooks/useModalOverflow';
+import {useState} from 'react';
+import {CardButtons, CardRemove} from './style';
+import {useDispatch} from 'react-redux';
+import {useRouter} from 'next/router';
 import {
   removeProduct,
   removeProductModal,
-} from "@/store/reducer/product/actions";
-import { useAppSelector } from "@/hooks/useSelectorHook";
+} from '@/store/reducer/product/actions';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 
 export const ModalRemovePublication = () => {
   const [modal, setModal] = useState<boolean>(true);
   const controlModal = useAppSelector(
-    (state) => state.product.removeProductModal
+    (state) => state.product.removeProductModal,
   );
   const removeCancel = () => {
     setModal(false);
     dispatch(removeProductModal(controlModal));
   };
   const router = useRouter();
-  const { id } = router.query;
+  const {id} = router.query;
   const dispatch = useDispatch();
 
   const removeItem = () => {
     dispatch(removeProduct(Number(id)));
-    router.push("/minhas-publicacoes");
+    router.replace('/minhas-publicacoes');
     dispatch(removeProductModal(controlModal));
   };
 

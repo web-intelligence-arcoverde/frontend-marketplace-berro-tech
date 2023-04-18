@@ -1,29 +1,29 @@
-import Image from "next/image";
-import { ICONS } from "@/assets";
-import { ButtonSearchMobile, CardSearch, IconLupa } from "./style";
-import { ChangeEvent, MouseEventHandler, useEffect, useState } from "react";
+import Image from 'next/image';
+import {ICONS} from '@/assets';
+import {ButtonSearchMobile, CardSearch, IconLupa} from './style';
+import {ChangeEvent, MouseEventHandler, useEffect, useState} from 'react';
 import {
   addItem,
   currentSearch,
   filterItems,
   getAllProducts,
   searchMobile,
-} from "@/store/reducer/product/actions";
-import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
-import { KeyboardEvent } from "react";
-import { useRouter } from "next/router";
+} from '@/store/reducer/product/actions';
+import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {KeyboardEvent} from 'react';
+import {useRouter} from 'next/router';
 interface ISearch {
   isFocused: boolean;
   setIsFocused: (state: boolean) => boolean;
 }
 
-export const Search = ({ isFocused, setIsFocused }: ISearch) => {
+export const Search = ({isFocused, setIsFocused}: ISearch) => {
   const getSearch = useAppSelector((state) => state.product.currentSearch);
   const [search, setSearch] = useState<string>(getSearch);
   const dispath = useAppDispatch();
   useEffect(() => {
-    if (currentRouter !== "/negocios") {
-      setSearch("");
+    if (currentRouter !== '/negocios') {
+      setSearch('');
     }
   }, []);
   useEffect(() => {
@@ -42,14 +42,14 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     dispath(currentSearch(search));
     dispath(searchMobile(false));
     dispath(filterItems(search));
-    if (currentRouter !== "/negocios") {
-      router.push("/negocios");
+    if (currentRouter !== '/negocios') {
+      router.replace('/negocios');
     }
   };
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
-    setSearch("");
-    dispath(currentSearch(""));
+    setSearch('');
+    dispath(currentSearch(''));
     event.preventDefault();
   };
 
@@ -62,8 +62,8 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
 
   const searchEnter = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.keyCode === 13) {
-      if (currentRouter !== "/negocios") {
-        router.push("/negocios");
+      if (currentRouter !== '/negocios') {
+        router.replace('/negocios');
         setTimeout(() => {
           dispath(filterItems(search));
         }, 300);
@@ -75,14 +75,14 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
 
   return (
     <CardSearch
-      width={isFocused ? "400px" : "250px"}
-      borderInput={search ? "8px 0 0 8px" : "8px"}
-      borderRight={search && "none"}
+      width={isFocused ? '400px' : '250px'}
+      borderInput={search ? '8px 0 0 8px' : '8px'}
+      borderRight={search && 'none'}
     >
-      <IconLupa src={ICONS.Search} alt="icone lupa" />
+      <IconLupa src={ICONS.Search} alt='icone lupa' />
       <input
-        type="text"
-        placeholder="Buscar"
+        type='text'
+        placeholder='Buscar'
         value={search}
         onChange={handleChange}
         onBlur={handleBlur}
@@ -90,12 +90,12 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
         onKeyDown={searchEnter}
       />
       {search && (
-        <button type="button" onClick={clearInput}>
-          <Image src={ICONS.Close} alt="icone X" />
+        <button type='button' onClick={clearInput}>
+          <Image src={ICONS.Close} alt='icone X' />
         </button>
       )}
       {search && (
-        <ButtonSearchMobile type="submit" onClick={handleAddItem}>
+        <ButtonSearchMobile type='submit' onClick={handleAddItem}>
           Buscar
         </ButtonSearchMobile>
       )}

@@ -22,7 +22,7 @@ export const ProductCard = ({
   const router = useRouter();
 
   const handleRedirect = () => {
-    router.push({pathname: `/negocios/produto/${id}`});
+    router.replace({pathname: `/negocios/produto/${id}`});
   };
 
   return (

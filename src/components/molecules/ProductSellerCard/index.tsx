@@ -28,7 +28,7 @@ export const ProductSellerCard = () => {
   } = useAppSelector((state) => state.product);
 
   const handleRedirect = () => {
-    router.push(`/negocios/perfil-vendedor/${id}`);
+    router.replace(`/negocios/perfil-vendedor/${id}`);
   };
 
   return (
