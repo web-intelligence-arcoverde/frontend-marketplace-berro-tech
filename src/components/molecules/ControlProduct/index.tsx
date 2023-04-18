@@ -4,13 +4,13 @@ import {
   ModalRemovePublication,
   PriceProduct,
   ProductCard,
-} from "@/components";
-import { StyleDesktop } from "@/style";
-import { CardProductProps } from "@/types";
-import { ContainerControlProduct } from "./style";
-import { useDispatch } from "react-redux";
-import { removeProductModal } from "@/store/reducer/product/actions";
-import { useAppSelector } from "@/hooks/useSelectorHook";
+} from '@/components';
+import {StyleDesktop} from '@/style';
+import {CardProductProps} from '@/types';
+import {ContainerControlProduct} from './style';
+import {useDispatch} from 'react-redux';
+import {removeProductModal} from '@/store/reducer/product/actions';
+import {useAppSelector} from '@/hooks/useSelectorHook';
 
 export const ControlProduct = ({
   name,
@@ -24,13 +24,14 @@ export const ControlProduct = ({
   phone,
   isProductPage,
   productPrice,
-  productInstallments
+  productInstallments,
 }: CardProductProps) => {
-
-  const controlModal = useAppSelector((state) => state.product.removeProductModal);
-  const dispatch = useDispatch()
+  const controlModal = useAppSelector(
+    (state) => state.product.removeProductModal,
+  );
+  const dispatch = useDispatch();
   const handleModalRemove = () => {
-    dispatch(removeProductModal(controlModal))
+    dispatch(removeProductModal(controlModal));
   };
 
   return (
@@ -45,8 +46,8 @@ export const ControlProduct = ({
         sex={sex}
         age={age}
         rank={rank}
-        maxWidth="100%"
-        width="100%"
+        maxWidth='100%'
+        width='100%'
       />
       <PriceProduct value={productPrice} installments={productInstallments} />
       {isProductPage ? (

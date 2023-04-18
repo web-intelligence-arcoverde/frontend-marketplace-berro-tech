@@ -20,6 +20,9 @@ export interface ProductInfoType {
   sales?: any;
 
   visibility_modal_add_product?: boolean;
+
+  product_by_id: any;
+  loading_search_product_by_id?: boolean;
 }
 export interface ProductLocationType {
   [key: string]: any;

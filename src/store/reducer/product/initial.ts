@@ -42,4 +42,7 @@ export const initialState: any = {
   sales: [],
 
   visibility_modal_add_product: false,
+
+  product_by_id: {},
+  loading_search_product_by_id: true,
 };

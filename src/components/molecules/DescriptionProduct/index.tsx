@@ -2,7 +2,7 @@ import {
   CardDescription,
   ContainerDescriptionProduct,
   ListDescriptionProduct,
-} from "./style";
+} from './style';
 
 interface DescriptionProductProps {
   description: string;

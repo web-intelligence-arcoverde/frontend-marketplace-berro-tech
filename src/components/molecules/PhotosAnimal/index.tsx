@@ -1,29 +1,22 @@
 import {Breadcrumb, SlideProduct} from '@/components';
 import Image, {StaticImageData} from 'next/image';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {PhotosAnimalMobile} from '../PhotosAnimalMobile';
 import {Container, CurrentImage, ListPhotos, SeeMore} from './style';
 
-import {useAppSelector} from '@/hooks/useSelectorHook';
 import {IDocument} from '@/types/ICardProductProps';
 
-export const PhotosAnimal = (arrayPhoto: any) => {
+export const PhotosAnimal = ({arrayPhoto}: any) => {
   const [modal, setModal] = useState(false);
-  const allPhotos = arrayPhoto.arrayPhoto;
-  const RestPhotos = allPhotos?.length - 5;
-  const MinPhotos = allPhotos?.length;
-  const FirstLoadingPhoto = useAppSelector(
-    (state) => state.product.currentPhoto,
-  );
-  const [currentphoto, setCurrentPhoto] = useState(FirstLoadingPhoto);
+  const restPhotos = arrayPhoto?.length - 5;
+  const minPhotos = arrayPhoto?.length;
 
-  useEffect(() => {
-    setCurrentPhoto(FirstLoadingPhoto);
-  }, [FirstLoadingPhoto]);
+  const [currentPhoto, setCurrentPhoto] = useState(arrayPhoto[0].url);
 
   const handleClick = (image: StaticImageData | any) => {
     setCurrentPhoto(image);
   };
+
   const handleModal = () => {
     setModal(!modal);
   };
@@ -34,12 +27,12 @@ export const PhotosAnimal = (arrayPhoto: any) => {
       <CurrentImage
         width={500}
         height={500}
-        src={currentphoto}
+        src={currentPhoto}
         alt='imagem atual'
       />
       <ListPhotos>
-        {allPhotos?.slice(0, 5).map((image: IDocument, index: number) => (
-          <li key={index} id={index === 4 && MinPhotos > 5 ? 'see-more' : ''}>
+        {arrayPhoto?.slice(0, 5).map((image: IDocument, index: number) => (
+          <li key={index} id={index === 4 && minPhotos > 5 ? 'see-more' : ''}>
             <Image
               width={500}
               height={500}
@@ -49,11 +42,11 @@ export const PhotosAnimal = (arrayPhoto: any) => {
             />
           </li>
         ))}
-        {MinPhotos > 5 && <SeeMore onClick={handleModal}>{RestPhotos}</SeeMore>}
+        {minPhotos > 5 && <SeeMore onClick={handleModal}>{restPhotos}</SeeMore>}
       </ListPhotos>
-      <PhotosAnimalMobile allPhotos={allPhotos} />
+      <PhotosAnimalMobile allPhotos={arrayPhoto} />
       {modal && (
-        <SlideProduct allPhotos={allPhotos} handleModal={handleModal} />
+        <SlideProduct allPhotos={arrayPhoto} handleModal={handleModal} />
       )}
     </Container>
   );

@@ -17,14 +17,13 @@ import {
   allFilterSelected,
   deleteFilterSelected,
   clearFiltersSelecteds,
-  getProductSelected,
-  currentPhoto,
   readAnimalSuccess,
   readBreedSuccess,
   setVisibilityModalAddProduct,
   readAgeCategoriesSuccess,
   readClassificationsSuccess,
   readSaleTypeSuccess,
+  readProductByIdSuccess,
 } from './actions';
 
 import {initialState} from './initial';
@@ -100,12 +99,7 @@ export const productReducer = createReducer(initialState, (builder) => {
     .addCase(clearFiltersSelecteds, (state, action) => {
       state.allFilterSelected = [];
     })
-    .addCase(getProductSelected, (state, action) => {
-      state.productSelected = action.payload;
-    })
-    .addCase(currentPhoto, (state, action) => {
-      state.currentPhoto = action.payload;
-    })
+
     .addCase(readAnimalSuccess, (state, action) => {
       state.animals = action.payload;
     })
@@ -128,5 +122,9 @@ export const productReducer = createReducer(initialState, (builder) => {
         state.animals = [];
         state.breeds = [];
       }
+    })
+    .addCase(readProductByIdSuccess, (state, action) => {
+      state.product_by_id = action.payload;
+      state.loading_search_product_by_id = false;
     });
 });

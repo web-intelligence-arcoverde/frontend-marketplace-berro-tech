@@ -22,11 +22,14 @@ import {useAppSelector} from '@/hooks/useSelectorHook';
 export const ProductSellerCard = () => {
   const router = useRouter();
   const isMobile = !useMediaQuery('md');
-  const handleRedirect = () => {
-    router.push(`/negocios/perfil-vendedor/${1}`);
-  };
 
-  const {avatar_url,name} = useAppSelector((state) => state.auth.user);
+  const {
+    product_by_id: {avatar_url, name, id},
+  } = useAppSelector((state) => state.product);
+
+  const handleRedirect = () => {
+    router.push(`/negocios/perfil-vendedor/${id}`);
+  };
 
   return (
     <ProductSellerContainer>
@@ -42,7 +45,7 @@ export const ProductSellerCard = () => {
           </StyleDesktop>
           <InfoCardToMobile>
             <DescriptionCard>
-              <h6>nome</h6>
+              <h6>Nome</h6>
               <NameAvaliation>
                 <p>{name}</p>
                 <StyleDesktop>
@@ -57,7 +60,12 @@ export const ProductSellerCard = () => {
           </InfoCardToMobile>
           {isMobile && (
             <ImageContainer>
-              <Image src={IMAGES.Seller} alt='imagem do vendedor' />
+              <Image
+                src={!!avatar_url ? avatar_url : IMAGES.Seller}
+                width='100'
+                height='100'
+                alt='imagem do vendedor'
+              />
             </ImageContainer>
           )}
         </InfoCard>

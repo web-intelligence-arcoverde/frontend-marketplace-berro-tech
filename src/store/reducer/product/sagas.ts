@@ -6,6 +6,7 @@ import {
   readAnimalSuccess,
   readBreedSuccess,
   readClassificationsSuccess,
+  readProductByIdSuccess,
   readSaleTypeSuccess,
   topSearches,
 } from './actions';
@@ -19,6 +20,7 @@ function* getProductById({payload}: any): any {
     console.log(e);
   }
 }
+
 function* getAllProducts() {
   try {
     const {data} = yield call(api.get, `/products`);
@@ -42,7 +44,6 @@ function* registerProduct() {
       formData.append('document', file);
     });
 
-    //formData.append('document', productImages);
     formData.append('productInfo', JSON.stringify(product));
 
     yield call(api.post, `/product`, formData, {
@@ -105,8 +106,20 @@ function* readSaleType() {
   }
 }
 
+function* readProductById({payload}: any) {
+  try {
+    const {data} = yield call(api.get, `/product/${payload}`);
+    let product = data;
+    product.products = product.products[0];
+    yield put(readProductByIdSuccess(product));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 function* postsSaga() {
   yield all([
+    takeLatest('PRODUCT/READ_PRODUCT_BY_ID_REQUEST', readProductById),
     takeLatest('GET_PRODUCT_ID', getProductById),
     takeLatest('GET_ALL_PRODUCTS', getAllProducts),
     takeLatest('ADD_PRODUCT_LOCATION', registerProduct),
