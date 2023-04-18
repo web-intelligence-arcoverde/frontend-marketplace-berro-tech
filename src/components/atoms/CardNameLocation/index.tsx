@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { ICONS } from "@/assets";
-import { Location, Flex } from "./style";
-import { CardNameLocationProps } from "@/types";
-import { Avaliation } from "@/components";
+import Image from 'next/image';
+import {ICONS} from '@/assets';
+import {Location, Flex} from './style';
+import {CardNameLocationProps} from '@/types';
+import {Avaliation} from '@/components';
 
 export const CardNameLocation = ({
   name,
@@ -17,11 +17,11 @@ export const CardNameLocation = ({
         <h4>
           {age} {name}
         </h4>
-        {isAvaliation && <Avaliation avaliation="4.8" />}
+        {isAvaliation && <Avaliation avaliation='4.8' />}
       </Flex>
       <Flex>
         <Location>
-          <Image src={ICONS.Location} alt="icone de localização" />
+          <Image src={ICONS.Location} alt='icone de localização' />
           {city}, {state}
         </Location>
       </Flex>

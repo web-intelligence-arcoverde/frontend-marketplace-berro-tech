@@ -5,8 +5,8 @@ import {
   ContainerSellerProductHeader,
   ContainerSellerProductMain,
   ContainerSellerProfile,
-} from "@/style/perfil-vendedor-style";
-import { Container, Main, StyleDesktop } from "@/style";
+} from '@/style/perfil-vendedor-style';
+import {Container, Main, StyleDesktop} from '@/style';
 import {
   Breadcrumb,
   Footer,
@@ -14,64 +14,75 @@ import {
   ProductCard,
   SelectOrdenation,
   SellerCard,
-} from "@/components";
-import { BussinessHighlightProductMock } from "@/mock";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { useRouter } from "next/router";
-import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
-import { ParsedUrlQuery } from "querystring";
-import { getSellerId } from "@/store/reducer/user/actions";
-import { useEffect } from "react";
+} from '@/components';
+import {useMediaQuery} from '@/hooks/useMediaQuery';
+import {useRouter} from 'next/router';
+import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {ParsedUrlQuery} from 'querystring';
+import {readUserByIdRequest} from '@/store/reducer/user/actions';
+import {useEffect} from 'react';
 
 const SelleProfiler = () => {
   const router = useRouter();
-  const product = useAppSelector((state)=>state.product.product)
-  const dispatch = useAppDispatch()
-  const { id }: ParsedUrlQuery = router.query;
+  const dispatch = useAppDispatch();
+  const {id}: ParsedUrlQuery = router.query;
 
-  useEffect(()=>{
-    dispatch(getSellerId(id))
-  },[])
-  
-  const isMobile = !useMediaQuery("md");
+  useEffect(() => {
+    id && dispatch(readUserByIdRequest(id));
+  }, [id]);
+
+  const {
+    loading_user_by_id,
+    user_by_id: {products},
+  } = useAppSelector((state) => state.user);
+
+  const isMobile = !useMediaQuery('md');
 
   return (
     <Container>
-      <Header />
-      <Main>
-        <ContainerSellerProfile>
-          <ContainerSellerProduct>
-            <StyleDesktop>
-              <ContainerSellerProductHeader>
-                <ContainerBreadcumb>
-                  <Breadcrumb />
-                </ContainerBreadcumb>
-                <SelectOrdenation />
-              </ContainerSellerProductHeader>
-            </StyleDesktop>
-            <ContainerSellerProductMain>
-              {BussinessHighlightProductMock.map((item, index) => (
-                <ProductCard
-                  widthTablet="80%"
-                  minWidth="200px"
-                  maxWidth="none"
-                  key={`${item.name} ${index}`}
-                  {...item}
-                />
-              ))}
-            </ContainerSellerProductMain>
-          </ContainerSellerProduct>
-          <CardSellerProfile>
-            {isMobile && (
-              <ContainerBreadcumb>
-                <Breadcrumb />
-              </ContainerBreadcumb>
-            )}
-            <SellerCard />
-          </CardSellerProfile>
-        </ContainerSellerProfile>
-      </Main>
-      <Footer />
+      {loading_user_by_id ? (
+        <></>
+      ) : (
+        <>
+          <Header />
+          <Main>
+            <ContainerSellerProfile>
+              <ContainerSellerProduct>
+                <StyleDesktop>
+                  <ContainerSellerProductHeader>
+                    <ContainerBreadcumb>
+                      <Breadcrumb />
+                    </ContainerBreadcumb>
+                    <SelectOrdenation />
+                  </ContainerSellerProductHeader>
+                </StyleDesktop>
+                <ContainerSellerProductMain>
+                  {products.map((item: any) => {
+                    return (
+                      <ProductCard
+                        widthTablet='80%'
+                        minWidth='200px'
+                        maxWidth='none'
+                        key={`${item.name}-${item.id}`}
+                        {...item}
+                      />
+                    );
+                  })}
+                </ContainerSellerProductMain>
+              </ContainerSellerProduct>
+              <CardSellerProfile>
+                {isMobile && (
+                  <ContainerBreadcumb>
+                    <Breadcrumb />
+                  </ContainerBreadcumb>
+                )}
+                <SellerCard />
+              </CardSellerProfile>
+            </ContainerSellerProfile>
+          </Main>
+          <Footer />
+        </>
+      )}
     </Container>
   );
 };

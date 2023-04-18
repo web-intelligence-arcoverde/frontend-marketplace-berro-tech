@@ -1,30 +1,30 @@
-import Image from "next/image";
-import { Card, CattleCard, Flex, CattleInfoContainer } from "./style";
-import { CardProductProps } from "@/types";
-import { CardNameLocation } from "@/components";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import {Card, CattleCard, Flex, CattleInfoContainer} from './style';
+import {CardProductProps} from '@/types';
+import {CardNameLocation} from '@/components';
+import {useRouter} from 'next/router';
 
 export const ProductCard = ({
   name,
-  photo,
   breed,
-  quantity,
-  state,
-  city,
-  age,
-  sex,
-  rank,
   maxWidth,
   width,
   minWidth,
   widthTablet,
   id,
-}: CardProductProps) => {
+  documents,
+  ageCategory,
+  gender,
+  business,
+  address,
+  classification,
+}: any) => {
   const router = useRouter();
 
   const handleRedirect = () => {
-    router.push({ pathname: `/negocios/produto/${id}` });
+    router.push({pathname: `/negocios/produto/${id}`});
   };
+
   return (
     <Card
       widthTablet={widthTablet}
@@ -33,33 +33,36 @@ export const ProductCard = ({
       maxWidth={maxWidth}
       onClick={handleRedirect}
     >
-      {photo && (
+      {documents.length > 1 && (
         <Image
           width={500}
           height={500}
-          src={photo}
-          alt={`foto de um ${breed}`}
+          src={documents[0].url}
+          alt={`foto de um ${breed.name}`}
         />
       )}
       <Flex>
-        <p>{breed}</p>
+        <p>{breed.name}</p>
         <h6>
-          {quantity} <span>{quantity > 1 ? "restantes" : "restante"}</span>
+          {business.amount}
+          <span>{business.amount > 1 ? ' restantes' : ' restante'}</span>
         </h6>
       </Flex>
-      <CardNameLocation name={name} city={city} state={state} age={age} />
+
+      <CardNameLocation name={name} city={address.city} state={address.state} />
+
       <CattleInfoContainer>
         <CattleCard>
           <h5>Sexo</h5>
-          <h6>{sex}</h6>
+          <h6>{gender}</h6>
         </CattleCard>
         <CattleCard>
           <h5>Idade</h5>
-          <h6>{age}</h6>
+          <h6>{ageCategory.name}</h6>
         </CattleCard>
         <CattleCard>
           <h5>Classficado</h5>
-          <h6>{rank}</h6>
+          <h6>{classification?.name}</h6>
         </CattleCard>
       </CattleInfoContainer>
     </Card>

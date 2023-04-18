@@ -3,6 +3,9 @@ export type UserState = {
 
   user: any;
 
+  user_by_id: any;
+  loading_user_by_id: boolean;
+
   step_edit_user: number;
   visibility_modal_edit_user: boolean;
   profile_seller: object;

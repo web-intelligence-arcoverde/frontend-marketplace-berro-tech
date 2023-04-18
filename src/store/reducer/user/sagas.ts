@@ -2,6 +2,7 @@ import {all, call, put, takeLatest} from 'redux-saga/effects';
 
 import api from '@/service';
 import {store} from '@/store';
+import {readUserByIdSuccess} from './actions';
 
 function* signUpEmail(): any {
   try {
@@ -32,14 +33,7 @@ function* signInProviderGmail({payload}: any): any {
     console.log(e);
   }
 }
-function* getSellerById({payload}: any): any {
-  const {id} = payload.product;
-  try {
-    yield call(api.get, `/auth/googl/${payload.id}`,);
-  } catch (e) {
-    console.log(e);
-  }
-}
+
 function* signInProviderFacebbok({payload}: any): any {
   try {
     const {displayName, email, photoURL} = payload.user;
@@ -56,9 +50,19 @@ function* signInProviderFacebbok({payload}: any): any {
   }
 }
 
+function* readUserById({payload}: any): any {
+  try {
+    const {data} = yield call(api.get, `/user/${payload}`);
+
+    yield put(readUserByIdSuccess(data));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 function* postsSaga() {
   yield all([
-    takeLatest('GET_SELLER_ID', getSellerById),
+    takeLatest('USER/READ-USER-BY-ID-REQUEST', readUserById),
     takeLatest('user/sign-up-request', signUpEmail),
     takeLatest('LOGIN_SIGN_PROVIDER', signInProviderGmail),
     takeLatest('LOGIN_SIGN_PROVIDER', signInProviderFacebbok),
@@ -69,4 +73,3 @@ export default postsSaga;
 function signUpSuccess(data: any): any {
   throw new Error('Function not implemented.');
 }
-

@@ -5,6 +5,7 @@ import {
   showModalEditUser,
   hideModalEditUser,
   setStepEditUser,
+  readUserByIdSuccess,
 } from './actions';
 import {initialState} from './initial';
 
@@ -39,5 +40,9 @@ export const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(hideModalEditUser, (state, action) => {
       state.visibility_modal_edit_user = false;
+    })
+    .addCase(readUserByIdSuccess, (state, action) => {
+      state.loading_user_by_id = false;
+      state.user_by_id = action.payload;
     });
 });

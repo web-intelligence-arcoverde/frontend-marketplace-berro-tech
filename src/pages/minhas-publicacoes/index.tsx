@@ -31,8 +31,6 @@ import {
   ContainerTabs,
 } from '@/style/minhas-publicacoes-style';
 
-import {IProduct} from '@/types/ICardProductProps';
-
 const MyPublication = () => {
   const {visibility_modal_add_product} = useAppSelector(
     (state) => state.product,
@@ -84,21 +82,20 @@ const MyPublication = () => {
 
                 {productsEmpty && Array.isArray(products) ? (
                   <CardProducts>
-                    {products.map((item: IProduct) => (
+                    {products.map((item: any) => (
                       <ProductCard
                         widthTablet='60%'
                         maxWidth='none'
                         key={item.id}
                         id={item.id}
-                        breed={item.breed?.name}
-                        quantity={item.business?.amount}
-                        name={item.name}
-                        city={item.address?.city}
-                        state={item.address?.state}
-                        sex={item.gender}
-                        age={item.age}
-                        rank={item.classification?.name}
-                        photo={item.documents?.[0]?.url}
+                        documents={item.documents}
+                        breed={item.breed}
+                        business={item.business}
+                        name={item?.name}
+                        address={item.address}
+                        gender={item.gender}
+                        ageCategory={item?.ageCategory}
+                        classification={item?.classification}
                       />
                     ))}
                   </CardProducts>

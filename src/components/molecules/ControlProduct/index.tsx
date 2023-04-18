@@ -13,19 +13,18 @@ import {removeProductModal} from '@/store/reducer/product/actions';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 
 export const ControlProduct = ({
+  id,
   name,
+  documents,
   breed,
-  quantity,
-  state,
-  city,
-  age,
-  sex,
-  rank,
+  business,
+  address,
+  gender,
+  ageCategory,
+  classification,
   phone,
   isProductPage,
-  productPrice,
-  productInstallments,
-}: CardProductProps) => {
+}: any) => {
   const controlModal = useAppSelector(
     (state) => state.product.removeProductModal,
   );
@@ -37,19 +36,19 @@ export const ControlProduct = ({
   return (
     <ContainerControlProduct>
       <ProductCard
-        id={0}
-        breed={breed}
-        quantity={quantity}
+        id={id}
         name={name}
-        city={city}
-        state={state}
-        sex={sex}
-        age={age}
-        rank={rank}
+        documents={documents}
+        breed={breed}
+        business={business}
+        address={address}
+        gender={gender}
+        ageCategory={ageCategory}
+        classification={classification}
         maxWidth='100%'
         width='100%'
       />
-      <PriceProduct value={productPrice} installments={productInstallments} />
+      <PriceProduct {...business} />
       {isProductPage ? (
         <CardContact phone={phone} />
       ) : (
