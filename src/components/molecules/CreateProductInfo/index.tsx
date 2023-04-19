@@ -76,6 +76,7 @@ export const CreateProductInfo = () => {
         id='birthday'
         name='birthday'
         placeholder='Data de nascimento'
+  
       />
       <FloatingLabelTextarea
         required

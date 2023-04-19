@@ -33,7 +33,7 @@ export const ProductCard = ({
       maxWidth={maxWidth}
       onClick={handleRedirect}
     >
-      {documents.length > 1 && (
+      {documents.length > 0 && (
         <Image
           width={500}
           height={500}
@@ -58,7 +58,7 @@ export const ProductCard = ({
         </CattleCard>
         <CattleCard>
           <h5>Idade</h5>
-          <h6>{ageCategory.name}</h6>
+          <h6>{ageCategory?.name}</h6>
         </CattleCard>
         <CattleCard>
           <h5>Classficado</h5>

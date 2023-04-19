@@ -44,7 +44,7 @@ const RegisterLocation = (props: any) => {
             id='city'
             isWhite
             name='city'
-            placeholder='cidade'
+            placeholder='Cidade'
           />
         </ContainerInputs>
       </ContainerTitle>
