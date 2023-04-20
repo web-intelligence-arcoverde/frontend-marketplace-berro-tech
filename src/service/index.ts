@@ -8,13 +8,29 @@ const api = axios.create({
   baseURL: dev,
 });
 
-api.interceptors.request.use((config: any) => {
-  const {token} = store.getState().auth;
-  const headers = {...config.headers};
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-  return {...config, headers};
-});
+api.interceptors.request.use(
+  (config: any) => {
+    const {token} = store.getState().auth;
+    const headers = {...config.headers};
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+    return {...config, headers};
+  },
+  (error) => {
+    window.location.href = '/example';
+  },
+);
+
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 401) {
+      store.dispatch({type: 'auth/sign-out-request'});
+    }
+  },
+);
 
 export default api;
