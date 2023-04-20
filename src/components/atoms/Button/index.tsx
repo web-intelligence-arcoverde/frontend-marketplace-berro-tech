@@ -1,5 +1,5 @@
-import { ButtonProps } from "@/types";
-import { CardButton } from "./style";
+import {ButtonProps} from '@/types';
+import {CardButton} from './style';
 
 export const Button = ({
   children,
