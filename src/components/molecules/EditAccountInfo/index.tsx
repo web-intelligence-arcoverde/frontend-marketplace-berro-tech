@@ -78,7 +78,10 @@ export const EditAccountInfo = ({control, errors}: any) => {
         />
       </CardInputUser>
       <ButtonContainer>
-        <Button onClick={() => dispatch(userLoggedDeleteRequest())}>
+        <Button
+          onClick={() => dispatch(userLoggedDeleteRequest())}
+          type='button'
+        >
           Excluir minha conta
         </Button>
       </ButtonContainer>
