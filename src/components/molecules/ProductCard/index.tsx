@@ -33,23 +33,23 @@ export const ProductCard = ({
       maxWidth={maxWidth}
       onClick={handleRedirect}
     >
-      {documents.length > 0 && (
+      {documents?.length > 0 && (
         <Image
           width={500}
           height={500}
           src={documents[0].url}
-          alt={`foto de um ${breed.name}`}
+          alt={`foto de um ${breed?.name}`}
         />
       )}
       <Flex>
-        <p>{breed.name}</p>
+        <p>{breed?.name}</p>
         <h6>
-          {business.amount}
-          <span>{business.amount > 1 ? ' restantes' : ' restante'}</span>
+          {business?.amount}
+          <span>{business?.amount > 1 ? ' restantes' : ' restante'}</span>
         </h6>
       </Flex>
 
-      <CardNameLocation name={name} city={address.city} state={address.state} />
+      <CardNameLocation name={name} city={address?.city} state={address?.state} />
 
       <CattleInfoContainer>
         <CattleCard>
