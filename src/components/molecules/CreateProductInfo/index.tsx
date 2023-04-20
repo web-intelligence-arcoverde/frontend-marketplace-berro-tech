@@ -22,6 +22,7 @@ export const CreateProductInfo = () => {
   const {breeds, age_categories, classifications} = useAppSelector(
     (state) => state.product,
   );
+  const currentDate = new Date().toISOString().split('T')[0] 
 
   const isExistBreeds = breeds.length > 1;
 
@@ -76,6 +77,7 @@ export const CreateProductInfo = () => {
         id='birthday'
         name='birthday'
         placeholder='Data de nascimento'
+        max ={currentDate}
   
       />
       <FloatingLabelTextarea
