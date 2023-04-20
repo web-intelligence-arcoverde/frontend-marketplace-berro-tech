@@ -30,7 +30,6 @@ export const AvatarContainer = () => {
 
   let isEmptyAvatarImage = !!avatar_url ? avatar_url : ICONS.Avatar;
   let showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
-  console.log('aqui',isEmptyAvatarImage)
 
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState(false);
