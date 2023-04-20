@@ -185,10 +185,9 @@ function* signOut() {
 
 function* userDelete() {
   try {
-    yield call(api.get, '/user-logged-delete');
-    localStorage.removeItem('token');
-    window.location.href = '/';
     yield put(signOutSuccess());
+    yield call(api.get, '/user-logged-delete');
+    window.location.href = '/';
   } catch (error) {}
 }
 
