@@ -187,7 +187,6 @@ function* userDelete() {
   try {
     yield put(signOutSuccess());
     yield call(api.get, '/user-logged-delete');
-    window.location.href = '/';
   } catch (error) {}
 }
 
