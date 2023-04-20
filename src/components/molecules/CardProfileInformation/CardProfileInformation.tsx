@@ -1,5 +1,5 @@
-import {ICONS} from '@/assets';
-import {Button, ContainerStepsEditUser, ModalInformation} from '@/components';
+import { ICONS } from '@/assets';
+import { Button, ContainerStepsEditUser, ModalInformation } from '@/components';
 import Image from 'next/image';
 import {
   CardVendedor,
@@ -12,18 +12,20 @@ import {
   RowVertical,
 } from './style';
 import useModalOverflow from '@/hooks/useModalOverflow';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {showModalEditUser} from '@/store/reducer/user/actions';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { showModalEditUser } from '@/store/reducer/user/actions';
 
 export const CardProfileInformation = () => {
-  const {visibility_modal_edit_user} = useAppSelector((state) => state.user);
+  const { visibility_modal_edit_user } = useAppSelector((state) => state.user);
 
-  const {user} = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
 
-  const {avatar_url, contacts, addresses, name, email, avaliation} =
+  const { avatar_url, contacts, addresses, name, email, avaliation } =
     useAppSelector((state) => state.auth.user);
-
   let showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
+  const arrayName = name?.split(' ')
+  const firstName = arrayName?.shift()
+  const lastName = arrayName?.pop()
 
   let phone = contacts.length > 0 && contacts[0].phone_number;
 
@@ -35,7 +37,7 @@ export const CardProfileInformation = () => {
   const dispatch = useAppDispatch();
 
   const handleVisibleModalEditUser = (step?: number) => {
-    dispatch(showModalEditUser({user, step}));
+    dispatch(showModalEditUser({ user, step }));
   };
 
   useModalOverflow(visibility_modal_edit_user, handleVisibleModalEditUser);
@@ -45,12 +47,12 @@ export const CardProfileInformation = () => {
       <HeaderCard>
         <ImagePerfil
           src={showAvatarImage}
-          alt='perfil do vendedor'
-          width='100'
-          height='100'
+          alt="perfil do vendedor"
+          width="100"
+          height="100"
         />
         <Aside>
-          <h5>{name}</h5>
+          <h5>{firstName} {lastName}</h5>
           <TextGray>{email}</TextGray>
           <Button onClick={() => handleVisibleModalEditUser(0)}>
             Minha conta
@@ -86,7 +88,7 @@ export const CardProfileInformation = () => {
             <TextGray>Avaliações</TextGray>
             <h5>
               {avaliation}
-              <Image src={ICONS.StarYellow} alt='estrela de pontuação' />
+              <Image src={ICONS.StarYellow} alt="estrela de pontuação" />
             </h5>
           </CardSection>
         )}

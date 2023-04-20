@@ -10,7 +10,7 @@ export const SellerCard = () => {
     user_by_id: {name, avatar_url, addresses, contacts},
   } = useAppSelector((state) => state.user);
 
-  const {city, state} = addresses.length > 1 && addresses[0];
+  const {city, state} = addresses.length > 0 && addresses[0];
 
   let showCity = !!city ? city : '';
   let showState = !!state ? state : '';
@@ -22,11 +22,11 @@ export const SellerCard = () => {
       <ImageSeller
         src={!!avatar_url ? avatar_url : ICONS.Avatar}
         alt='imagem do vendedor'
-        width='100'
-        height='100'
+        width='384'
+        height='358'
       />
 
-      <CardNameLocation name={name} city={showCity} state={showState} />
+      {<CardNameLocation name={name} city={showCity} state={showState} />}
       <CardContact phone={phone} />
     </Container>
   );

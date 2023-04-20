@@ -18,6 +18,7 @@ export const StyleAvatar = styled(Image)<{isEmpty:boolean}>`
   border-radius: 5px;
   border: solid 2px ${(props)=>props.isEmpty? `${COLORS.light._05}`:  'none'};
   margin-top: 4px;
+  object-fit:cover;
 `;
 export const CardArrowUp = styled.div`
   background-color: ${COLORS.light._05};

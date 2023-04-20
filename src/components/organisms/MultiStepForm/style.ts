@@ -5,7 +5,7 @@ export const LayoutRegisterConfig = styled.div`
   display: flex;
   flex-direction: column;
   width: 800px;
-  height: 720px;
+  height: 70vh;
   border-radius: 5px 5px 0 0;
   background: ${COLORS.light._05};
   @media (max-width: ${BREAKPOINTS.md}) {

@@ -115,6 +115,13 @@ export const ImageContainer = styled.div`
   padding: 24px;
   height: 100%;
   width: 100%;
+  
+  img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+  }
 
   @media (max-width: ${BREAKPOINTS.md}){
     border:none;
@@ -127,9 +134,5 @@ export const ImageContainer = styled.div`
       object-fit: contain;
   }
   }
-  img{
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 5px;
-  }
+ 
 `;
