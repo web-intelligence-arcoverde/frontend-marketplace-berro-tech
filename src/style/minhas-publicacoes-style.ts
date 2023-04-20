@@ -1,11 +1,11 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import styled from "styled-components";
-import { CardButton } from "@/components/atoms/Button/style";
+import {BREAKPOINTS, COLORS} from '@/common';
+import styled from 'styled-components';
+import {CardButton} from '@/components/atoms/Button/style';
 
-export const ContainerMypublication = styled.div<{ empty: boolean }>`
+export const ContainerMypublication = styled.div<{empty: boolean}>`
   display: flex;
   width: 100%;
-  align-items: ${(props) => (props.empty ? "center" : "flex-start")};
+  align-items: ${(props) => (props.empty ? 'center' : 'flex-start')};
   justify-content: space-between;
   padding: 50px 100px;
   #dropdown {
@@ -14,7 +14,7 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
     border-radius: 5px;
     height: 48px;
   }
-  .tabs{
+  .tabs {
     border-bottom: none;
   }
 
@@ -36,8 +36,8 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
         text-align: center;
         font-size: 14px;
       }
-      .active{
-       border: none;
+      .active {
+        border: none;
       }
     }
   }
@@ -118,9 +118,9 @@ export const ContainerTabs = styled.div`
   justify-content: space-between;
   width: 100%;
   border-bottom: solid 1.5px ${COLORS.light._02};
-  max-width:900px;
-  @media(max-width:${BREAKPOINTS.md}){
-    border-bottom:none;
+  max-width: 900px;
+  @media (max-width: ${BREAKPOINTS.md}) {
+    border-bottom: none;
   }
 `;
 // **********************************   Style da página de Id   *************************************
@@ -133,8 +133,8 @@ export const Content = styled.div`
   @media (max-width: ${BREAKPOINTS.lg}) {
     padding: 0;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
     @media (max-width: ${BREAKPOINTS.sm}) {
       gap: 0;
     }
@@ -146,5 +146,4 @@ export const InfoProduct = styled.div`
   flex-direction: column;
   max-width: 700px;
   gap: 32px;
-
 `;

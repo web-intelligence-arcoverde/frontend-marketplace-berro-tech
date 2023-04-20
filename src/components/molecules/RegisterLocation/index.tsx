@@ -1,5 +1,5 @@
 import {FloatingLabelInput} from '@/components';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import {useAppDispatch} from '@/hooks/useSelectorHook';
 import {addProductLocation} from '@/store/reducer/product/actions';
 import {ProductLocationType} from '@/store/reducer/product/types';
 import {
@@ -24,7 +24,7 @@ const RegisterLocation = (props: any) => {
     });
 
     dispatch(addProductLocation(formData));
-    //props?.registerProduct();
+    props?.registerProduct();
   };
 
   return (
@@ -44,7 +44,7 @@ const RegisterLocation = (props: any) => {
             id='city'
             isWhite
             name='city'
-            placeholder='cidade'
+            placeholder='Cidade'
           />
         </ContainerInputs>
       </ContainerTitle>
