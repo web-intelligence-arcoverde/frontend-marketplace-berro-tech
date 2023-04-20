@@ -28,8 +28,6 @@ export const HeaderCard = styled.div`
   }
 `;
 export const ImagePerfil = styled(Image)`
-  width: 96px;
-  height: 96px;
   object-fit: cover;
   border-radius: 5px;
 `;

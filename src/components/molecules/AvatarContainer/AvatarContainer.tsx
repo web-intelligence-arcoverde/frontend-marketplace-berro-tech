@@ -88,8 +88,8 @@ export const AvatarContainer = () => {
               onClick={handleDropDown}
               src={showAvatarImage}
               alt='foto perfil'
-              width='46'
-              height='46'
+              width='48'
+              height='48'
             />
           )}
         </CardAvatar>

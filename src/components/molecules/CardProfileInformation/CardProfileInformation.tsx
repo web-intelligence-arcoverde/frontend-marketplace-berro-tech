@@ -46,8 +46,8 @@ export const CardProfileInformation = () => {
         <ImagePerfil
           src={showAvatarImage}
           alt='perfil do vendedor'
-          width='50'
-          height='50'
+          width='100'
+          height='100'
         />
         <Aside>
           <h5>{name}</h5>

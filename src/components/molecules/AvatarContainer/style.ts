@@ -15,10 +15,8 @@ export const CardDropDown = styled.div`
 export const StyleAvatar = styled(Image)<{isEmpty:boolean}>`
   width: 46px;
   height: 46px;
-  object-fit: cover;
   border-radius: 5px;
-  border: solid 2px ${COLORS.light._05};
-  border: ${(props)=>props.isEmpty && 'none'};
+  border: solid 2px ${(props)=>props.isEmpty? `${COLORS.light._05}`:  'none'};
   margin-top: 4px;
 `;
 export const CardArrowUp = styled.div`
