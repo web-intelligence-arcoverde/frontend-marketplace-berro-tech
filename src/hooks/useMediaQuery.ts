@@ -64,7 +64,7 @@ function getBreakpointValue(breakpoint: Breakpoints) {
     case 'smedium':
       return 750;
     case 'sm':
-      return 500;
+      return 800;
     case 'md':
       return 992;
     case 'big':
