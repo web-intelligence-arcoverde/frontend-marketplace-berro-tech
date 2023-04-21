@@ -38,8 +38,6 @@ const Product = () => {
 
   const router = useRouter();
 
-  console.log(products.documents);
-
   const {id} = router.query;
 
   useEffect(() => {

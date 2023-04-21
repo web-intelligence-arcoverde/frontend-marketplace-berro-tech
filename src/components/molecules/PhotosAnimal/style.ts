@@ -14,7 +14,7 @@ export const Container = styled.div`
 `;
 
 export const CurrentImage = styled(Image)`
-  max-width: 700px;
+  max-width: 1200px;
   height: 400px;
   width: 100%;
   border: none;
