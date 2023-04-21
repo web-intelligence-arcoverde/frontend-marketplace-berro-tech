@@ -7,7 +7,7 @@ import {
 interface DescriptionProductProps {
   description: string;
   weight: string;
-  birthDate: string;
+  birthDate: any;
   genetics: string;
 }
 

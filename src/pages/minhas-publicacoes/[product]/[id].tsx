@@ -16,6 +16,7 @@ import {
 } from '@/store/reducer/product/actions';
 import {Container, Main, StyleDesktop, StyleMobile} from '@/style';
 import {Content, InfoProduct} from '@/style/minhas-publicacoes-style';
+import {formatDate} from '@/util';
 import {useRouter} from 'next/router';
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
@@ -37,9 +38,9 @@ const Product = () => {
 
   const router = useRouter();
 
-  const {id} = router.query;
+  console.log(products.documents);
 
-  console.log(products);
+  const {id} = router.query;
 
   useEffect(() => {
     if (id) {
@@ -47,8 +48,6 @@ const Product = () => {
     }
   }, [id]);
 
-  let description =
-    'Viverra ultrices ut egestas quis. Nascetur turpis fringilla dignissim dis amet turpis neque vitae auctor. Ac et tellus sed non nulla lacus scelerisque scelerisque. Dapibus vitae elementum et arcu faucibus malesuada tempor velit amet.';
   return (
     <AuthPrivateRouter>
       {loading_search_product_by_id ? (
@@ -59,35 +58,34 @@ const Product = () => {
           <Main>
             <Content>
               <InfoProduct>
-                <PhotosAnimal arrayPhoto={BussinessHighlightProductMock} />
+                <PhotosAnimal arrayPhoto={products.documents} />
                 <StyleDesktop>
                   <DescriptionProduct
                     description={products.description}
                     genetics={products.classification.name}
                     weight={products.weight}
-                    birthDate={'30/11/2020'}
+                    birthDate={formatDate(new Date(products.date_birth))}
                   />
                 </StyleDesktop>
               </InfoProduct>
               <InfoProduct>
                 <ControlProduct
                   id={products.id}
-                  breed={products.breed.name}
-                  quantity={products.business.amount}
+                  breed={products.breed}
+                  business={products.business}
                   name={products.name}
-                  city={products.address.city}
-                  state={products.address.state}
-                  sex={products.gender}
-                  age={products.classification.name}
-                  rank={products.classification.name}
+                  address={products.address}
+                  gender={products.gender}
+                  ageCategory={products.ageCategory}
+                  classification={products.classification}
                   maxWidth='100%'
                 />
                 <StyleMobile>
                   <DescriptionProduct
-                    description={description}
-                    genetics={'Puro de Origem'}
-                    weight={'588,9'}
-                    birthDate={'30/11/2020'}
+                    description={products.description}
+                    genetics={products.classification.name}
+                    weight={products.weight}
+                    birthDate={formatDate(new Date(products.date_birth))}
                   />
                 </StyleMobile>
                 <Notification />

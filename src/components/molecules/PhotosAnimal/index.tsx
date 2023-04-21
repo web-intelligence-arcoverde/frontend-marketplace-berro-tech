@@ -25,8 +25,8 @@ export const PhotosAnimal = ({arrayPhoto}: any) => {
     <Container>
       <Breadcrumb />
       <CurrentImage
-        width={500}
-        height={500}
+        width={600}
+        height={600}
         src={currentPhoto}
         alt='imagem atual'
       />

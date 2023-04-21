@@ -1,7 +1,7 @@
-import { BREAKPOINTS } from "../../../common/index";
-import { COLORS } from "@/common";
-import Image from "next/image";
-import styled from "styled-components";
+import {BREAKPOINTS} from '../../../common/index';
+import {COLORS} from '@/common';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
