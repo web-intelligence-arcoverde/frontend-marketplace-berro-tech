@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import {Card, CattleCard, Flex, CattleInfoContainer} from './style';
-import {CardProductProps} from '@/types';
 import {CardNameLocation} from '@/components';
 import {useRouter} from 'next/router';
 
@@ -61,7 +60,7 @@ export const ProductCard = ({
           <h6>{ageCategory?.name}</h6>
         </CattleCard>
         <CattleCard>
-          <h5>Classficado</h5>
+          <h5>Classificado</h5>
           <h6>{classification?.name}</h6>
         </CattleCard>
       </CattleInfoContainer>

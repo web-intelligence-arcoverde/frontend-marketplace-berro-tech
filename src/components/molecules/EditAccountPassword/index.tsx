@@ -50,7 +50,7 @@ export const EditAccountPassword = () => {
             id='password'
             isWhite
             isPassword
-            name='password'
+            name='currentPassword'
             required
             error={error}
             errorMessage={messageErro}
@@ -62,7 +62,7 @@ export const EditAccountPassword = () => {
             isWhite
             isPassword
             required
-            name='confirmationPassword'
+            name='newPassword'
             placeholder='Nova senha'
             error={error}
             errorMessage={messageErro}
