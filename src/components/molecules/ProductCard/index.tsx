@@ -21,7 +21,11 @@ export const ProductCard = ({
   const router = useRouter();
 
   const handleRedirect = () => {
-    router.replace({pathname: `/negocios/produto/${id}`});
+    if (router.pathname === '/minhas-publicacoes') {
+      router.replace({pathname: `/minhas-publicacoes/product/${id}`});
+    } else {
+      router.replace({pathname: `/negocios/produto/${id}`});
+    }
   };
 
   return (
@@ -48,7 +52,11 @@ export const ProductCard = ({
         </h6>
       </Flex>
 
-      <CardNameLocation name={name} city={address?.city} state={address?.state} />
+      <CardNameLocation
+        name={name}
+        city={address?.city}
+        state={address?.state}
+      />
 
       <CattleInfoContainer>
         <CattleCard>
