@@ -1,8 +1,8 @@
-import {BREAKPOINTS, COLORS} from '@/common';
+import { BREAKPOINTS, COLORS } from '@/common';
 import styled from 'styled-components';
-import {CardButton} from '@/components/atoms/Button/style';
+import { CardButton } from '@/components/atoms/Button/style';
 
-export const ContainerMypublication = styled.div<{empty: boolean}>`
+export const ContainerMypublication = styled.div<{ empty: boolean }>`
   display: flex;
   width: 100%;
   align-items: ${(props) => (props.empty ? 'center' : 'flex-start')};
@@ -129,6 +129,7 @@ export const Content = styled.div`
   display: flex;
   padding: 44px 100px;
   gap: 32px;
+  justify-content: space-between;
   background-color: ${COLORS.brand_light._04};
   @media (max-width: ${BREAKPOINTS.lg}) {
     padding: 0;
@@ -144,6 +145,13 @@ export const Content = styled.div`
 export const InfoProduct = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 700px;
+  gap: 32px;
+`;
+export const CardDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 490px;
   gap: 32px;
 `;

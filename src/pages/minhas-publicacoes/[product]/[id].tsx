@@ -8,27 +8,31 @@ import {
   ModalRemovePublication,
   AuthPrivateRouter,
 } from '@/components';
-import {useAppSelector} from '@/hooks/useSelectorHook';
-import {BussinessHighlightProductMock} from '@/mock';
+import { useAppSelector } from '@/hooks/useSelectorHook';
+
 import {
   readProductByIdRequest,
   removeProductModal,
 } from '@/store/reducer/product/actions';
-import {Container, Main, StyleDesktop, StyleMobile} from '@/style';
-import {Content, InfoProduct} from '@/style/minhas-publicacoes-style';
-import {formatDate} from '@/util';
-import {useRouter} from 'next/router';
-import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import { Container, Main, StyleDesktop, StyleMobile } from '@/style';
+import {
+  CardDescription,
+  Content,
+  InfoProduct,
+} from '@/style/minhas-publicacoes-style';
+import { formatDate } from '@/util';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const Product = () => {
   const {
     loading_search_product_by_id,
-    product_by_id: {products, contacts},
+    product_by_id: { products, contacts },
   } = useAppSelector((state) => state.product);
 
   const controlModal = useAppSelector(
-    (state) => state.product.removeProductModal,
+    (state) => state.product.removeProductModal
   );
   const dispatch = useDispatch();
 
@@ -38,7 +42,7 @@ const Product = () => {
 
   const router = useRouter();
 
-  const {id} = router.query;
+  const { id } = router.query;
 
   useEffect(() => {
     if (id) {
@@ -66,7 +70,7 @@ const Product = () => {
                   />
                 </StyleDesktop>
               </InfoProduct>
-              <InfoProduct>
+              <CardDescription>
                 <ControlProduct
                   id={products.id}
                   breed={products.breed}
@@ -76,7 +80,7 @@ const Product = () => {
                   gender={products.gender}
                   ageCategory={products.ageCategory}
                   classification={products.classification}
-                  maxWidth='100%'
+                  maxWidth="100%"
                 />
                 <StyleMobile>
                   <DescriptionProduct
@@ -87,7 +91,7 @@ const Product = () => {
                   />
                 </StyleMobile>
                 <Notification />
-              </InfoProduct>
+              </CardDescription>
               <StyleMobile>
                 <ButtonsControl
                   editItem={() => {}}
