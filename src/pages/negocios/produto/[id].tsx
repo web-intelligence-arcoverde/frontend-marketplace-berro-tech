@@ -20,6 +20,7 @@ import {
   NearProductsContainer,
 } from '@/style/produto-style';
 import {IProduct} from '@/types/ICardProductProps';
+import {formatDate} from '@/util';
 import {useRouter} from 'next/router';
 import {useEffect} from 'react';
 
@@ -58,28 +59,25 @@ const Product = () => {
                     description={products?.description}
                     genetics={products?.classification?.name}
                     weight={products?.weight}
-                    birthDate={'30/11/2020'}
+                    birthDate={formatDate(new Date(products.date_birth))}
                   />
                   <ProductSellerCard />
                 </StyleDesktop>
               </ImagesProduct>
               <InfoProduct>
-                {
-                  <ControlProduct
-                    isProductPage
-                    documents={products.documents}
-                    breed={products.breed}
-                    business={products.business}
-                    id={products.id}
-                    name={products?.name}
-                    address={products.address}
-                    gender={products.gender}
-                    ageCategory={products?.ageCategory}
-                    classification={products?.classification}
-                    phone={contacts[0].phone_number}
-                    maxWidth='100%'
-                  />
-                }
+                <ControlProduct
+                  isProductPage
+                  breed={products.breed}
+                  business={products.business}
+                  id={products.id}
+                  name={products?.name}
+                  address={products.address}
+                  gender={products.gender}
+                  ageCategory={products?.ageCategory}
+                  classification={products?.classification}
+                  phone={contacts[0].phone_number}
+                  maxWidth='100%'
+                />
               </InfoProduct>
               <StyleMobile>
                 <DescriptionProduct

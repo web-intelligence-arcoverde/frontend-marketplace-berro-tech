@@ -18,7 +18,9 @@ export const CurrentImage = styled(Image)`
   height: 400px;
   width: 100%;
   border: none;
-  object-fit: cover;
+  object-fit: container;
+  object-position: center;
+
   @media (max-width: ${BREAKPOINTS.sm}) {
     display: none;
   }

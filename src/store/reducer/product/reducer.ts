@@ -24,6 +24,7 @@ import {
   readClassificationsSuccess,
   readSaleTypeSuccess,
   readProductByIdSuccess,
+  readProductByIdRequest,
 } from './actions';
 
 import {initialState} from './initial';
@@ -122,6 +123,9 @@ export const productReducer = createReducer(initialState, (builder) => {
         state.animals = [];
         state.breeds = [];
       }
+    })
+    .addCase(readProductByIdRequest, (state) => {
+      state.loading_search_product_by_id = true;
     })
     .addCase(readProductByIdSuccess, (state, action) => {
       state.product_by_id = action.payload;

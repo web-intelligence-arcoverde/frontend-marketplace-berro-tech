@@ -6,7 +6,6 @@ import {
   ProductCard,
 } from '@/components';
 import {StyleDesktop} from '@/style';
-import {CardProductProps} from '@/types';
 import {ContainerControlProduct} from './style';
 import {useDispatch} from 'react-redux';
 import {removeProductModal} from '@/store/reducer/product/actions';
