@@ -37,3 +37,10 @@ export {UserLoggedBasicInformation} from './UserLoggedBasicInformation/UserLogge
 export {ModalGeneric} from './ModalGeneric';
 
 export {SelectAnimal} from './SelectAnimal/SelectAnimal';
+
+export {Steps} from './Steps/Steps';
+export {ModalEditPublication} from './ModalEditPublication';
+
+export {EditProductInfo} from './EditProductInfo';
+export {EditProductBussines} from './EditProductBussines';
+export {RegisterPhotos} from './RegisterPhotos';

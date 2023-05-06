@@ -1,7 +1,11 @@
-import {FloatingLabelInput, FloatingLabelRadio} from '@/components';
+import {
+  FloatingInputMask,
+  FloatingLabelInput,
+  FloatingLabelRadio,
+} from '@/components';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {readSaleTypeRequest} from '@/store/reducer/product/actions';
-import {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 export const CreateProductBussines = () => {
   const dispatch = useAppDispatch();
@@ -12,6 +16,17 @@ export const CreateProductBussines = () => {
 
   const {sale} = useAppSelector((state) => state.product);
 
+  const [bussinessInformation, setBussinessInformation] = useState({
+    sellType: '',
+    quantity: '',
+    price: '',
+    installments: '',
+  });
+
+  const onChange = (name: string, value: any) => {
+    setBussinessInformation({...bussinessInformation, [name]: value});
+  };
+
   return (
     <div>
       <FloatingLabelRadio
@@ -21,6 +36,8 @@ export const CreateProductBussines = () => {
         name='sellType'
         id='sellType'
         labels={sale}
+        value={bussinessInformation.sellType}
+        setValue={(event: any) => onChange('sellType', event.target.value)}
       />
       <FloatingLabelInput
         required
@@ -29,15 +46,20 @@ export const CreateProductBussines = () => {
         id='quantity'
         name='quantity'
         placeholder='Quantidade de animais'
+        value={bussinessInformation.quantity}
+        setValue={(event: any) => onChange('quantity', event.target.value)}
       />
-      <FloatingLabelInput
+      <FloatingInputMask
         required
         isWhite
         type='text'
         id='price'
         name='price'
         placeholder='Preço'
+        maskType='price'
         maxLength={14}
+        value={bussinessInformation.price}
+        setValue={(event: any) => onChange('price', event)}
       />
       <FloatingLabelInput
         required
@@ -46,6 +68,8 @@ export const CreateProductBussines = () => {
         id='installments'
         name='installments'
         placeholder='Parcelas'
+        value={bussinessInformation.installments}
+        setValue={(event: any) => onChange('installments', event.target.value)}
       />
     </div>
   );

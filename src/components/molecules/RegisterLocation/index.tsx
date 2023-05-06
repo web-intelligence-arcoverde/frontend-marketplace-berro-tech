@@ -2,6 +2,7 @@ import {FloatingLabelInput} from '@/components';
 import {useAppDispatch} from '@/hooks/useSelectorHook';
 import {addProductLocation} from '@/store/reducer/product/actions';
 import {ProductLocationType} from '@/store/reducer/product/types';
+import {useState} from 'react';
 import {
   Container,
   ContainerInputs,
@@ -13,6 +14,12 @@ import {
 const RegisterLocation = (props: any) => {
   const dispatch = useAppDispatch();
   const formData = {} as ProductLocationType;
+
+  const [productInfo, setProductInfo] = useState({state: '', city: ''});
+
+  const onChange = (name: string, value: any) => {
+    setProductInfo({...productInfo, [name]: value});
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,6 +45,8 @@ const RegisterLocation = (props: any) => {
             isWhite
             name='state'
             placeholder='Estado'
+            setValue={(event: any) => onChange('state', event.target.value)}
+            value={productInfo.state}
           />
           <FloatingLabelInput
             type='text'
@@ -45,6 +54,8 @@ const RegisterLocation = (props: any) => {
             isWhite
             name='city'
             placeholder='Cidade'
+            setValue={(event: any) => onChange('city', event.target.value)}
+            value={productInfo.city}
           />
         </ContainerInputs>
       </ContainerTitle>

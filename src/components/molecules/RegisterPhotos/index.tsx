@@ -17,8 +17,9 @@ import {
   DropedImagesContainer,
 } from './style';
 
-const RegisterPhotos = (props: any) => {
+export const RegisterPhotos = (props: any) => {
   const dispatch = useAppDispatch();
+
   const [content, setContent] = useState<File[]>([]);
   const [isDroped, setIsDroped] = useState<boolean>(false);
 
@@ -117,5 +118,3 @@ const RegisterPhotos = (props: any) => {
     </Container>
   );
 };
-
-export default RegisterPhotos;

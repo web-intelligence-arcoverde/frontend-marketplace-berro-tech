@@ -1,6 +1,12 @@
 import {COLORS} from '@/common';
 import styled from 'styled-components';
 
+export const ContainerField = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export const FormField = styled.div`
   width: 100%;
   position: relative;
@@ -60,4 +66,10 @@ export const Input = styled.input<{active: boolean; isWhite?: boolean}>`
     -webkit-appearance: none;
     margin: 0;
   }
+`;
+
+export const ErrorMessage = styled.p`
+  font-size: 12px;
+  margin-left: 10px;
+  color: red;
 `;

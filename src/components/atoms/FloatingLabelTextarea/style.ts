@@ -1,5 +1,5 @@
-import { COLORS } from "@/common";
-import styled from "styled-components";
+import {COLORS} from '@/common';
+import styled from 'styled-components';
 
 export const FormField = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const FormField = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Label = styled.label<{ active: boolean }>`
+export const Label = styled.label<{active: boolean}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -15,10 +15,8 @@ export const Label = styled.label<{ active: boolean }>`
   color: #999;
   transition: all 0.2s ease-in-out;
   pointer-events: none;
-
- 
 `;
-export const Textarea = styled.textarea<{ active: boolean ; isWhite?:boolean;}>`
+export const Textarea = styled.textarea<{active: boolean; isWhite?: boolean}>`
   min-height: 85px;
   width: 100%;
   border-radius: 5px;
@@ -27,12 +25,9 @@ export const Textarea = styled.textarea<{ active: boolean ; isWhite?:boolean;}>`
   font-weight: 500;
   font-size: 16px;
   border: solid 2px ${COLORS.light._02};
-  padding-top: ${(props) => (props.active ? "16px" : "40px")};
-  background: ${(props) => props.isWhite ? 
-    `${COLORS.light._05}` 
-    :
-     `${COLORS.light._04}`
-    };
+  padding-top: ${(props) => (props.active ? '16px' : '40px')};
+  background: ${(props) =>
+    props.isWhite ? `${COLORS.light._05}` : `${COLORS.light._04}`};
   ::placeholder {
     font-weight: 400;
     color: ${COLORS.gray._03};
@@ -45,12 +40,10 @@ export const Textarea = styled.textarea<{ active: boolean ; isWhite?:boolean;}>`
     font-size: 14px;
     font-weight: 500;
     width: 90%;
-    background:${COLORS.light._04};
-    height:40px;
-    display:flex;
-    align-items:center;
-    padding-top:10px
-
+    background: ${COLORS.light._04};
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
   }
-
 `;

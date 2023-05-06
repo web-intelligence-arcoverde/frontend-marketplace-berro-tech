@@ -1,10 +1,12 @@
 import {createAction} from '@reduxjs/toolkit';
+import {create} from 'domain';
 
 export const addProduct = createAction<any>('ADD_PRODUCT');
 export const GetProductId = createAction<any>('GET_PRODUCT_ID');
 export const addProductInfo = createAction<any>('ADD_PRODUCT_INFO');
 export const addProductImages = createAction<any>('ADD_PRODUCT_IMAGES');
 export const addProductLocation = createAction<any>('ADD_PRODUCT_LOCATION');
+
 export const addItem = createAction<string>('ADD_ITEM');
 export const removeItem = createAction<any>('REMOVE_ITEM');
 export const filterItems = createAction<any>('FILTER_ITEMS');
@@ -75,4 +77,36 @@ export const readProductByIdRequest = createAction<any>(
 
 export const readProductByIdSuccess = createAction<any>(
   'PRODUCT/READ_PRODUCT_BY_ID_SUCCESS',
+);
+
+export const updateProductBasicInformationRequest = createAction<any>(
+  'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_REQUEST',
+);
+
+export const updateProductBasicInformationSuccess = createAction<any>(
+  'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_SUCCESS',
+);
+
+export const deleteProductPhotoRequest = createAction<any>(
+  'PRODUCT/UPDATE_PRODUCT_PHOTO_REQUEST',
+);
+
+export const deleteProductPhotoSuccess = createAction<any>(
+  'PRODUCT/UPDATE_PRODUCT_PHOTO_SUCCESS',
+);
+
+export const addProductPhotoRequest = createAction<any>(
+  'PRODUCT/ADD_PRODUCT_PHOTO_REQUEST',
+);
+
+export const addProductPhotoSuccess = createAction<any>(
+  'PRODUCT/ADD_PRODUCT_PHOTO_SUCCESS',
+);
+
+export const updateProductLocationRequest = createAction<any>(
+  'PRODUCT/UPDATE_PRODUCT_LOCATION_REQUEST',
+);
+
+export const updateProductLocationSuccess = createAction<any>(
+  'PRODUCT/UPDATE_PRODUCT_LOCATION_SUCCESS',
 );

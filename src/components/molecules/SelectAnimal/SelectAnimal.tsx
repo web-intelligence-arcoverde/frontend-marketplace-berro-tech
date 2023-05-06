@@ -7,7 +7,12 @@ import {
 } from '@/store/reducer/product/actions';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 
-export const SelectAnimal = () => {
+interface ISelectAnimal {
+  value: string;
+  setValue?: any;
+}
+
+export const SelectAnimal = ({value, setValue}: ISelectAnimal) => {
   const {animals} = useAppSelector((state) => state.product);
 
   const dispatch = useAppDispatch();
@@ -24,8 +29,11 @@ export const SelectAnimal = () => {
     <FloatingLabelRadio
       required
       setOption={searchBreedByAnimal}
-      placeholder={'Animal'}
+      placeholder='Animal'
+      name='animal'
       labels={animals}
+      value={value}
+      setValue={setValue}
     />
   );
 };

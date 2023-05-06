@@ -1,6 +1,8 @@
 import {all, call, put, takeLatest} from 'redux-saga/effects';
 import api from '@/service';
 import {
+  addProductPhotoSuccess,
+  deleteProductPhotoSuccess,
   productsWithOutFilters,
   readAgeCategoriesSuccess,
   readAnimalSuccess,
@@ -9,6 +11,7 @@ import {
   readProductByIdSuccess,
   readSaleTypeSuccess,
   topSearches,
+  updateProductLocationSuccess,
 } from './actions';
 import {store} from '@/store';
 
@@ -117,6 +120,52 @@ function* readProductById({payload}: any) {
   }
 }
 
+function* updateProductBasicInformation({payload}: any) {
+  try {
+    //yield call(api.put, `/product/${payload.id}`, payload);
+
+    yield put(updateProductLocationSuccess(payload));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* deletePhotoProduct({payload}: any) {
+  try {
+    //yield call(api.delete, `/document/${payload}`);
+
+    yield put(deleteProductPhotoSuccess(payload));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* addPhotoProduct({payload}: any) {
+  try {
+    var formData = new FormData();
+
+    payload.map((file: any) => {
+      formData.append('document', file);
+    });
+
+    //yield call(api.post, `/document/${payload}`,formData);
+
+    yield put(addProductPhotoSuccess(payload));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* updateLocationProduct({payload}: any) {
+  try {
+    //yield call(api.post, `/document/${payload}`,payload);
+
+    yield put(updateProductLocationSuccess(payload));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 function* postsSaga() {
   yield all([
     takeLatest('PRODUCT/READ_PRODUCT_BY_ID_REQUEST', readProductById),
@@ -128,6 +177,20 @@ function* postsSaga() {
     takeLatest('PRODUCT/AGE_CATEGORIES_REQUEST', readAgeCategories),
     takeLatest('PRODUCT/AGE_CLASSIFICATIONS_REQUEST', readClassifications),
     takeLatest('PRODUCT/SALE_TYPE_REQUEST', readSaleType),
+
+    takeLatest(
+      'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_REQUEST',
+      updateProductBasicInformation,
+    ),
+
+    takeLatest('PRODUCT/UPDATE_PRODUCT_PHOTO_REQUEST', deletePhotoProduct),
+
+    takeLatest('PRODUCT/ADD_PRODUCT_PHOTO_REQUEST', addPhotoProduct),
+
+    takeLatest(
+      'PRODUCT/UPDATE_PRODUCT_LOCATION_REQUEST',
+      updateLocationProduct,
+    ),
   ]);
 }
 
