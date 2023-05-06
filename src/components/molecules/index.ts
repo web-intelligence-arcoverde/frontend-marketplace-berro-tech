@@ -43,4 +43,3 @@ export {ModalEditPublication} from './ModalEditPublication';
 
 export {EditProductInfo} from './EditProductInfo';
 export {EditProductBussines} from './EditProductBussines';
-export {RegisterPhotos} from './RegisterPhotos';
