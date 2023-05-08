@@ -26,7 +26,7 @@ export const CardContact = ({phone}: CardContactProps) => {
   return (
     <Container>
       <a
-        href={`https://api.whatsapp.com/send?phone=55${phone}&text=Ol%C3%A1,%20Lucas.%0AGostaria%20de%20entrar%20em%20contato%20para%20falar%20sobre%20o%20seu%20an%C3%BAncio%20na%20BerroTech.%20Fiquei%20interessado.`}
+        href={`https://api.whatsapp.com/send?phone=55${phone}&text=Ol%C3%A1,%20.%0AGostaria%20de%20entrar%20em%20contato%20para%20falar%20sobre%20o%20seu%20an%C3%BAncio%20na%20BerroTech.%20Fiquei%20interessado.`}
       >
         <Image src={ICONS.Whatsapp} alt='Icone whatsapp' />
         Entrar em contato

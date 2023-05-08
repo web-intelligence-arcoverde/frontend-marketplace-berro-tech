@@ -96,7 +96,7 @@ export const AvatarContainer = () => {
       ) : (
         <>
           <CardButton>
-            <ButtonLink id='to-enter' link='entrar'>
+            <ButtonLink id='to-enter' link='/entrar' replace>
               Entrar
             </ButtonLink>
           </CardButton>

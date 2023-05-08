@@ -88,11 +88,8 @@ export const FloatingLabelRadio = ({
           ))}
         </CardOptions>
       )}
-      {openForm || value.length > 0 ? (
-        <Image onClick={clearField} src={ICONS.Excluir} alt='excluir' />
-      ) : (
-        <ArrowDown onClick={handleClick} src={ICONS.Up} alt='seta para cima' />
-      )}
+     
+      <ArrowDown onClick={handleClick} src={ICONS.Up} alt='seta para cima' />
     </FormField>
   );
 };

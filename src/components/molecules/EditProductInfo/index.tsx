@@ -79,11 +79,11 @@ export const EditProductInfo = () => {
         name='name'
         placeholder='Nome'
         value={productInfo.name}
-        setValue={(event: any) => onChange('name', event.target.value)}
+        setValue={(event: any) => onChange('name', event?.target?.value)}
       />
       <SelectAnimal
         value={productInfo.animal}
-        setValue={(event: any) => onChange('animal', event.target.value)}
+        setValue={(event: any) => onChange('animal', event?.target?.value)}
       />
       <FloatingLabelRadio
         required
@@ -116,7 +116,7 @@ export const EditProductInfo = () => {
         id='gender'
       />
       <FloatingLabelRadio
-        value={ageCategory.name}
+        value={productInfo.ageCategory}
         setValue={(event: any) => onChange('ageCategory', event.target.value)}
         required
         name='ageCategory'
