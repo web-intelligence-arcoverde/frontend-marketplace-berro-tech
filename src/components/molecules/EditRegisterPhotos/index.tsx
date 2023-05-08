@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {
   addProductImages,
   addProductPhotoRequest,
+  closeModalUpdateProduct,
   deleteProductPhotoRequest,
 } from '@/store/reducer/product/actions';
 import {StyleDesktop, StyleMobile} from '@/style';
@@ -80,6 +81,8 @@ export const EditRegisterPhotos = () => {
     let newImages = images.filter((item: any) => !!item.id == false);
 
     dispatch(addProductPhotoRequest({id, files: newImages}));
+    
+    dispatch(closeModalUpdateProduct(false))
   };
 
   return (

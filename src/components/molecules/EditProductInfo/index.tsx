@@ -60,7 +60,7 @@ export const EditProductInfo = () => {
     breed: breed.name,
     classification: classification.name,
     gender: gender,
-    ageCategory: ageCategory,
+    ageCategory: ageCategory.name,
     weight: weight,
     date_birth: formatDate(new Date(date_birth)),
     description,
@@ -69,6 +69,8 @@ export const EditProductInfo = () => {
   const onChange = (name: string, value: any) => {
     setProductInfo({...productInfo, [name]: value});
   };
+  
+  console.log(productInfo)
 
   return (
     <div>

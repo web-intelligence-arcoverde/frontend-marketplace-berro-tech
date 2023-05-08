@@ -13,7 +13,7 @@ interface DropedImagesProps {
 export const EditDropedImages = ({
   file,
   index,
-  countImages,
+  countImages = 1,
   handleRemove,
 }: DropedImagesProps) => {
   let splitFileUrl = !!file.url && file.url.split('.');

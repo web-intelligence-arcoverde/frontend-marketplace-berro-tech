@@ -1,6 +1,6 @@
 import {FloatingLabelInput} from '@/components';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {updateProductLocationRequest} from '@/store/reducer/product/actions';
+import {closeModalUpdateProduct, updateProductLocationRequest} from '@/store/reducer/product/actions';
 import {ProductLocationType} from '@/store/reducer/product/types';
 import {
   Container,
@@ -32,6 +32,8 @@ export const EditLocation = () => {
     });
 
     dispatch(updateProductLocationRequest({id, formData}));
+    
+    dispatch(closeModalUpdateProduct(false));
   };
 
   const [productInfo, setProductInfo] = useState(address);
@@ -66,7 +68,7 @@ export const EditLocation = () => {
         </ContainerInputs>
       </ContainerTitle>
       <NextButtonContainer>
-        <NextButton type='submit'>Salvar alterações</NextButton>
+        <NextButton type='submit'>Salvar</NextButton>
       </NextButtonContainer>
     </Container>
   );

@@ -1,5 +1,5 @@
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {updateProductBasicInformationRequest} from '@/store/reducer/product/actions';
+import {closeModalUpdateProduct, updateProductBasicInformationRequest} from '@/store/reducer/product/actions';
 
 import {
   ContainerForm,
@@ -14,7 +14,7 @@ import {ProductLocationType} from '@/store/reducer/product/types';
 
 import {EditProductInfo} from '../../';
 
-export const ProductEditBasicInformation = ({clickStep}: any) => {
+export const ProductEditBasicInformation = () => {
   const dispatch = useAppDispatch();
   const formData = {} as ProductLocationType;
 
@@ -34,6 +34,9 @@ export const ProductEditBasicInformation = ({clickStep}: any) => {
     dispatch(
       updateProductBasicInformationRequest({id: products.id, ...formData}),
     );
+    
+    dispatch(closeModalUpdateProduct(false))
+    
   };
 
   return (
