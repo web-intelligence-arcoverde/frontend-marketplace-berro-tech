@@ -24,12 +24,20 @@ export const ProductSellerCard = () => {
   const isMobile = !useMediaQuery('md');
 
   const {
-    product_by_id: {avatar_url, name, id},
+    product_by_id,
   } = useAppSelector((state) => state.product);
+  
+  
+  const {avatar_url, name, id,addresses} = product_by_id
 
   const handleRedirect = () => {
     router.replace(`/negocios/perfil-vendedor/${id}`);
   };
+  
+  
+  let city = addresses.length > 0 ? addresses[0].city : ''
+  let state = addresses.length > 0 ? addresses[0].state : ''
+  
 
   return (
     <ProductSellerContainer>
@@ -55,7 +63,7 @@ export const ProductSellerCard = () => {
             </DescriptionCard>
             <DescriptionCard>
               <h6>Localização</h6>
-              <p>...</p>
+              <p>{state}-{city}</p>
             </DescriptionCard>
           </InfoCardToMobile>
           {isMobile && (

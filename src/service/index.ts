@@ -19,7 +19,7 @@ api.interceptors.request.use((config : any) => {
     headers
   };
 }, (error) => {
-  window.location.href = '/example';
+  window.location.href = '/';
 },);
 
 api.interceptors.response.use((response) => {
