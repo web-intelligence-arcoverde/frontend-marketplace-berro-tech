@@ -56,20 +56,7 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(filterItems, (state, action) => {
       const filtro = action.payload.toLowerCase();
-      let filterProducts = state.allProducts.filter((item: string) => {
-        return Object.values(item).some(
-          (value) => {
-            let thisObj = typeof value === 'object'
-            if (thisObj) {
-              console.log(value.length)
-            }
-
-
-            return typeof value === 'string' && value.toLowerCase().includes(filtro)
-          }
-        );
-      });
-
+      let filterProducts = filterByAllAttributes(state.allProducts, filtro)
       state.allProducts = filterProducts
     })
     .addCase(productsWithOutFilters, (state, action) => {
@@ -160,3 +147,21 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.featuredProductsLoading = false;
     });
 });
+
+
+function filterByAllAttributes(data: any, term: any) {
+  return data.filter((item: any) => {
+    for (const key in item) {
+      if (typeof item[key] === "object" && item[key] !== null) {
+        if (filterByAllAttributes([item[key]], term).length > 0) {
+          return true;
+        }
+      } else {
+        if (item[key] && item[key].toString().toLowerCase().includes(term.toLowerCase())) {
+          return true;
+        }
+      }
+    }
+    return false;
+  });
+}
