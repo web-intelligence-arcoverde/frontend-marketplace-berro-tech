@@ -112,6 +112,7 @@ export const EditRegisterPhotos = () => {
               {images?.map((file, index) => {
                 return (
                   <EditDropedImages
+                    countImages={images.length}
                     index={index}
                     key={index}
                     file={file}

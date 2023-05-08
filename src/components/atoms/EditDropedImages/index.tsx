@@ -7,11 +7,13 @@ interface DropedImagesProps {
   file: any;
   handleRemove: (e: any) => void;
   index: number;
+  countImages?:number
 }
 
 export const EditDropedImages = ({
   file,
   index,
+  countImages,
   handleRemove,
 }: DropedImagesProps) => {
   let splitFileUrl = !!file.url && file.url.split('.');
@@ -67,10 +69,10 @@ export const EditDropedImages = ({
       {index === 0 && <span>capa</span>}
       {renderImage()}
       {renderVideo()}
-
+      {countImages > 1  &&
       <DropImage onClick={() => handleRemove(index)}>
         <Image src={ICONS.Trash} alt={'imagem de lixeira'} />
-      </DropImage>
+      </DropImage>}
     </DropedImagesCard>
   );
 };
