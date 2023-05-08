@@ -1,15 +1,15 @@
-import { ICONS } from "@/assets";
-import { DropdownMock } from "@/mock";
-import Image from "next/image";
-import React, { useState } from "react";
+import {ICONS} from '@/assets';
+import {DropdownMock} from '@/mock';
+import Image from 'next/image';
+import React, {useState} from 'react';
 import {
   CardSelectProduct,
   ContainerSelectProduct,
   SelectProduct,
-} from "./style";
+} from './style';
 
 export const SelectOrdenation = () => {
-  const [select, setSelect] = useState<string>("Ordenar Por");
+  const [select, setSelect] = useState<string>('Ordenar Por');
   const [open, setOpen] = useState<boolean>(false);
 
   const handleOpenSelect = () => {
@@ -24,10 +24,10 @@ export const SelectOrdenation = () => {
       <SelectProduct
         open={open}
         onClick={handleOpenSelect}
-        placeholder="Orderna por"
+        placeholder='Orderna por'
       >
         <span>{select}</span>
-        <Image src={ICONS.Up} alt="direção da seta" />
+        <Image src={ICONS.Up} alt='direção da seta' />
       </SelectProduct>
       {open && (
         <CardSelectProduct open={open}>

@@ -20,10 +20,12 @@ export const CardNameLocation = ({
         {isAvaliation && <Avaliation avaliation='4.8' />}
       </Flex>
       <Flex>
-        <Location>
-          <Image src={ICONS.Location} alt='icone de localização' />
-          {city}, {state}
-        </Location>
+        {!!city && !!state && (
+          <Location>
+            <Image src={ICONS.Location} alt='icone de localização' />
+            {city}, {state}
+          </Location>
+        )}
       </Flex>
     </div>
   );
