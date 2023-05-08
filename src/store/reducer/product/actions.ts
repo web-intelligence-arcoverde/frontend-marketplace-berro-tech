@@ -1,5 +1,5 @@
-import {createAction} from '@reduxjs/toolkit';
-import {create} from 'domain';
+import { createAction } from '@reduxjs/toolkit';
+import { create } from 'domain';
 
 export const addProduct = createAction<any>('ADD_PRODUCT');
 export const GetProductId = createAction<any>('GET_PRODUCT_ID');
@@ -14,7 +14,7 @@ export const productsWithOutFilters = createAction<any>(
   'PRODUCTS_WITH_OUT_FILTERS',
 );
 export const currentSearch = createAction<string>('CURRENT_SEARCH');
-export const currentStep = createAction<{step: number}>('CURRENTE_STEP');
+export const currentStep = createAction<{ step: number }>('CURRENTE_STEP');
 export const removeProduct = createAction<any>('REMOVE_PRODUCT');
 export const removeProductModal = createAction<boolean>('REMOVE_PRODUCT_MODAL');
 export const topSearches = createAction<any>('TOP_SEARCHES');
@@ -130,4 +130,9 @@ export const readFeaturedProductsRequest = createAction(
 
 export const readFeaturedProductsSuccess = createAction<any>(
   'PRODUCT/READ_FEATURED_PRODUCTS_SUCCESS',
+);
+
+
+export const renewLimitProduct = createAction<any>(
+  'PRODUCT/RENEW_LIMIT_PRODUCT',
 );

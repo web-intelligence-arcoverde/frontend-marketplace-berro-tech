@@ -1,4 +1,4 @@
-import {all, call, put, takeLatest} from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import api from '@/service';
 import {
   addProductPhotoSuccess,
@@ -16,10 +16,10 @@ import {
   updateProductBasicInformationSuccess,
   updateProductLocationSuccess,
 } from './actions';
-import {store} from '@/store';
-import {userLoggedInformationRequest} from '../auth/actions';
+import { store } from '@/store';
+import { userLoggedInformationRequest } from '../auth/actions';
 
-function* getProductById({payload}: any): any {
+function* getProductById({ payload }: any): any {
   try {
     yield call(api.get, `/auth/googl/${payload.id}`);
   } catch (e) {
@@ -29,7 +29,7 @@ function* getProductById({payload}: any): any {
 
 function* getAllProducts() {
   try {
-    const {data} = yield call(api.get, `/products`);
+    const { data } = yield call(api.get, `/products`);
     yield put(productsWithOutFilters(data));
     yield put(topSearches(data));
   } catch (e) {
@@ -39,10 +39,10 @@ function* getAllProducts() {
 
 function* registerProduct() {
   try {
-    const {productImages, productInfo, productLocation} =
+    const { productImages, productInfo, productLocation } =
       store.getState().product;
 
-    const product = {...productInfo, ...productLocation};
+    const product = { ...productInfo, ...productLocation };
 
     var formData = new FormData();
 
@@ -66,7 +66,7 @@ function* registerProduct() {
 
 function* readAnimals() {
   try {
-    const {data} = yield call(api.get, `/animal`);
+    const { data } = yield call(api.get, `/animal`);
 
     yield put(readAnimalSuccess(data));
   } catch (e) {
@@ -74,9 +74,9 @@ function* readAnimals() {
   }
 }
 
-function* readBreedByIdAnimal({payload}: any) {
+function* readBreedByIdAnimal({ payload }: any) {
   try {
-    const {data} = yield call(api.get, `/search-breed-by-name/${payload}`);
+    const { data } = yield call(api.get, `/search-breed-by-name/${payload}`);
 
     yield put(readBreedSuccess(data));
   } catch (e) {
@@ -86,7 +86,7 @@ function* readBreedByIdAnimal({payload}: any) {
 
 function* readAgeCategories() {
   try {
-    const {data} = yield call(api.get, `/age-categories`);
+    const { data } = yield call(api.get, `/age-categories`);
 
     yield put(readAgeCategoriesSuccess(data));
   } catch (e) {
@@ -96,7 +96,7 @@ function* readAgeCategories() {
 
 function* readClassifications() {
   try {
-    const {data} = yield call(api.get, `/classification`);
+    const { data } = yield call(api.get, `/classification`);
 
     yield put(readClassificationsSuccess(data));
   } catch (e) {
@@ -106,7 +106,7 @@ function* readClassifications() {
 
 function* readSaleType() {
   try {
-    const {data} = yield call(api.get, `/sale`);
+    const { data } = yield call(api.get, `/sale`);
 
     yield put(readSaleTypeSuccess(data));
   } catch (e) {
@@ -114,9 +114,9 @@ function* readSaleType() {
   }
 }
 
-function* readProductById({payload}: any) {
+function* readProductById({ payload }: any) {
   try {
-    const {data} = yield call(api.get, `/product/${payload}`);
+    const { data } = yield call(api.get, `/product/${payload}`);
     let product = data;
     product.products = product.products[0];
     yield put(readProductByIdSuccess(product));
@@ -125,7 +125,7 @@ function* readProductById({payload}: any) {
   }
 }
 
-function* updateProductBasicInformation({payload}: any) {
+function* updateProductBasicInformation({ payload }: any) {
   try {
     yield call(api.put, `/product-step-1/${payload.id}`, payload);
 
@@ -135,7 +135,7 @@ function* updateProductBasicInformation({payload}: any) {
   }
 }
 
-function* deletePhotoProduct({payload}: any) {
+function* deletePhotoProduct({ payload }: any) {
   try {
     yield call(api.delete, `/document/${payload}`);
 
@@ -145,9 +145,9 @@ function* deletePhotoProduct({payload}: any) {
   }
 }
 
-function* addPhotoProduct({payload}: any) {
+function* addPhotoProduct({ payload }: any) {
   try {
-    const {files, id} = payload;
+    const { files, id } = payload;
 
     var formData = new FormData();
 
@@ -163,9 +163,9 @@ function* addPhotoProduct({payload}: any) {
   }
 }
 
-function* updateLocationProduct({payload}: any) {
+function* updateLocationProduct({ payload }: any) {
   try {
-    const {id, formData} = payload;
+    const { id, formData } = payload;
 
     yield call(api.put, `/product-step-3/${id}`, formData);
 
@@ -175,7 +175,7 @@ function* updateLocationProduct({payload}: any) {
   }
 }
 
-function* deleteProduct({payload}: any) {
+function* deleteProduct({ payload }: any) {
   try {
     yield call(api.delete, `/product/${payload}`);
   } catch (e) {
@@ -183,9 +183,9 @@ function* deleteProduct({payload}: any) {
   }
 }
 
-function* searchLite({payload}: any) {
+function* searchLite({ payload }: any) {
   try {
-    const {data} = yield call(api.post, `/search-product/`, payload);
+    const { data } = yield call(api.post, `/search-product/`, payload);
 
     yield put(topSearchesFilterSuccess(data));
   } catch (e) {
@@ -195,9 +195,21 @@ function* searchLite({payload}: any) {
 
 function* featuredProducts() {
   try {
-    const {data} = yield call(api.post, `/search-product/`, {type: 'top'});
+    const { data } = yield call(api.post, `/search-product/`, { type: 'top' });
 
     yield put(readFeaturedProductsSuccess(data));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+
+
+
+function* renewLimitProduct({ payload }: any) {
+  try {
+    yield call(api.get, `/renewad/${payload}`);
+
   } catch (e) {
     console.log(e);
   }
@@ -234,6 +246,8 @@ function* postsSaga() {
     takeLatest('TOP_SEARCHES_FILTER', searchLite),
 
     takeLatest('PRODUCT/READ_FEATURED_PRODUCTS_REQUEST', featuredProducts),
+
+    takeLatest('PRODUCT/RENEW_LIMIT_PRODUCT', renewLimitProduct)
   ]);
 }
 

@@ -1,4 +1,5 @@
-import {createReducer} from '@reduxjs/toolkit';
+import { store } from '@/store';
+import { createReducer } from '@reduxjs/toolkit';
 import {
   addProductInfo,
   addProductLocation,
@@ -32,7 +33,7 @@ import {
   readFeaturedProductsSuccess,
 } from './actions';
 
-import {initialState} from './initial';
+import { initialState } from './initial';
 
 export const productReducer = createReducer(initialState, (builder) => {
   builder
@@ -55,12 +56,21 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(filterItems, (state, action) => {
       const filtro = action.payload.toLowerCase();
-      state.allProducts = state.allProducts.filter((item: string) => {
+      let filterProducts = state.allProducts.filter((item: string) => {
         return Object.values(item).some(
-          (value) =>
-            typeof value === 'string' && value.toLowerCase().includes(filtro),
+          (value) => {
+            let thisObj = typeof value === 'object'
+            if (thisObj) {
+              console.log(value.length)
+            }
+
+
+            return typeof value === 'string' && value.toLowerCase().includes(filtro)
+          }
         );
       });
+
+      state.allProducts = filterProducts
     })
     .addCase(productsWithOutFilters, (state, action) => {
       state.allProducts = action.payload;
