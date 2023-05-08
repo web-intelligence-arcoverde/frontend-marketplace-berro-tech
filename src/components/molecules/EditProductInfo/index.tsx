@@ -70,7 +70,6 @@ export const EditProductInfo = () => {
     setProductInfo({...productInfo, [name]: value});
   };
   
-  console.log(productInfo)
 
   return (
     <div>
