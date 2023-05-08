@@ -18,7 +18,12 @@ export const currentStep = createAction<{step: number}>('CURRENTE_STEP');
 export const removeProduct = createAction<any>('REMOVE_PRODUCT');
 export const removeProductModal = createAction<boolean>('REMOVE_PRODUCT_MODAL');
 export const topSearches = createAction<any>('TOP_SEARCHES');
-export const topSearchesFilter = createAction<string>('TOP_SEARCHES_FILTER');
+
+export const topSearchesFilter = createAction<any>('TOP_SEARCHES_FILTER');
+export const topSearchesFilterSuccess = createAction<any>(
+  'PRODUCT/TOP_SEARCHES_FILTER_SUCCESS',
+);
+
 export const allFilterSelected = createAction<any>('ALL_FILTER_SELECTED');
 export const deleteFilterSelected = createAction<string>(
   'DELETE_FILTER_SELECTED',
@@ -88,11 +93,11 @@ export const updateProductBasicInformationSuccess = createAction<any>(
 );
 
 export const deleteProductPhotoRequest = createAction<any>(
-  'PRODUCT/UPDATE_PRODUCT_PHOTO_REQUEST',
+  'PRODUCT/DELETE_PRODUCT_PHOTO_REQUEST',
 );
 
 export const deleteProductPhotoSuccess = createAction<any>(
-  'PRODUCT/UPDATE_PRODUCT_PHOTO_SUCCESS',
+  'PRODUCT/DELETE_PRODUCT_PHOTO_SUCCESS',
 );
 
 export const addProductPhotoRequest = createAction<any>(
@@ -109,4 +114,20 @@ export const updateProductLocationRequest = createAction<any>(
 
 export const updateProductLocationSuccess = createAction<any>(
   'PRODUCT/UPDATE_PRODUCT_LOCATION_SUCCESS',
+);
+
+export const openModalUpdateProduct = createAction<any>(
+  'PRODUCT/OPEN_MODAL_UPDATE_PRODUCT',
+);
+
+export const closeModalUpdateProduct = createAction<any>(
+  'PRODUCT/CLOSE_MODAL_UPDATE_PRODUCT',
+);
+
+export const readFeaturedProductsRequest = createAction(
+  'PRODUCT/READ_FEATURED_PRODUCTS_REQUEST',
+);
+
+export const readFeaturedProductsSuccess = createAction<any>(
+  'PRODUCT/READ_FEATURED_PRODUCTS_SUCCESS',
 );

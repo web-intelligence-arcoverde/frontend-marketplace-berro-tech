@@ -23,20 +23,8 @@ import {
 } from '@/style/minhas-publicacoes-style';
 import {formatDate} from '@/util';
 import {useRouter} from 'next/router';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-
-import {Steps} from '../../../components';
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    transform: 'translate(-50%, -50%)',
-  },
-};
 
 const Product = () => {
   const {

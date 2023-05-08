@@ -46,7 +46,7 @@ export const ProductEditBasicInformation = ({clickStep}: any) => {
         <AboutBussines>
           <TitleStep>Sobre o negócio</TitleStep>
           <EditProductBussines />
-          <NextButton type='submit'>Próximo</NextButton>
+          <NextButton type='submit'>Atualizar</NextButton>
         </AboutBussines>
       </SecondColumn>
     </ContainerForm>

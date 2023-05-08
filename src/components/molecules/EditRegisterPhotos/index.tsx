@@ -23,7 +23,7 @@ import {
 
 import {EditDropedImages} from '../../atoms/EditDropedImages';
 
-export const EditRegisterPhotos = ({clickStep}: any) => {
+export const EditRegisterPhotos = () => {
   const dispatch = useAppDispatch();
 
   const [content, setContent] = useState<File[]>([]);
@@ -79,7 +79,7 @@ export const EditRegisterPhotos = ({clickStep}: any) => {
   const handleSubmit = () => {
     let newImages = images.filter((item: any) => !!item.id == false);
 
-    dispatch(addProductPhotoRequest(newImages));
+    dispatch(addProductPhotoRequest({id, files: newImages}));
   };
 
   return (
@@ -104,7 +104,7 @@ export const EditRegisterPhotos = ({clickStep}: any) => {
                   <ButtonAddImage onClick={handleAddMore}>
                     <Image src={ICONS.Plus} alt='icone de adicionar imagem' />
                   </ButtonAddImage>
-                  <NextButton onClick={handleSubmit}>Próximo</NextButton>
+                  <NextButton onClick={handleSubmit}>Salvar</NextButton>
                 </ButtonsContainer>
               </StyleDesktop>
             </DropedHeader>
@@ -133,7 +133,7 @@ export const EditRegisterPhotos = ({clickStep}: any) => {
               <ButtonAddImage onClick={handleAddMore}>
                 <Image src={ICONS.Plus} alt='icone de adicionar imagem' />
               </ButtonAddImage>
-              <NextButton onClick={handleSubmit}>Próximo</NextButton>
+              <NextButton onClick={handleSubmit}>Salvar</NextButton>
             </ButtonsContainer>
           </StyleMobile>
         </DropedContainer>

@@ -28,8 +28,7 @@ export const initialState: any = {
   currentSearch: '',
   currentStep: 1,
   removeProductModal: false,
-  topSearches: [],
-  topSearchesFilter: 'top',
+
   allFilterSelected: [],
   product: {} as ProductInfoType & ProductLocationType & File[],
   productSelected: {} as IProduct,
@@ -45,4 +44,14 @@ export const initialState: any = {
 
   product_by_id: {},
   loading_search_product_by_id: true,
+
+  modal_update_product: false,
+
+  topSearches: [],
+  topSearchesFilter: 'top',
+
+  quickSearchProducts: [],
+
+  featuredProducts: [],
+  featuredProductsLoading: true,
 };

@@ -1,3 +1,4 @@
+import {useFormatMoney} from '@/hooks/useFormatMoney';
 import {setCellphoneMask, setMoneyMask, setWeightMask} from '@/util';
 import {FormField, Input, Label, ErrorMessage, ContainerField} from './style';
 

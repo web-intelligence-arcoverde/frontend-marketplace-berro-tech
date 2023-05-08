@@ -25,6 +25,11 @@ import {
   readSaleTypeSuccess,
   readProductByIdSuccess,
   readProductByIdRequest,
+  openModalUpdateProduct,
+  closeModalUpdateProduct,
+  topSearchesFilterSuccess,
+  readFeaturedProductsRequest,
+  readFeaturedProductsSuccess,
 } from './actions';
 
 import {initialState} from './initial';
@@ -130,5 +135,18 @@ export const productReducer = createReducer(initialState, (builder) => {
     .addCase(readProductByIdSuccess, (state, action) => {
       state.product_by_id = action.payload;
       state.loading_search_product_by_id = false;
+    })
+    .addCase(openModalUpdateProduct, (state, action) => {
+      state.modal_update_product = true;
+    })
+    .addCase(closeModalUpdateProduct, (state, action) => {
+      state.modal_update_product = false;
+    })
+    .addCase(topSearchesFilterSuccess, (state, action) => {
+      state.topSearches = action.payload;
+    })
+    .addCase(readFeaturedProductsSuccess, (state, action) => {
+      state.featuredProducts = action.payload;
+      state.featuredProductsLoading = false;
     });
 });

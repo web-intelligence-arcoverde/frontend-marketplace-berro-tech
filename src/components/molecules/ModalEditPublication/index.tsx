@@ -1,23 +1,24 @@
 import {Modal, Steps} from '@/components';
 import useModalOverflow from '@/hooks/useModalOverflow';
-import {useState} from 'react';
-import {useRouter} from 'next/router';
+import {useAppSelector} from '@/hooks/useSelectorHook';
+import {closeModalUpdateProduct} from '@/store/reducer/product/actions';
+import {useDispatch} from 'react-redux';
 
 export const ModalEditPublication = () => {
-  const [modal, setModal] = useState<boolean>(true);
+  const {modal_update_product} = useAppSelector((state) => state.product);
 
-  const removeCancel = () => {
-    setModal(false);
+  const dispatch = useDispatch();
+
+  const onCloseModalUpdateProduct = () => {
+    dispatch(closeModalUpdateProduct(modal_update_product));
   };
-  const router = useRouter();
-  const {id} = router.query;
 
-  useModalOverflow(modal, removeCancel);
+  useModalOverflow(modal_update_product, onCloseModalUpdateProduct);
 
   return (
     <>
-      {modal && (
-        <Modal onClick={removeCancel}>
+      {modal_update_product && (
+        <Modal onClick={onCloseModalUpdateProduct}>
           <Steps />
         </Modal>
       )}

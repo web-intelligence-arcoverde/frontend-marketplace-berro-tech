@@ -8,7 +8,10 @@ import {
 import {StyleDesktop} from '@/style';
 import {ContainerControlProduct} from './style';
 import {useDispatch} from 'react-redux';
-import {removeProductModal} from '@/store/reducer/product/actions';
+import {
+  openModalUpdateProduct,
+  removeProductModal,
+} from '@/store/reducer/product/actions';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 
 export const ControlProduct = ({
@@ -27,9 +30,15 @@ export const ControlProduct = ({
   const controlModal = useAppSelector(
     (state) => state.product.removeProductModal,
   );
+
+  const {modal_update_product} = useAppSelector((state) => state.product);
   const dispatch = useDispatch();
   const handleModalRemove = () => {
     dispatch(removeProductModal(controlModal));
+  };
+
+  const handleEditProduct = () => {
+    dispatch(openModalUpdateProduct(modal_update_product));
   };
 
   return (
@@ -52,7 +61,10 @@ export const ControlProduct = ({
         <CardContact phone={phone} />
       ) : (
         <StyleDesktop>
-          <ButtonsControl editItem={() => {}} removeItem={handleModalRemove} />
+          <ButtonsControl
+            editItem={handleEditProduct}
+            removeItem={handleModalRemove}
+          />
         </StyleDesktop>
       )}
       {controlModal && <ModalRemovePublication />}

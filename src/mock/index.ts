@@ -206,10 +206,6 @@ export const tabs = [
     typeFilter: 'rank',
   },
   {
-    title: 'Genética',
-    typeFilter: 'genetics',
-  },
-  {
     title: 'Raça',
     typeFilter: 'breed',
   },

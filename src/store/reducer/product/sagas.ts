@@ -8,15 +8,18 @@ import {
   readAnimalSuccess,
   readBreedSuccess,
   readClassificationsSuccess,
+  readFeaturedProductsSuccess,
   readProductByIdSuccess,
   readSaleTypeSuccess,
   topSearches,
+  topSearchesFilterSuccess,
+  updateProductBasicInformationSuccess,
   updateProductLocationSuccess,
 } from './actions';
 import {store} from '@/store';
+import {userLoggedInformationRequest} from '../auth/actions';
 
 function* getProductById({payload}: any): any {
-  const {id} = payload.product;
   try {
     yield call(api.get, `/auth/googl/${payload.id}`);
   } catch (e) {
@@ -54,6 +57,8 @@ function* registerProduct() {
         'Content-Type': 'multipart/form-data',
       },
     });
+
+    yield put(userLoggedInformationRequest());
   } catch (e) {
     console.log(e);
   }
@@ -122,9 +127,9 @@ function* readProductById({payload}: any) {
 
 function* updateProductBasicInformation({payload}: any) {
   try {
-    //yield call(api.put, `/product/${payload.id}`, payload);
+    yield call(api.put, `/product-step-1/${payload.id}`, payload);
 
-    yield put(updateProductLocationSuccess(payload));
+    yield put(updateProductBasicInformationSuccess(payload));
   } catch (e) {
     console.log(e);
   }
@@ -132,7 +137,7 @@ function* updateProductBasicInformation({payload}: any) {
 
 function* deletePhotoProduct({payload}: any) {
   try {
-    //yield call(api.delete, `/document/${payload}`);
+    yield call(api.delete, `/document/${payload}`);
 
     yield put(deleteProductPhotoSuccess(payload));
   } catch (e) {
@@ -142,13 +147,15 @@ function* deletePhotoProduct({payload}: any) {
 
 function* addPhotoProduct({payload}: any) {
   try {
+    const {files, id} = payload;
+
     var formData = new FormData();
 
-    payload.map((file: any) => {
+    files.map((file: any) => {
       formData.append('document', file);
     });
 
-    //yield call(api.post, `/document/${payload}`,formData);
+    yield call(api.put, `/product-step-2/${id}`, formData);
 
     yield put(addProductPhotoSuccess(payload));
   } catch (e) {
@@ -158,9 +165,39 @@ function* addPhotoProduct({payload}: any) {
 
 function* updateLocationProduct({payload}: any) {
   try {
-    //yield call(api.post, `/document/${payload}`,payload);
+    const {id, formData} = payload;
+
+    yield call(api.put, `/product-step-3/${id}`, formData);
 
     yield put(updateProductLocationSuccess(payload));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* deleteProduct({payload}: any) {
+  try {
+    yield call(api.delete, `/product/${payload}`);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* searchLite({payload}: any) {
+  try {
+    const {data} = yield call(api.post, `/search-product/`, payload);
+
+    yield put(topSearchesFilterSuccess(data));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* featuredProducts() {
+  try {
+    const {data} = yield call(api.post, `/search-product/`, {type: 'top'});
+
+    yield put(readFeaturedProductsSuccess(data));
   } catch (e) {
     console.log(e);
   }
@@ -183,7 +220,7 @@ function* postsSaga() {
       updateProductBasicInformation,
     ),
 
-    takeLatest('PRODUCT/UPDATE_PRODUCT_PHOTO_REQUEST', deletePhotoProduct),
+    takeLatest('PRODUCT/DELETE_PRODUCT_PHOTO_REQUEST', deletePhotoProduct),
 
     takeLatest('PRODUCT/ADD_PRODUCT_PHOTO_REQUEST', addPhotoProduct),
 
@@ -191,6 +228,12 @@ function* postsSaga() {
       'PRODUCT/UPDATE_PRODUCT_LOCATION_REQUEST',
       updateLocationProduct,
     ),
+
+    takeLatest('REMOVE_PRODUCT', deleteProduct),
+
+    takeLatest('TOP_SEARCHES_FILTER', searchLite),
+
+    takeLatest('PRODUCT/READ_FEATURED_PRODUCTS_REQUEST', featuredProducts),
   ]);
 }
 

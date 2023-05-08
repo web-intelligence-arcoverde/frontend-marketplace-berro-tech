@@ -11,7 +11,8 @@ import {
 } from './style';
 import {useAppSelector} from '@/hooks/useSelectorHook';
 import {tabs} from '@/mock';
-import {IProduct} from '@/types/ICardProductProps';
+import {useDispatch} from 'react-redux';
+import {topSearchesFilter} from '@/store/reducer/product/actions';
 
 export const MainSearch = () => {
   const [search, setSearch] = useState('');
@@ -40,8 +41,11 @@ export const MainSearch = () => {
       inputRef.current?.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  const dispatch = useDispatch();
+
   const sendFilter = () => {
-    console.log(`${filterSelected}&${search}`);
+    dispatch(topSearchesFilter({type: filterSelected.type, search: search}));
   };
 
   return (
@@ -69,24 +73,21 @@ export const MainSearch = () => {
       </SearchSideBar>
       <SearchResponseContainer>
         {topSearches.slice(0, 4).map((item: any) => (
-          <>
-            {console.log('bucetia', item)}
-            <ProductCard
-              width='48.5%'
-              maxWidth='none'
-              widthTablet='80%'
-              key={item.id}
-              id={item.id}
-              documents={item.documents}
-              breed={item.breed}
-              business={item.business}
-              name={item?.name}
-              address={item.address}
-              gender={item.gender}
-              ageCategory={item?.ageCategory}
-              classification={item?.classification}
-            />
-          </>
+          <ProductCard
+            width='48.5%'
+            maxWidth='none'
+            widthTablet='80%'
+            key={item.id}
+            id={item.id}
+            documents={item.documents}
+            breed={item.breed}
+            business={item.business}
+            name={item?.name}
+            address={item.address}
+            gender={item.gender}
+            ageCategory={item?.ageCategory}
+            classification={item?.classification}
+          />
         ))}
         {topSearches.length == 0 && (
           <NotFoundFilter
