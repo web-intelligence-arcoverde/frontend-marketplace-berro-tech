@@ -88,9 +88,9 @@ export const productReducer = createReducer(initialState, (builder) => {
     .addCase(allFilterSelected, (state, action) => {
       if (action.payload && action.payload.length > 0) {
         action.payload.forEach((item: string) => {
-          if (!state.allFilterSelected.includes(item)) {
-            state.allFilterSelected = [...state.allFilterSelected, item];
-          }
+          console.log(item)
+          //let filterProducts = filterByAllAttributes(state.allProducts, item)
+          //state.allFilterSelected = [...state.allFilterSelected, filterProducts];
         });
       }
     })
