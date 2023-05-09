@@ -1,14 +1,14 @@
-import {ICONS, IMAGES} from '@/assets';
+import { ICONS, IMAGES } from '@/assets';
 import RegisterInformation from '@/components/molecules/RegisterInformation';
 import RegisterLocation from '@/components/molecules/RegisterLocation';
-import {RegisterPhotos} from '@/components/molecules/RegisterPhotos';
+import { RegisterPhotos } from '@/components/molecules/RegisterPhotos';
 
-import {CardProductProps} from '@/types';
+import { CardProductProps } from '@/types';
 
 export const NavigationHeader = [
-  {name: 'favorito', icon: ICONS.Star},
-  {name: 'mensagens', icon: ICONS.Message},
-  {name: 'alerta', icon: ICONS.Alert},
+  { name: 'favorito', icon: ICONS.Star },
+  { name: 'mensagens', icon: ICONS.Message },
+  { name: 'alerta', icon: ICONS.Alert },
 ];
 export const DropdownMock = ['Mais Recentes', 'Mais Antigos'];
 
@@ -79,26 +79,24 @@ export const BusinessFiltersMock = [
     title: 'Raça',
     filters: [
       'Boer',
-      'Anglo-Nubiana',
+      'Savanna',
+      'Anglo Nubiano',
+      'Murciiana',
       'Saanen',
-      'Alpina',
+      'Parda Alpina',
+      'Alpina Americana',
       'Toggenburg',
-      'Moxotó',
-      'Canindé',
-      'Marota',
-      'Repartida',
-      'Graúna',
-      'Azul',
+      'Murciiana',
+      'SRD (Sem raça definida)',
+      'Dorper',
+      'White Dorper',
+      'Poll Dorset',
+      'Santa Inês',
+      'Somalis',
+      'Morada Nova',
       'Cariri',
-      'Guanambi',
-      'Jarmelista',
-      'Somalis brasileira',
-      'Anglo-bad',
-      'Parda brasileira',
-      'Serrana',
-      'Seridó',
-      'Borborema',
-      'Campolina',
+      'SRD (Sem raça definida)',
+      'Outros',
     ],
   },
   {
@@ -269,15 +267,15 @@ export const MocksSteps = [
 ];
 
 export const MockNavigation = [
-  {name: 'Início', link: '/'},
-  {name: 'Negócios', link: '/negocios'},
-  {name: 'Sobre nós', link: '/sobre'},
+  { name: 'Início', link: '/' },
+  { name: 'Negócios', link: '/negocios' },
+  { name: 'Sobre nós', link: '/sobre' },
 ];
 
 export const StepRegisterProduct = [
-  {id: 1, name: 'Informações', step: 'Passo 1', component: RegisterInformation},
-  {id: 2, name: 'Fotos', step: 'Passo 2', component: RegisterPhotos},
-  {id: 3, name: 'Localização', step: 'Passo 3', component: RegisterLocation},
+  { id: 1, name: 'Informações', step: 'Passo 1', component: RegisterInformation },
+  { id: 2, name: 'Fotos', step: 'Passo 2', component: RegisterPhotos },
+  { id: 3, name: 'Localização', step: 'Passo 3', component: RegisterLocation },
 ];
 
 export const regionMock = [

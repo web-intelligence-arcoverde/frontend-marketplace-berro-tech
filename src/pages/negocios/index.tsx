@@ -30,18 +30,6 @@ export const Business = () => {
   const routerBusiness = router.asPath;
   const [empty, setEmpty] = useState(false);
 
-  const parameter = "Gabriel";
-
-
-  const filteredProducts = allProduct.filter((product : any) => {
-    return Object.values(product).some(value => {
-      if (typeof value === "string") {
-        return value.toLowerCase().includes(parameter.toLowerCase());
-      }
-      return false;
-    });
-  });
-
 
   useEffect(() => {
     if (routerBusiness == '/negocios' && allProduct && allProduct.length > 0) {
@@ -49,65 +37,75 @@ export const Business = () => {
     }
   }, [allProduct]);
 
-  return (<Container>
-    <Header/>
-    <Main>
-      <BussinesContainer>
-        <BussinessAside/>
-        <ProductContainer>
-          <ProductHeaderContainer>
-            <TabsContainer>
-              <Tabs tabs={Bussinestabs}/>
-            </TabsContainer>
-            <SelectContainer>
-              <SelectOrdenation/>
-            </SelectContainer>
-          </ProductHeaderContainer>
-          <ProductCardContainer> {
-            empty ? (<> {
-              allProduct && allProduct.length > 0 ? (allProduct ?. map((item
-              : any) => (<ProductCard widthTablet='60%' maxWidth='none'
-                key={
-                  item.id
-                }
-                id={
-                  item.id
-                }
-                documents={
-                  item.documents
-                }
-                breed={
-                  item.breed
-                }
-                business={
-                  item.business
-                }
-                name={
-                  item ?. name
-                }
-                address={
-                  item.address
-                }
-                gender={
-                  item.gender
-                }
-                ageCategory={
-                  item ?. ageCategory
-                }
-                classification={
-                  item ?. classification
-                }/>))) : (<NotFoundFilter title={
-                  `Nenhum resultado para “${currentSearch}” `
-                }
-                subtitle='Tente alterar os filtros para encontrar negócios'/>)
-            } </>) : (<NotFoundFilter title={`Não temos negócios no momento `}
-              subtitle={`Tente novamente mais tarde`}/>)
-          } </ProductCardContainer>
-        </ProductContainer>
-      </BussinesContainer>
-    </Main>
-    <Footer/>
-  </Container>);
+  return (
+    <Container>
+      <Header/>
+      <Main>
+        <BussinesContainer>
+          <BussinessAside/>
+          <ProductContainer>
+            <ProductHeaderContainer>
+              <TabsContainer>
+                <Tabs tabs={Bussinestabs}/>
+              </TabsContainer>
+              <SelectContainer>
+                <SelectOrdenation/>
+              </SelectContainer>
+            </ProductHeaderContainer>
+            <ProductCardContainer> {
+              empty ? (
+                <> {
+                  allProduct && allProduct.length > 0 ? (allProduct ?. map((item
+                  : any) => (
+                    <ProductCard widthTablet='60%' maxWidth='none'
+                      key={
+                        item.id
+                      }
+                      id={
+                        item.id
+                      }
+                      documents={
+                        item.documents
+                      }
+                      breed={
+                        item.breed
+                      }
+                      business={
+                        item.business
+                      }
+                      name={
+                        item ?. name
+                      }
+                      address={
+                        item.address
+                      }
+                      gender={
+                        item.gender
+                      }
+                      ageCategory={
+                        item ?. ageCategory
+                      }
+                      classification={
+                        item ?. classification
+                      }/>
+                  ))) : (
+                    <NotFoundFilter title={
+                        `Nenhum resultado para “${currentSearch}” `
+                      }
+                      subtitle='Tente alterar os filtros para encontrar negócios'/>
+                  )
+                } </>
+              ) : (
+                <NotFoundFilter title={`Não temos negócios no momento `}
+                  subtitle={`Tente novamente mais tarde`}/>
+              )
+            } </ProductCardContainer>
+          </ProductContainer>
+        </BussinesContainer>
+      </Main>
+      <Footer/>
+    </Container>
+  );
 };
 
 export default Business;
