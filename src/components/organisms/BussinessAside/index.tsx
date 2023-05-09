@@ -1,4 +1,4 @@
-import { Accordion, Dropdown,BussinessFilter, ModalFilters } from "@/components"
+import { Accordion, Dropdown, BussinessFilter, ModalFilters } from "@/components"
 import { Container, BadgeContainer, Badge, HeaderFilterMobile, FilterButtonContainer, FiltersHeaderContainer, FiltersIconTitle, FiltersIconTitleHeader, ArrowImage, CleanFilterButton, ApplyFilterButton } from "./style"
 import { ICONS, } from "@/assets"
 import Image from "next/image"
@@ -18,13 +18,13 @@ export const BussinessAside = () => {
     setIsOpen(!isOpen);
   };
   const dispatch = useDispatch()
-  const lastFilters = useAppSelector((state)=>state.product.allFilterSelected)
+  const lastFilters = useAppSelector((state) => state.product.allFilterSelected)
   return (
     <Container>
       {IsDesktop ?
         BusinessFiltersMock.map((item, index) => (
           <Accordion key={`${item.title}${index}`} icon={item.icon} title={item.title} >
-            <BussinessFilter data={item} returnFilters={(e)=>setFilters(e)} />
+            <BussinessFilter data={item} returnFilters={(e) => setFilters(e)} />
           </Accordion>
         ))
 
@@ -45,7 +45,7 @@ export const BussinessAside = () => {
             </FiltersIconTitleHeader>
             <Dropdown
               options={DropdownMock}
-              onOptionSelect={(option: string): void => { }} />
+              onOptionSelect={(option: string): void => {}} />
 
           </FiltersHeaderContainer>
           <BadgeContainer>
@@ -55,7 +55,7 @@ export const BussinessAside = () => {
             <HeaderFilterMobile>
               <h3>Filtros</h3>
               <FilterButtonContainer>
-                <CleanFilterButton onClick={()=>{dispatch(clearFiltersSelecteds())}}>
+                <CleanFilterButton onClick={() => { dispatch(clearFiltersSelecteds()) }}>
                   Limpar
                 </CleanFilterButton>
                 <ApplyFilterButton>
@@ -65,7 +65,7 @@ export const BussinessAside = () => {
             </HeaderFilterMobile>
             {BusinessFiltersMock.map((item, index) => (
               <Accordion key={`${item.title}${index}`} icon={item.icon} title={item.title} >
-                <BussinessFilter returnFilters={(e)=>setFilters(e)} data={item} />
+                <BussinessFilter returnFilters={(e) => setFilters(e)} data={item} />
               </Accordion>
             ))}
           </ModalFilters>

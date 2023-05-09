@@ -86,13 +86,14 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.topSearchesFilter = action.payload;
     })
     .addCase(allFilterSelected, (state, action) => {
-      if (action.payload && action.payload.length > 0) {
-        action.payload.forEach((item: string) => {
-          console.log(item)
-          //let filterProducts = filterByAllAttributes(state.allProducts, item)
-          //state.allFilterSelected = [...state.allFilterSelected, filterProducts];
-        });
-      }
+
+      state.allFilterSelected = [...state.allFilterSelected, action.payload]
+
+      let filters = action.payload
+      let isEmptyFilters = !!filters && filters.length > 0
+      let itemsFilter = [...state.allProducts]
+
+
     })
     .addCase(deleteFilterSelected, (state, action) => {
       state.allFilterSelected = state.allFilterSelected.filter(
@@ -149,7 +150,7 @@ export const productReducer = createReducer(initialState, (builder) => {
 });
 
 
-function filterByAllAttributes(data: any, term: any) {
+export function filterByAllAttributes(data: any, term: any) {
   return data.filter((item: any) => {
     for (const key in item) {
       if (typeof item[key] === "object" && item[key] !== null) {

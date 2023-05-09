@@ -1,81 +1,70 @@
 import { ICONS } from "@/assets";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import Image from "next/image";
-import {
-  Container,
-  InputSearchBar,
-  InputContainer,
-  CheckboxContainer,
-} from "./style";
+import { Container, InputSearchBar, InputContainer, CheckboxContainer } from "./style";
 import { Checkbox } from "@/components/atoms";
 import { useDispatch } from "react-redux";
-import {
-  allFilterSelected,
-  deleteFilterSelected,
-} from "@/store/reducer/product/actions";
-import { useAppSelector } from "@/hooks/useSelectorHook";
+import { allFilterSelected, deleteFilterSelected } from "@/store/reducer/product/actions";
 
 interface BussinessfilterProps {
   data: any;
   returnFilters: (e: string[]) => void;
 }
 
-export const BussinessFilter = ({
-  data,
-  returnFilters,
-}: BussinessfilterProps) => {
+export const BussinessFilter = ({ data, returnFilters }: BussinessfilterProps) => {
+
   const [checkedArray, setCheckedArray] = useState<string[]>([]);
   const [filteredData, setFilterData] = useState<[]>(data.filters);
+
+  const dispatch = useDispatch();
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newData = data?.filters?.filter((item: string) =>
-      item?.toLowerCase()?.includes(event?.target?.value?.toLowerCase())
-    );
+    event.preventDefault()
+    const newData = data?.filters?.filter((item: string) => item?.toLowerCase()?.includes(event?.target?.value?.toLowerCase()));
     setFilterData(newData);
   };
-  const handleCheck = (e: { name: string; value: boolean }) => {
+
+  const handleChangeFilter = (e: {
+    name: string;
+    value: boolean
+  }) => {
+    console.log(e)
     if (e.value) {
-      setCheckedArray((prevArray) => [...prevArray, e.name]);
+      setCheckedArray((prevArray) => [
+        ...prevArray,
+        e.name
+      ]);
+      dispatch(allFilterSelected(e.name))
     } else {
-      setCheckedArray((prevArray) =>
-        prevArray.filter((item) => item !== e.name)
-      );
-      dispath(deleteFilterSelected(e.name.toString()));
+      setCheckedArray((prevArray) => prevArray.filter((item) => item !== e.name));
+      dispatch(deleteFilterSelected(e.name.toString()));
     }
     return e;
   };
 
-  const allFiltersSelected = useAppSelector(
-    (state) => state.product.allFilterSelected
-  );
 
-  useEffect(() => {
-    console.log(allFiltersSelected);
-  }, [allFiltersSelected]);
-
-  useEffect(() => {
-    dispath(allFilterSelected(checkedArray));
-    returnFilters(checkedArray);
-
-  }, [checkedArray, returnFilters]);
-
-  const dispath = useDispatch();
 
   return (
     <Container>
       <InputContainer>
-        <Image src={ICONS.Search} alt="Icone de pesquisa" />
+        <Image src={
+          ICONS.Search
+        }
+          alt="Icone de pesquisa" />
         <InputSearchBar
-          name={"mainSearch"}
           type={"text"}
           placeholder="Buscar"
-          onChange={handleChange}
-        />
+          onChange={handleChange} />
       </InputContainer>
-      <CheckboxContainer>
-        {filteredData?.map((item: string) => (
-          <Checkbox key={item} onCheck={(e) => handleCheck(e)} name={item} />
-        ))}
-      </CheckboxContainer>
+      <CheckboxContainer> {
+        filteredData?.map((item: string) => (
+          <Checkbox key={item}
+            onCheck={
+              (e) => handleChangeFilter(e)
+            }
+            name={item} />
+        ))
+      } </CheckboxContainer>
     </Container>
   );
 };

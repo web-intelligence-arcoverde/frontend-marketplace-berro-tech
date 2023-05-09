@@ -11,7 +11,7 @@ export const InputSearchBar = styled.input`
   border: none;
 `;
 
-export const InputContainer = styled.form`
+export const InputContainer = styled.div`
   display: flex;
   gap: 20px;
   background: ${COLORS.light._05};

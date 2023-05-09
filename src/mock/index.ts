@@ -86,7 +86,6 @@ export const BusinessFiltersMock = [
       'Parda Alpina',
       'Alpina Americana',
       'Toggenburg',
-      'SRD (Sem raça definida)',
       'Dorper',
       'White Dorper',
       'Poll Dorset',
@@ -108,7 +107,7 @@ export const BusinessFiltersMock = [
     icon: ICONS?.Date,
     iconName: 'Data',
     title: 'Idade',
-    filters: ['Vaca', 'Bezerro', 'Garrote', 'Novilha', 'Aspiração'],
+    filters: ['Jovem', 'Adulto'],
   },
   {
     icon: ICONS?.Quantity,
