@@ -1,5 +1,5 @@
-import {ProductInfoType, ProductLocationType} from './types';
-import {IProduct} from '@/types/ICardProductProps';
+import { ProductInfoType, ProductLocationType } from './types';
+import { IProduct } from '@/types/ICardProductProps';
 
 export const initialState: any = {
   productInfo: {
@@ -54,4 +54,6 @@ export const initialState: any = {
 
   featuredProducts: [],
   featuredProductsLoading: true,
+
+  filterProductByAnimal: []
 };

@@ -31,6 +31,7 @@ import {
   topSearchesFilterSuccess,
   readFeaturedProductsRequest,
   readFeaturedProductsSuccess,
+  filterProductsByAnimal,
 } from './actions';
 
 import { initialState } from './initial';
@@ -86,14 +87,7 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.topSearchesFilter = action.payload;
     })
     .addCase(allFilterSelected, (state, action) => {
-
       state.allFilterSelected = [...state.allFilterSelected, action.payload]
-
-      let filters = action.payload
-      let isEmptyFilters = !!filters && filters.length > 0
-      let itemsFilter = [...state.allProducts]
-
-
     })
     .addCase(deleteFilterSelected, (state, action) => {
       state.allFilterSelected = state.allFilterSelected.filter(
@@ -146,6 +140,8 @@ export const productReducer = createReducer(initialState, (builder) => {
     .addCase(readFeaturedProductsSuccess, (state, action) => {
       state.featuredProducts = action.payload;
       state.featuredProductsLoading = false;
+    }).addCase(filterProductsByAnimal, (state, action) => {
+      state.filterProductByAnimal = action.payload;
     });
 });
 

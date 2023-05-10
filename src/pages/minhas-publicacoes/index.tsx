@@ -11,9 +11,9 @@ import {
   ModalInformation,
 } from '@/components';
 import useModalOverflow from '@/hooks/useModalOverflow';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {Bussinestabs, DropdownMock} from '@/mock';
-import {setVisibilityModalAddProduct} from '@/store/reducer/product/actions';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { Bussinestabs, DropdownMock } from '@/mock';
+import { setVisibilityModalAddProduct } from '@/store/reducer/product/actions';
 
 import {
   Container,
@@ -32,13 +32,13 @@ import {
 } from '@/style/minhas-publicacoes-style';
 
 const MyPublication = () => {
-  const {visibility_modal_add_product} = useAppSelector(
+  const { visibility_modal_add_product } = useAppSelector(
     (state) => state.product,
   );
   const dispatch = useAppDispatch();
 
   const {
-    user: {products},
+    user: { products },
     loading,
   } = useAppSelector((state) => state.auth);
 

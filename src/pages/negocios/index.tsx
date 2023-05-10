@@ -25,13 +25,13 @@ import { filterByAllAttributes } from '@/store/reducer/product/reducer';
 
 
 export const Business = () => {
-  const { allProducts, allFilterSelected } = useAppSelector((state) => state.product);
+  const { allProducts, allFilterSelected, filterProductByAnimal } = useAppSelector((state) => state.product);
   const currentSearch = useAppSelector((state) => state.product.currentSearch);
   const router = useRouter();
   const routerBusiness = router.asPath;
   const [empty, setEmpty] = useState(false);
 
-  let isEmptyProducts = !!allProducts && allProducts.length > 0
+  let isEmptyProducts = filterProductByAnimal.length >= 1 ? filterProductByAnimal : !!allProducts && allProducts.length > 0
   const [products, setProducts] = useState([])
 
 
@@ -40,10 +40,12 @@ export const Business = () => {
       allFilterSelected.map((item: string) => {
         setProducts(filterByAllAttributes(products, item))
       })
+    } else if (filterProductByAnimal.length >= 1) {
+      setProducts(filterProductByAnimal)
     } else {
       setProducts(allProducts)
     }
-  }, [allFilterSelected, allProducts])
+  }, [allFilterSelected, allProducts, filterProductByAnimal])
 
 
   useEffect(() => {

@@ -136,3 +136,8 @@ export const readFeaturedProductsSuccess = createAction<any>(
 export const renewLimitProduct = createAction<any>(
   'PRODUCT/RENEW_LIMIT_PRODUCT',
 );
+
+
+export const filterProductsByAnimal = createAction<any>(
+  'PRODUCT/FILTER_PRODUCTS_BY_ANIMAL',
+);
