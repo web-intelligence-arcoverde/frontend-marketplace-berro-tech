@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 export const FormField = styled.div`
   position: relative;
+  width: 100%;
   margin-bottom: 1rem;
   img {
     position: absolute;
@@ -23,7 +24,7 @@ export const Label = styled.label<{ active: boolean }>`
   transition: all 0.2s ease-in-out;
   pointer-events: none;
 `;
-export const Input = styled.input<{ active: boolean; open: boolean; isWhite?: boolean;}>`
+export const Input = styled.input<{ active: boolean; open: boolean; isWhite?: boolean; }>`
   height: 85px;
   width: 100%;
   border-radius: ${(props) => (props.open ? "5px 5px 0 0" : "5px")};
@@ -33,11 +34,11 @@ export const Input = styled.input<{ active: boolean; open: boolean; isWhite?: bo
   font-size: 16px;
   border: solid 2px ${COLORS.light._02};
   padding-top: ${(props) => (props.active ? "16px" : "40px")};
-  background: ${(props) => props.isWhite ? 
-    `${COLORS.light._05}` 
+  background: ${(props) => props.isWhite ?
+    `${COLORS.light._05}`
     :
     props.open ? `${COLORS.brand_light._04}` : `${COLORS.light._04}`
-    };
+  };
   cursor: pointer;
   ::placeholder {
     font-weight: 400;
@@ -52,7 +53,7 @@ export const Input = styled.input<{ active: boolean; open: boolean; isWhite?: bo
     font-weight: 500;
   }
 `;
-export const CardOptions = styled.div<{isWhite?:boolean;}>`
+export const CardOptions = styled.div<{ isWhite?: boolean; }>`
   border: solid 2px ${COLORS.light._02};
   border-radius: 0 0 5px 5px;
   border-top: none;
@@ -60,11 +61,19 @@ export const CardOptions = styled.div<{isWhite?:boolean;}>`
   flex-direction: column;
   gap: 50px;
   padding: 24px 16px;
-  background: ${(props) => props.isWhite ? 
-    `${COLORS.light._05}` 
+  
+  
+  overflow-y: scroll;
+  height: 200px;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  
+  background: ${(props) => props.isWhite ?
+    `${COLORS.light._05}`
     :
-     `${COLORS.light._04}`
-    };
+    `${COLORS.light._04}`
+  };
 
   input {
     margin-right: 16px;

@@ -29,9 +29,12 @@ import {
   openModalUpdateProduct,
   closeModalUpdateProduct,
   topSearchesFilterSuccess,
-  readFeaturedProductsRequest,
   readFeaturedProductsSuccess,
   filterProductsByAnimal,
+  readProductSuccess,
+  readProductRequest,
+  readStatesSuccess,
+  readCityByUfSuccess,
 } from './actions';
 
 import { initialState } from './initial';
@@ -41,6 +44,7 @@ export const productReducer = createReducer(initialState, (builder) => {
     .addCase(addProductInfo, (state, action) => {
       state.productInfo = action.payload;
     })
+
     .addCase(addProductImages, (state, action) => {
       state.productImages = action.payload;
     })
@@ -115,7 +119,6 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(setVisibilityModalAddProduct, (state, action) => {
       state.visibility_modal_add_product = action.payload;
-
       if (!action.payload) {
         state.animals = [];
         state.breeds = [];
@@ -140,8 +143,22 @@ export const productReducer = createReducer(initialState, (builder) => {
     .addCase(readFeaturedProductsSuccess, (state, action) => {
       state.featuredProducts = action.payload;
       state.featuredProductsLoading = false;
-    }).addCase(filterProductsByAnimal, (state, action) => {
+    })
+    .addCase(filterProductsByAnimal, (state, action) => {
       state.filterProductByAnimal = action.payload;
+    })
+    .addCase(readProductRequest, (state, action) => {
+      state.loadingProducts = true
+    })
+    .addCase(readProductSuccess, (state, action) => {
+      state.products = action.payload;
+      state.loadingProducts = false
+    })
+    .addCase(readStatesSuccess, (state, action) => {
+      state.states = action.payload;
+    })
+    .addCase(readCityByUfSuccess, (state, action) => {
+      state.cities = action.payload;
     });
 });
 

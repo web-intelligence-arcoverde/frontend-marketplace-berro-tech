@@ -4,7 +4,7 @@ import {
   LayoutRegisterConfig,
   StepsContainer,
 } from './style';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 interface Step {
   id: number;

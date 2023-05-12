@@ -1,20 +1,24 @@
-import {ICONS} from '@/assets';
-import Image from 'next/image';
-import {useState} from 'react';
-import {ArrowDown, CardOptions, FormField, Input, Label} from './style';
+import { ICONS } from '@/assets';
+import { useCallback, useState } from 'react';
+import { ArrowDown, CardOptions, FormField, Input, Label } from './style';
 
 interface FloatingLabelInputProps {
   placeholder: string;
-
   name?: string;
   id?: string | undefined;
   labels: any[];
   isWhite?: boolean;
   required?: boolean;
   setOption?: (e: string) => void;
-  disable?: boolean;
+  disabled?: boolean;
   value: string;
   setValue?: any;
+  setItem?: any;
+}
+
+interface ILabel {
+  id: string;
+  name: string;
 }
 
 export const FloatingLabelRadio = ({
@@ -23,72 +27,70 @@ export const FloatingLabelRadio = ({
   value,
   setValue,
   name,
-  ...props
+  setItem,
+  setOption,
+  isWhite = false,
+  required = false,
+  disabled = false,
 }: FloatingLabelInputProps) => {
   const [openForm, setOpenForm] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
 
-  const handleClick = () => {
-    !props.disable && setOpenForm(!openForm);
-  };
+  const handleClick = useCallback(() => {
+    if (!disabled) {
+      setOpenForm((prev) => !prev);
+    }
+  }, [disabled]);
 
-  const clearField = () => {
-    setValue('');
-    setSelectedOption('');
-    setOpenForm(false);
-  };
+  const handleOptionChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>, item?: ILabel) => {
+      setSelectedOption(event.target.value);
+      setOption && setOption(event.target.value);
+      setValue(event);
+      setOpenForm(false);
+      !!setItem && setItem(item);
+    },
+    [setOption, setValue, setItem],
+  );
 
-  const handleOptionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    item?: any,
-  ) => {
-    setSelectedOption(event.target.value);
-    props.setOption && props.setOption(event.target.value);
-    setValue(event);
-    setOpenForm(false);
-  };
 
   return (
     <FormField>
       <Input
-        disabled={props.disable}
-        required={props.required}
-        isWhite={props.isWhite}
+        disabled={disabled}
+        required={required}
+        isWhite={isWhite}
         open={openForm}
         active={!value}
         value={value}
         placeholder={placeholder}
         type='text'
+        autoComplete="off"
         onClick={handleClick}
         name={name}
-        {...props}
       />
 
-      <Label active={!value} htmlFor={props.id}>
+      <Label active={!value} htmlFor={name}>
         {placeholder}
       </Label>
 
       {openForm && (
-        <CardOptions isWhite={props.isWhite}>
+        <CardOptions isWhite={isWhite}>
           {labels.map((item) => (
-            <label key={`${item.id}-${item.name}`}>
+            <label key={item.id} htmlFor={name}>
               <input
                 name={name}
                 type='radio'
-                defaultValue=''
                 value={item.name}
-                checked={selectedOption === item}
+                checked={selectedOption === item.name}
                 onChange={(event) => handleOptionChange(event, item)}
-                onClick={() => {
-                  handleOptionChange;
-                }}
               />
               {item.name}
             </label>
           ))}
         </CardOptions>
       )}
-     
+
       <ArrowDown onClick={handleClick} src={ICONS.Up} alt='seta para cima' />
     </FormField>
   );

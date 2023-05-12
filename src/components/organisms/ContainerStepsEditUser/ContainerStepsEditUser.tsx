@@ -1,13 +1,15 @@
-import {ContentStep, Header, Container, StepsContainer} from './style';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { ContentStep, Header, Container, StepsContainer } from './style';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
 import {
   EditUserBasicInformations,
   EditAccountPassword,
-  EditAccountLocation,
+  EditAccountLocation
 } from '@/components';
-import {useDispatch} from 'react-redux';
-import {setStepEditUser} from '@/store/reducer/user/actions';
+import { useDispatch } from 'react-redux';
+import { setStepEditUser } from '@/store/reducer/user/actions';
+import { useEffect } from 'react';
+import { readStatesRequest } from '@/store/reducer/product/actions';
 
 interface StepsProps {
   [index: number]: any;
@@ -17,9 +19,13 @@ interface StepsProps {
 }
 
 export const ContainerStepsEditUser = ({}) => {
-  const {step_edit_user} = useAppSelector((state) => state.user);
+  const { step_edit_user } = useAppSelector((state) => state.user);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(readStatesRequest());
+  }, []);
 
   const Steps: StepsProps = {
     0: EditUserBasicInformations,
@@ -27,19 +33,15 @@ export const ContainerStepsEditUser = ({}) => {
     2: EditAccountLocation,
   };
 
-  const StepsEditUser = () => {
-    const Step = Steps[step_edit_user];
-
-    return <Step />;
-  };
+  const Step = Steps[step_edit_user];
 
   return (
     <Container>
       <Header>
         {[
-          {name: 'Conta', step: 'Editar', id: 0},
-          {name: 'Senha', step: 'Editer', id: 1},
-          {name: 'Localização', step: 'Editar', id: 2},
+          { name: 'Conta', step: 'Editar', id: 0 },
+          { name: 'Senha', step: 'Editer', id: 1 },
+          { name: 'Localização', step: 'Editar', id: 2 },
         ].map((step) => {
           return (
             <StepsContainer
@@ -54,7 +56,7 @@ export const ContainerStepsEditUser = ({}) => {
         })}
       </Header>
       <ContentStep>
-        <StepsEditUser />
+        <Step />
       </ContentStep>
     </Container>
   );

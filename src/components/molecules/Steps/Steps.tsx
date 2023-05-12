@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import {
   LayoutRegisterConfig,
   HeaderMultiSteps,
@@ -6,15 +6,15 @@ import {
   ContentStep,
 } from './style';
 
-import {ProductEditBasicInformation} from '../ProductEditBasicInformation';
+import { ProductEditBasicInformation } from '../ProductEditBasicInformation';
 
-import {EditLocation} from '../EditLocation';
-import {EditRegisterPhotos} from '../EditRegisterPhotos';
+import { EditLocation } from '../EditLocation';
+import { EditRegisterPhotos } from '../EditRegisterPhotos';
 
 export const steps = [
-  {id: 0, name: 'Informações', step: 'Passo 1'},
-  {id: 1, name: 'Fotos', step: 'Passo 2'},
-  {id: 2, name: 'Localização', step: 'Passo 3'},
+  { id: 0, name: 'Informações', step: 'Passo 1' },
+  { id: 1, name: 'Fotos', step: 'Passo 2' },
+  { id: 2, name: 'Localização', step: 'Passo 3' },
 ];
 
 const stepsComponents = {

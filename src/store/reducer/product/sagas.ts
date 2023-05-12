@@ -7,10 +7,13 @@ import {
   readAgeCategoriesSuccess,
   readAnimalSuccess,
   readBreedSuccess,
+  readCityByUfSuccess,
   readClassificationsSuccess,
   readFeaturedProductsSuccess,
   readProductByIdSuccess,
+  readProductSuccess,
   readSaleTypeSuccess,
+  readStatesSuccess,
   topSearches,
   topSearchesFilterSuccess,
   updateProductBasicInformationSuccess,
@@ -203,17 +206,44 @@ function* featuredProducts() {
   }
 }
 
-
-
-
-function* renewLimitProduct({ payload }: any) {
+function* readProducts() {
   try {
-    yield call(api.get, `/renewad/${payload}`);
-
+    const { data } = yield call(api.get, `/products`);
+    yield put(readProductSuccess(data));
   } catch (e) {
     console.log(e);
   }
 }
+
+function* renewLimitProduct({ payload }: any) {
+  try {
+    yield call(api.get, `/renewad/${payload}`);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* readStates() {
+  try {
+    const { data } = yield call(api.get, `/state/`);
+    yield put(readStatesSuccess(data));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* readCities({ payload }: any) {
+  try {
+    const { data } = yield call(api.get, `/city/${payload}`);
+    yield put(readCityByUfSuccess(data))
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+
+
+
 
 function* postsSaga() {
   yield all([
@@ -247,7 +277,14 @@ function* postsSaga() {
 
     takeLatest('PRODUCT/READ_FEATURED_PRODUCTS_REQUEST', featuredProducts),
 
-    takeLatest('PRODUCT/RENEW_LIMIT_PRODUCT', renewLimitProduct)
+    takeLatest('PRODUCT/RENEW_LIMIT_PRODUCT', renewLimitProduct),
+
+    takeLatest('PRODUCT/READ_PRODUCT_REQUEST', readProducts),
+
+    takeLatest('PRODUCT/READ_STATES_REQUEST', readStates),
+
+    takeLatest('PRODUCT/READ_CITY_BY_UF_REQUEST', readCities),
+
   ]);
 }
 

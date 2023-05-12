@@ -21,7 +21,8 @@ import { Container, Main } from '@/style';
 import { useAppSelector } from '@/hooks/useSelectorHook';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { filterByAllAttributes } from '@/store/reducer/product/reducer';
+
+import { productsHook } from '@/hooks/productHook';
 
 
 export const Business = () => {
@@ -31,21 +32,7 @@ export const Business = () => {
   const routerBusiness = router.asPath;
   const [empty, setEmpty] = useState(false);
 
-  let isEmptyProducts = filterProductByAnimal.length >= 1 ? filterProductByAnimal : !!allProducts && allProducts.length > 0
-  const [products, setProducts] = useState([])
-
-
-  useEffect(() => {
-    if (allFilterSelected.length >= 1) {
-      allFilterSelected.map((item: string) => {
-        setProducts(filterByAllAttributes(products, item))
-      })
-    } else if (filterProductByAnimal.length >= 1) {
-      setProducts(filterProductByAnimal)
-    } else {
-      setProducts(allProducts)
-    }
-  }, [allFilterSelected, allProducts, filterProductByAnimal])
+  const { products, loadingProducts, isEmptyProducts } = productsHook()
 
 
   useEffect(() => {
@@ -53,6 +40,7 @@ export const Business = () => {
       setEmpty(true);
     }
   }, [allProducts]);
+
 
   return (
     <Container>
@@ -70,42 +58,23 @@ export const Business = () => {
               </SelectContainer>
             </ProductHeaderContainer>
             <ProductCardContainer> {
-              empty ? (
+              isEmptyProducts ? (
                 <> {
-                  isEmptyProducts ? (products?.map((item
+                  isEmptyProducts ? ((products?.map((item
                     : any) => (
                     <ProductCard widthTablet='60%' maxWidth='none'
-                      key={
-                        item.id
-                      }
-                      id={
-                        item.id
-                      }
-                      documents={
-                        item.documents
-                      }
-                      breed={
-                        item.breed
-                      }
-                      business={
-                        item.business
-                      }
-                      name={
-                        item?.name
-                      }
-                      address={
-                        item.address
-                      }
-                      gender={
-                        item.gender
-                      }
-                      ageCategory={
-                        item?.ageCategory
-                      }
-                      classification={
-                        item?.classification
-                      } />
-                  ))) : (
+                      key={item.id}
+                      id={item.id}
+                      documents={item.documents}
+                      breed={item.breed}
+                      business={item.business}
+                      name={item?.name}
+                      address={item.address}
+                      gender={item.gender}
+                      ageCategory={item?.ageCategory}
+                      classification={item?.classification}
+                    />
+                  )))) : (
                     <NotFoundFilter title={
                       `Nenhum resultado para “${currentSearch}” `
                     }

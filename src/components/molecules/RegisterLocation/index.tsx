@@ -1,8 +1,8 @@
-import {FloatingLabelInput} from '@/components';
-import {useAppDispatch} from '@/hooks/useSelectorHook';
-import {addProductLocation} from '@/store/reducer/product/actions';
-import {ProductLocationType} from '@/store/reducer/product/types';
-import {useState} from 'react';
+import { FloatingLabelRadio } from '@/components';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { addProductLocation, readCityByUfRequest, readStatesRequest } from '@/store/reducer/product/actions';
+import { ProductLocationType } from '@/store/reducer/product/types';
+import React, { useEffect, useState } from 'react';
 import {
   Container,
   ContainerInputs,
@@ -13,12 +13,16 @@ import {
 
 const RegisterLocation = (props: any) => {
   const dispatch = useAppDispatch();
+
+  const { states, cities } = useAppSelector((state) => state.product)
+
   const formData = {} as ProductLocationType;
 
-  const [productInfo, setProductInfo] = useState({state: '', city: ''});
+  const [productInfo, setProductInfo] = useState({ state: '', city: '' });
+  const [uf, setUf] = useState({ acronym: '' })
 
   const onChange = (name: string, value: any) => {
-    setProductInfo({...productInfo, [name]: value});
+    setProductInfo({ ...productInfo, [name]: value });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -26,7 +30,7 @@ const RegisterLocation = (props: any) => {
     const form = event.target as HTMLFormElement;
     const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
     inputs.forEach((input) => {
-      const {name, value} = input;
+      const { name, value } = input;
       formData[name] = value;
     });
 
@@ -34,26 +38,40 @@ const RegisterLocation = (props: any) => {
     props?.registerProduct();
   };
 
+
+  useEffect(() => {
+    dispatch(readStatesRequest())
+  }, [])
+
+  useEffect(() => {
+    if (!!uf.acronym) {
+      dispatch(readCityByUfRequest(uf.acronym))
+    }
+  }, [uf])
+
   return (
     <Container onSubmit={handleSubmit}>
       <ContainerTitle>
         <h2>Usar sua localização padrão</h2>
         <ContainerInputs>
-          <FloatingLabelInput
-            type='text'
-            id='state'
-            isWhite
+          <FloatingLabelRadio
+            required
+            placeholder='Estados'
             name='state'
-            placeholder='Estado'
-            setValue={(event: any) => onChange('state', event.target.value)}
+            id='state'
+            setItem={setUf}
+            labels={states}
             value={productInfo.state}
+            setValue={(event: any) => {
+              onChange('state', event.target.value);
+            }}
           />
-          <FloatingLabelInput
-            type='text'
-            id='city'
-            isWhite
+          <FloatingLabelRadio
+            required
+            placeholder='Cidades'
             name='city'
-            placeholder='Cidade'
+            id='city'
+            labels={cities}
             setValue={(event: any) => onChange('city', event.target.value)}
             value={productInfo.city}
           />

@@ -1,5 +1,5 @@
-import {FloatingLabelInput} from '@/components';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import { FloatingLabelRadio } from '@/components';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import {
   Container,
   ContainerInputs,
@@ -7,22 +7,42 @@ import {
   NextButtonContainer,
   ContainerTitle,
 } from './style';
-import {userEditLocationInformationRequest} from '@/store/reducer/auth/actions';
-import {IEditUserLocationProps} from '@/store/reducer/auth/types';
-import {showModalEditUser} from '@/store/reducer/user/actions';
+import { userEditLocationInformationRequest } from '@/store/reducer/auth/actions';
+import { IEditUserLocationProps } from '@/store/reducer/auth/types';
+import { showModalEditUser } from '@/store/reducer/user/actions';
+import React, { useState } from 'react';
+import { readCityByUfRequest } from '@/store/reducer/product/actions';
 
 export const EditAccountLocation = () => {
   const {
-    user: {addresses},
+    user: { addresses },
   } = useAppSelector((state) => state.auth);
 
-  let address = addresses.length > 0 && {
-    state: addresses[0].state,
-    city: addresses[0].city,
+  let address =
+    addresses.length > 0
+      ? {
+        state: addresses[0].state,
+        city: addresses[0].city,
+      }
+      : {
+        state: '',
+        city: '',
+      };
+
+  const [productInfo, setProductInfo] = useState({
+    state: address.state,
+    city: address.city,
+  });
+
+  const onChange = (name: string, value: any) => {
+    setProductInfo({ ...productInfo, [name]: value });
   };
 
   const dispatch = useAppDispatch();
   const formData = {} as IEditUserLocationProps;
+
+  const { states, cities } = useAppSelector((state) => state.product);
+
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -30,36 +50,43 @@ export const EditAccountLocation = () => {
     const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
 
     inputs.forEach((input) => {
-      const {name, value} = input;
+      const { name, value } = input;
       formData[name] = value;
     });
 
     dispatch(userEditLocationInformationRequest(formData));
-    dispatch(showModalEditUser({formData, step: 0}));
+    dispatch(showModalEditUser({ formData, step: 0 }));
   };
+
+  let isEmptyCities = cities.length < 1
 
   return (
     <Container onSubmit={handleSubmit}>
       <ContainerTitle>
         <h2>Alterar endereço</h2>
         <ContainerInputs>
-          <FloatingLabelInput
-            type='text'
-            id='state'
-            isWhite
+          <FloatingLabelRadio
+            required
+            placeholder='Estados'
             name='state'
-            placeholder='Estado'
-            //@ts-ignore
-            value={address.state}
+            id='state'
+            setItem={(item: any) => dispatch(readCityByUfRequest(item.acronym))}
+            labels={states}
+            value={productInfo.state}
+            setValue={(event: any) => {
+              let newValue = event.target.value
+              onChange('state', newValue)
+            }}
           />
-          <FloatingLabelInput
-            type='text'
-            id='city'
-            isWhite
+          <FloatingLabelRadio
+            required
+            placeholder='Cidades'
             name='city'
-            placeholder='Cidade'
-            //@ts-ignore
-            value={address.city}
+            id='city'
+            disabled={isEmptyCities}
+            labels={cities}
+            setValue={(event: any) => onChange('city', event.target.value)}
+            value={productInfo.city}
           />
         </ContainerInputs>
       </ContainerTitle>

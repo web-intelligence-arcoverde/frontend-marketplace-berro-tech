@@ -1,9 +1,10 @@
 import { ICONS, IMAGES } from '@/assets';
+
+
 import RegisterInformation from '@/components/molecules/RegisterInformation';
 import RegisterLocation from '@/components/molecules/RegisterLocation';
 import { RegisterPhotos } from '@/components/molecules/RegisterPhotos';
 
-import { CardProductProps } from '@/types';
 
 export const NavigationHeader = [
   { name: 'favorito', icon: ICONS.Star },
@@ -71,7 +72,7 @@ export const BusinessFiltersMock = [
     icon: ICONS?.Classification,
     iconName: 'Classificação',
     title: 'Classificação',
-    filters: ['Reposição', 'Genética'],
+    filters: ['Puro de origem', 'Puro de avaliação', 'Puro de cruzamento', 'Reposição'],
   },
   {
     icon: ICONS?.Race,
@@ -117,80 +118,7 @@ export const BusinessFiltersMock = [
   },
 ];
 
-export const BussinessHighlightProductMock: CardProductProps[] = [
-  {
-    id: 1,
-    photo: IMAGES.GadoThree,
-    breed: 'senepol',
-    quantity: 3,
-    name: ' Senepol',
-    city: 'Monteiro',
-    state: 'Paraiba',
-    sex: 'Macho',
-    age: 'Bezerro',
-    rank: 'Genética',
-  },
-  {
-    id: 2,
-    photo: IMAGES.GadoTwo,
-    breed: 'senepol',
-    quantity: 3,
-    name: ' Himalaia',
-    city: 'Caruaru',
-    state: 'Pernambuco',
-    sex: 'Femea',
-    age: 'Garrote',
-    rank: 'Genética',
-  },
-  {
-    id: 3,
-    photo: IMAGES.GadoThree,
-    breed: 'senepol',
-    quantity: 3,
-    name: ' Pegasus',
-    city: 'Campina Grande',
-    state: 'Paraiba',
-    sex: 'Femea',
-    age: 'Garrote',
-    rank: 'Genética',
-  },
-  {
-    id: 4,
-    photo: IMAGES.GadoFour,
-    breed: 'SRD',
-    quantity: 3,
-    name: ' Senepol',
-    city: 'Buique',
-    state: 'Pernambuco',
-    sex: 'Femea',
-    age: 'Bezerro',
-    rank: 'Genética',
-  },
-  {
-    id: 5,
-    photo: IMAGES.GadoFive,
-    breed: 'SRD',
-    quantity: 3,
-    name: ' Senepol',
-    city: 'Campina Grande',
-    state: 'Paraiba',
-    sex: 'Macho',
-    age: 'Garrote',
-    rank: 'Genética',
-  },
-  {
-    id: 6,
-    photo: IMAGES.GadoSix,
-    breed: 'senepol',
-    quantity: 3,
-    name: ' Senepol',
-    city: 'Campina Grande',
-    state: 'Paraiba',
-    sex: 'Macho',
-    age: 'Novilha',
-    rank: 'Genética',
-  },
-];
+
 
 export const tabs = [
   {

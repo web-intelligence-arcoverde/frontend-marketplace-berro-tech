@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
-import { create } from 'domain';
+
 
 export const addProduct = createAction<any>('ADD_PRODUCT');
 export const GetProductId = createAction<any>('GET_PRODUCT_ID');
@@ -132,12 +132,34 @@ export const readFeaturedProductsSuccess = createAction<any>(
   'PRODUCT/READ_FEATURED_PRODUCTS_SUCCESS',
 );
 
-
 export const renewLimitProduct = createAction<any>(
   'PRODUCT/RENEW_LIMIT_PRODUCT',
 );
 
-
 export const filterProductsByAnimal = createAction<any>(
   'PRODUCT/FILTER_PRODUCTS_BY_ANIMAL',
+);
+
+export const readProductRequest = createAction(
+  'PRODUCT/READ_PRODUCT_REQUEST',
+);
+
+export const readProductSuccess = createAction<any>(
+  'PRODUCT/READ_PRODUCT_SUCCESS',
+);
+
+export const readStatesRequest = createAction(
+  'PRODUCT/READ_STATES_REQUEST',
+);
+
+export const readStatesSuccess = createAction<any>(
+  'PRODUCT/READ_STATES_SUCCESS',
+);
+
+export const readCityByUfRequest = createAction<any>(
+  'PRODUCT/READ_CITY_BY_UF_REQUEST',
+);
+
+export const readCityByUfSuccess = createAction<any>(
+  'PRODUCT/READ_CITY_BY_UF_SUCCESS',
 );

@@ -55,5 +55,14 @@ export const initialState: any = {
   featuredProducts: [],
   featuredProductsLoading: true,
 
-  filterProductByAnimal: []
+  filterProductByAnimal: [],
+
+  states: [],
+  cities: [],
+
+  products: [],
+  loadingProducts: false,
+
+  selectedItemsFilter: []
+
 };

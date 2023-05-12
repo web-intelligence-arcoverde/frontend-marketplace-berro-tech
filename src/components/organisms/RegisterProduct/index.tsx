@@ -1,5 +1,5 @@
-import {MultiStepForm} from '@/components';
-import {StepRegisterProduct} from '@/mock';
+import { MultiStepForm } from '@/components';
+import { StepRegisterProduct } from '@/mock';
 
 export const RegisterProduct = ({
   registerProduct,
