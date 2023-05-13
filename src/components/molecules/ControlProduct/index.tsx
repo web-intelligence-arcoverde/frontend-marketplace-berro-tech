@@ -5,14 +5,14 @@ import {
   PriceProduct,
   ProductCard,
 } from '@/components';
-import {StyleDesktop} from '@/style';
-import {ContainerControlProduct} from './style';
-import {useDispatch} from 'react-redux';
+import { StyleDesktop } from '@/style';
+import { ContainerControlProduct } from './style';
+import { useDispatch } from 'react-redux';
 import {
   openModalUpdateProduct,
   removeProductModal,
 } from '@/store/reducer/product/actions';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
 export const ControlProduct = ({
   id,
@@ -31,7 +31,9 @@ export const ControlProduct = ({
     (state) => state.product.removeProductModal,
   );
 
-  const {modal_update_product} = useAppSelector((state) => state.product);
+
+
+  const { modal_update_product } = useAppSelector((state) => state.product);
   const dispatch = useDispatch();
   const handleModalRemove = () => {
     dispatch(removeProductModal(controlModal));

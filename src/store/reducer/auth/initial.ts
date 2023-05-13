@@ -1,4 +1,4 @@
-import {IAuthState} from './types';
+import { IAuthState } from './types';
 
 export const initialState: IAuthState = {
   token:
@@ -12,4 +12,5 @@ export const initialState: IAuthState = {
   modalError: false,
   loading: true,
   myProducts: [],
+  filterProducts: []
 };

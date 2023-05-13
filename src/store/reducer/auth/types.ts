@@ -7,7 +7,7 @@ export type IAuthState = {
   modalError: boolean;
   myProducts: [];
   loading: boolean;
-  filterProducts: any
+  filterProducts: any[]
 };
 
 export interface ISignIn {
