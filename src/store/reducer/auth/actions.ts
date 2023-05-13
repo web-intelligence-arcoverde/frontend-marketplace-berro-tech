@@ -1,5 +1,5 @@
-import {createAction} from '@reduxjs/toolkit';
-import {ISignIn, IChangerPassword, CustomError} from './types';
+import { createAction } from '@reduxjs/toolkit';
+import { ISignIn, IChangerPassword, CustomError } from './types';
 import { IProduct } from '@/types/ICardProductProps';
 
 export const signUpEmailRequest = createAction('auth/sign-up-email-request');
@@ -39,7 +39,7 @@ export const recoveryAccountSendEmailSuccess = createAction(
   'auth/recovery-account-send-email-success',
 );
 
-export const confirmationVerificationCodeRequest = createAction<{code: string}>(
+export const confirmationVerificationCodeRequest = createAction<{ code: string }>(
   'auth/confirmation-verification-code-request',
 );
 
@@ -103,3 +103,5 @@ export const clearErros = createAction('CLEAR_ERROR');
 export const getMyProducts = createAction('GET_MY_PRODUCTS')
 
 export const getAllMyProducts = createAction<any>('GET_ALL_MY_PRODUCTS')
+
+export const filterUserProducts = createAction<any>('AUTH/FILTER_USER_PRODUCTS')

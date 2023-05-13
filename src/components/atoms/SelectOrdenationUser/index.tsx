@@ -1,7 +1,7 @@
 import { ICONS } from '@/assets';
 import { useAppSelector } from '@/hooks/useSelectorHook';
 import { DropdownMock } from '@/mock';
-import { productsWithOutFilters } from '@/store/reducer/product/actions';
+import { filterUserProducts } from '@/store/reducer/auth/actions';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -11,11 +11,18 @@ import {
   SelectProduct,
 } from './style';
 
-export const SelectOrdenation = () => {
+export const SelectOrdenationUser = () => {
   const [select, setSelect] = useState<string>('Ordenar Por');
   const [open, setOpen] = useState<boolean>(false);
 
-  const { allProducts, filterProductByAnimal } = useAppSelector((state) => state.product);
+
+  const {
+    user: { products },
+    filterProducts,
+  } = useAppSelector((state) => state.auth);
+
+  const product = filterProducts.length >= 1 ? filterProducts : products
+
   const dispatch = useDispatch()
 
   const handleOpenSelect = () => {
@@ -25,14 +32,13 @@ export const SelectOrdenation = () => {
   const handleSelect = (event: string) => {
     setSelect(event);
 
-    let existFilteredProducts = filterProductByAnimal.length >= 1
-    let olderProducts = existFilteredProducts ? [...filterProductByAnimal].sort(sortFunction) : [...allProducts].sort(sortFunction)
-    let mostRecentProducts = existFilteredProducts ? [...filterProductByAnimal].sort(sortFunction) : [...allProducts].sort(sortFunctionReverse)
+    let olderProducts = [...product].sort(sortFunction)
+    let mostRecentProducts = [...product].sort(sortFunctionReverse)
 
     if (event === 'Mais Recentes') {
-      dispatch(productsWithOutFilters(mostRecentProducts))
+      dispatch(filterUserProducts(mostRecentProducts))
     } else {
-      dispatch(productsWithOutFilters(olderProducts))
+      dispatch(filterUserProducts(olderProducts))
     }
 
     setOpen(!open);

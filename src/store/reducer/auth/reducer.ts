@@ -1,4 +1,4 @@
-import {createReducer} from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 import {
   recoveryAccountSendEmailRequest,
   signInEmailSuccess,
@@ -14,9 +14,10 @@ import {
   userEditBasicInformationSuccess,
   getAllMyProducts,
   userLoggedInformationRequest,
+  filterUserProducts,
 } from './actions';
 
-import {initialState} from './initial';
+import { initialState } from './initial';
 
 export const auth = createReducer(initialState, (builder) => {
   builder
@@ -54,7 +55,7 @@ export const auth = createReducer(initialState, (builder) => {
       state.loading = false;
     })
     .addCase(userEditBasicInformationSuccess, (state, action) => {
-      const {name, avatar_url, email, phone} = action.payload;
+      const { name, avatar_url, email, phone } = action.payload;
       state.user.name = name;
       state.user.name = name;
     })
@@ -72,5 +73,7 @@ export const auth = createReducer(initialState, (builder) => {
     })
     .addCase(getAllMyProducts, (state, action) => {
       state.myProducts = action.payload;
+    }).addCase(filterUserProducts, (state, action) => {
+      state.filterProducts = action.payload;
     });
 });
