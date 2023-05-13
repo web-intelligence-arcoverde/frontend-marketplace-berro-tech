@@ -5,8 +5,8 @@ import {
   LinkContainer,
 } from './style';
 import Image from 'next/image';
-import {ICONS} from '@/assets';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { ICONS } from '@/assets';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
 export const SecuritySection = () => {
   const token = useAppSelector((state) => state.auth.token);
