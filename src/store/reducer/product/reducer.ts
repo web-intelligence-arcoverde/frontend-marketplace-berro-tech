@@ -91,7 +91,10 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.topSearchesFilter = action.payload;
     })
     .addCase(allFilterSelected, (state, action) => {
-      state.allFilterSelected = [...state.allFilterSelected, action.payload]
+      let isItemFilter = [...state.allFilterSelected].filter((item) => item === action.payload)
+      if (isItemFilter.length < 1) {
+        state.allFilterSelected = [...state.allFilterSelected, action.payload]
+      }
     })
     .addCase(deleteFilterSelected, (state, action) => {
       state.allFilterSelected = state.allFilterSelected.filter(

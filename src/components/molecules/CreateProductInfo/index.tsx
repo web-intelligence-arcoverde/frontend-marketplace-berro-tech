@@ -5,12 +5,12 @@ import {
   FloatingLabelTextarea,
   SelectAnimal,
 } from '@/components';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import {
   readAgeCategoriesRequest,
   readClassificationsRequest,
 } from '@/store/reducer/product/actions';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const CreateProductInfo = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ export const CreateProductInfo = () => {
     dispatch(readClassificationsRequest());
   }, []);
 
-  const {breeds, age_categories, classifications} = useAppSelector(
+  const { breeds, age_categories, classifications } = useAppSelector(
     (state) => state.product,
   );
   const currentDate = new Date().toISOString().split('T')[0];
@@ -42,7 +42,7 @@ export const CreateProductInfo = () => {
   });
 
   const onChange = (name: string, value: any) => {
-    setProductInfo({...productInfo, [name]: value});
+    setProductInfo({ ...productInfo, [name]: value });
   };
 
   return (
@@ -62,7 +62,7 @@ export const CreateProductInfo = () => {
       />
       <FloatingLabelRadio
         required
-        disable={!isExistBreeds}
+        disabled={!isExistBreeds}
         placeholder='Raça'
         name='breed'
         id='breed'
@@ -86,7 +86,7 @@ export const CreateProductInfo = () => {
         name='gender'
         placeholder={'Sexo'}
         id='gender'
-        labels={[{name: 'Macho'}, {name: 'Fêmea'}]}
+        labels={[{ name: 'Macho' }, { name: 'Fêmea' }]}
         value={productInfo.gender}
         setValue={(event: any) => onChange('gender', event.target.value)}
       />

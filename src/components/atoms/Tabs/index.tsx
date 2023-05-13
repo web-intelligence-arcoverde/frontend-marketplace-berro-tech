@@ -2,7 +2,11 @@ import { TabsProps } from '@/types';
 import React, { useState } from 'react';
 import { Container } from './style';
 import { useDispatch } from 'react-redux';
-import { filterProductsByAnimal, getAllProducts, topSearchesFilter } from '@/store/reducer/product/actions';
+import {
+  filterProductsByAnimal,
+  getAllProducts,
+  topSearchesFilter,
+} from '@/store/reducer/product/actions';
 import { useAppSelector } from '@/hooks/useSelectorHook';
 import { filterByAllAttributes } from '@/store/reducer/product/reducer';
 
@@ -14,30 +18,25 @@ export const Tabs = ({ tabs, initialTab = 3 }: TabsProps) => {
   const dispatch = useDispatch();
 
   const handleClick = (event: any, value: number) => {
-
-    let currentValueTab = selectedTab
-    let newValueTab = value
+    let currentValueTab = selectedTab;
+    let newValueTab = value;
 
     if (currentValueTab === newValueTab) {
       setSelectedTab(3);
-      dispatch(getAllProducts())
-      dispatch(filterProductsByAnimal([]))
+      dispatch(getAllProducts());
+      dispatch(filterProductsByAnimal([]));
     } else {
-
       setSelectedTab(value);
 
       if (newValueTab === 0) {
-        const filterByBreed = filterByAllAttributes(allProducts, 'caprino')
-        dispatch(filterProductsByAnimal(filterByBreed))
+        const filterByBreed = filterByAllAttributes(allProducts, 'caprino');
+        dispatch(filterProductsByAnimal(filterByBreed));
       } else if (value === 1) {
-        const filterByBreed = filterByAllAttributes(allProducts, 'ovino')
-        dispatch(filterProductsByAnimal(filterByBreed))
+        const filterByBreed = filterByAllAttributes(allProducts, 'ovino');
+        dispatch(filterProductsByAnimal(filterByBreed));
       }
-
     }
-
     dispatch(topSearchesFilter({ type: event.typeFilter }));
-
   };
 
   return (

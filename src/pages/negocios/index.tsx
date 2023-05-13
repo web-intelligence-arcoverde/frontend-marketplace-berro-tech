@@ -5,7 +5,7 @@ import {
   NotFoundFilter,
   ProductCard,
   SelectOrdenation,
-  Tabs
+  Tabs,
 } from '@/components';
 import {
   BussinesContainer,
@@ -13,34 +13,61 @@ import {
   ProductCardContainer,
   TabsContainer,
   ProductHeaderContainer,
-  SelectContainer
+  SelectContainer,
 } from '@/style/negocios-style';
 import { Bussinestabs } from '@/mock';
 
 import { Container, Main } from '@/style';
-import { useAppSelector } from '@/hooks/useSelectorHook';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { useEffect } from 'react';
 
-import { productsHook } from '@/hooks/productHook';
-
+import {
+  filterProductsByAnimal,
+  readProductRequest,
+} from '@/store/reducer/product/actions';
+import { filterByAllAttributes } from '@/store/reducer/product/reducer';
 
 export const Business = () => {
-  const { allProducts, allFilterSelected, filterProductByAnimal } = useAppSelector((state) => state.product);
-  const currentSearch = useAppSelector((state) => state.product.currentSearch);
-  const router = useRouter();
-  const routerBusiness = router.asPath;
-  const [empty, setEmpty] = useState(false);
 
-  const { products, loadingProducts, isEmptyProducts } = productsHook()
+  const { allProducts, allFilterSelected, filterProductByAnimal } =
+    useAppSelector((state) => state.product);
+
+  const currentSearch = useAppSelector((state) => state.product.currentSearch);
+
+  let isExistItemsSelectedFilter = allFilterSelected.length >= 1;
+
+  let isNotEmptyProduct =
+    filterProductByAnimal.length < 1 && allProducts.length < 1;
+
+  let product = isExistItemsSelectedFilter
+    ? filterProductByAnimal
+    : filterProductByAnimal.length >= 1
+      ? filterProductByAnimal
+      : allProducts;
+
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(readProductRequest());
+  }, [dispatch]);
 
 
   useEffect(() => {
-    if (routerBusiness == '/negocios' && isEmptyProducts) {
-      setEmpty(true);
+    if (isExistItemsSelectedFilter) {
+      allFilterSelected.map((item: any) => {
+        if (allFilterSelected.length === 1) {
+          let productsFiltred = filterByAllAttributes(product, item);
+          dispatch(filterProductsByAnimal(productsFiltred));
+        } else if (allFilterSelected.length > 1) {
+          let productsFiltred = filterByAllAttributes(product, item);
+          dispatch(filterProductsByAnimal(productsFiltred));
+        }
+      });
+    } else {
+      dispatch(filterProductsByAnimal(allProducts));
     }
-  }, [allProducts]);
-
+  }, [allFilterSelected, isExistItemsSelectedFilter, allProducts]);
 
   return (
     <Container>
@@ -57,35 +84,40 @@ export const Business = () => {
                 <SelectOrdenation />
               </SelectContainer>
             </ProductHeaderContainer>
-            <ProductCardContainer> {
-              isEmptyProducts ? (
-                <> {
-                  isEmptyProducts ? ((products?.map((item
-                    : any) => (
-                    <ProductCard widthTablet='60%' maxWidth='none'
-                      key={item.id}
-                      id={item.id}
-                      documents={item.documents}
-                      breed={item.breed}
-                      business={item.business}
-                      name={item?.name}
-                      address={item.address}
-                      gender={item.gender}
-                      ageCategory={item?.ageCategory}
-                      classification={item?.classification}
+            <ProductCardContainer>
+              {!isNotEmptyProduct ? (
+                <>
+                  {!isNotEmptyProduct ? (
+                    product?.map((item: any) => (
+                      <ProductCard
+                        widthTablet='60%'
+                        maxWidth='none'
+                        key={item.id}
+                        id={item.id}
+                        documents={item.documents}
+                        breed={item.breed}
+                        business={item.business}
+                        name={item?.name}
+                        address={item.address}
+                        gender={item.gender}
+                        ageCategory={item?.ageCategory}
+                        classification={item?.classification}
+                      />
+                    ))
+                  ) : (
+                    <NotFoundFilter
+                      title={`Nenhum resultado para “${currentSearch}” `}
+                      subtitle='Tente alterar os filtros para encontrar negócios'
                     />
-                  )))) : (
-                    <NotFoundFilter title={
-                      `Nenhum resultado para “${currentSearch}” `
-                    }
-                      subtitle='Tente alterar os filtros para encontrar negócios' />
-                  )
-                } </>
+                  )}
+                </>
               ) : (
-                <NotFoundFilter title={`Não temos negócios no momento `}
-                  subtitle={`Tente novamente mais tarde`} />
-              )
-            } </ProductCardContainer>
+                <NotFoundFilter
+                  title={`Não temos negócios no momento `}
+                  subtitle={`Tente novamente mais tarde`}
+                />
+              )}
+            </ProductCardContainer>
           </ProductContainer>
         </BussinesContainer>
       </Main>

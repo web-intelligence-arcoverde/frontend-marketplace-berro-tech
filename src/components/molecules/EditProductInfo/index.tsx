@@ -5,12 +5,12 @@ import {
   SelectAnimal,
   FloatingInputMask,
 } from '@/components';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import {
   readAgeCategoriesRequest,
   readClassificationsRequest,
 } from '@/store/reducer/product/actions';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 function formatDate(date: any) {
   var d = new Date(date),
@@ -32,7 +32,7 @@ export const EditProductInfo = () => {
     dispatch(readClassificationsRequest());
   }, []);
 
-  const {breeds, age_categories, classifications} = useAppSelector(
+  const { breeds, age_categories, classifications } = useAppSelector(
     (state) => state.product,
   );
   const currentDate = new Date().toISOString().split('T')[0];
@@ -40,7 +40,7 @@ export const EditProductInfo = () => {
   const isExistBreeds = breeds.length >= 1;
 
   const {
-    product_by_id: {products},
+    product_by_id: { products },
   } = useAppSelector((state) => state.product);
 
   const {
@@ -67,9 +67,9 @@ export const EditProductInfo = () => {
   });
 
   const onChange = (name: string, value: any) => {
-    setProductInfo({...productInfo, [name]: value});
+    setProductInfo({ ...productInfo, [name]: value });
   };
-  
+
 
   return (
     <div>
@@ -88,7 +88,7 @@ export const EditProductInfo = () => {
       />
       <FloatingLabelRadio
         required
-        disable={!isExistBreeds}
+        disabled={!isExistBreeds}
         placeholder='Raça'
         name='breed'
         id='breed'
@@ -110,7 +110,7 @@ export const EditProductInfo = () => {
       <FloatingLabelRadio
         value={productInfo.gender}
         setValue={(event: any) => onChange('gender', event.target.value)}
-        labels={[{name: 'Macho'}, {name: 'Fêmea'}]}
+        labels={[{ name: 'Macho' }, { name: 'Fêmea' }]}
         required
         name='gender'
         placeholder={'Sexo'}

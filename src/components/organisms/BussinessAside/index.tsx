@@ -5,7 +5,7 @@ import Image from "next/image"
 import { BusinessFiltersMock, DropdownMock } from '@/mock'
 import { useMediaQuery } from "@/hooks/useMediaQuery"
 
-import { Key, use, useState } from "react"
+import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { clearFiltersSelecteds } from "@/store/reducer/product/actions"
 import { useAppSelector } from "@/hooks/useSelectorHook"
@@ -13,7 +13,7 @@ import { useAppSelector } from "@/hooks/useSelectorHook"
 export const BussinessAside = () => {
   const [filters, setFilters] = useState<string[]>();
   const [isOpen, setIsOpen] = useState(false);
-  const IsDesktop = useMediaQuery('md')
+  const isDesktop = useMediaQuery('md')
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
@@ -21,7 +21,7 @@ export const BussinessAside = () => {
   const lastFilters = useAppSelector((state) => state.product.allFilterSelected)
   return (
     <Container>
-      {IsDesktop ?
+      {isDesktop ?
         BusinessFiltersMock.map((item, index) => (
           <Accordion key={`${item.title}${index}`} icon={item.icon} title={item.title} >
             <BussinessFilter data={item} returnFilters={(e) => setFilters(e)} />

@@ -1,7 +1,7 @@
 import { ICONS } from '@/assets';
 import { useAppSelector } from '@/hooks/useSelectorHook';
 import { DropdownMock } from '@/mock';
-import { productsWithOutFilters } from '@/store/reducer/product/actions';
+import { filterProductsByAnimal } from '@/store/reducer/product/actions';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -15,8 +15,16 @@ export const SelectOrdenation = () => {
   const [select, setSelect] = useState<string>('Ordenar Por');
   const [open, setOpen] = useState<boolean>(false);
 
-  const { allProducts, filterProductByAnimal } = useAppSelector((state) => state.product);
+  const { allProducts, filterProductByAnimal, allFilterSelected } = useAppSelector((state) => state.product);
   const dispatch = useDispatch()
+
+  let isExistItemsSelectedFilter = allFilterSelected.length >= 1;
+
+  let product = isExistItemsSelectedFilter
+    ? filterProductByAnimal
+    : filterProductByAnimal.length >= 1
+      ? filterProductByAnimal
+      : allProducts;
 
   const handleOpenSelect = () => {
     setOpen(!open);
@@ -25,14 +33,14 @@ export const SelectOrdenation = () => {
   const handleSelect = (event: string) => {
     setSelect(event);
 
-    let existFilteredProducts = filterProductByAnimal.length >= 1
-    let olderProducts = existFilteredProducts ? [...filterProductByAnimal].sort(sortFunction) : [...allProducts].sort(sortFunction)
-    let mostRecentProducts = existFilteredProducts ? [...filterProductByAnimal].sort(sortFunction) : [...allProducts].sort(sortFunctionReverse)
+
+    let olderProducts = [...product].sort(sortFunction)
+    let mostRecentProducts = [...product].sort(sortFunctionReverse)
 
     if (event === 'Mais Recentes') {
-      dispatch(productsWithOutFilters(mostRecentProducts))
+      dispatch(filterProductsByAnimal(mostRecentProducts));
     } else {
-      dispatch(productsWithOutFilters(olderProducts))
+      dispatch(filterProductsByAnimal(olderProducts));
     }
 
     setOpen(!open);
