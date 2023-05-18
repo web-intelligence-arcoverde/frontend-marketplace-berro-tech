@@ -1,7 +1,7 @@
-import { ICONS } from "@/assets";
-import { COLORS } from "@/common";
-import Image from "next/image";
-import styled from "styled-components";
+import { ICONS } from '@/assets';
+import { COLORS } from '@/common';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 export const CardSlide = styled.div`
   max-width: 700px;
@@ -20,6 +20,13 @@ export const CardSlide = styled.div`
   }
 `;
 export const SlideImage = styled(Image)`
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+  border-radius: 5px;
+`;
+
+export const Video = styled.video`
   object-fit: cover;
   width: 100%;
   height: 500px;
