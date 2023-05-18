@@ -18,3 +18,9 @@ export const SlideImage = styled(Image)`
   width: 100%;
   height: 300px;
 `;
+
+export const Video =styled.video`
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+`

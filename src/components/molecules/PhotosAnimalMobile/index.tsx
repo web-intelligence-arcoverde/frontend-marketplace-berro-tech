@@ -1,4 +1,4 @@
-import { ContainerModalMobile, SlideImage } from "./style";
+import { ContainerModalMobile, SlideImage, Video } from "./style";
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -18,11 +18,28 @@ export const PhotosAnimalMobile = ({ allPhotos }: any) => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        {allPhotos?.map((item: IDocument) => (
-          <SwiperSlide key={item.id} >
-            <SlideImage width={500} height={500} src={item.url} alt="foto animal" />
-          </SwiperSlide>
-        ))}
+        {allPhotos?.map((item: IDocument) => {
+           const fileType = item.url.split('.').pop();
+           const isVideo = fileType === 'mp4';
+
+          return (
+                <SwiperSlide key={item.id}>
+                  {isVideo ? (
+                    <Video width={500} height={500} controls>
+                      <source src={item.url} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </Video>
+                  ) : (
+                    <SlideImage
+                      width={500}
+                      height={500}
+                      src={item.url}
+                      alt="foto animal"
+                    />
+                  )}
+                </SwiperSlide>
+              );
+            })}
       </Swiper>
     </ContainerModalMobile>
   );
