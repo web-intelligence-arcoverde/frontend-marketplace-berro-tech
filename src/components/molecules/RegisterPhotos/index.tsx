@@ -1,10 +1,10 @@
-import {ICONS} from '@/assets';
-import {DropedImages, Dropzone} from '@/components';
-import {useAppDispatch} from '@/hooks/useSelectorHook';
-import {addProductImages} from '@/store/reducer/product/actions';
-import {StyleDesktop, StyleMobile} from '@/style';
+import { ICONS } from '@/assets';
+import { DropedImages, Dropzone } from '@/components';
+import { useAppDispatch } from '@/hooks/useSelectorHook';
+import { addProductImages } from '@/store/reducer/product/actions';
+import { StyleDesktop, StyleMobile } from '@/style';
 import Image from 'next/image';
-import {ChangeEvent, useCallback, useState} from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 import {
   ButtonAddImage,
   Container,
@@ -72,9 +72,10 @@ export const RegisterPhotos = (props: any) => {
                   <input
                     id='file-input'
                     type='file'
+                    accept="image/jpg, image/jpeg, image/png, video/mp4"
                     multiple
                     onChange={handleFileInputChange}
-                    style={{display: 'none'}}
+                    style={{ display: 'none' }}
                   />
                   <ButtonAddImage onClick={handleAddMore}>
                     <Image src={ICONS.Plus} alt='icone de adicionar imagem' />
@@ -101,7 +102,7 @@ export const RegisterPhotos = (props: any) => {
                 type='file'
                 multiple
                 onChange={handleFileInputChange}
-                style={{display: 'none'}}
+                style={{ display: 'none' }}
               />
               <ButtonAddImage onClick={handleAddMore}>
                 <Image src={ICONS.Plus} alt='icone de adicionar imagem' />

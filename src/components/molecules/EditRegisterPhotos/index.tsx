@@ -1,15 +1,15 @@
-import {ICONS} from '@/assets';
-import {Dropzone} from '@/components';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import { ICONS } from '@/assets';
+import { Dropzone } from '@/components';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import {
   addProductImages,
   addProductPhotoRequest,
   closeModalUpdateProduct,
   deleteProductPhotoRequest,
 } from '@/store/reducer/product/actions';
-import {StyleDesktop, StyleMobile} from '@/style';
+import { StyleDesktop, StyleMobile } from '@/style';
 import Image from 'next/image';
-import {ChangeEvent, useCallback, useEffect, useState} from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import {
   ButtonAddImage,
   Container,
@@ -22,7 +22,7 @@ import {
   DropedImagesContainer,
 } from './style';
 
-import {EditDropedImages} from '../../atoms/EditDropedImages';
+import { EditDropedImages } from '../../atoms/EditDropedImages';
 
 export const EditRegisterPhotos = () => {
   const dispatch = useAppDispatch();
@@ -33,10 +33,10 @@ export const EditRegisterPhotos = () => {
   const [loadingImages, setLoadingImages] = useState(true);
 
   const {
-    product_by_id: {products},
+    product_by_id: { products },
   } = useAppSelector((state) => state.product);
 
-  const {documents, id} = products;
+  const { documents, id } = products;
 
   useEffect(() => {
     setImages(documents);
@@ -80,8 +80,8 @@ export const EditRegisterPhotos = () => {
   const handleSubmit = () => {
     let newImages = images.filter((item: any) => !!item.id == false);
 
-    dispatch(addProductPhotoRequest({id, files: newImages}));
-    
+    dispatch(addProductPhotoRequest({ id, files: newImages }));
+
     dispatch(closeModalUpdateProduct(false))
   };
 
@@ -102,7 +102,7 @@ export const EditRegisterPhotos = () => {
                     type='file'
                     multiple
                     onChange={handleFileInputChange}
-                    style={{display: 'none'}}
+                    style={{ display: 'none' }}
                   />
                   <ButtonAddImage onClick={handleAddMore}>
                     <Image src={ICONS.Plus} alt='icone de adicionar imagem' />
@@ -132,7 +132,7 @@ export const EditRegisterPhotos = () => {
                 type='file'
                 multiple
                 onChange={handleFileInputChange}
-                style={{display: 'none'}}
+                style={{ display: 'none' }}
               />
               <ButtonAddImage onClick={handleAddMore}>
                 <Image src={ICONS.Plus} alt='icone de adicionar imagem' />

@@ -1,4 +1,4 @@
-import {DescriptionPresentation, Intro} from './style';
+import { DescriptionPresentation, Intro } from './style';
 
 export const Presentation = () => {
   return (

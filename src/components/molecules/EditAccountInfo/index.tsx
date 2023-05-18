@@ -1,13 +1,13 @@
-import {Button} from '@/components';
+import { Button } from '@/components';
 import MaskedInput from 'react-input-mask';
-import {ButtonContainer, CardInputUser, Container, TextLabel} from './style';
+import { ButtonContainer, CardInputUser, Container, TextLabel } from './style';
 
-import {useAppDispatch} from '@/hooks/useSelectorHook';
-import {userLoggedDeleteRequest} from '@/store/reducer/auth/actions';
+import { useAppDispatch } from '@/hooks/useSelectorHook';
+import { userLoggedDeleteRequest } from '@/store/reducer/auth/actions';
 
-import {Controller} from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 
-export const EditAccountInfo = ({control, errors}: any) => {
+export const EditAccountInfo = ({ control, errors }: any) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -17,17 +17,17 @@ export const EditAccountInfo = ({control, errors}: any) => {
         <Controller
           name='name'
           control={control}
-          render={({field: {ref, ...field}}) => (
+          render={({ field: { ref, ...field } }) => (
             <div>
               <TextLabel>Nome</TextLabel>
               <MaskedInput
-                style={{color: '#737185'}}
+                style={{ color: '#737185' }}
                 onChange={field.onChange}
                 defaultValue={field.value}
                 mask=''
               />
               {errors.name && (
-                <p style={{color: 'red'}}>{errors.name?.message}</p>
+                <p style={{ color: 'red' }}>{errors.name?.message}</p>
               )}
             </div>
           )}
@@ -38,18 +38,18 @@ export const EditAccountInfo = ({control, errors}: any) => {
           <Controller
             name='email'
             control={control}
-            render={({field: {ref, ...field}}) => (
+            render={({ field: { ref, ...field } }) => (
               <div>
                 <TextLabel>E-mail</TextLabel>
                 <MaskedInput
-                  style={{color: '#737185'}}
+                  style={{ color: '#737185' }}
                   onChange={field.onChange}
                   defaultValue={field.value}
                   mask=''
                   type='email'
                 />
                 {errors.email && (
-                  <p style={{color: 'red'}}>{errors.email?.message}</p>
+                  <p style={{ color: 'red' }}>{errors.email?.message}</p>
                 )}
               </div>
             )}
@@ -60,18 +60,18 @@ export const EditAccountInfo = ({control, errors}: any) => {
         <Controller
           name='phone'
           control={control}
-          render={({field: {ref, ...field}}) => (
+          render={({ field: { ref, ...field } }) => (
             <div>
-              <TextLabel>Telefone</TextLabel>
+              <TextLabel>Celular(Whatsapp)</TextLabel>
               <MaskedInput
-                style={{color: '#737185'}}
+                style={{ color: '#737185' }}
                 onChange={field.onChange}
                 defaultValue={field.value}
                 mask='(99) 99999-9999'
                 type='tel'
               />
               {errors.phone && (
-                <p style={{color: 'red'}}>{errors.phone?.message}</p>
+                <p style={{ color: 'red' }}>{errors.phone?.message}</p>
               )}
             </div>
           )}

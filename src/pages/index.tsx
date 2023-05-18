@@ -3,7 +3,6 @@ import {
   PresentationInfo,
   Footer,
   MainSearch,
-  SecuritySection,
   CountryRegion,
 } from "@/components";
 import { useAppDispatch } from "@/hooks/useSelectorHook";
@@ -18,11 +17,15 @@ const MyPresentation = dynamic(
 const MyBussinessHighlight = dynamic(
   () => import("../components/organisms/BussinessHighlight/index")
 );
+
 const Home = () => {
+
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
+
   return (
     <Container>
       <Header />
@@ -32,7 +35,6 @@ const Home = () => {
         <MyBussinessHighlight />
         <CountryRegion />
         <MainSearch />
-        <SecuritySection />
       </Main>
       <Footer />
     </Container>

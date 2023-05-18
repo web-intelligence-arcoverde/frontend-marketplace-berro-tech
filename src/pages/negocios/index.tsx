@@ -55,13 +55,15 @@ export const Business = () => {
 
   useEffect(() => {
     if (isExistItemsSelectedFilter) {
-      allFilterSelected.map((item: any) => {
+      allFilterSelected.map((item: any, index: number) => {
+        console.log(index)
         if (allFilterSelected.length === 1) {
           let productsFiltred = filterByAllAttributes(product, item);
           dispatch(filterProductsByAnimal(productsFiltred));
-        } else if (allFilterSelected.length > 1) {
-          let productsFiltred = filterByAllAttributes(product, item);
-          dispatch(filterProductsByAnimal(productsFiltred));
+        } else if (index >= 1) {
+          let productsFiltred = filterByAllAttributes(allProducts, item);
+          let appendProducts = productsFiltred.concat(product)
+          dispatch(filterProductsByAnimal(appendProducts));
         }
       });
     } else {

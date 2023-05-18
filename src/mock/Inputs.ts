@@ -27,7 +27,7 @@ export const SignUpInputs = [
   },
   {
     type: 'tel',
-    label: 'Telefone',
+    label: 'Celular(Whatsapp)',
     name: 'phone',
     placeholder: '(_ _) _ _ _ _ _-_ _ _ _',
   },

@@ -7,9 +7,9 @@ import {
   ProductCard,
   ProductSellerCard,
 } from '@/components';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {readProductByIdRequest} from '@/store/reducer/product/actions';
-import {Container, Main, StyleDesktop, StyleMobile} from '@/style';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { readProductByIdRequest } from '@/store/reducer/product/actions';
+import { Container, Main, StyleDesktop, StyleMobile } from '@/style';
 import {
   Content,
   ImagesProduct,
@@ -19,19 +19,18 @@ import {
   NearProductsTitleContainer,
   NearProductsContainer,
 } from '@/style/produto-style';
-import {IProduct} from '@/types/ICardProductProps';
-import {formatDate} from '@/util';
-import {useRouter} from 'next/router';
-import {useEffect} from 'react';
+import { formatDate } from '@/util';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Product = () => {
   const {
     loading_search_product_by_id,
-    product_by_id: {products, contacts},
+    product_by_id: { products, contacts },
   } = useAppSelector((state) => state.product);
 
   const router = useRouter();
-  const {id} = router.query;
+  const { id } = router.query;
 
   const allProducts = useAppSelector((state) => state.product.allProducts);
 

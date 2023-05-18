@@ -1,13 +1,13 @@
 import React from 'react';
-import {DropedImagesCard, DropImage} from './style';
+import { DropedImagesCard, DropImage } from './style';
 import Image from 'next/image';
-import {ICONS} from '@/assets';
+import { ICONS } from '@/assets';
 
 interface DropedImagesProps {
   file: any;
   handleRemove: (e: any) => void;
   index: number;
-  countImages?:number
+  countImages?: number
 }
 
 export const EditDropedImages = ({
@@ -28,6 +28,8 @@ export const EditDropedImages = ({
   let widthImage = 167;
   let heightImage = 120;
   let altImage = 'imagen de produto';
+
+  let currentFileType = !!file.url && file.url.split('.').reverse()[0]
 
   const renderImage = () => {
     if (imagesType.includes(fileType)) {
@@ -54,7 +56,13 @@ export const EditDropedImages = ({
   };
 
   const renderVideo = () => {
-    if (!fileTypeFileObj && !imagesType.includes(fileType)) {
+    if (currentFileType === 'mp4') {
+      return (
+        <video key={file.name} controls>
+          <source src={file.url} type='video/mp4' />
+        </video>
+      );
+    } else if (!fileTypeFileObj && !imagesType.includes(fileType)) {
       return (
         <video key={file.name} controls>
           <source src={URL.createObjectURL(file)} type='video/mp4' />
@@ -69,10 +77,10 @@ export const EditDropedImages = ({
       {index === 0 && <span>capa</span>}
       {renderImage()}
       {renderVideo()}
-      {countImages > 1  &&
-      <DropImage onClick={() => handleRemove(index)}>
-        <Image src={ICONS.Trash} alt={'imagem de lixeira'} />
-      </DropImage>}
+      {countImages > 1 &&
+        <DropImage onClick={() => handleRemove(index)}>
+          <Image src={ICONS.Trash} alt={'imagem de lixeira'} />
+        </DropImage>}
     </DropedImagesCard>
   );
 };
