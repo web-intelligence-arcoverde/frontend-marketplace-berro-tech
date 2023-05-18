@@ -56,7 +56,7 @@ export const PhotosAnimal = ({ arrayPhoto }: any) => {
           const renderFile = () => {
             if (typeFile === 'mp4') {
               return (
-                <video autoPlay loop style={{ width: '120px', height: '100px' }} onClick={() => handleClick(image?.url)}>
+                <video autoPlay loop style={{ width: '120px', height: '80px' }} onClick={() => handleClick(image?.url)}>
                   <source src={image?.url} />
                 </video>
               )

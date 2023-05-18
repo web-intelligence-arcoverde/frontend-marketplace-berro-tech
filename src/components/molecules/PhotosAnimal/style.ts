@@ -29,6 +29,7 @@ export const ListPhotos = styled.ul`
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
+  align-items: center;
   position: relative;
 
   #see-more {
@@ -41,6 +42,7 @@ export const ListPhotos = styled.ul`
   li {
     width: 19.5%;
     padding: 16px;
+    height: 120px;
 
     img {
       cursor: pointer;
@@ -62,6 +64,8 @@ export const SeeMore = styled.span`
   background-color: transparent;
   position: absolute;
   right: 7.5%;
+  top: 50%;
+  transform: translateY(-60%);
   bottom: 30px;
   color: ${COLORS.light._05};
   border-radius: 100%;
