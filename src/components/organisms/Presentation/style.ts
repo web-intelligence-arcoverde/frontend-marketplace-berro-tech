@@ -13,7 +13,7 @@ export const Intro = styled.section`
       rgba(248, 243, 223, 0) 95.98%
     ),
     linear-gradient(80.03deg, #f8f3df 12.55%, rgba(248, 243, 223, 0) 37.36%),
-    url(${IMAGES.BackgroundPresentation?.src});
+    url('https://berro-tech-bucket.s3.sa-east-1.amazonaws.com/upload/c99caa19-5262-4223-bb76-b7bd6fbecb0f.webp');
   background-size: cover;
   background-position: center ;
 
