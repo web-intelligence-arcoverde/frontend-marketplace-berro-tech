@@ -36,7 +36,7 @@ export const Footer = () => {
         <CardFlex>
           <CardCopyright>
             <Link href={"#"}>&#169; {currentYear} BerroTech </Link>
-            <Link href={"#"}>Política de prinvacidade</Link>
+            <Link href={"#"}>Política de privacidade</Link>
             <Link href={"#"}>Develop by WebIntelligence</Link>
           </CardCopyright>
           <Flex>

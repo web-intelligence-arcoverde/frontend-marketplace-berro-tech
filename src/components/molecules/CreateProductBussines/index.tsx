@@ -25,7 +25,6 @@ export const CreateProductBussines = () => {
 
   const onChange = (name: string, value: any) => {
     setBussinessInformation({...bussinessInformation, [name]: value});
-    console.log('Payload:', { ...bussinessInformation, [name]: value });
   };
 
   return (
