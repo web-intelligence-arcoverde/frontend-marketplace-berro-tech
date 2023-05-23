@@ -51,9 +51,7 @@ export const ListPhotos = styled.ul`
       height: 75px;
       border-radius: 5px;
     }
-    video{
-      width: 110px;
-    }
+
     @media (max-width: ${BREAKPOINTS.sm}) {
       display: none;
     }
