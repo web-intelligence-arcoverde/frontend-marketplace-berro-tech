@@ -44,12 +44,15 @@ export const ListPhotos = styled.ul`
     padding: 16px;
     height: 120px;
 
-    img {
+    img,video {
       cursor: pointer;
       object-fit: cover;
       width: 120px;
       height: 75px;
       border-radius: 5px;
+    }
+    video{
+      width: 110px;
     }
     @media (max-width: ${BREAKPOINTS.sm}) {
       display: none;
