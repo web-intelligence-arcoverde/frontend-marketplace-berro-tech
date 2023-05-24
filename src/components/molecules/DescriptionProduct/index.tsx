@@ -1,3 +1,4 @@
+import { setWeightMask } from '@/util';
 import {
   CardDescription,
   ContainerDescriptionProduct,
@@ -17,6 +18,7 @@ export const DescriptionProduct = ({
   birthDate,
   genetics,
 }: DescriptionProductProps) => {
+  
   return (
     <ContainerDescriptionProduct>
       <CardDescription>
@@ -30,7 +32,7 @@ export const DescriptionProduct = ({
         </li>
         <li>
           <h6>Peso</h6>
-          <h5>{weight} Kg</h5>
+          <h5>{setWeightMask(weight.toString())}</h5>
         </li>
         <li>
           <h6>Data de nascimento</h6>

@@ -3,6 +3,7 @@ import {
   FloatingLabelRadio,
   FloatingInputMask,
 } from '@/components';
+import { useFormatMoney } from '@/hooks/useFormatMoney';
 import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
 import {readSaleTypeRequest} from '@/store/reducer/product/actions';
 import {useEffect, useState} from 'react';
@@ -25,9 +26,10 @@ export const EditProductBussines = () => {
   const [bussinessInformation, setBussinessInformation] = useState({
     sellType: business.sale.name,
     quantity: business.amount,
-    price: business.price.toString(),
+    price: useFormatMoney(business.price),
     installments: business.installments,
   });
+  
 
   const onChange = (name: string, value: any) => {
     setBussinessInformation({...bussinessInformation, [name]: value});
