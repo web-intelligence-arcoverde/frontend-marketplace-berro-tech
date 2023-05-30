@@ -18,7 +18,7 @@ export const Intro = styled.section`
   background-position: center ;
 
   @media (max-width:${BREAKPOINTS.md} ) {
-    background: linear-gradient(141.23deg, #F8F3DF 0%, rgba(248, 243, 223, 0) 77.79%), linear-gradient(166.65deg, #F8F3DF 37.3%, rgba(248, 243, 223, 0) 90.44%),url(${IMAGES.BackgroundPresentation?.src});
+    background: linear-gradient(141.23deg, #F8F3DF 0%, rgba(248, 243, 223, 0) 77.79%), linear-gradient(166.65deg, #F8F3DF 37.3%, rgba(248, 243, 223, 0) 90.44%),url('https://berro-tech-bucket.s3.sa-east-1.amazonaws.com/upload/c99caa19-5262-4223-bb76-b7bd6fbecb0f.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center ;
