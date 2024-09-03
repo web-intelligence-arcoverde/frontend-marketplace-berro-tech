@@ -7,11 +7,9 @@ export const RegisterProduct = ({
   registerProduct: () => void;
 }) => {
   return (
-    <>
-      <MultiStepForm
-        steps={StepRegisterProduct}
-        registerProduct={() => registerProduct()}
-      />
-    </>
+    <MultiStepForm
+      steps={StepRegisterProduct}
+      registerProduct={() => registerProduct()}
+    />
   );
 };
