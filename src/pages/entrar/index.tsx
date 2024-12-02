@@ -11,7 +11,6 @@ import { useState } from 'react';
 import { FormLogin, LostPassword } from '@/style/entrar-style';
 import { useHookFormSignInEmail } from '@/hooks/useFormSignEmail';
 import { SignInInputs } from '@/mock/Inputs';
-import { useAppDispatch } from '@/hooks/useSelectorHook';
 
 const SignIn = () => {
   const [loginWithEmail, setLoginWithEmail] = useState(false);

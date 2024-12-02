@@ -4,5 +4,5 @@ export interface InputProps {
   placeholder: string;
   nameLabel: string;
   control?: any;
-  errors?: string | any;
+  errors?: string;
 }

@@ -1,6 +1,5 @@
 import { breakpoints, colors } from '@/common';
 import styled from 'styled-components';
-import { CardButton } from '@/components/atoms/Button/style';
 
 export const Content = styled.section`
   display: flex;

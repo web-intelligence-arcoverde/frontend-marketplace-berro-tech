@@ -18,7 +18,7 @@ interface StepsProps {
   2: any;
 }
 
-export const ContainerStepsEditUser = ({}) => {
+export const ContainerStepsEditUser = () => {
   const { step_edit_user } = useAppSelector((state) => state.user);
 
   const dispatch = useDispatch();

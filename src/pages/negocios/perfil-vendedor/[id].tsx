@@ -6,7 +6,7 @@ import {
   ContainerSellerProductMain,
   ContainerSellerProfile,
 } from '@/style/perfil-vendedor-style';
-import {Container, Main, StyleDesktop} from '@/style';
+import { Container, Main, StyleDesktop } from '@/style';
 import {
   Breadcrumb,
   Footer,
@@ -15,17 +15,17 @@ import {
   SelectOrdenation,
   SellerCard,
 } from '@/components';
-import {useMediaQuery} from '@/hooks/useMediaQuery';
-import {useRouter} from 'next/router';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {ParsedUrlQuery} from 'querystring';
-import {readUserByIdRequest} from '@/store/reducer/user/actions';
-import {useEffect} from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useRouter } from 'next/router';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { ParsedUrlQuery } from 'querystring';
+import { readUserByIdRequest } from '@/store/reducer/user/actions';
+import { useEffect } from 'react';
 
 const SelleProfiler = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const {id}: ParsedUrlQuery = router.query;
+  const { id }: ParsedUrlQuery = router.query;
 
   useEffect(() => {
     id && dispatch(readUserByIdRequest(id));
@@ -33,7 +33,7 @@ const SelleProfiler = () => {
 
   const {
     loading_user_by_id,
-    user_by_id: {products},
+    user_by_id: { products },
   } = useAppSelector((state) => state.user);
 
   const isMobile = !useMediaQuery('md');

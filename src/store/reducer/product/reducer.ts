@@ -1,4 +1,3 @@
-import { store } from '@/store';
 import { createReducer } from '@reduxjs/toolkit';
 import {
   addProductInfo,
@@ -34,7 +33,7 @@ import {
   readProductSuccess,
   readProductRequest,
   readStatesSuccess,
-  readCityByUfSuccess,
+  readCityByUfSuccess
 } from './actions';
 
 import { initialState } from './initial';
@@ -56,13 +55,13 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(removeItem, (state, action) => {
       state.lastSearchs = state.lastSearchs.filter(
-        (item: string) => item !== action.payload,
+        (item: string) => item !== action.payload
       );
     })
     .addCase(filterItems, (state, action) => {
       const filtro = action.payload.toLowerCase();
-      let filterProducts = filterByAllAttributes(state.allProducts, filtro)
-      state.allProducts = filterProducts
+      let filterProducts = filterByAllAttributes(state.allProducts, filtro);
+      state.allProducts = filterProducts;
     })
     .addCase(productsWithOutFilters, (state, action) => {
       state.allProducts = action.payload;
@@ -78,7 +77,7 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(removeProduct, (state, action) => {
       state.allProducts = state.allProducts.filter(
-        (item: any) => item.id !== action.payload,
+        (item: any) => item.id !== action.payload
       );
     })
     .addCase(removeProductModal, (state, action) => {
@@ -91,14 +90,16 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.topSearchesFilter = action.payload;
     })
     .addCase(allFilterSelected, (state, action) => {
-      let isItemFilter = [...state.allFilterSelected].filter((item) => item === action.payload)
+      let isItemFilter = [...state.allFilterSelected].filter(
+        (item) => item === action.payload
+      );
       if (isItemFilter.length < 1) {
-        state.allFilterSelected = [...state.allFilterSelected, action.payload]
+        state.allFilterSelected = [...state.allFilterSelected, action.payload];
       }
     })
     .addCase(deleteFilterSelected, (state, action) => {
       state.allFilterSelected = state.allFilterSelected.filter(
-        (item: string) => item !== action.payload,
+        (item: string) => item !== action.payload
       );
     })
     .addCase(clearFiltersSelecteds, (state, action) => {
@@ -151,11 +152,11 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.filterProductByAnimal = action.payload;
     })
     .addCase(readProductRequest, (state, action) => {
-      state.loadingProducts = true
+      state.loadingProducts = true;
     })
     .addCase(readProductSuccess, (state, action) => {
       state.products = action.payload;
-      state.loadingProducts = false
+      state.loadingProducts = false;
     })
     .addCase(readStatesSuccess, (state, action) => {
       state.states = action.payload;
@@ -165,16 +166,18 @@ export const productReducer = createReducer(initialState, (builder) => {
     });
 });
 
-
 export function filterByAllAttributes(data: any, term: any) {
   return data.filter((item: any) => {
     for (const key in item) {
-      if (typeof item[key] === "object" && item[key] !== null) {
+      if (typeof item[key] === 'object' && item[key] !== null) {
         if (filterByAllAttributes([item[key]], term).length > 0) {
           return true;
         }
       } else {
-        if (item[key] && item[key].toString().toLowerCase().includes(term.toLowerCase())) {
+        if (
+          item[key] &&
+          item[key].toString().toLowerCase().includes(term.toLowerCase())
+        ) {
           return true;
         }
       }

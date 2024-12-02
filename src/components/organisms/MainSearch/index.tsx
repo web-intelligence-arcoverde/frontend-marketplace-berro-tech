@@ -1,7 +1,7 @@
-import {ICONS} from '@/assets';
-import {NotFoundFilter, ProductCard, Tabs} from '@/components';
+import { ICONS } from '@/assets';
+import { NotFoundFilter, ProductCard, Tabs } from '@/components';
 import Image from 'next/image';
-import {ChangeEvent, useEffect, useRef, useState} from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import {
   Container,
   SearchSideBar,
@@ -9,15 +9,15 @@ import {
   InputSearchBar,
   InputContainer,
 } from './style';
-import {useAppSelector} from '@/hooks/useSelectorHook';
-import {tabs} from '@/mock';
-import {useDispatch} from 'react-redux';
-import {topSearchesFilter} from '@/store/reducer/product/actions';
+import { useAppSelector } from '@/hooks/useSelectorHook';
+import { tabs } from '@/mock';
+import { useDispatch } from 'react-redux';
+import { topSearchesFilter } from '@/store/reducer/product/actions';
 
 export const MainSearch = () => {
   const [search, setSearch] = useState('');
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const {value} = event.target;
+    const { value } = event.target;
     setSearch(value);
   };
 
@@ -45,7 +45,7 @@ export const MainSearch = () => {
   const dispatch = useDispatch();
 
   const sendFilter = () => {
-    dispatch(topSearchesFilter({type: filterSelected.type, search: search}));
+    dispatch(topSearchesFilter({ type: filterSelected.type, search: search }));
   };
 
   return (

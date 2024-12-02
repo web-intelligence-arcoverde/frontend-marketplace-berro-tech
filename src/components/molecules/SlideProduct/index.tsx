@@ -19,7 +19,7 @@ export const SlideProduct = ({ handleModal, allPhotos }: any) => {
         <CardSlide>
           <Swiper
             slidesPerView={1}
-            onSlideChange={() => {}}
+            onSlideChange={() => { }}
             onSwiper={(swiper) => swiper}
             navigation
             pagination={{ clickable: true }}

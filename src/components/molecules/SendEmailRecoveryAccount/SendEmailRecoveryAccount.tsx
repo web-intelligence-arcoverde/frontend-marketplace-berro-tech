@@ -1,11 +1,11 @@
-import {Input, Button} from '../../';
+import { Input, Button } from '../../';
 
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import {ErrorMessage} from '@/locale';
-import {useAppDispatch} from '@/hooks/useSelectorHook';
-import {recoveryAccountSendEmailRequest} from '@/store/reducer/auth/actions';
+import { ErrorMessage } from '@/locale';
+import { useAppDispatch } from '@/hooks/useSelectorHook';
+import { recoveryAccountSendEmailRequest } from '@/store/reducer/auth/actions';
 
 const schema = yup.object({
   email: yup
@@ -14,7 +14,7 @@ const schema = yup.object({
     .email(ErrorMessage['email-valid']),
 });
 
-import {ContainerForm} from './style';
+import { ContainerForm } from './style';
 
 export const SendEmailRecoveryAccount = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +22,7 @@ export const SendEmailRecoveryAccount = () => {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {

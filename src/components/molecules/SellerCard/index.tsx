@@ -1,17 +1,17 @@
-import {ICONS} from '@/assets';
-import {CardContact, CardNameLocation} from '@/components';
+import { ICONS } from '@/assets';
+import { CardContact, CardNameLocation } from '@/components';
 import React from 'react';
-import {Container, ImageSeller} from './style';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { Container, ImageSeller } from './style';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
 export const SellerCard = () => {
   const {
-    user_by_id: {name, avatar_url, addresses, contacts},
+    user_by_id: { name, avatar_url, addresses, contacts },
   } = useAppSelector((state) => state.user);
 
-  const {city, state} = addresses.length > 0 && addresses[0];
+  const { city, state } = addresses.length > 0 && addresses[0];
 
-  let showCity = !!city ? city : '';
+  let showCity = city ? city : '';
   let showState = !!state ? state : '';
 
   let phone = contacts.length > 1 ? contacts[0].phone_number : '';
