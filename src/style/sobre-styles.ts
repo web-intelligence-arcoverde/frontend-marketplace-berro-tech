@@ -1,49 +1,49 @@
-import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "@/common";
-import Image from "next/image";
+import styled from 'styled-components';
+import { breakpoints, colors } from '@/common';
+import Image from 'next/image';
 
 export const Presentation = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: ${COLORS.light._05};
+  background-color: ${colors.light._05};
 `;
 
 export const ListSections = styled.ul`
   display: flex;
   flex-direction: column;
-  background-color: ${COLORS.light._05};
+  background-color: ${colors.light._05};
 `;
 export const PrintImage = styled(Image)`
   width: 100%;
-  border: 1px solid ${COLORS.light._02};
-  border-top: 4px solid ${COLORS.brand_light._01};
+  border: 1px solid ${colors.light._02};
+  border-top: 4px solid ${colors.brand_light._01};
   border-radius: 5px;
   object-fit: cover;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: none;
   }
 `;
 export const PrintImageMobile = styled(Image)`
   display: none;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     width: 100%;
     display: block;
     padding-top: 0;
-    border-top: 4px solid ${COLORS.brand_light._01};
+    border-top: 4px solid ${colors.brand_light._01};
     border-radius: 5px;
   }
 `;
 
 export const StyleImage = styled(Image)`
   width: 100%;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: none;
   }
 `;
 export const StyledImageMobile = styled(Image)`
   display: none;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: block;
     margin-top: 50px;
     width: auto;
@@ -56,7 +56,7 @@ export const ContainerPresentation = styled.div`
   padding: 100px;
   align-items: end;
   justify-content: space-between;
-  color: ${COLORS.dark._03};
+  color: ${colors.dark._03};
 
   h1 {
     width: 100%;
@@ -79,7 +79,7 @@ export const ContainerPresentation = styled.div`
     margin-left: 10px;
   }
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding: 0;
     flex-direction: column;
 

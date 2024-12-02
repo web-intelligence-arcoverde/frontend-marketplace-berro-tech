@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "@/common";
+import styled from 'styled-components';
+import { breakpoints, colors } from '@/common';
 
 export const ContainerNavigation = styled.nav`
   display: flex;
@@ -16,27 +16,26 @@ export const ItemNavigation = styled.ul`
   a {
     font-size: 16px;
     font-weight: 600;
-    color: ${COLORS.gray._01};
+    color: ${colors.gray._01};
   }
   #active {
-    color: ${COLORS.brand_dark._01};
+    color: ${colors.brand_dark._01};
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-bottom: 30px;
-    :last-child{
+    :last-child {
       display: none;
     }
     li {
       font-size: 14px;
       font-weight: 400;
     }
-    
   }
 `;
 
 export const Row = styled.li`
   width: 16px;
   height: 2px;
-  background-color: ${COLORS.brand_dark._01};
+  background-color: ${colors.brand_dark._01};
   align-self: flex-start;
 `;

@@ -1,5 +1,5 @@
-import {BREAKPOINTS, COLORS} from '@/common';
-import {CardButton} from '@/components/atoms/Button/style';
+import { breakpoints, colors } from '@/common';
+import { CardButton } from '@/components/atoms/Button/style';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -8,11 +8,11 @@ export const Container = styled.div`
   gap: 32px;
 
   #first-add {
-    @media (max-width: ${BREAKPOINTS.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       display: none;
     }
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-bottom: 34px;
     padding: 0 20px;
     width: 100%;
@@ -20,11 +20,11 @@ export const Container = styled.div`
 `;
 
 export const Button = styled(CardButton)`
-  background-color: ${COLORS.sub_brand._02};
-  color: ${COLORS.light._05};
+  background-color: ${colors.sub_brand._02};
+  color: ${colors.light._05};
   width: 100%;
 
-  @media (max-width: ${BREAKPOINTS.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     display: none;
   }
 `;

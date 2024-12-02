@@ -1,13 +1,13 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import styled from "styled-components";
+import { breakpoints, colors } from '@/common';
+import styled from 'styled-components';
 
 export const ContainerPrice = styled.div`
   display: flex;
   flex-direction: column;
-  border-left: 1.5px solid ${COLORS.light._02};
-  border-right: 1.5px solid ${COLORS.light._02};
-  @media (max-width:${BREAKPOINTS.md}){
-    border-bottom: 1.5px solid ${COLORS.light._02};
+  border-left: 1.5px solid ${colors.light._02};
+  border-right: 1.5px solid ${colors.light._02};
+  @media (max-width: ${breakpoints.md}) {
+    border-bottom: 1.5px solid ${colors.light._02};
   }
 `;
 
@@ -19,7 +19,7 @@ export const CardPrice = styled.div`
   h5 {
     font-size: 16px;
     font-weight: 400;
-    color: ${COLORS.gray._04};
+    color: ${colors.gray._04};
   }
 `;
 
@@ -30,14 +30,14 @@ export const Price = styled.div`
   h3 {
     font-size: 18px;
     font-weight: 500;
-    color: ${COLORS.gray._02};
+    color: ${colors.gray._02};
     span {
-      color: ${COLORS.brand_dark._04};
+      color: ${colors.brand_dark._04};
     }
   }
   h6 {
     font-size: 16px;
     font-weight: 400;
-    color: ${COLORS.gray._04};
+    color: ${colors.gray._04};
   }
 `;

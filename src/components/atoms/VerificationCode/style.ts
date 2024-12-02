@@ -1,4 +1,4 @@
-import {COLORS} from '@/common';
+import { colors } from '@/common';
 import styled from 'styled-components';
 
 export const CardInputs = styled.div`
@@ -11,8 +11,8 @@ export const CardInputs = styled.div`
   input {
     width: 40px;
     text-align: center;
-    background-color: ${COLORS.light._04};
-    border: solid 1.5px ${COLORS.light._02};
+    background-color: ${colors.light._04};
+    border: solid 1.5px ${colors.light._02};
     height: 56px;
   }
 `;

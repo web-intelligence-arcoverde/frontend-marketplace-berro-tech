@@ -1,19 +1,19 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import Image from "next/image";
-import styled from "styled-components";
+import { breakpoints, colors } from '@/common';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 export const Container = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 100px;
-  border-bottom: 2px solid ${COLORS.light._02};
+  border-bottom: 2px solid ${colors.light._02};
 
   p {
-    color: ${COLORS.dark._04};
+    color: ${colors.dark._04};
     line-height: 40px;
   }
   :first-child {
-    background: ${COLORS.brand_light._04};
+    background: ${colors.brand_light._04};
     align-items: baseline;
   }
 
@@ -55,7 +55,7 @@ export const Container = styled.li`
       }
     }
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     flex-direction: column !important;
     width: 100%;
     padding: 56px 20px;
@@ -89,7 +89,7 @@ export const Container = styled.li`
 export const Content = styled.div`
   width: 35%;
   position: relative;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     width: 100%;
   }
 `;
@@ -105,14 +105,14 @@ export const Arrow = styled(Image)`
 
 export const Title = styled.h1`
   font-size: 1.5rem;
-  color: ${COLORS.sub_brand._02};
+  color: ${colors.sub_brand._02};
   font-weight: 500;
 `;
 export const CardChildren = styled.div`
   width: 60%;
-  color: ${COLORS.dark._04};
+  color: ${colors.dark._04};
   line-height: 45px;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     line-height: 32px;
     width: 100%;
   }

@@ -26,6 +26,7 @@ const Home = () => {
     dispatch(getAllProducts());
   }, []);
 
+
   return (
     <Container>
       <Header />

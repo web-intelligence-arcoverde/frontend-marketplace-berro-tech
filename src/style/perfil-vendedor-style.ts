@@ -1,12 +1,12 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import styled from "styled-components";
+import { breakpoints, colors } from '@/common';
+import styled from 'styled-components';
 
 export const ContainerSellerProfile = styled.div`
-  background: ${COLORS.light._05};
+  background: ${colors.light._05};
   display: flex;
   gap: 32px;
   padding: 44px 112px;
-  @media (max-width:${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     flex-direction: column-reverse;
     padding: 0;
   }
@@ -21,19 +21,19 @@ export const ContainerSellerProductHeader = styled.div`
 export const ContainerBreadcumb = styled.div`
   width: 100%;
   display: flex;
-  background: ${COLORS.light._05};
+  background: ${colors.light._05};
   border-radius: 5px;
-  border: 1.5px solid ${COLORS.light._02};
+  border: 1.5px solid ${colors.light._02};
 `;
 
 export const CardSellerProfile = styled.div`
   width: fit-content;
-  @media (max-width: ${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     width: 100%;
-    display : flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1.5px solid ${COLORS.light._02};
+    border-bottom: 1.5px solid ${colors.light._02};
   }
 `;
 
@@ -42,11 +42,10 @@ export const ContainerSellerProduct = styled.div`
   flex-direction: column;
   width: 800px;
 
-  @media (max-width: ${BREAKPOINTS.largeScreen}) {
+  @media (max-width: ${breakpoints.largeScreen}) {
     width: auto;
   }
 `;
-
 
 export const ContainerSellerProductMain = styled.div`
   width: 100%;
@@ -58,7 +57,7 @@ export const ContainerSellerProductMain = styled.div`
   @media (max-width: 1416px) {
     justify-content: space-evenly;
   }
-  @media (max-width: ${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     justify-content: center;
     padding: 0 20px 20px 20px;
     margin-top: 0;

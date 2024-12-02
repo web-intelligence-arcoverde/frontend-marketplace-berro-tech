@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from '@/common';
+import styled from 'styled-components';
+import { breakpoints, colors } from '@/common';
 
 export const Container = styled.div`
   display: flex;
@@ -14,17 +14,17 @@ export const InputSearchBar = styled.input`
 export const InputContainer = styled.div`
   display: flex;
   gap: 20px;
-  background: ${COLORS.light._05};
+  background: ${colors.light._05};
   margin-bottom: 32px;
   padding: 10px;
   width: 100%;
-  border-top: solid 2px ${COLORS.light._02};
-  border-bottom: solid 2px ${COLORS.light._02};
-  @media (max-width: ${BREAKPOINTS.md}) {
+  border-top: solid 2px ${colors.light._02};
+  border-bottom: solid 2px ${colors.light._02};
+  @media (max-width: ${breakpoints.md}) {
   }
 `;
 export const CheckboxContainer = styled.form`
- padding: 32px 16;
- max-height: 300px;
- overflow-y: auto;
+  padding: 32px 16;
+  max-height: 300px;
+  overflow-y: auto;
 `;

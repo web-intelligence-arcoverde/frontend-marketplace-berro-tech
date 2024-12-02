@@ -1,16 +1,16 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import Image from "next/image";
-import styled from "styled-components";
+import { breakpoints, colors } from '@/common';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 export const CardVendedor = styled.div`
   width: 100%;
   max-width: 400px;
   border-radius: 5px;
-  border: solid 2px ${COLORS.light._02};
+  border: solid 2px ${colors.light._02};
   padding-bottom: 24px;
-  background-color: ${COLORS.light._05};
+  background-color: ${colors.light._05};
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     border-left: none;
     border-right: none;
     padding-bottom: 0;
@@ -20,10 +20,10 @@ export const CardVendedor = styled.div`
 export const HeaderCard = styled.div`
   display: flex;
   gap: 24px;
-  border-bottom: solid 2px ${COLORS.light._02};
+  border-bottom: solid 2px ${colors.light._02};
   padding: 25px 24px;
   align-items: center;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding: 25px 0;
   }
 `;
@@ -36,7 +36,7 @@ export const Aside = styled.aside`
   flex-direction: column;
   gap: 6px;
   h5 {
-    color: ${COLORS.gray._02};
+    color: ${colors.gray._02};
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
@@ -46,13 +46,13 @@ export const Aside = styled.aside`
   button {
     width: 120px;
     height: 38px;
-    background: ${COLORS.sub_brand._03};
-    color: ${COLORS.sub_brand._02};
+    background: ${colors.sub_brand._03};
+    color: ${colors.sub_brand._02};
   }
 `;
 
 export const TextGray = styled.h6`
-  color: ${COLORS.gray._04};
+  color: ${colors.gray._04};
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 4px;
@@ -68,13 +68,13 @@ export const CardSection = styled.div`
   flex-direction: column;
   gap: 8px;
   padding: 24px;
-  border-bottom: solid 1px ${COLORS.light._02};
+  border-bottom: solid 1px ${colors.light._02};
 
   :last-child {
     border-bottom: none;
     padding-bottom: 0;
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding-left: 0;
 
     :first-child {
@@ -87,7 +87,7 @@ export const CardSection = styled.div`
     }
   }
   h5 {
-    color: ${COLORS.gray._02};
+    color: ${colors.gray._02};
     font-size: 16px;
     font-weight: 400;
     display: flex;
@@ -96,7 +96,7 @@ export const CardSection = styled.div`
   }
 
   button {
-    color: ${COLORS.sub_brand._02};
+    color: ${colors.sub_brand._02};
     font-weight: 500;
     font-size: 16px;
     width: fit-content;
@@ -107,7 +107,7 @@ export const CardSection = styled.div`
 `;
 
 export const InfoSeller = styled.div`
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: flex;
     align-items: center;
   }
@@ -115,10 +115,10 @@ export const InfoSeller = styled.div`
 export const RowVertical = styled.div`
   display: none;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: block;
     height: 50px;
     width: 2px;
-    background-color: ${COLORS.light._02};
+    background-color: ${colors.light._02};
   }
 `;

@@ -1,16 +1,16 @@
-import {BREAKPOINTS} from '../../../common/index';
-import {COLORS} from '@/common';
+import { breakpoints } from '../../../common/index';
+import { colors } from '@/common';
 import Image from 'next/image';
 import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  border: solid 1.5px ${COLORS.light._02};
+  border: solid 1.5px ${colors.light._02};
   border-radius: 5px;
   max-width: 700px;
   width: 100%;
-  background-color: ${COLORS.light._05};
+  background-color: ${colors.light._05};
 `;
 
 export const CurrentImage = styled(Image)`
@@ -21,7 +21,7 @@ export const CurrentImage = styled(Image)`
   object-fit: cover;
   zoom: 120%;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: none;
   }
 `;
@@ -44,7 +44,8 @@ export const ListPhotos = styled.ul`
     padding: 16px;
     height: 120px;
 
-    img,video {
+    img,
+    video {
       cursor: pointer;
       object-fit: cover;
       width: 120px;
@@ -52,7 +53,7 @@ export const ListPhotos = styled.ul`
       border-radius: 5px;
     }
 
-    @media (max-width: ${BREAKPOINTS.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       display: none;
     }
   }
@@ -68,7 +69,7 @@ export const SeeMore = styled.span`
   top: 50%;
   transform: translateY(-60%);
   bottom: 30px;
-  color: ${COLORS.light._05};
+  color: ${colors.light._05};
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -77,7 +78,7 @@ export const SeeMore = styled.span`
   font-size: 16px;
   cursor: pointer;
   z-index: 10;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: none;
   }
 `;

@@ -1,4 +1,4 @@
-import { BREAKPOINTS, COLORS } from '@/common';
+import { breakpoints, colors } from '@/common';
 import styled from 'styled-components';
 import { CardButton } from '@/components/atoms/Button/style';
 
@@ -9,7 +9,7 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
   justify-content: space-between;
   padding: 50px 100px;
   #dropdown {
-    border: 1.5px solid ${COLORS.light._02};
+    border: 1.5px solid ${colors.light._02};
     padding: 8px 10px;
     border-radius: 5px;
     height: 48px;
@@ -18,7 +18,7 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
     border-bottom: none;
   }
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     width: 100%;
     padding: unset;
     margin-top: 0;
@@ -30,7 +30,7 @@ export const ContainerMypublication = styled.div<{ empty: boolean }>`
       border-radius: 5px;
       height: 48px;
       width: 90%;
-      border: 1.5px solid ${COLORS.light._02};
+      border: 1.5px solid ${colors.light._02};
       .tab {
         width: 100%;
         text-align: center;
@@ -48,11 +48,11 @@ export const ContentCard = styled.div`
   gap: 32px;
 
   #first-add {
-    @media (max-width: ${BREAKPOINTS.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       display: none;
     }
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-bottom: 34px;
     width: 100%;
   }
@@ -66,7 +66,7 @@ export const CardProducts = styled.div`
   width: 100%;
   max-width: 900px;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     width: 100% !important;
     justify-content: center;
     gap: 30px;
@@ -82,17 +82,17 @@ export const SectionProducts = styled.section`
   padding-left: 32px;
   align-items: end;
   width: 100%;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding-left: 0;
   }
 `;
 
 export const ButtonFixedMobile = styled(CardButton)`
   display: none;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: block;
-    color: ${COLORS.light._05};
-    background-color: ${COLORS.sub_brand._02};
+    color: ${colors.light._05};
+    background-color: ${colors.sub_brand._02};
     width: 90%;
     margin: 0 auto;
   }
@@ -100,10 +100,10 @@ export const ButtonFixedMobile = styled(CardButton)`
 
 export const CardFixedMobile = styled.div`
   display: none;
-  @media (max-width: ${BREAKPOINTS.sm}) {
-    background-color: ${COLORS.brand_light._04};
+  @media (max-width: ${breakpoints.sm}) {
+    background-color: ${colors.brand_light._04};
     display: flex;
-    border-top: solid 2px ${COLORS.light._02};
+    border-top: solid 2px ${colors.light._02};
     position: fixed;
     bottom: 0;
     left: 0;
@@ -117,9 +117,9 @@ export const ContainerTabs = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border-bottom: solid 1.5px ${COLORS.light._02};
+  border-bottom: solid 1.5px ${colors.light._02};
   max-width: 900px;
-  @media (max-width: ${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     border-bottom: none;
   }
 `;
@@ -130,13 +130,13 @@ export const Content = styled.div`
   padding: 44px 100px;
   gap: 32px;
   justify-content: space-between;
-  background-color: ${COLORS.brand_light._04};
-  @media (max-width: ${BREAKPOINTS.lg}) {
+  background-color: ${colors.brand_light._04};
+  @media (max-width: ${breakpoints.lg}) {
     padding: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @media (max-width: ${BREAKPOINTS.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       gap: 0;
     }
   }

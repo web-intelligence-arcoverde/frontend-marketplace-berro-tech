@@ -1,4 +1,4 @@
-import { COLORS } from '@/common';
+import { colors } from '@/common';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 9px;
   h5 {
-    color: ${COLORS.gray._04};
+    color: ${colors.gray._04};
     font-weight: 500;
     font-size: 16px;
   }

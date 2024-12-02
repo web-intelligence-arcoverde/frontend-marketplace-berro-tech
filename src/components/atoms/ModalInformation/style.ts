@@ -1,5 +1,5 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import styled, { keyframes } from "styled-components";
+import { breakpoints, colors } from '@/common';
+import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   from {
@@ -19,15 +19,15 @@ export const ContainerModal = styled.div`
   z-index: 30;
   opacity: 0;
   animation: ${fadeIn} 0.3s ease-in-out forwards;
-  @media (max-width:${BREAKPOINTS.md}) {
-  width: 100%;
-  transform: none;
-  top: 10%;
-  left: 0;
-  height: 90%;
-  padding: 0;
-  overflow: auto;
- }
+  @media (max-width: ${breakpoints.md}) {
+    width: 100%;
+    transform: none;
+    top: 10%;
+    left: 0;
+    height: 90%;
+    padding: 0;
+    overflow: auto;
+  }
 `;
 export const ModalBackground = styled.div`
   position: fixed;
@@ -35,7 +35,7 @@ export const ModalBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${COLORS.opacity.black_07};
+  background-color: ${colors.opacity.black_07};
   z-index: 20;
   cursor: pointer;
 `;
@@ -52,7 +52,7 @@ export const ButtonClose = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 5px;
-  background-color: ${COLORS.light._04};
+  background-color: ${colors.light._04};
   right: 10px;
   z-index: 21;
   cursor: pointer;

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { COLORS } from "@/common";
+import styled from 'styled-components';
+import { colors } from '@/common';
 
 export const ListBreadcumb = styled.ol`
   display: flex;
@@ -12,13 +12,13 @@ export const ItemBreadcumb = styled.li`
   a {
     font-weight: 400;
     font-size: 14px;
-    color: ${COLORS.gray._01};
+    color: ${colors.gray._01};
     width: max-content;
   }
   img {
     margin: 0 14px;
   }
-  :last-child{
+  :last-child {
     display: none;
   }
   :nth-last-child(2) {
@@ -26,7 +26,7 @@ export const ItemBreadcumb = styled.li`
       pointer-events: none;
 
       font-weight: 500;
-      color: ${COLORS.sub_brand._02};
+      color: ${colors.sub_brand._02};
     }
     img {
       display: none;

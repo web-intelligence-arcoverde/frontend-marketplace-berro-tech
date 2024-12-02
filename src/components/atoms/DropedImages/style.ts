@@ -1,9 +1,9 @@
-import {BREAKPOINTS, COLORS} from '@/common';
+import { breakpoints, colors } from '@/common';
 import styled from 'styled-components';
 
 export const DropedImagesCard = styled.div`
   position: relative;
-  background: ${COLORS.light._05};
+  background: ${colors.light._05};
   img,
   video {
     width: 167px;
@@ -29,9 +29,9 @@ export const DropedImagesCard = styled.div`
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 0.02em;
-    color: ${COLORS.gray._01};
+    color: ${colors.gray._01};
   }
-  @media (max-width: ${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     width: 100%;
     img,
     video {

@@ -1,15 +1,14 @@
-import { BREAKPOINTS } from "./../../../common/index";
-import styled from "styled-components";
-import { COLORS } from "@/common";
+import styled from 'styled-components';
+import { colors, breakpoints } from '@/common';
 
 export const CardInputUser = styled.div<{ width?: string }>`
   display: flex;
   align-items: center;
-  border: 1.5px solid ${COLORS.light._02};
+  border: 1.5px solid ${colors.light._02};
   border-radius: 5px;
   padding: 16px;
-  color: ${COLORS.gray._04};
-  background-color: ${COLORS.light._04};
+  color: ${colors.gray._04};
+  background-color: ${colors.light._04};
   justify-content: space-between;
   height: 85px;
   position: relative;
@@ -21,11 +20,11 @@ export const CardInputUser = styled.div<{ width?: string }>`
     border: none;
     font-size: 16px;
     font-weight: 500;
-    width: ${(props) => (props.width ? props.width : "100%")};
+    width: ${(props) => (props.width ? props.width : '100%')};
     font-size: 16px;
-    background-color: ${COLORS.light._04};
+    background-color: ${colors.light._04};
     ::placeholder {
-      color: ${COLORS.gray._04};
+      color: ${colors.gray._04};
     }
   }
 
@@ -38,11 +37,11 @@ export const TextLabel = styled.label`
   text-transform: capitalize;
 `;
 export const MessageErro = styled.span`
-  color: ${COLORS.auxiliary.red_state};
+  color: ${colors.auxiliary.red_state};
   position: absolute;
   bottom: -20px;
   font-size: 14px;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     font-size: 12px;
     bottom: -16px;
   }

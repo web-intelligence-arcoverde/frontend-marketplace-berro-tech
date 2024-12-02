@@ -1,5 +1,5 @@
-import { BREAKPOINTS } from "@/common";
-import styled from "styled-components";
+import { breakpoints } from '@/common';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -8,7 +8,7 @@ export const Container = styled.div`
     min-width: 120px;
     text-align: center;
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     min-width: 0;
   }
 `;

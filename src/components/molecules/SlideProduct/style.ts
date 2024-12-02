@@ -1,5 +1,5 @@
 import { ICONS } from '@/assets';
-import { COLORS } from '@/common';
+import { colors } from '@/common';
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -7,7 +7,7 @@ export const CardSlide = styled.div`
   max-width: 700px;
   max-height: 600px;
   .swiper-pagination-bullet {
-    background: ${COLORS.light._05};
+    background: ${colors.light._05};
   }
   .swiper-button-next {
     width: 50px;

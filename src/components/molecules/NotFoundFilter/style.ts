@@ -1,5 +1,5 @@
-import { COLORS } from "@/common";
-import styled from "styled-components";
+import { colors } from '@/common';
+import styled from 'styled-components';
 
 export const ContainerNotFound = styled.div`
   display: flex;
@@ -15,16 +15,15 @@ export const ContainerNotFound = styled.div`
   h1 {
     font-size: 18px;
     font-weight: 500;
-    color: ${COLORS.gray._01};
+    color: ${colors.gray._01};
     text-align: center;
     word-wrap: break-word;
     max-width: 100%;
-
   }
   h6 {
     font-size: 16px;
     font-weight: 400;
-    color: ${COLORS.gray._04};
+    color: ${colors.gray._04};
     text-align: center;
   }
 `;

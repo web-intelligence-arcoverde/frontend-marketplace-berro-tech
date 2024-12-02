@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "@/common";
+import styled from 'styled-components';
+import { breakpoints, colors } from '@/common';
 
 export const Container = styled.div`
-  border: solid 1.5px ${COLORS.light._02};
+  border: solid 1.5px ${colors.light._02};
   border-radius: 5px;
   padding-bottom: 24px;
   width: 500px;
- 
- @media (max-width: ${BREAKPOINTS.sm}){
-  width: 100%;
- }
+
+  @media (max-width: ${breakpoints.sm}) {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.header`
@@ -19,7 +19,7 @@ export const Header = styled.header`
   justify-content: space-between;
   padding: 24px;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     img {
       position: relative;
       bottom: 10px;
@@ -31,15 +31,15 @@ export const Texts = styled.div`
   h4 {
     font-weight: 600;
     font-size: 1.125rem;
-    color: ${COLORS.dark._04};
+    color: ${colors.dark._04};
   }
   h5 {
     margin-top: 12px;
     font-weight: 400;
     font-size: 1rem;
-    color: ${COLORS.sub_brand._02};
+    color: ${colors.sub_brand._02};
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     h5 {
       overflow: hidden;
       white-space: nowrap;
@@ -52,7 +52,7 @@ export const Texts = styled.div`
 export const Row = styled.div`
   height: 2px;
   width: 100%;
-  background-color: ${COLORS.light._02};
+  background-color: ${colors.light._02};
 `;
 
 export const CardButton = styled.div`

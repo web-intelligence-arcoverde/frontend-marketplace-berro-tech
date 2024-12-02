@@ -1,6 +1,6 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
-type Breakpoints =
+type breakpoints =
   | 'xsspecific'
   | 'xss'
   | 'xxs'
@@ -19,11 +19,11 @@ type Breakpoints =
   | 'xg'
   | 'xxg';
 
-export const useMediaQuery = (breakpoint: Breakpoints) => {
+export const useMediaQuery = (breakpoint: breakpoints) => {
   const [matches, setMatches] = useState<boolean>(
     typeof window !== 'undefined' &&
       window.matchMedia(`(min-width: ${getBreakpointValue(breakpoint)}px)`)
-        .matches,
+        .matches
   );
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export const useMediaQuery = (breakpoint: Breakpoints) => {
   return matches;
 };
 
-function getBreakpointValue(breakpoint: Breakpoints) {
+function getBreakpointValue(breakpoint: breakpoints) {
   switch (breakpoint) {
     case 'xxs':
       return 350;

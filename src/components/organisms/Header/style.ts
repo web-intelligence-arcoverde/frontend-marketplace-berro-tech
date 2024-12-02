@@ -1,22 +1,22 @@
-import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "@/common";
+import styled from 'styled-components';
+import { breakpoints, colors } from '@/common';
 
 export const ContainerHeader = styled.header`
   width: 100%;
-  background-color: ${COLORS.brand_light._01};
+  background-color: ${colors.brand_light._01};
 `;
 
 export const MainHeader = styled.div`
   margin: 0 auto;
-  max-width: ${BREAKPOINTS.xxg};
+  max-width: ${breakpoints.xxg};
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 12px 100px;
-  background-color: ${COLORS.brand_light._01};
-  @media (max-width:${BREAKPOINTS.md}){
-    padding:40px 16px 20px 20px
+  background-color: ${colors.brand_light._01};
+  @media (max-width: ${breakpoints.md}) {
+    padding: 40px 16px 20px 20px;
   }
 `;
 
@@ -27,8 +27,8 @@ export const Navigation = styled.nav`
   #to-enter {
     width: 200px;
     height: 48px;
-    background-color: ${COLORS.brand_dark._03};
-    color: ${COLORS.light._05};
+    background-color: ${colors.brand_dark._03};
+    color: ${colors.light._05};
     font-weight: 500;
   }
 `;
@@ -47,10 +47,10 @@ export const Nav = styled.ul`
   li {
     font-size: 16px;
     font-weight: 600;
-    color: ${COLORS.brand_dark._02};
+    color: ${colors.brand_dark._02};
   }
   #brightness {
-    color: ${COLORS.brand_dark._01};
+    color: ${colors.brand_dark._01};
   }
 `;
 export const CardAvatar = styled.div`
@@ -60,7 +60,7 @@ export const CardAvatar = styled.div`
     width: 46px;
     height: 46px;
     border-radius: 5px;
-    border: solid 2px ${COLORS.light._05};
+    border: solid 2px ${colors.light._05};
     margin-top: 4px;
   }
 `;
@@ -74,7 +74,7 @@ export const Flex = styled.div`
 export const Row = styled.li`
   width: 16px;
   height: 2px;
-  background-color: ${COLORS.brand_dark._01};
+  background-color: ${colors.brand_dark._01};
   align-self: flex-start;
 `;
 export const ButtonMenu = styled.button`

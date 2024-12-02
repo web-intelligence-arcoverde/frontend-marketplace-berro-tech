@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import {BREAKPOINTS, COLORS} from '@/common';
+import { breakpoints, colors } from '@/common';
 
 export const ContainerNavigation = styled.nav`
   display: flex;
   align-items: center;
   gap: 60px;
-  @media(max-width:${BREAKPOINTS.sm}){
+  @media (max-width: ${breakpoints.sm}) {
     display: none;
   }
 `;
@@ -19,16 +19,16 @@ export const ItemNavigation = styled.ul`
   li {
     font-size: 16px;
     font-weight: 600;
-    color: ${COLORS.brand_dark._02};
+    color: ${colors.brand_dark._02};
   }
   #brightness {
-    color: ${COLORS.brand_dark._01};
+    color: ${colors.brand_dark._01};
   }
 `;
 
 export const Row = styled.li`
   width: 16px;
   height: 2px;
-  background-color: ${COLORS.brand_dark._01};
+  background-color: ${colors.brand_dark._01};
   align-self: flex-start;
 `;

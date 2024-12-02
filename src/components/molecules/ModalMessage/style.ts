@@ -1,5 +1,5 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import styled, { keyframes } from "styled-components";
+import { breakpoints, colors } from '@/common';
+import styled, { keyframes } from 'styled-components';
 
 const pulse = keyframes`
   0% {
@@ -22,12 +22,12 @@ export const ContainerModalMessage = styled.div<{ error: boolean }>`
   border-radius: 5px 5px 0 0;
   justify-content: center;
   align-items: center;
-  border-top: solid 3px ${COLORS.brand_light._01};
+  border-top: solid 3px ${colors.brand_light._01};
   border-color: ${(props) =>
     props.error
-      ? `${COLORS.auxiliary.red_state}`
-      : `${COLORS.brand_light._01}`};
-  background-color: ${COLORS.light._05};
+      ? `${colors.auxiliary.red_state}`
+      : `${colors.brand_light._01}`};
+  background-color: ${colors.light._05};
   padding: 80px 70px;
   position: relative;
   text-align: center;
@@ -39,17 +39,17 @@ export const ContainerModalMessage = styled.div<{ error: boolean }>`
   h1 {
     font-weight: 500;
     font-size: 18px;
-    color: ${COLORS.gray._01};
+    color: ${colors.gray._01};
   }
   h6 {
     font-weight: 400;
     font-size: 16px;
-    color: ${COLORS.gray._04};
+    color: ${colors.gray._04};
   }
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding: 80px 60px;
-    width:100%
+    width: 100%;
   }
 `;
 
@@ -62,7 +62,7 @@ export const ButtonClose = styled.button`
   height: 44px;
   padding: 10px;
   border-radius: 5px;
-  border: solid 1.5px ${COLORS.light._02};
+  border: solid 1.5px ${colors.light._02};
   position: absolute;
   right: 15px;
   top: 15px;

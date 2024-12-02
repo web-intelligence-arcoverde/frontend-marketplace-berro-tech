@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "@/common";
-import { CardButton } from "@/components/atoms/Button/style";
+import styled from 'styled-components';
+import { breakpoints, colors } from '@/common';
+import { CardButton } from '@/components/atoms/Button/style';
 
 export const Main = styled.main`
   width: 100%;
-  max-width: ${BREAKPOINTS.xxg};
+  max-width: ${breakpoints.xxg};
 `;
 
 export const Container = styled.div`
@@ -15,11 +15,11 @@ export const Container = styled.div`
   width: 100%;
 `;
 export const ButtonAddProduct = styled(CardButton)`
-  background-color: ${COLORS.sub_brand._02};
-  color: ${COLORS.light._05};
+  background-color: ${colors.sub_brand._02};
+  color: ${colors.light._05};
   width: 100%;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: none;
   }
 `;
@@ -28,7 +28,7 @@ export const TabsContainer = styled.div`
   flex-direction: column;
   width: 70%;
   .tabs {
-    border-bottom: 1px solid ${COLORS.light._02};
+    border-bottom: 1px solid ${colors.light._02};
     display: flex;
     padding-bottom: 16px;
     .tab {
@@ -36,17 +36,17 @@ export const TabsContainer = styled.div`
       cursor: pointer;
       font-weight: 400;
       font-size: 16px;
-      color: ${COLORS.gray._03};
+      color: ${colors.gray._03};
       padding: 12px 24px;
     }
     .active {
       font-weight: 500;
-      color: ${COLORS.brand_dark._03};
-      background: ${COLORS.brand_light._03};
+      color: ${colors.brand_dark._03};
+      background: ${colors.brand_light._03};
     }
   }
   flex-direction: column;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     width: 100%;
     .tabs {
       width: 100%;
@@ -61,13 +61,13 @@ export const TabsContainer = styled.div`
 `;
 
 export const StyleDesktop = styled.div`
-  @media (max-width: ${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     display: none;
   }
 `;
 export const StyleMobile = styled.div`
   display: none;
-  @media (max-width: ${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     display: block;
     width: 100%;
   }

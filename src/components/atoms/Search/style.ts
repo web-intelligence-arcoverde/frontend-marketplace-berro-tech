@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "@/common";
-import Image from "next/image";
+import styled from 'styled-components';
+import { breakpoints, colors } from '@/common';
+import Image from 'next/image';
 
 interface CardSearchProps {
   width?: string;
@@ -15,7 +15,7 @@ export const CardSearch = styled.form<CardSearchProps>`
   display: flex;
   justify-content: end;
   align-items: center;
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     min-width: 0;
     justify-content: center;
     width: 100%;
@@ -24,21 +24,21 @@ export const CardSearch = styled.form<CardSearchProps>`
 
   input {
     height: 48px;
-    border: solid 1px ${COLORS.light._02};
+    border: solid 1px ${colors.light._02};
     padding: 0 25px 0 45px;
     font-size: 16px;
     font-weight: 500;
-    width: ${(props) => (props.width ? props.width : "100%")};
+    width: ${(props) => (props.width ? props.width : '100%')};
     border-radius: ${(props) =>
-      props.borderInput ? props.borderInput : "5px"};
-    border-right: ${(props) => (props.borderRight ? props.borderRight : "")};
+      props.borderInput ? props.borderInput : '5px'};
+    border-right: ${(props) => (props.borderRight ? props.borderRight : '')};
     transition: all 0s;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 
     ::placeholder {
-      color: ${COLORS.gray._02};
+      color: ${colors.gray._02};
     }
   }
 
@@ -52,13 +52,13 @@ export const CardSearch = styled.form<CardSearchProps>`
       position: inherit;
     }
   }
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     input {
       width: 100%;
       height: 56px;
       padding: 10px 10px 10px 40px;
-    border-radius: ${(props) =>
-      props.borderInput ? props.borderInput : "5px"};
+      border-radius: ${(props) =>
+        props.borderInput ? props.borderInput : '5px'};
       margin: 0 auto;
       cursor: pointer;
       ::placeholder {
@@ -75,7 +75,7 @@ export const IconLupa = styled(Image)<CardSearchProps>`
   position: relative;
   left: 32px;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     pointer-events: none;
   }
 `;
@@ -83,10 +83,10 @@ export const IconLupa = styled(Image)<CardSearchProps>`
 export const ButtonSearchMobile = styled.button`
   display: none;
 
-  @media (max-width: ${BREAKPOINTS.md}) {
+  @media (max-width: ${breakpoints.md}) {
     display: block !important;
-    background-color: ${COLORS.sub_brand._02};
-    color: ${COLORS.light._02};
+    background-color: ${colors.sub_brand._02};
+    color: ${colors.light._02};
     height: 54px !important;
     padding: 10px;
     min-width: 90px;

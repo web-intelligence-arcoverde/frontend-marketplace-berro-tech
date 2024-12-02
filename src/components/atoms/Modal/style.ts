@@ -1,5 +1,5 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import styled, { keyframes } from "styled-components";
+import { breakpoints } from '@/common';
+import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   from {
@@ -19,15 +19,15 @@ export const ContainerModal = styled.div`
   z-index: 30;
   opacity: 0;
   animation: ${fadeIn} 0.3s ease-in-out forwards;
-  @media (max-width:${BREAKPOINTS.md}) {
-  width: 100%;
-  transform: none;
-  top: 10%;
-  left: 0;
-  height: 90%;
-  padding: 0;
-  overflow: auto;
- }
+  @media (max-width: ${breakpoints.md}) {
+    width: 100%;
+    transform: none;
+    top: 10%;
+    left: 0;
+    height: 90%;
+    padding: 0;
+    overflow: auto;
+  }
 `;
 export const ModalBackground = styled.div`
   position: fixed;

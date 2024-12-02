@@ -1,4 +1,4 @@
-import { BREAKPOINTS, COLORS } from '@/common';
+import { breakpoints, colors } from '@/common';
 import styled from 'styled-components';
 
 export const DropzoneContainer = styled.div`
@@ -9,10 +9,10 @@ export const DropzoneContainer = styled.div`
   align-items: center;
   padding: 20px;
   border-radius: 5px;
-  border: 2.5px ${COLORS.light._02} dashed;
-  background-color: ${COLORS.light._04};
-  transition: border .24s ease-in-out;
-  @media (max-width: ${BREAKPOINTS.md}) {
+  border: 2.5px ${colors.light._02} dashed;
+  background-color: ${colors.light._04};
+  transition: border 0.24s ease-in-out;
+  @media (max-width: ${breakpoints.md}) {
     flex: auto;
   }
 `;
@@ -23,16 +23,16 @@ export const InfoContainer = styled.div`
   align-items: center;
   padding: 20px;
   text-align: center;
-  p{
+  p {
     margin-top: 24px;
     margin-bottom: 4px;
     white-space: nowrap;
     font-size: 16px;
-    color: ${COLORS.gray._01};
+    color: ${colors.gray._01};
   }
-  span{
+  span {
     font-weight: 400;
     font-size: 14px;
-    color: ${COLORS.gray._02};
+    color: ${colors.gray._02};
   }
 `;

@@ -1,15 +1,15 @@
-import { BREAKPOINTS, COLORS } from "@/common";
-import Image from "next/image";
-import styled from "styled-components";
+import { breakpoints, colors } from '@/common';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 export const ContainerModalMobile = styled.div`
   display: none;
 
-  @media (max-width: ${BREAKPOINTS.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     display: block;
     height: 300px;
     .swiper-pagination-bullet {
-      background: ${COLORS.light._05};
+      background: ${colors.light._05};
     }
   }
 `;
@@ -19,8 +19,8 @@ export const SlideImage = styled(Image)`
   height: 300px;
 `;
 
-export const Video =styled.video`
+export const Video = styled.video`
   object-fit: cover;
   width: 100%;
   height: 300px;
-`
+`;

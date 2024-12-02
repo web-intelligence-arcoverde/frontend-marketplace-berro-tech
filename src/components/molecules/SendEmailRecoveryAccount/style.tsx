@@ -1,4 +1,4 @@
-import {COLORS} from '@/common';
+import { colors } from '@/common';
 import styled from 'styled-components';
 
 export const ContainerForm = styled.form`
@@ -10,8 +10,8 @@ export const ContainerForm = styled.form`
     width: max-content;
     height: 40px;
     background: transparent;
-    color: ${COLORS.gray._02};
-    border: 1.5px solid ${COLORS.light._02};
+    color: ${colors.gray._02};
+    border: 1.5px solid ${colors.light._02};
     padding: 10px 16px;
     gap: 16px;
     font-size: 14px;
@@ -22,8 +22,8 @@ export const ContainerForm = styled.form`
     }
   }
   .resend {
-    background-color: ${COLORS.light._02};
-    color: ${COLORS.gray._03};
+    background-color: ${colors.light._02};
+    color: ${colors.gray._03};
   }
   .cursor {
     cursor: auto;
@@ -31,11 +31,11 @@ export const ContainerForm = styled.form`
   h4 {
     font-weight: 500;
     font-size: 16px;
-    color: ${COLORS.dark._04};
+    color: ${colors.dark._04};
     text-align: center;
   }
   h6 {
-    color: ${COLORS.gray._04};
+    color: ${colors.gray._04};
     font-size: 16px;
     font-weight: 400;
     text-align: center;

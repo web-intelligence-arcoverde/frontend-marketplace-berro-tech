@@ -1,4 +1,4 @@
-import {COLORS} from '@/common';
+import { colors } from '@/common';
 import styled from 'styled-components';
 
 export const Container = styled.form`
@@ -9,18 +9,18 @@ export const Container = styled.form`
   h3 {
     font-weight: 500;
     font-size: 16px;
-    color: ${COLORS.gray._01};
+    color: ${colors.gray._01};
   }
 `;
 
-export const CardInputUser = styled.div<{width?: string}>`
+export const CardInputUser = styled.div<{ width?: string }>`
   display: flex;
   align-items: center;
-  border: 1.5px solid ${COLORS.light._02};
+  border: 1.5px solid ${colors.light._02};
   border-radius: 5px;
   padding: 16px;
-  color: ${COLORS.gray._04};
-  background-color: ${COLORS.light._04};
+  color: ${colors.gray._04};
+  background-color: ${colors.light._04};
   justify-content: space-between;
   height: 85px;
   position: relative;
@@ -34,9 +34,9 @@ export const CardInputUser = styled.div<{width?: string}>`
     font-weight: 500;
     width: ${(props) => (props.width ? props.width : '100%')};
     font-size: 16px;
-    background-color: ${COLORS.light._04};
+    background-color: ${colors.light._04};
     ::placeholder {
-      color: ${COLORS.gray._04};
+      color: ${colors.gray._04};
     }
   }
 
@@ -53,7 +53,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   button {
-    color: ${COLORS.auxiliary.red_state};
+    color: ${colors.auxiliary.red_state};
     height: fit-content;
     width: fit-content;
     padding: 0;
