@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const twoDigits = (num: any) => String(num).padStart(2, '0');
 
@@ -63,5 +63,5 @@ export const useChronometerHook = (initialCount = INITIAL_COUNT) => {
     secondsToDisplay,
   )}`;
 
-  return {chronometer, handleStart};
+  return { chronometer, handleStart };
 };
