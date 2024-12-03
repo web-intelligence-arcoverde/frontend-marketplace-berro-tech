@@ -6,16 +6,16 @@ import {
   NextButtonContainer,
   NextButton,
 } from './style';
-import {EditAccountImage, EditAccountInfo} from '../../';
+import { EditAccountImage, EditAccountInfo } from '../../';
 
-import {useForm} from 'react-hook-form';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import { useForm } from 'react-hook-form';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 
-import {yupResolver} from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import {ErrorMessage} from '@/locale';
-import {userEditBasicInformationRequest} from '@/store/reducer/auth/actions';
-import {showModalEditUser} from '@/store/reducer/user/actions';
+import { ErrorMessage } from '@/locale';
+import { userEditBasicInformationRequest } from '@/store/reducer/auth/actions';
+import { showModalEditUser } from '@/store/reducer/user/actions';
 
 const schema = yup.object({
   name: yup
@@ -30,17 +30,21 @@ const schema = yup.object({
 
 export const EditUserBasicInformations = () => {
   const {
-    user: {name, email, contacts},
+    user: { name, email, contacts },
   } = useAppSelector((state) => state.auth);
 
   let phone = contacts.length > 0 ? contacts[0].phone_number : '';
+
+  let test = ''
+
+  test = 10;
 
   const dispatch = useAppDispatch();
 
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
     //@ts-ignore
     resolver: yupResolver(schema),
@@ -64,7 +68,7 @@ export const EditUserBasicInformations = () => {
     }
 
     dispatch(userEditBasicInformationRequest(formData));
-    dispatch(showModalEditUser({data, step: 0}));
+    dispatch(showModalEditUser({ data, step: 0 }));
   };
   return (
     <ContainerForm onSubmit={handleSubmit(onSubmit)}>
