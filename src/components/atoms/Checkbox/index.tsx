@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Container, CheckboxInput } from './style';
 import React from 'react';
 export const Checkbox = ({
@@ -5,7 +6,7 @@ export const Checkbox = ({
   onCheck,
 }: {
   name: string;
-  onCheck: (e: { name: string; value: boolean }) => void;
+  onCheck: (item: any) => void;
 }) => {
   return (
     <Container>

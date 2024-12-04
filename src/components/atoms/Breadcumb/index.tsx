@@ -24,8 +24,8 @@ export const Breadcrumb = () => {
         newArrayPathNames.map((name: any, key: any) => {
           const goTo = `/${newArrayPathNames.slice(0, key + 1).join('/')}`;
           return (
-            <ItemBreadcumb key={key}>
-              <Link key={key} href={goTo}>
+            <ItemBreadcumb key={goTo}>
+              <Link href={goTo}>
                 {name === 'minhas-publicacoes' ? 'minhas publicações ' : name}
               </Link>
               <Image src={ICONS.ArrowRight} alt='imagem seta direita' />

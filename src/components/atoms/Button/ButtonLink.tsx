@@ -1,6 +1,5 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { CardButtonLink } from "./style";
-import React from "react";
 interface ButtonLinkProps {
   children: ReactNode;
   link: string;

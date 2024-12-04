@@ -7,8 +7,7 @@ import {
   AccordionContent,
   AccordionIconTitle,
 } from "./style";
-import { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 interface AccordionProps {
   title: string;
   icon: string

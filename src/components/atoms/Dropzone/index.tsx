@@ -32,7 +32,7 @@ export const Dropzone = ({ onDrop }: DropzoneProps) => {
           <Image src={ICONS.Union} alt='icone de seleção de imagens' />
           <p>Adicione fotos e vídeos dos animais </p>
           <span>
-            Arraste até aqui ou selecione <br/> no seu computador
+            Arraste até aqui ou selecione <br /> no seu computador
           </span>
         </InfoContainer>
       )}
