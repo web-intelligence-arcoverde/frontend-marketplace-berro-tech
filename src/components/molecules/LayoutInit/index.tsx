@@ -2,7 +2,7 @@ import { ICONS } from "@/assets";
 import Image from "next/image";
 import { ReactNode } from "react";
 import { ContainerChildren, Main, StyleImage, StyleImageMobile } from "./style";
-
+import React from "react";
 interface LayoutInitProps {
   children: ReactNode;
 }
@@ -10,9 +10,9 @@ interface LayoutInitProps {
 export const LayoutInit = ({ children }: LayoutInitProps) => {
   return (
     <Main>
-      <StyleImage src={ICONS.SimboloBackground}alt="simbolo berro tech" />
+      <StyleImage src={ICONS.SimboloBackground} alt="simbolo berro tech" />
       <StyleImageMobile>
-        <Image src={ICONS.SimboloBackgroundMobile} alt="simbolo berro tech"/>
+        <Image src={ICONS.SimboloBackgroundMobile} alt="simbolo berro tech" />
       </StyleImageMobile>
       <ContainerChildren>{children}</ContainerChildren>
     </Main>

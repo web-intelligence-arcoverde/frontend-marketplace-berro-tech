@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { breakpoints, colors } from '@/common';
-import { IMAGES } from '@/assets';
 
 export const Intro = styled.section`
   width: 100%;

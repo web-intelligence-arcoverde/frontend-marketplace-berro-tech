@@ -1,10 +1,10 @@
-import {ICONS} from '@/assets';
-import {useAppDispatch} from '@/hooks/useSelectorHook';
-import {signOutRequest} from '@/store/reducer/auth/actions';
+import { ICONS } from '@/assets';
+import { useAppDispatch } from '@/hooks/useSelectorHook';
+import { signOutRequest } from '@/store/reducer/auth/actions';
 import Image from 'next/image';
 import Link from 'next/link';
-import {StyleDropDown} from './style';
-
+import { StyleDropDown } from './style';
+import React from "react";
 export const DropDown = () => {
   const dispatch = useAppDispatch();
 

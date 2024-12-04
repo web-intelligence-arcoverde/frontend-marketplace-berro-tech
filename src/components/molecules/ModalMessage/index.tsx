@@ -2,7 +2,7 @@ import { ICONS } from "@/assets";
 import { IconLoading, Modal } from "@/components/atoms";
 import Image from "next/image";
 import { ButtonClose, ContainerModalMessage } from "./style";
-import { useState } from "react";
+import React from "react";
 import useModalOverflow from "@/hooks/useModalOverflow";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/hooks/useSelectorHook";
@@ -20,9 +20,9 @@ export const ModalMessage = ({
   messageSucess,
 }: ModalMessageProps) => {
   const handleModal = () => {
-   dispath(controlModal(!modal))
+    dispath(controlModal(!modal))
   };
-  const modal = useAppSelector((state)=>state.auth.modalError)
+  const modal = useAppSelector((state) => state.auth.modalError)
   const dispath = useDispatch()
 
   useModalOverflow(modal, handleModal);

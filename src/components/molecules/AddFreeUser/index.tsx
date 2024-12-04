@@ -1,11 +1,11 @@
-import {ICONS} from '@/assets';
-import {ButtonAddProduct} from '@/style';
-import {ContainerAddFreeUser, StyleLogo} from './style';
-
+import { ICONS } from '@/assets';
+import { ButtonAddProduct } from '@/style';
+import { ContainerAddFreeUser, StyleLogo } from './style';
+import React from 'react';
 interface AddFreeUserProps {
   addProduct: () => void;
 }
-export const AddFreeUser = ({addProduct}: AddFreeUserProps) => {
+export const AddFreeUser = ({ addProduct }: AddFreeUserProps) => {
   return (
     <ContainerAddFreeUser>
       <StyleLogo src={ICONS.LogoGray} alt='logo berrotech' />

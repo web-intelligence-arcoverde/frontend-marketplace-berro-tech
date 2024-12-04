@@ -1,17 +1,17 @@
-import {useAppSelector} from '@/hooks/useSelectorHook';
-import {useRouter} from 'next/router';
-import React, {useEffect} from 'react';
+import { useAppSelector } from '@/hooks/useSelectorHook';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 
 interface IAuth {
   children: React.ReactNode;
 }
 
-export const AuthPrivateRouter = ({children}: IAuth) => {
-  const {token} = useAppSelector((state) => state.auth);
+export const AuthPrivateRouter = ({ children }: IAuth) => {
+  const { token } = useAppSelector((state) => state.auth);
 
   const path = useRouter();
 
-  let auth = isAuthNotAuth(!!token, path.pathname);
+  const auth = isAuthNotAuth(!!token, path.pathname);
 
   useEffect(() => {
     if (auth) {

@@ -1,4 +1,5 @@
-import {ICONS} from '@/assets';
+import React from 'react';
+import { ICONS } from '@/assets';
 import {
   ButtonLink,
   LayoutInit,
@@ -8,12 +9,12 @@ import {
   VerifyCodeRecoveryAccount,
   ChangerPasswordRecoveryAccount,
 } from '@/components';
-import {CardRecovery} from '@/style/recovery-password';
+import { CardRecovery } from '@/style/recovery-password';
 import Image from 'next/image';
 
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 
-import {setStepRecoveryAccount} from '@/store/reducer/step/actions';
+import { setStepRecoveryAccount } from '@/store/reducer/step/actions';
 
 const Steps = {
   0: SendEmailRecoveryAccount,
@@ -22,11 +23,11 @@ const Steps = {
 };
 
 const RecoveryPassword = () => {
-  const {recovery_account_step} = useAppSelector((state) => state.step);
+  const { recovery_account_step } = useAppSelector((state) => state.step);
 
   const dispatch = useAppDispatch();
 
-  //@ts-ignore
+  //@ts-expect-error: Error
   const Step = Steps[recovery_account_step];
 
   const backStep = () => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FloatingLabelRadio } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import { addProductLocation, readCityByUfRequest, readStatesRequest } from '@/store/reducer/product/actions';
@@ -44,7 +45,7 @@ const RegisterLocation = (props: any) => {
   }, [])
 
   useEffect(() => {
-    if (!!uf.acronym) {
+    if (uf.acronym) {
       dispatch(readCityByUfRequest(uf.acronym))
     }
   }, [uf])

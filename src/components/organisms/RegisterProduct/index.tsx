@@ -1,3 +1,4 @@
+import React from 'react';
 import { MultiStepForm } from '@/components';
 import { StepRegisterProduct } from '@/mock';
 

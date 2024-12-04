@@ -32,8 +32,8 @@ export const SelectOrdenationUser = () => {
   const handleSelect = (event: string) => {
     setSelect(event);
 
-    let olderProducts = [...product].sort(sortFunction)
-    let mostRecentProducts = [...product].sort(sortFunctionReverse)
+    const olderProducts = [...product].sort(sortFunction)
+    const mostRecentProducts = [...product].sort(sortFunctionReverse)
 
     if (event === 'Mais Recentes') {
       dispatch(filterUserProducts(mostRecentProducts))
@@ -44,18 +44,18 @@ export const SelectOrdenationUser = () => {
     setOpen(!open);
   };
 
-  //@ts-ignore
+  //@ts-expect-error:error
   function sortFunction(a, b) {
-    var dateA = new Date(a.created_at).getTime();
-    var dateB = new Date(b.created_at).getTime();
+    const dateA = new Date(a.created_at).getTime();
+    const dateB = new Date(b.created_at).getTime();
 
     return dateA > dateB ? 1 : -1;
   };
 
-  //@ts-ignore
+  //@ts-expect-error:error
   function sortFunctionReverse(a, b) {
-    var dateA = new Date(a.created_at).getTime();
-    var dateB = new Date(b.created_at).getTime();
+    const dateA = new Date(a.created_at).getTime();
+    const dateB = new Date(b.created_at).getTime();
 
     return dateA < dateB ? 1 : -1;
   };
@@ -65,7 +65,6 @@ export const SelectOrdenationUser = () => {
       <SelectProduct
         open={open}
         onClick={handleOpenSelect}
-        placeholder='Orderna por'
       >
         <span>{select}</span>
         <Image src={ICONS.Up} alt='direção da seta' />

@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-boolean-cast */
 import { ICONS } from '@/assets';
 import { CardContact, CardNameLocation } from '@/components';
 import React from 'react';
@@ -11,10 +12,10 @@ export const SellerCard = () => {
 
   const { city, state } = addresses.length > 0 && addresses[0];
 
-  let showCity = city ? city : '';
-  let showState = !!state ? state : '';
+  const showCity = city ? city : '';
+  const showState = !!state ? state : '';
 
-  let phone = contacts.length > 1 ? contacts[0].phone_number : '';
+  const phone = contacts.length > 1 ? contacts[0].phone_number : '';
 
   return (
     <Container>

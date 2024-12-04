@@ -1,4 +1,5 @@
-import {Svg, SvgContainer} from './style';
+import { Svg, SvgContainer } from './style';
+import React from 'react';
 
 export const IconLoading = () => {
   return (
@@ -14,33 +15,33 @@ export const IconLoading = () => {
           <path
             d='M64 112C90.5097 112 112 90.5097 112 64C112 37.4903 90.5097 16 64 16C37.4903 16 16 37.4903 16 64C16 90.5097 37.4903 112 64 112Z'
             stroke='#FFCB04'
-            stroke-width='3'
-            stroke-linecap='round'
-            stroke-linejoin='round'
+            strokeWidth='3'
+            strokeLinecap='round'
+            strokeLinejoin='round'
           />
           <path
             className='dot-one'
             d='M42.667 64V64.0533'
             stroke='#FFCB04'
-            stroke-width='5'
-            stroke-linecap='round'
-            stroke-linejoin='round'
+            strokeWidth='5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
           />
           <path
             className='dot-two'
             d='M64 64V64.0533'
             stroke='#FFCB04'
-            stroke-width='5'
-            stroke-linecap='round'
-            stroke-linejoin='round'
+            strokeWidth='5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
           />
           <path
             className='dot-tree'
             d='M85.333 64V64.0533'
             stroke='#FFCB04'
-            stroke-width='5'
-            stroke-linecap='round'
-            stroke-linejoin='round'
+            strokeWidth='5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
           />
         </g>
         <defs>

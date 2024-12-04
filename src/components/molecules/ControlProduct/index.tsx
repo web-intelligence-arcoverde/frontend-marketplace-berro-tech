@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ButtonsControl,
   CardContact,
@@ -13,7 +14,7 @@ import {
   removeProductModal,
 } from '@/store/reducer/product/actions';
 import { useAppSelector } from '@/hooks/useSelectorHook';
-
+import React from "react";
 export const ControlProduct = ({
   id,
   name,

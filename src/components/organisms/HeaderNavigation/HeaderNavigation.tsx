@@ -1,6 +1,7 @@
-import {useState} from 'react';
-import {HeaderMenuNavigation, Search, AvatarContainer} from '@/components';
-import {Navigation, CardSearch} from './style';
+import { useState } from 'react';
+import { HeaderMenuNavigation, Search, AvatarContainer } from '@/components';
+import { Navigation, CardSearch } from './style';
+import React from 'react';
 
 export const HeaderNavigation = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -10,7 +11,7 @@ export const HeaderNavigation = () => {
       <HeaderMenuNavigation />
       <CardSearch>
         {
-          //@ts-ignore
+          //@ts-expect-error: Error
           <Search isFocused={isFocused} setIsFocused={setIsFocused} />
         }
       </CardSearch>

@@ -1,5 +1,6 @@
 import { Container, Figure, StyledImage, TextContainer } from "./style";
 import { PresentationInfoCardProps } from "@/types";
+import React from "react";
 
 export const PresentationInfoCard = ({
   icon,

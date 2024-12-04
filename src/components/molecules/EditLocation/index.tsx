@@ -1,4 +1,5 @@
-import { FloatingLabelInput, FloatingLabelRadio } from '@/components';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FloatingLabelRadio } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import { closeModalUpdateProduct, readCityByUfRequest, readStatesRequest, updateProductLocationRequest } from '@/store/reducer/product/actions';
 import { ProductLocationType } from '@/store/reducer/product/types';
@@ -50,7 +51,7 @@ export const EditLocation = () => {
   }, [])
 
   useEffect(() => {
-    if (!!uf.acronym) {
+    if (uf.acronym) {
       dispatch(readCityByUfRequest(uf.acronym))
     }
   }, [uf])

@@ -1,8 +1,9 @@
-import {all, call, put, takeLatest} from 'redux-saga/effects';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '@/service';
-import {store} from '@/store';
-import {readUserByIdSuccess} from './actions';
+import { store } from '@/store';
+import { readUserByIdSuccess } from './actions';
 
 function* signUpEmail(): any {
   try {
@@ -13,17 +14,17 @@ function* signUpEmail(): any {
   }
 }
 
-function* signInProviderGmail({payload}: any): any {
+function* signInProviderGmail({ payload }: any): any {
   try {
-    const {displayName, email, photoURL} = payload.user;
+    const { displayName, email, photoURL } = payload.user;
 
-    const {data} = yield call(api.post, '/auth/google', {
+    const { data } = yield call(api.post, '/auth/google', {
       name: displayName,
       email,
-      avatar_url: photoURL,
+      avatar_url: photoURL
     });
 
-    const {token} = data;
+    const { token } = data;
 
     localStorage.setItem('token', JSON.stringify(token.token));
 
@@ -34,14 +35,14 @@ function* signInProviderGmail({payload}: any): any {
   }
 }
 
-function* signInProviderFacebbok({payload}: any): any {
+function* signInProviderFacebbok({ payload }: any): any {
   try {
-    const {displayName, email, photoURL} = payload.user;
+    const { displayName, email, photoURL } = payload.user;
 
     yield call(api.post, '/auth/google', {
       name: displayName,
       email,
-      avatar_url: photoURL,
+      avatar_url: photoURL
     });
     //window.location.replace('/');
     //yield put(signUpSuccess(response))
@@ -50,9 +51,9 @@ function* signInProviderFacebbok({payload}: any): any {
   }
 }
 
-function* readUserById({payload}: any): any {
+function* readUserById({ payload }: any): any {
   try {
-    const {data} = yield call(api.get, `/user/${payload}`);
+    const { data } = yield call(api.get, `/user/${payload}`);
 
     yield put(readUserByIdSuccess(data));
   } catch (e) {
@@ -65,11 +66,12 @@ function* postsSaga() {
     takeLatest('USER/READ-USER-BY-ID-REQUEST', readUserById),
     takeLatest('user/sign-up-request', signUpEmail),
     takeLatest('LOGIN_SIGN_PROVIDER', signInProviderGmail),
-    takeLatest('LOGIN_SIGN_PROVIDER', signInProviderFacebbok),
+    takeLatest('LOGIN_SIGN_PROVIDER', signInProviderFacebbok)
   ]);
 }
 
 export default postsSaga;
 function signUpSuccess(data: any): any {
+  console.log(data);
   throw new Error('Function not implemented.');
 }

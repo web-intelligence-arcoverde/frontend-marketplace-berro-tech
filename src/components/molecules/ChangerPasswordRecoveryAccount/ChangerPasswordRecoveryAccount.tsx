@@ -1,11 +1,12 @@
-import {Input, Button} from '../..';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Input, Button } from '../..';
 
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import {ErrorMessage} from '@/locale';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-
+import { ErrorMessage } from '@/locale';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import React from "react";
 const schema = yup.object({
   password: yup
     .string()
@@ -18,8 +19,8 @@ const schema = yup.object({
     .oneOf([yup.ref('password')], 'Passwords does not match'),
 });
 
-import {ContainerForm} from './style';
-import {changerPasswordRequest} from '@/store/reducer/auth/actions';
+import { ContainerForm } from './style';
+import { changerPasswordRequest } from '@/store/reducer/auth/actions';
 
 export const ChangerPasswordRecoveryAccount = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +28,7 @@ export const ChangerPasswordRecoveryAccount = () => {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -36,7 +37,7 @@ export const ChangerPasswordRecoveryAccount = () => {
     },
   });
 
-  const {codeVerificationCode} = useAppSelector((state) => state.auth);
+  const { codeVerificationCode } = useAppSelector((state) => state.auth);
 
   const handleSubmitEmail = (data: any) => {
     dispatch(

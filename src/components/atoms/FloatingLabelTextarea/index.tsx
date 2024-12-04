@@ -1,5 +1,6 @@
-import {useState} from 'react';
-import {FormField, Textarea, Label} from './style';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
+import { FormField, Textarea, Label } from './style';
 
 interface FloatingLabelInputProps {
   placeholder: string;

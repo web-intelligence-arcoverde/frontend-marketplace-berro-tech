@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Container,
   DescriptionContainer,
@@ -30,7 +31,7 @@ export const SecuritySection = () => {
         <figure>
           <Image src={ICONS.SecurityShield} alt='iconde de escudo' />
         </figure>
-        <LinkContainer href={!!token ? 'minhas-publicacoes' : 'entrar'}>
+        <LinkContainer href={token ? 'minhas-publicacoes' : 'entrar'}>
           <h6>Quero vender na BerroTech</h6>
           <Image src={ICONS.ArrowDown} alt='seta para direita' />
         </LinkContainer>

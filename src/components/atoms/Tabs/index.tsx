@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TabsProps } from '@/types';
 import React, { useState } from 'react';
 import { Container } from './style';
@@ -18,8 +19,8 @@ export const Tabs = ({ tabs, initialTab = 3 }: TabsProps) => {
   const dispatch = useDispatch();
 
   const handleClick = (event: any, value: number) => {
-    let currentValueTab = selectedTab;
-    let newValueTab = value;
+    const currentValueTab = selectedTab;
+    const newValueTab = value;
 
     if (currentValueTab === newValueTab) {
       setSelectedTab(3);

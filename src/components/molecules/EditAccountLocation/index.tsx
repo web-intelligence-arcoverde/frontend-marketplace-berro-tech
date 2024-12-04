@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FloatingLabelRadio } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import {
@@ -18,7 +19,7 @@ export const EditAccountLocation = () => {
     user: { addresses },
   } = useAppSelector((state) => state.auth);
 
-  let address =
+  const address =
     addresses.length > 0
       ? {
         state: addresses[0].state,
@@ -34,7 +35,7 @@ export const EditAccountLocation = () => {
     city: address.city,
   });
 
-  const onChange = (name: string, value: any) => {
+  const onChange = (name: string, value: string | number) => {
     setProductInfo({ ...productInfo, [name]: value });
   };
 
@@ -58,7 +59,7 @@ export const EditAccountLocation = () => {
     dispatch(showModalEditUser({ formData, step: 0 }));
   };
 
-  let isEmptyCities = cities.length < 1
+  const isEmptyCities = cities.length < 1
 
   return (
     <Container onSubmit={handleSubmit}>
@@ -74,7 +75,7 @@ export const EditAccountLocation = () => {
             labels={states}
             value={productInfo.state}
             setValue={(event: any) => {
-              let newValue = event.target.value
+              const newValue = event.target.value
               onChange('state', newValue)
             }}
           />

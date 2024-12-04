@@ -7,7 +7,7 @@ import {
   AuthPublicRouter,
 } from '@/components';
 import Image from 'next/image';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FormLogin, LostPassword } from '@/style/entrar-style';
 import { useHookFormSignInEmail } from '@/hooks/useFormSignEmail';
 import { SignInInputs } from '@/mock/Inputs';
@@ -33,7 +33,7 @@ const SignIn = () => {
                   key={index}
                   nameLabel={input.label}
                   control={control}
-                  //@ts-ignore
+                  //@ts-expect-error: error
                   errors={errors[input.name]?.message}
                   {...input}
                 />

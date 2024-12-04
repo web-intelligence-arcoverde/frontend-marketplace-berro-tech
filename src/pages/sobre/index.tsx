@@ -1,7 +1,9 @@
+import React from "react";
+
 import { ICONS, IMAGES } from "@/assets";
 import { Footer, Header, LayoutSection } from "@/components";
 import { MocksAbout } from "@/mock";
-import { Main, Container, StyleDesktop, StyleMobile } from "@/style";
+import { Main, Container } from "@/style";
 import Image from "next/image";
 import {
   ContainerPresentation,

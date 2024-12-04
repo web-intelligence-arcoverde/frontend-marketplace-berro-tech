@@ -6,6 +6,7 @@ import { Button } from '@/components';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useAppSelector } from '@/hooks';
 import Link from 'next/link';
+import React from 'react';
 
 export const CardContact = ({ phone }: CardContactProps) => {
   const isMobile = !useMediaQuery('md');
@@ -30,7 +31,7 @@ export const CardContact = ({ phone }: CardContactProps) => {
 
   return (
     <>
-      {!!token ?
+      {token ?
         <Container>
           <a
             target='_blank'

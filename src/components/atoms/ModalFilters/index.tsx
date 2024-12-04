@@ -1,6 +1,6 @@
 import useModalOverflow from "@/hooks/useModalOverflow";
 import { ModalContent, ModalWrapper } from "./style";
-
+import React from "react";
 type ModalFiltersProps = {
   isOpen: boolean;
   handleToggle: () => void;

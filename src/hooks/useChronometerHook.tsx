@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from 'react';
 
 const twoDigits = (num: any) => String(num).padStart(2, '0');
@@ -13,11 +14,11 @@ function useInterval(callback: any, delay: any) {
   // Set up the interval.
   useEffect(() => {
     function tick() {
-      //@ts-ignore
+      //@ts-expect-error: Error
       savedCallback.current();
     }
     if (delay !== null) {
-      let id = setInterval(tick, delay);
+      const id = setInterval(tick, delay);
       return () => clearInterval(id);
     }
   }, [delay]);

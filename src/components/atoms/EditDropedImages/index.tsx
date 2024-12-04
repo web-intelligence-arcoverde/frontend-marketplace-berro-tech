@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { DropedImagesCard, DropImage } from './style';
 import Image from 'next/image';
@@ -16,20 +17,20 @@ export const EditDropedImages = ({
   countImages = 1,
   handleRemove,
 }: DropedImagesProps) => {
-  let splitFileUrl = !!file.url && file.url.split('.');
+  const splitFileUrl = !!file.url && file.url.split('.');
 
-  let fileType =
+  const fileType =
     splitFileUrl.length > 0 && splitFileUrl[splitFileUrl.length - 1];
 
   const imagesType = ['jpeg', 'png'];
 
-  let fileTypeFileObj = !!file?.type?.startsWith('image/');
+  const fileTypeFileObj = !!file?.type?.startsWith('image/');
 
-  let widthImage = 167;
-  let heightImage = 120;
-  let altImage = 'imagen de produto';
+  const widthImage = 167;
+  const heightImage = 120;
+  const altImage = 'imagen de produto';
 
-  let currentFileType = !!file.url && file.url.split('.').reverse()[0]
+  const currentFileType = !!file.url && file.url.split('.').reverse()[0]
 
   const renderImage = () => {
     if (imagesType.includes(fileType)) {

@@ -1,6 +1,6 @@
 import { Button } from "../Button";
 import { CardButtons } from "./style";
-
+import React from "react";
 interface ButtonControlProps {
   editItem: () => void;
   removeItem: () => void;

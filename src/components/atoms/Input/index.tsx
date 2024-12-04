@@ -1,11 +1,11 @@
-import {ICONS} from '@/assets';
-import {InputProps} from '@/types/IInputProps';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ICONS } from '@/assets';
 import MaskedInput from 'react-input-mask';
 import Image from 'next/image';
-import {useState} from 'react';
-import {Controller} from 'react-hook-form';
-
-import {CardInputUser, MessageErro, TextLabel} from './style';
+import { useState } from 'react';
+import { Controller } from 'react-hook-form';
+import React from "react";
+import { CardInputUser, MessageErro, TextLabel } from './style';
 
 export const Input = ({
   name,
@@ -14,7 +14,7 @@ export const Input = ({
   nameLabel,
   control,
   errors,
-}: InputProps) => {
+}: any) => {
   const [showPassword, setShowPassord] = useState(false);
   const handleChangeIcon = () => {
     setShowPassord(!showPassword);
@@ -24,7 +24,7 @@ export const Input = ({
     <Controller
       name={name}
       control={control}
-      render={({field: {onChange, onBlur, value}}) => (
+      render={({ field: { onChange, onBlur, value } }) => (
         <CardInputUser>
           <div>
             <TextLabel>{nameLabel}</TextLabel>

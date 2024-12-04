@@ -1,5 +1,6 @@
-import {createAction} from '@reduxjs/toolkit';
-import {IRegisterUserProps} from './types';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { createAction } from '@reduxjs/toolkit';
+import { IRegisterUserProps } from './types';
 
 export const addUser = createAction<IRegisterUserProps>('ADD_USER');
 export const addPassword = createAction<IRegisterUserProps>('ADD_PASSWORD');
@@ -17,8 +18,8 @@ export const editUserPassword = createAction('user/edit-user-password');
 export const editUserLocation = createAction('user/edit-user-location');
 
 export const readUserByIdRequest = createAction<any>(
-  'USER/READ-USER-BY-ID-REQUEST',
+  'USER/READ-USER-BY-ID-REQUEST'
 );
 export const readUserByIdSuccess = createAction<any>(
-  'USER/READ-USER-BY-ID-SUCCESS',
+  'USER/READ-USER-BY-ID-SUCCESS'
 );

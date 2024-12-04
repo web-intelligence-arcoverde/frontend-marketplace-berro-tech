@@ -1,8 +1,9 @@
-import {useAppDispatch} from '@/hooks/useSelectorHook';
-import {renewLimitProduct} from '@/store/reducer/product/actions';
-import {useRouter} from 'next/router';
-import {useState} from "react";
-import {ButtonToogle, CardToogle, ContainerNotification} from "./style";
+import { useAppDispatch } from '@/hooks/useSelectorHook';
+import { renewLimitProduct } from '@/store/reducer/product/actions';
+import { useRouter } from 'next/router';
+import { useState } from "react";
+import { ButtonToogle, CardToogle, ContainerNotification } from "./style";
+import React from 'react';
 
 export const Notification = () => {
   const [state, setState] = useState(false);
@@ -10,10 +11,10 @@ export const Notification = () => {
 
   const router = useRouter()
 
-  const {id} = router.query
+  const { id } = router.query
 
   const handleClick = () => {
-    let updateState = !state
+    const updateState = !state
     setState(updateState);
     if (updateState) {
       dispatch(renewLimitProduct(id))
@@ -24,12 +25,12 @@ export const Notification = () => {
   return (<ContainerNotification>
     <p>
       Suas publicações ficam ativas por 1 mês, depois desse período você será
-                                                  notificado por email para renovar
+      notificado por email para renovar
     </p>
     <CardToogle>
       <p>Ativar renovação automática</p>
       <ButtonToogle isOn={state}
-        onClick={handleClick}/>
+        onClick={handleClick} />
     </CardToogle>
   </ContainerNotification>);
 };

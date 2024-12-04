@@ -1,3 +1,4 @@
+import React from 'react';
 import { DescriptionPresentation, Intro } from './style';
 
 export const Presentation = () => {

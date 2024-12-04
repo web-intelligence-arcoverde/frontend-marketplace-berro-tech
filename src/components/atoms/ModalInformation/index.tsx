@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { ContainerModal, ModalBackground, ButtonClose } from "./style";
 import Image from "next/image";
 import { ICONS } from "@/assets";
-
+import React from "react";
 interface ModalProps {
   children: ReactNode;
   onClick: () => void;

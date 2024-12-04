@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breadcrumb, SlideProduct } from '@/components';
 import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
 import { PhotosAnimalMobile } from '../PhotosAnimalMobile';
 import { Container, CurrentImage, ListPhotos, SeeMore } from './style';
+import React from 'react';
 
 import { IDocument } from '@/types/ICardProductProps';
 
@@ -12,7 +14,7 @@ export const PhotosAnimal = ({ arrayPhoto }: any) => {
   const minPhotos = arrayPhoto?.length;
 
   const [currentPhoto, setCurrentPhoto] = useState(arrayPhoto[0].url);
-  let currentFileType = currentPhoto.split('.').reverse()[0]
+  const currentFileType = currentPhoto.split('.').reverse()[0]
 
   const handleClick = (image: StaticImageData | any) => {
     setCurrentPhoto(image);
@@ -51,7 +53,7 @@ export const PhotosAnimal = ({ arrayPhoto }: any) => {
       {renderCurrentFile()}
       <ListPhotos>
         {arrayPhoto?.slice(0, 5).map((image: IDocument, index: number) => {
-          let typeFile = image.url.split('.').reverse()[0]
+          const typeFile = image.url.split('.').reverse()[0]
 
           const renderFile = () => {
             if (typeFile === 'mp4') {

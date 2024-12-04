@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image';
-import {useAppSelector} from '@/hooks/useSelectorHook';
-import {ICONS} from '@/assets';
+import { useAppSelector } from '@/hooks/useSelectorHook';
+import { ICONS } from '@/assets';
 import {
   ButtonLink,
   DropDown,
@@ -18,18 +19,18 @@ import {
   CardDropDown,
   CardArrowUp,
 } from './style';
-import {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {searchMobile} from '@/store/reducer/product/actions';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchMobile } from '@/store/reducer/product/actions';
 
 export const AvatarContainer = () => {
   const {
     token,
-    user: {avatar_url},
+    user: { avatar_url },
   } = useAppSelector((state) => state.auth);
 
-  let isEmptyAvatarImage = !!avatar_url ? avatar_url : ICONS.Avatar;
-  let showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
+  const isEmptyAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
+  const showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
 
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState(false);
@@ -71,7 +72,7 @@ export const AvatarContainer = () => {
 
   return (
     <>
-      {!!token ? (
+      {token ? (
         <CardAvatar id='avatar-container'>
           {openDropDown ? (
             <>
@@ -84,7 +85,7 @@ export const AvatarContainer = () => {
             </>
           ) : (
             <StyleAvatar
-              isEmpty={isEmptyAvatarImage.src !=='/_next/static/media/avatar.f2536f59.svg'}
+              isEmpty={isEmptyAvatarImage.src !== '/_next/static/media/avatar.f2536f59.svg'}
               onClick={handleDropDown}
               src={showAvatarImage}
               alt='foto perfil'

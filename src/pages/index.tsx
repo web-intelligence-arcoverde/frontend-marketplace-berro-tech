@@ -1,3 +1,4 @@
+
 import {
   Header,
   PresentationInfo,
@@ -9,7 +10,7 @@ import { useAppDispatch } from "@/hooks/useSelectorHook";
 import { getAllProducts } from "@/store/reducer/product/actions";
 import { Main, Container } from "@/style";
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const MyPresentation = dynamic(
   () => import("../components/organisms/Presentation")

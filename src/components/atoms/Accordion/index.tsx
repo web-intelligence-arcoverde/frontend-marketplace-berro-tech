@@ -8,7 +8,7 @@ import {
   AccordionIconTitle,
 } from "./style";
 import { useState } from "react";
-
+import React from "react";
 interface AccordionProps {
   title: string;
   icon: string
@@ -28,7 +28,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children, icon }) =
           <Image src={icon} alt={`Icone de ${icon}`} />
           <h3>{title}</h3>
         </AccordionIconTitle>
-        <ArrowImage  isOpen={isExpanded}>
+        <ArrowImage isOpen={isExpanded}>
           <Image
             src={ICONS.ArrowRight}
             alt="seta do accordion"

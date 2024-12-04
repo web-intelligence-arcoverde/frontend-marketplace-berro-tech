@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type IAuthState = {
   token: string;
   user: IEditUserInfoProps & IEditUserPasswordProps & IEditUserLocationProps;
@@ -7,7 +8,7 @@ export type IAuthState = {
   modalError: boolean;
   myProducts: [];
   loading: boolean;
-  filterProducts: any[]
+  filterProducts: any[];
 };
 
 export interface ISignIn {

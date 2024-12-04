@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ICONS } from "@/assets";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import { Container, InputSearchBar, InputContainer, CheckboxContainer } from "./style";
 import { Checkbox } from "@/components/atoms";
@@ -8,12 +9,10 @@ import { allFilterSelected, deleteFilterSelected } from "@/store/reducer/product
 
 interface BussinessfilterProps {
   data: any;
-  returnFilters: (e: string[]) => void;
 }
 
-export const BussinessFilter = ({ data, returnFilters }: BussinessfilterProps) => {
+export const BussinessFilter = ({ data }: BussinessfilterProps) => {
 
-  const [checkedArray, setCheckedArray] = useState<string[]>([]);
   const [filteredData, setFilterData] = useState<[]>(data.filters);
 
   const dispatch = useDispatch();
@@ -30,13 +29,9 @@ export const BussinessFilter = ({ data, returnFilters }: BussinessfilterProps) =
   }) => {
     console.log(e)
     if (e.value) {
-      setCheckedArray((prevArray) => [
-        ...prevArray,
-        e.name
-      ]);
+
       dispatch(allFilterSelected(e.name))
     } else {
-      setCheckedArray((prevArray) => prevArray.filter((item) => item !== e.name));
       dispatch(deleteFilterSelected(e.name.toString()));
     }
     return e;

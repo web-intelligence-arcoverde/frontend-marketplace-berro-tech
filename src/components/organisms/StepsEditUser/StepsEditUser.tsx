@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import {
   ContainerForm,
   FirstColumn,
@@ -33,11 +35,9 @@ export const EditUserBasicInformations = () => {
     user: { name, email, contacts },
   } = useAppSelector((state) => state.auth);
 
-  let phone = contacts.length > 0 ? contacts[0].phone_number : '';
+  const phone = contacts.length > 0 ? contacts[0].phone_number : '';
 
-  let test = ''
 
-  test = 10;
 
   const dispatch = useAppDispatch();
 
@@ -46,11 +46,12 @@ export const EditUserBasicInformations = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    //@ts-ignore
+
     resolver: yupResolver(schema),
     defaultValues: {
       name,
       email,
+      //@ts-expect-error: error
       phone,
     },
   });
@@ -63,7 +64,7 @@ export const EditUserBasicInformations = () => {
     formData.append('email', data.email);
     formData.append('phone', data.phone);
 
-    if (!!inputFile?.files?.item(0)) {
+    if (inputFile?.files?.item(0)) {
       formData.append('avatar_url', inputFile?.files?.item(0) as File);
     }
 

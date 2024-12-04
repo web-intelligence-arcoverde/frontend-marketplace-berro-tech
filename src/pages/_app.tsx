@@ -6,7 +6,7 @@ import Head from "next/head";
 
 import { Provider } from "react-redux";
 import { store } from "../store";
-import { ModalGeneric, ModalMessage } from "@/components";
+import { ModalGeneric } from "@/components";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [domLoaded, setDomLoaded] = useState(false);

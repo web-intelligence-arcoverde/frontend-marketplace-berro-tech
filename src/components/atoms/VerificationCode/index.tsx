@@ -1,12 +1,13 @@
-import {useState, useRef, ChangeEvent} from 'react';
-import {CardInputs} from './style';
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useRef, ChangeEvent } from 'react';
+import { CardInputs } from './style';
+import React from 'react';
 interface IVerificationCode {
   code: string[];
   setCode: any;
 }
 
-export const VerificationCode = ({code, setCode}: IVerificationCode) => {
+export const VerificationCode = ({ code, setCode }: IVerificationCode) => {
   const codeInputs = useRef<Array<HTMLInputElement>>([]);
 
   const handleChange = (index: number, e: ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +29,7 @@ export const VerificationCode = ({code, setCode}: IVerificationCode) => {
     index: number,
     e: React.KeyboardEvent<HTMLInputElement>,
   ) => {
-    let indexLetter = index;
+    const indexLetter = index;
 
     if (e.key === KEY_DELETE && indexLetter >= 0) {
       if (indexLetter > 0) {

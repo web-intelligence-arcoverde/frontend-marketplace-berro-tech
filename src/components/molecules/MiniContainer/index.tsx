@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image';
-import {ReactNode} from 'react';
-import {CardButton, Container, Header, Row, Texts, CardChildren} from './style';
-import {ICONS} from '@/assets';
-import {ButtonLink} from '@/components';
+import { ReactNode } from 'react';
+import { CardButton, Container, Header, Row, Texts, CardChildren } from './style';
+import { ICONS } from '@/assets';
+import { ButtonLink } from '@/components';
+import React from 'react';
 
 interface MiniContainerProps {
   title: string;

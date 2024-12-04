@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import {
   CardSellerProfile,
   ContainerBreadcumb,
@@ -20,7 +24,7 @@ import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import { ParsedUrlQuery } from 'querystring';
 import { readUserByIdRequest } from '@/store/reducer/user/actions';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const SelleProfiler = () => {
   const router = useRouter();

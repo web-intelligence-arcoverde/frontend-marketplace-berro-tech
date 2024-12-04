@@ -12,12 +12,12 @@ import {
   InfoCardToMobile,
   TitleToMobile,
 } from './style';
-import {ICONS, IMAGES} from '@/assets';
+import { ICONS, IMAGES } from '@/assets';
 
-import {StyleDesktop, StyleMobile} from '@/style';
-import {useRouter} from 'next/router';
-import {useMediaQuery} from '@/hooks/useMediaQuery';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { StyleDesktop, StyleMobile } from '@/style';
+import { useRouter } from 'next/router';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
 export const ProductSellerCard = () => {
   const router = useRouter();
@@ -26,18 +26,18 @@ export const ProductSellerCard = () => {
   const {
     product_by_id,
   } = useAppSelector((state) => state.product);
-  
-  
-  const {avatar_url, name, id,addresses} = product_by_id
+
+
+  const { avatar_url, name, id, addresses } = product_by_id
 
   const handleRedirect = () => {
     router.replace(`/negocios/perfil-vendedor/${id}`);
   };
-  
-  
-  let city = addresses.length > 0 ? addresses[0].city : ''
-  let state = addresses.length > 0 ? addresses[0].state : ''
-  
+
+
+  const city = addresses.length > 0 ? addresses[0].city : ''
+  const state = addresses.length > 0 ? addresses[0].state : ''
+
 
   return (
     <ProductSellerContainer>
@@ -69,7 +69,7 @@ export const ProductSellerCard = () => {
           {isMobile && (
             <ImageContainer>
               <Image
-                src={!!avatar_url ? avatar_url : IMAGES.Seller}
+                src={avatar_url ? avatar_url : IMAGES.Seller}
                 width='100'
                 height='100'
                 alt='imagem do vendedor'
@@ -94,7 +94,7 @@ export const ProductSellerCard = () => {
       <StyleDesktop>
         <ImageContainer>
           <Image
-            src={!!avatar_url ? avatar_url : ICONS.Avatar}
+            src={avatar_url ? avatar_url : ICONS.Avatar}
             alt='imagem do vendedor'
             width='550'
             height='550'

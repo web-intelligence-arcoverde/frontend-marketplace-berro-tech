@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import {DropedImagesCard, DropImage} from './style';
+import { DropedImagesCard, DropImage } from './style';
 import Image from 'next/image';
-import {ICONS} from '@/assets';
+import { ICONS } from '@/assets';
 
 interface DropedImagesProps {
   Files: File;

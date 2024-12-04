@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Accordion, Dropdown, BussinessFilter, ModalFilters } from "@/components"
 import { Container, BadgeContainer, Badge, HeaderFilterMobile, FilterButtonContainer, FiltersHeaderContainer, FiltersIconTitle, FiltersIconTitleHeader, ArrowImage, CleanFilterButton, ApplyFilterButton } from "./style"
 import { ICONS, } from "@/assets"
@@ -5,7 +6,7 @@ import Image from "next/image"
 import { BusinessFiltersMock, DropdownMock } from '@/mock'
 import { useMediaQuery } from "@/hooks/useMediaQuery"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { clearFiltersSelecteds } from "@/store/reducer/product/actions"
 import { useAppSelector } from "@/hooks/useSelectorHook"
@@ -24,7 +25,7 @@ export const BussinessAside = () => {
       {isDesktop ?
         BusinessFiltersMock.map((item, index) => (
           <Accordion key={`${item.title}${index}`} icon={item.icon} title={item.title} >
-            <BussinessFilter data={item} returnFilters={(e) => setFilters(e)} />
+            <BussinessFilter data={item} />
           </Accordion>
         ))
 
@@ -45,7 +46,7 @@ export const BussinessAside = () => {
             </FiltersIconTitleHeader>
             <Dropdown
               options={DropdownMock}
-              onOptionSelect={(option: string): void => {}} />
+              onOptionSelect={(option: string): void => { }} />
 
           </FiltersHeaderContainer>
           <BadgeContainer>
@@ -65,7 +66,7 @@ export const BussinessAside = () => {
             </HeaderFilterMobile>
             {BusinessFiltersMock.map((item, index) => (
               <Accordion key={`${item.title}${index}`} icon={item.icon} title={item.title} >
-                <BussinessFilter returnFilters={(e) => setFilters(e)} data={item} />
+                <BussinessFilter data={item} />
               </Accordion>
             ))}
           </ModalFilters>

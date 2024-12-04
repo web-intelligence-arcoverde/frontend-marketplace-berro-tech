@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TabsProps } from '@/types';
 import React, { useState } from 'react';
 import { Container } from './style';
@@ -5,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { topSearchesFilter } from '@/store/reducer/product/actions';
 import { useAppSelector } from '@/hooks/useSelectorHook';
 import { filterByAllAttributes } from '@/store/reducer/product/reducer';
-import { filterUserProducts, userLoggedInformationRequest } from '@/store/reducer/auth/actions';
+import { filterUserProducts } from '@/store/reducer/auth/actions';
 
 export const UserTabs = ({ tabs, initialTab = 3 }: TabsProps) => {
   const [selectedTab, setSelectedTab] = useState(initialTab);
@@ -18,8 +19,8 @@ export const UserTabs = ({ tabs, initialTab = 3 }: TabsProps) => {
 
   const handleClick = (event: any, value: number) => {
 
-    let currentValueTab = selectedTab
-    let newValueTab = value
+    const currentValueTab = selectedTab
+    const newValueTab = value
 
     if (currentValueTab === newValueTab) {
       setSelectedTab(3);

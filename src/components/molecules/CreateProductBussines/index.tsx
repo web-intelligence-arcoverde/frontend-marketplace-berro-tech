@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   FloatingInputMask,
   FloatingLabelInput,
   FloatingLabelRadio,
 } from '@/components';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {readSaleTypeRequest} from '@/store/reducer/product/actions';
-import React, {useEffect, useState} from 'react';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { readSaleTypeRequest } from '@/store/reducer/product/actions';
+import React, { useEffect, useState } from 'react';
 
 export const CreateProductBussines = () => {
   const dispatch = useAppDispatch();
@@ -14,7 +15,7 @@ export const CreateProductBussines = () => {
     dispatch(readSaleTypeRequest());
   }, []);
 
-  const {sale} = useAppSelector((state) => state.product);
+  const { sale } = useAppSelector((state) => state.product);
 
   const [bussinessInformation, setBussinessInformation] = useState({
     sellType: '',
@@ -24,7 +25,7 @@ export const CreateProductBussines = () => {
   });
 
   const onChange = (name: string, value: any) => {
-    setBussinessInformation({...bussinessInformation, [name]: value});
+    setBussinessInformation({ ...bussinessInformation, [name]: value });
   };
 
   return (
@@ -60,7 +61,7 @@ export const CreateProductBussines = () => {
         maxLength={14}
         value={bussinessInformation.price}
         setValue={(event: any) => onChange('price', event)}
-       
+
       />
       <FloatingLabelInput
         required

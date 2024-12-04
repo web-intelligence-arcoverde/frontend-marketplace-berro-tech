@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ICONS } from '@/assets';
 import { Dropzone } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import {
-  addProductImages,
   addProductPhotoRequest,
   closeModalUpdateProduct,
   deleteProductPhotoRequest,
 } from '@/store/reducer/product/actions';
 import { StyleDesktop, StyleMobile } from '@/style';
 import Image from 'next/image';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import {
   ButtonAddImage,
   Container,
@@ -70,7 +71,7 @@ export const EditRegisterPhotos = () => {
   const handleRemoveFile = (index: number) => {
     const newFiles = [...images];
 
-    let deleteFile = images.filter((item, posi) => posi === index)[0];
+    const deleteFile = images.filter((item, posi) => posi === index)[0];
 
     newFiles.splice(index, 1);
     setImages(newFiles);
@@ -78,7 +79,7 @@ export const EditRegisterPhotos = () => {
     dispatch(deleteProductPhotoRequest(deleteFile.file));
   };
   const handleSubmit = () => {
-    let newImages = images.filter((item: any) => !!item.id == false);
+    const newImages = images.filter((item: any) => !!item.id == false);
 
     dispatch(addProductPhotoRequest({ id, files: newImages }));
 
@@ -98,6 +99,7 @@ export const EditRegisterPhotos = () => {
               <StyleDesktop>
                 <ButtonsContainer>
                   <input
+                    aria-label='exemple'
                     id='file-input'
                     type='file'
                     multiple
@@ -128,6 +130,7 @@ export const EditRegisterPhotos = () => {
           <StyleMobile>
             <ButtonsContainer>
               <input
+                aria-label='exemple'
                 id='file-input'
                 type='file'
                 multiple

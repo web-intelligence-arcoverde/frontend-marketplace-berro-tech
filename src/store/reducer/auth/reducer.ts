@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createReducer } from '@reduxjs/toolkit';
 import {
   recoveryAccountSendEmailRequest,
@@ -14,7 +15,7 @@ import {
   userEditBasicInformationSuccess,
   getAllMyProducts,
   userLoggedInformationRequest,
-  filterUserProducts,
+  filterUserProducts
 } from './actions';
 
 import { initialState } from './initial';
@@ -62,7 +63,7 @@ export const auth = createReducer(initialState, (builder) => {
     .addCase(signUpEmailError, (state, action) => {
       state.error = {
         type: action.payload.type,
-        message: action.payload.message,
+        message: action.payload.message
       };
     })
     .addCase(controlModal, (state, action) => {
@@ -73,7 +74,8 @@ export const auth = createReducer(initialState, (builder) => {
     })
     .addCase(getAllMyProducts, (state, action) => {
       state.myProducts = action.payload;
-    }).addCase(filterUserProducts, (state, action) => {
+    })
+    .addCase(filterUserProducts, (state, action) => {
       state.filterProducts = action.payload;
     });
 });

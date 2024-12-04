@@ -1,11 +1,11 @@
 import { Container, CheckboxInput } from './style';
-
+import React from 'react';
 export const Checkbox = ({
   name,
   onCheck,
 }: {
   name: string;
-  onCheck: (e: { name: string; value: boolean }) => {};
+  onCheck: (e: { name: string; value: boolean }) => void;
 }) => {
   return (
     <Container>

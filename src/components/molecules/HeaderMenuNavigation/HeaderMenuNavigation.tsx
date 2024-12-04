@@ -1,17 +1,18 @@
-import {useRouter} from 'next/router';
+import React from 'react';
+import { useRouter } from 'next/router';
 
-import {ContainerNavigation, ItemNavigation, Row} from './style';
+import { ContainerNavigation, ItemNavigation, Row } from './style';
 
 import Link from 'next/link';
 
 export const HeaderMenuNavigation = () => {
   const router = useRouter();
 
-  let optionInit = router.asPath === '/';
-  let optionBussiness = router.asPath === '/negocios';
+  const optionInit = router.asPath === '/';
+  const optionBussiness = router.asPath === '/negocios';
 
-  let styleInit = optionInit ? 'brightness' : '';
-  let styleBussiness = optionBussiness ? 'brightness' : '';
+  const styleInit = optionInit ? 'brightness' : '';
+  const styleBussiness = optionBussiness ? 'brightness' : '';
 
   return (
     <ContainerNavigation>

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import {
   FloatingLabelInput,
   FloatingLabelRadio,
@@ -10,13 +13,15 @@ import {
   readAgeCategoriesRequest,
   readClassificationsRequest,
 } from '@/store/reducer/product/actions';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function formatDate(date: any) {
-  var d = new Date(date),
-    month = '' + (d.getMonth() + 1),
-    day = '' + d.getDate(),
-    year = d.getFullYear();
+  const d = new Date(date)
+  let month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate();
+
+
+  const year = d.getFullYear()
 
   if (month.length < 2) month = '0' + month;
   if (day.length < 2) day = '0' + day;

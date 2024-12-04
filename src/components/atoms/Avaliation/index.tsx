@@ -2,7 +2,7 @@ import { ICONS } from "@/assets";
 import { AvaliationProps } from "@/types";
 import Image from "next/image";
 import { Container } from "./style";
-
+import React from "react";
 export const Avaliation = ({ avaliation }: AvaliationProps) => {
   return (
     <Container>

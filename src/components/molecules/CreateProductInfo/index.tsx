@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   FloatingInputMask,
   FloatingLabelInput,
@@ -27,7 +28,7 @@ export const CreateProductInfo = () => {
 
   const isExistBreeds = breeds.length > 1;
 
-  var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+  const utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
 
   const [productInfo, setProductInfo] = useState({
     name: '',

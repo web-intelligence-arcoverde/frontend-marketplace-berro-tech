@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ProductInfoType, ProductLocationType } from './types';
 import { IProduct } from '@/types/ICardProductProps';
 
@@ -13,12 +14,12 @@ export const initialState: any = {
     sellType: '',
     quantity: null,
     price: null,
-    installments: null,
+    installments: null
   } as ProductInfoType,
   productImages: [] as File[],
   productLocation: {
     state: '',
-    city: '',
+    city: ''
   } as ProductLocationType,
   loading: false,
   sucess: false,
@@ -64,5 +65,4 @@ export const initialState: any = {
   loadingProducts: false,
 
   selectedItemsFilter: []
-
 };

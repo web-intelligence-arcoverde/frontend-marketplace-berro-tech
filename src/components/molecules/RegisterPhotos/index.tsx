@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { ICONS } from '@/assets';
 import { DropedImages, Dropzone } from '@/components';
 import { useAppDispatch } from '@/hooks/useSelectorHook';
 import { addProductImages } from '@/store/reducer/product/actions';
 import { StyleDesktop, StyleMobile } from '@/style';
 import Image from 'next/image';
-import { ChangeEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import {
   ButtonAddImage,
   Container,
@@ -70,6 +72,7 @@ export const RegisterPhotos = (props: any) => {
               <StyleDesktop>
                 <ButtonsContainer>
                   <input
+                    aria-label='label'
                     id='file-input'
                     type='file'
                     accept="image/jpg, image/jpeg, image/png, video/mp4"
@@ -98,6 +101,7 @@ export const RegisterPhotos = (props: any) => {
           <StyleMobile>
             <ButtonsContainer>
               <input
+                aria-label='label'
                 id='file-input'
                 type='file'
                 multiple

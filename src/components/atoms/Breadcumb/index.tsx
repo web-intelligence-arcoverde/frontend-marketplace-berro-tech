@@ -1,14 +1,15 @@
-import {useRouter} from 'next/router';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useRouter } from 'next/router';
 import Image from 'next/image';
-import {ListBreadcumb, ItemBreadcumb} from './style';
+import { ListBreadcumb, ItemBreadcumb } from './style';
 import Link from 'next/link';
-import {ICONS} from '@/assets';
-
+import { ICONS } from '@/assets';
+import React from "react";
 export const Breadcrumb = () => {
   const router = useRouter();
   const pathnames = router.pathname.split('/').filter((x: string) => x);
 
-  const {product} = router.query;
+  const { product } = router.query;
   const newArrayPathNames = pathnames.map((item) =>
     item === '[product]' ? product : item,
   );

@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ICONS } from '@/assets';
 import { useCallback, useState } from 'react';
 import { ArrowDown, CardOptions, FormField, Input, Label } from './style';
-
+import React from 'react';
 interface FloatingLabelInputProps {
   placeholder: string;
   name?: string;
@@ -45,10 +46,15 @@ export const FloatingLabelRadio = ({
   const handleOptionChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>, item?: ILabel) => {
       setSelectedOption(event.target.value);
-      setOption && setOption(event.target.value);
+      if (setOption) {
+        setOption(event.target.value);
+      }
       setValue(event);
       setOpenForm(false);
-      !!setItem && setItem(item);
+
+      if (setItem) {
+        setItem(item);
+      }
     },
     [setOption, setValue, setItem],
   );

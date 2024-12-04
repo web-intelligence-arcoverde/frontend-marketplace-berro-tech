@@ -1,7 +1,7 @@
 import { ICONS } from "@/assets";
 import Image from "next/image";
 import { ContainerNotFound } from "./style";
-
+import React from "react";
 interface NotFoundFilterProps {
   title: string;
   subtitle: string;

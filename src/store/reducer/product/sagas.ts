@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import api from '@/service';
 import {
@@ -17,7 +18,7 @@ import {
   topSearches,
   topSearchesFilterSuccess,
   updateProductBasicInformationSuccess,
-  updateProductLocationSuccess,
+  updateProductLocationSuccess
 } from './actions';
 import { store } from '@/store';
 import { userLoggedInformationRequest } from '../auth/actions';
@@ -47,7 +48,7 @@ function* registerProduct() {
 
     const product = { ...productInfo, ...productLocation };
 
-    var formData = new FormData();
+    const formData = new FormData();
 
     productImages.map((file: any) => {
       formData.append('document', file);
@@ -57,8 +58,8 @@ function* registerProduct() {
 
     yield call(api.post, `/product`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
-      },
+        'Content-Type': 'multipart/form-data'
+      }
     });
 
     yield put(userLoggedInformationRequest());
@@ -120,7 +121,7 @@ function* readSaleType() {
 function* readProductById({ payload }: any) {
   try {
     const { data } = yield call(api.get, `/product/${payload}`);
-    let product = data;
+    const product = data;
     product.products = product.products[0];
     yield put(readProductByIdSuccess(product));
   } catch (e) {
@@ -152,7 +153,7 @@ function* addPhotoProduct({ payload }: any) {
   try {
     const { files, id } = payload;
 
-    var formData = new FormData();
+    const formData = new FormData();
 
     files.map((file: any) => {
       formData.append('document', file);
@@ -235,15 +236,11 @@ function* readStates() {
 function* readCities({ payload }: any) {
   try {
     const { data } = yield call(api.get, `/city/${payload}`);
-    yield put(readCityByUfSuccess(data))
+    yield put(readCityByUfSuccess(data));
   } catch (e) {
     console.log(e);
   }
 }
-
-
-
-
 
 function* postsSaga() {
   yield all([
@@ -259,7 +256,7 @@ function* postsSaga() {
 
     takeLatest(
       'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_REQUEST',
-      updateProductBasicInformation,
+      updateProductBasicInformation
     ),
 
     takeLatest('PRODUCT/DELETE_PRODUCT_PHOTO_REQUEST', deletePhotoProduct),
@@ -268,7 +265,7 @@ function* postsSaga() {
 
     takeLatest(
       'PRODUCT/UPDATE_PRODUCT_LOCATION_REQUEST',
-      updateLocationProduct,
+      updateLocationProduct
     ),
 
     takeLatest('REMOVE_PRODUCT', deleteProduct),
@@ -283,8 +280,7 @@ function* postsSaga() {
 
     takeLatest('PRODUCT/READ_STATES_REQUEST', readStates),
 
-    takeLatest('PRODUCT/READ_CITY_BY_UF_REQUEST', readCities),
-
+    takeLatest('PRODUCT/READ_CITY_BY_UF_REQUEST', readCities)
   ]);
 }
 

@@ -2,6 +2,7 @@ import { ICONS } from "@/assets";
 import { MocksSteps } from "@/mock";
 import { ReactNode } from "react";
 import { CattleCard, CattleInfoContainer } from "../ProductCard/style";
+import React from "react";
 
 import {
   Arrow,

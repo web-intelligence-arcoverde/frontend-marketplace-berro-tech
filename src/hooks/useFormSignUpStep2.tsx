@@ -1,12 +1,11 @@
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import {ErrorMessage} from '../locale';
-import {useAppDispatch} from './useSelectorHook';
-import {addPassword} from '@/store/reducer/user/actions';
-import {IRegisterUserProps} from '@/store/reducer/user/types';
-import {useRouter} from 'next/router';
-import {signUpEmailRequest} from '@/store/reducer/auth/actions';
+import { ErrorMessage } from '../locale';
+import { useAppDispatch } from './useSelectorHook';
+import { addPassword } from '@/store/reducer/user/actions';
+import { IRegisterUserProps } from '@/store/reducer/user/types';
+import { signUpEmailRequest } from '@/store/reducer/auth/actions';
 
 const schema = yup
   .object({
@@ -30,12 +29,11 @@ export const useHookFormSignUp1 = () => {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const router = useRouter();
 
   const dispatch = useAppDispatch();
   const onSubmit = handleSubmit((data: IRegisterUserProps) => {
@@ -43,5 +41,5 @@ export const useHookFormSignUp1 = () => {
     dispatch(signUpEmailRequest());
   });
 
-  return {onSubmit, control, errors};
+  return { onSubmit, control, errors };
 };

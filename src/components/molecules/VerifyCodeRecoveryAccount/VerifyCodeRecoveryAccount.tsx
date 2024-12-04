@@ -36,7 +36,7 @@ export const VerifyCodeRecoveryAccount = () => {
       <h4>Verifique o código que enviamos pro seu email:</h4>
       <h6>
         {
-          //@ts-ignore
+          //@ts-expect-error: Error
           recoveryEmail?.email
         }
       </h6>
@@ -51,7 +51,7 @@ export const VerifyCodeRecoveryAccount = () => {
           Reenviar código
         </Button>
       ) : (
-        <Button className="resend cursor" onClick={() => {}} disabled>
+        <Button className="resend cursor" onClick={() => { }} disabled>
           {chronometer}
         </Button>
       )}

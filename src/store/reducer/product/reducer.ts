@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createReducer } from '@reduxjs/toolkit';
 import {
   addProductInfo,
@@ -60,7 +62,7 @@ export const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(filterItems, (state, action) => {
       const filtro = action.payload.toLowerCase();
-      let filterProducts = filterByAllAttributes(state.allProducts, filtro);
+      const filterProducts = filterByAllAttributes(state.allProducts, filtro);
       state.allProducts = filterProducts;
     })
     .addCase(productsWithOutFilters, (state, action) => {
@@ -90,7 +92,7 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.topSearchesFilter = action.payload;
     })
     .addCase(allFilterSelected, (state, action) => {
-      let isItemFilter = [...state.allFilterSelected].filter(
+      const isItemFilter = [...state.allFilterSelected].filter(
         (item) => item === action.payload
       );
       if (isItemFilter.length < 1) {

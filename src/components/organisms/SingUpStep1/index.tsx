@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Input } from "@/components";
 import { useHookFormSignUp1 } from "@/hooks/useFormSignUpStep1";
 import { useAppSelector } from "@/hooks/useSelectorHook";
@@ -18,7 +19,7 @@ export const SingUpStep1 = () => {
           key={index}
           nameLabel={input.label}
           control={control}
-          //@ts-ignore
+          //@ts-expect-error: Error
           errors={errors[input.name]?.message}
           {...input}
         />

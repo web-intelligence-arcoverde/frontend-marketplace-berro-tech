@@ -1,7 +1,7 @@
-import {useFormatMoney} from '@/hooks/useFormatMoney';
-import {setCellphoneMask, setMoneyMask, setWeightMask} from '@/util';
-import {FormField, Input, Label, ErrorMessage, ContainerField} from './style';
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { setCellphoneMask, setMoneyMask, setWeightMask } from '@/util';
+import { FormField, Input, Label, ErrorMessage, ContainerField } from './style';
+import React from 'react';
 const handleDate = (value: string) => {
   const selectedDate = new Date(value);
   const currentYear = new Date().getFullYear();

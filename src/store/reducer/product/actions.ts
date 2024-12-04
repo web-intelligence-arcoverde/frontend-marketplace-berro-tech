@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAction } from '@reduxjs/toolkit';
-
 
 export const addProduct = createAction<any>('ADD_PRODUCT');
 export const GetProductId = createAction<any>('GET_PRODUCT_ID');
@@ -11,7 +11,7 @@ export const addItem = createAction<string>('ADD_ITEM');
 export const removeItem = createAction<any>('REMOVE_ITEM');
 export const filterItems = createAction<any>('FILTER_ITEMS');
 export const productsWithOutFilters = createAction<any>(
-  'PRODUCTS_WITH_OUT_FILTERS',
+  'PRODUCTS_WITH_OUT_FILTERS'
 );
 export const currentSearch = createAction<string>('CURRENT_SEARCH');
 export const currentStep = createAction<{ step: number }>('CURRENTE_STEP');
@@ -21,12 +21,12 @@ export const topSearches = createAction<any>('TOP_SEARCHES');
 
 export const topSearchesFilter = createAction<any>('TOP_SEARCHES_FILTER');
 export const topSearchesFilterSuccess = createAction<any>(
-  'PRODUCT/TOP_SEARCHES_FILTER_SUCCESS',
+  'PRODUCT/TOP_SEARCHES_FILTER_SUCCESS'
 );
 
 export const allFilterSelected = createAction<any>('ALL_FILTER_SELECTED');
 export const deleteFilterSelected = createAction<string>(
-  'DELETE_FILTER_SELECTED',
+  'DELETE_FILTER_SELECTED'
 );
 export const clearFiltersSelecteds = createAction('CLEAR_FILTERS_SELECTEDS');
 export const getAllProducts = createAction('GET_ALL_PRODUCTS');
@@ -41,125 +41,121 @@ export const searchMobile = createAction<boolean>('SEARCH_MOBILE');
 export const readAnimalRequest = createAction('PRODUCT/READ_ANIMAL_REQUEST');
 
 export const readAnimalSuccess = createAction<any>(
-  'PRODUCT/READ_ANIMAL_SUCCESS',
+  'PRODUCT/READ_ANIMAL_SUCCESS'
 );
 
 export const readBreedRequest = createAction<string>(
-  'PRODUCT/READ_BREED_REQUEST',
+  'PRODUCT/READ_BREED_REQUEST'
 );
 
 export const readBreedSuccess = createAction<any>('PRODUCT/READ_BREED_SUCCESS');
 
 export const setVisibilityModalAddProduct = createAction<any>(
-  'PRODUCT/SET-VISIBILITY-MODAL-ADD-PRODUCT',
+  'PRODUCT/SET-VISIBILITY-MODAL-ADD-PRODUCT'
 );
 
 export const readAgeCategoriesRequest = createAction(
-  'PRODUCT/AGE_CATEGORIES_REQUEST',
+  'PRODUCT/AGE_CATEGORIES_REQUEST'
 );
 
 export const readAgeCategoriesSuccess = createAction<any>(
-  'PRODUCT/AGE_CATEGORIES_SUCCESS',
+  'PRODUCT/AGE_CATEGORIES_SUCCESS'
 );
 
 export const readClassificationsRequest = createAction(
-  'PRODUCT/AGE_CLASSIFICATIONS_REQUEST',
+  'PRODUCT/AGE_CLASSIFICATIONS_REQUEST'
 );
 
 export const readClassificationsSuccess = createAction<any>(
-  'PRODUCT/AGE_CLASSIFICATIONS_SUCCESS',
+  'PRODUCT/AGE_CLASSIFICATIONS_SUCCESS'
 );
 
 export const readSaleTypeRequest = createAction('PRODUCT/SALE_TYPE_REQUEST');
 
 export const readSaleTypeSuccess = createAction<any>(
-  'PRODUCT/SALE_TYPE_SUCCESS',
+  'PRODUCT/SALE_TYPE_SUCCESS'
 );
 
 export const readProductByIdRequest = createAction<any>(
-  'PRODUCT/READ_PRODUCT_BY_ID_REQUEST',
+  'PRODUCT/READ_PRODUCT_BY_ID_REQUEST'
 );
 
 export const readProductByIdSuccess = createAction<any>(
-  'PRODUCT/READ_PRODUCT_BY_ID_SUCCESS',
+  'PRODUCT/READ_PRODUCT_BY_ID_SUCCESS'
 );
 
 export const updateProductBasicInformationRequest = createAction<any>(
-  'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_REQUEST',
+  'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_REQUEST'
 );
 
 export const updateProductBasicInformationSuccess = createAction<any>(
-  'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_SUCCESS',
+  'PRODUCT/UPDATE_PRODUCT_BASIC_INFORMATION_SUCCESS'
 );
 
 export const deleteProductPhotoRequest = createAction<any>(
-  'PRODUCT/DELETE_PRODUCT_PHOTO_REQUEST',
+  'PRODUCT/DELETE_PRODUCT_PHOTO_REQUEST'
 );
 
 export const deleteProductPhotoSuccess = createAction<any>(
-  'PRODUCT/DELETE_PRODUCT_PHOTO_SUCCESS',
+  'PRODUCT/DELETE_PRODUCT_PHOTO_SUCCESS'
 );
 
 export const addProductPhotoRequest = createAction<any>(
-  'PRODUCT/ADD_PRODUCT_PHOTO_REQUEST',
+  'PRODUCT/ADD_PRODUCT_PHOTO_REQUEST'
 );
 
 export const addProductPhotoSuccess = createAction<any>(
-  'PRODUCT/ADD_PRODUCT_PHOTO_SUCCESS',
+  'PRODUCT/ADD_PRODUCT_PHOTO_SUCCESS'
 );
 
 export const updateProductLocationRequest = createAction<any>(
-  'PRODUCT/UPDATE_PRODUCT_LOCATION_REQUEST',
+  'PRODUCT/UPDATE_PRODUCT_LOCATION_REQUEST'
 );
 
 export const updateProductLocationSuccess = createAction<any>(
-  'PRODUCT/UPDATE_PRODUCT_LOCATION_SUCCESS',
+  'PRODUCT/UPDATE_PRODUCT_LOCATION_SUCCESS'
 );
 
 export const openModalUpdateProduct = createAction<any>(
-  'PRODUCT/OPEN_MODAL_UPDATE_PRODUCT',
+  'PRODUCT/OPEN_MODAL_UPDATE_PRODUCT'
 );
 
 export const closeModalUpdateProduct = createAction<any>(
-  'PRODUCT/CLOSE_MODAL_UPDATE_PRODUCT',
+  'PRODUCT/CLOSE_MODAL_UPDATE_PRODUCT'
 );
 
 export const readFeaturedProductsRequest = createAction(
-  'PRODUCT/READ_FEATURED_PRODUCTS_REQUEST',
+  'PRODUCT/READ_FEATURED_PRODUCTS_REQUEST'
 );
 
 export const readFeaturedProductsSuccess = createAction<any>(
-  'PRODUCT/READ_FEATURED_PRODUCTS_SUCCESS',
+  'PRODUCT/READ_FEATURED_PRODUCTS_SUCCESS'
 );
 
 export const renewLimitProduct = createAction<any>(
-  'PRODUCT/RENEW_LIMIT_PRODUCT',
+  'PRODUCT/RENEW_LIMIT_PRODUCT'
 );
 
 export const filterProductsByAnimal = createAction<any>(
-  'PRODUCT/FILTER_PRODUCTS_BY_ANIMAL',
+  'PRODUCT/FILTER_PRODUCTS_BY_ANIMAL'
 );
 
-export const readProductRequest = createAction(
-  'PRODUCT/READ_PRODUCT_REQUEST',
-);
+export const readProductRequest = createAction('PRODUCT/READ_PRODUCT_REQUEST');
 
 export const readProductSuccess = createAction<any>(
-  'PRODUCT/READ_PRODUCT_SUCCESS',
+  'PRODUCT/READ_PRODUCT_SUCCESS'
 );
 
-export const readStatesRequest = createAction(
-  'PRODUCT/READ_STATES_REQUEST',
-);
+export const readStatesRequest = createAction('PRODUCT/READ_STATES_REQUEST');
 
 export const readStatesSuccess = createAction<any>(
-  'PRODUCT/READ_STATES_SUCCESS',
+  'PRODUCT/READ_STATES_SUCCESS'
 );
 
 export const readCityByUfRequest = createAction<any>(
-  'PRODUCT/READ_CITY_BY_UF_REQUEST',
+  'PRODUCT/READ_CITY_BY_UF_REQUEST'
 );
 
 export const readCityByUfSuccess = createAction<any>(
-  'PRODUCT/READ_CITY_BY_UF_SUCCESS',
+  'PRODUCT/READ_CITY_BY_UF_SUCCESS'
 );

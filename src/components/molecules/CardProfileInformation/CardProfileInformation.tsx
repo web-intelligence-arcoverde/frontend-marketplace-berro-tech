@@ -14,7 +14,7 @@ import {
 import useModalOverflow from '@/hooks/useModalOverflow';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import { showModalEditUser } from '@/store/reducer/user/actions';
-
+import React from "react";
 export const CardProfileInformation = () => {
   const { visibility_modal_edit_user } = useAppSelector((state) => state.user);
 
@@ -22,14 +22,14 @@ export const CardProfileInformation = () => {
 
   const { avatar_url, contacts, addresses, name, email, avaliation } =
     useAppSelector((state) => state.auth.user);
-  let showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
+  const showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
   const arrayName = name?.split(' ')
   const firstName = arrayName?.shift()
   const lastName = arrayName?.pop()
 
-  let phone = contacts.length > 0 && contacts[0].phone_number;
+  const phone = contacts.length > 0 && contacts[0].phone_number;
 
-  let address = addresses.length > 0 && {
+  const address = addresses.length > 0 && {
     state: addresses[0].state,
     city: addresses[0].city,
   };

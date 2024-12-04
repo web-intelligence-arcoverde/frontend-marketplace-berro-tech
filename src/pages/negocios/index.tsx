@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {
   BussinessAside,
   Footer,
@@ -19,7 +21,7 @@ import { Bussinestabs } from '@/mock';
 
 import { Container, Main } from '@/style';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import {
   filterProductsByAnimal,
@@ -34,12 +36,12 @@ export const Business = () => {
 
   const currentSearch = useAppSelector((state) => state.product.currentSearch);
 
-  let isExistItemsSelectedFilter = allFilterSelected.length >= 1;
+  const isExistItemsSelectedFilter = allFilterSelected.length >= 1;
 
-  let isNotEmptyProduct =
+  const isNotEmptyProduct =
     filterProductByAnimal.length < 1 && allProducts.length < 1;
 
-  let product = isExistItemsSelectedFilter
+  const product = isExistItemsSelectedFilter
     ? filterProductByAnimal
     : filterProductByAnimal.length >= 1
       ? filterProductByAnimal
@@ -58,11 +60,11 @@ export const Business = () => {
       allFilterSelected.map((item: any, index: number) => {
         console.log(index)
         if (allFilterSelected.length === 1) {
-          let productsFiltred = filterByAllAttributes(product, item);
+          const productsFiltred = filterByAllAttributes(product, item);
           dispatch(filterProductsByAnimal(productsFiltred));
         } else if (index >= 1) {
-          let productsFiltred = filterByAllAttributes(allProducts, item);
-          let appendProducts = productsFiltred.concat(product)
+          const productsFiltred = filterByAllAttributes(allProducts, item);
+          const appendProducts = productsFiltred.concat(product)
           dispatch(filterProductsByAnimal(appendProducts));
         }
       });

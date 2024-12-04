@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
+
 import {
   FloatingLabelInput,
   FloatingLabelRadio,
   FloatingInputMask,
 } from '@/components';
 import { useFormatMoney } from '@/hooks/useFormatMoney';
-import {useAppDispatch, useAppSelector} from '@/hooks/useSelectorHook';
-import {readSaleTypeRequest} from '@/store/reducer/product/actions';
-import {useEffect, useState} from 'react';
+import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
+import { readSaleTypeRequest } from '@/store/reducer/product/actions';
+import { useEffect, useState } from 'react';
 
 export const EditProductBussines = () => {
   const dispatch = useAppDispatch();
@@ -15,13 +18,13 @@ export const EditProductBussines = () => {
     dispatch(readSaleTypeRequest());
   }, []);
 
-  const {sale} = useAppSelector((state) => state.product);
+  const { sale } = useAppSelector((state) => state.product);
 
   const {
-    product_by_id: {products},
+    product_by_id: { products },
   } = useAppSelector((state) => state.product);
 
-  const {business} = products;
+  const { business } = products;
 
   const [bussinessInformation, setBussinessInformation] = useState({
     sellType: business.sale.name,
@@ -29,10 +32,10 @@ export const EditProductBussines = () => {
     price: useFormatMoney(business.price),
     installments: business.installments,
   });
-  
+
 
   const onChange = (name: string, value: any) => {
-    setBussinessInformation({...bussinessInformation, [name]: value});
+    setBussinessInformation({ ...bussinessInformation, [name]: value });
   };
 
   return (

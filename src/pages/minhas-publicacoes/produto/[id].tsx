@@ -9,20 +9,20 @@ import {
   AuthPrivateRouter,
   ModalEditPublication
 } from '@/components';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
-import {readProductByIdRequest, removeProductModal} from '@/store/reducer/product/actions';
-import {Container, Main, StyleDesktop, StyleMobile} from '@/style';
-import {CardDescription, Content, InfoProduct} from '@/style/minhas-publicacoes-style';
-import {formatDate, setWeightMask} from '@/util';
-import {useRouter} from 'next/router';
-import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import { readProductByIdRequest, removeProductModal } from '@/store/reducer/product/actions';
+import { Container, Main, StyleDesktop, StyleMobile } from '@/style';
+import { CardDescription, Content, InfoProduct } from '@/style/minhas-publicacoes-style';
+import { formatDate } from '@/util';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const Product = () => {
-  const {modal_update_product, loading_search_product_by_id, product_by_id: {
-      products
-    }} = useAppSelector((state) => state.product);
+  const { modal_update_product, loading_search_product_by_id, product_by_id: {
+    products
+  } } = useAppSelector((state) => state.product);
 
   const controlModal = useAppSelector((state) => state.product.removeProductModal,);
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const Product = () => {
 
   const router = useRouter();
 
-  const {id} = router.query;
+  const { id } = router.query;
 
   useEffect(() => {
     if (id) {
@@ -48,17 +48,17 @@ const Product = () => {
         <></>
       ) : (
         <Container>
-          <Header/>
+          <Header />
           <Main>
             <Content>
               <InfoProduct>
                 <PhotosAnimal arrayPhoto={
                   products.documents
-                }/>
+                } />
                 <StyleDesktop>
                   <DescriptionProduct description={
-                      products.description
-                    }
+                    products.description
+                  }
                     genetics={
                       products.classification.name
                     }
@@ -67,13 +67,13 @@ const Product = () => {
                     }
                     birthDate={
                       formatDate(new Date(products.date_birth))
-                    }/>
+                    } />
                 </StyleDesktop>
               </InfoProduct>
               <CardDescription>
                 <ControlProduct id={
-                    products.id
-                  }
+                  products.id
+                }
                   breed={
                     products.breed
                   }
@@ -95,11 +95,11 @@ const Product = () => {
                   classification={
                     products.classification
                   }
-                  maxWidth='100%'/>
+                  maxWidth='100%' />
                 <StyleMobile>
                   <DescriptionProduct description={
-                      products.description
-                    }
+                    products.description
+                  }
                     genetics={
                       products.classification.name
                     }
@@ -108,21 +108,19 @@ const Product = () => {
                     }
                     birthDate={
                       formatDate(new Date(products.date_birth))
-                    }/>
+                    } />
                 </StyleMobile>
-                <Notification/>
+                <Notification />
               </CardDescription>
               <StyleMobile>
                 <ButtonsControl editItem={
-                    () =>
-                    // @ts-ignore
-                    setIsOpen(true)
-                  }
-                  removeItem={handleModalRemove}/>
+                  () => console.log('button')
+                }
+                  removeItem={handleModalRemove} />
               </StyleMobile>
-              <ModalEditPublication/> {
-              controlModal && <ModalRemovePublication/>
-            } </Content>
+              <ModalEditPublication /> {
+                controlModal && <ModalRemovePublication />
+              } </Content>
           </Main>
         </Container>
       )

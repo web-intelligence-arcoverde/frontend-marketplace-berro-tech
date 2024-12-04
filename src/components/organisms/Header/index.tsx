@@ -1,7 +1,7 @@
 import { HeaderLogoContainer, HeaderNavigation } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import { userLoggedInformationRequest } from '@/store/reducer/auth/actions';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ContainerHeader, MainHeader } from './style';
 
 export const Header = () => {
@@ -9,7 +9,9 @@ export const Header = () => {
   const { token } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
-    token && dispatch(userLoggedInformationRequest());
+    if (token) {
+      dispatch(userLoggedInformationRequest())
+    }
   }, []);
 
   return (

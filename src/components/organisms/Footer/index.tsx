@@ -2,7 +2,7 @@ import { ICONS } from "@/assets";
 import { LogoCopyright } from "@/components/atoms";
 import { FooterMenuNavigation } from "@/components/molecules";
 import Image from "next/image";
-
+import React from "react";
 import Link from "next/link";
 import {
   CardCopyright,

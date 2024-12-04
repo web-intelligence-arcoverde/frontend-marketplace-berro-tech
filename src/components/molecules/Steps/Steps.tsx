@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import React, { useState } from 'react';
 import {
   LayoutRegisterConfig,
   HeaderMultiSteps,
@@ -30,13 +31,13 @@ export const Steps = () => {
     setCurrentStep(stepNumber);
   };
 
-  //@ts-ignore
+  //@ts-expect-error: Error
   const CurrentStepComponent = stepsComponents[currentStep];
 
   return (
     <LayoutRegisterConfig>
       <HeaderMultiSteps>
-        {steps.map((step, index) => {
+        {steps.map((step) => {
           return (
             <StepsContainer
               className={currentStep === step.id ? 'active' : ''}

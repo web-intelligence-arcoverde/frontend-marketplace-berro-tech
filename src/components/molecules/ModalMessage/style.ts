@@ -1,17 +1,5 @@
 import { breakpoints, colors } from '@/common';
-import styled, { keyframes } from 'styled-components';
-
-const pulse = keyframes`
-  0% {
-    stroke-width: 5;
-  }
-  50% {
-    stroke-width: 10;
-  }
-  100% {
-    stroke-width: 5;
-  }
-`;
+import styled from 'styled-components';
 
 export const ContainerModalMessage = styled.div<{ error: boolean }>`
   display: flex;

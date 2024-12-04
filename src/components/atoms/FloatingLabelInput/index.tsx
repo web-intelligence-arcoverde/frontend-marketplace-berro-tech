@@ -1,4 +1,5 @@
-import {useState} from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from 'react';
 import {
   FormField,
   Input,
@@ -8,7 +9,7 @@ import {
   ContainerField,
 } from './style';
 import Image from 'next/image';
-import {ICONS} from '@/assets';
+import { ICONS } from '@/assets';
 
 interface FloatingLabelInputProps {
   placeholder: string;
@@ -32,7 +33,6 @@ interface FloatingLabelInputProps {
 export const FloatingLabelInput = ({
   placeholder,
   max,
-  maskType,
   value,
   setValue,
   name,
@@ -53,7 +53,7 @@ export const FloatingLabelInput = ({
     }
   };
 
-  const {error, errorMessage} = props;
+  const { error, errorMessage } = props;
   return (
     <ContainerField>
       <FormField>

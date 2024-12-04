@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button } from '@/components';
 import MaskedInput from 'react-input-mask';
 import { ButtonContainer, CardInputUser, Container, TextLabel } from './style';
 
 import { useAppDispatch } from '@/hooks/useSelectorHook';
 import { userLoggedDeleteRequest } from '@/store/reducer/auth/actions';
-
+import React from "react";
 import { Controller } from 'react-hook-form';
 
 export const EditAccountInfo = ({ control, errors }: any) => {

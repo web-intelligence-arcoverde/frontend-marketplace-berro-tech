@@ -1,3 +1,4 @@
+import React from "react";
 import { useRouter } from "next/router";
 import { ContainerNavigation, ItemNavigation, Row } from "./style";
 import Link from "next/link";
@@ -15,7 +16,7 @@ export const FooterMenuNavigation = () => {
 
   return (
     <ContainerNavigation>
-      {MockNavigation.map((nav,index) => (
+      {MockNavigation.map((nav, index) => (
         <ItemNavigation key={index}>
           <Link href={nav.link} id={nav.link === router.asPath ? "active" : ""}>
             {nav.name}

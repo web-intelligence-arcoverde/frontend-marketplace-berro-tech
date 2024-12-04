@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ICONS } from '@/assets';
 import { NotFoundFilter, ProductCard, Tabs } from '@/components';
 import Image from 'next/image';
@@ -13,7 +14,7 @@ import { useAppSelector } from '@/hooks/useSelectorHook';
 import { tabs } from '@/mock';
 import { useDispatch } from 'react-redux';
 import { topSearchesFilter } from '@/store/reducer/product/actions';
-
+import React from 'react';
 export const MainSearch = () => {
   const [search, setSearch] = useState('');
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

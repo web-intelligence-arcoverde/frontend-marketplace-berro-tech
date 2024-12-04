@@ -1,8 +1,10 @@
-export interface InputProps {
+import { Control, FieldValues } from 'react-hook-form';
+
+export interface InputProps<T extends FieldValues> {
   name: string;
   type: string;
   placeholder: string;
   nameLabel: string;
-  control?: any;
+  control?: Control<T>;
   errors?: string;
 }

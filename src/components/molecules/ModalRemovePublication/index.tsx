@@ -1,15 +1,15 @@
-import {Button, Modal} from '@/components';
+import { Button, Modal } from '@/components';
 import useModalOverflow from '@/hooks/useModalOverflow';
-import {useState} from 'react';
-import {CardButtons, CardRemove} from './style';
-import {useDispatch} from 'react-redux';
-import {useRouter} from 'next/router';
+import { useState } from 'react';
+import { CardButtons, CardRemove } from './style';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 import {
   removeProduct,
   removeProductModal,
 } from '@/store/reducer/product/actions';
-import {useAppSelector} from '@/hooks/useSelectorHook';
-
+import { useAppSelector } from '@/hooks/useSelectorHook';
+import React from 'react';
 export const ModalRemovePublication = () => {
   const [modal, setModal] = useState<boolean>(true);
   const controlModal = useAppSelector(
@@ -20,7 +20,7 @@ export const ModalRemovePublication = () => {
     dispatch(removeProductModal(controlModal));
   };
   const router = useRouter();
-  const {id} = router.query;
+  const { id } = router.query;
   const dispatch = useDispatch();
 
   const removeItem = () => {

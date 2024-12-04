@@ -1,24 +1,26 @@
-import {NotFoundFilter, ProductCard} from '@/components';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
+import { NotFoundFilter, ProductCard } from '@/components';
 import {
   Container,
   TitleContainer,
   ProductCardsContainer,
   LinkMobileContainer,
 } from './style';
-import {useAppSelector} from '@/hooks/useSelectorHook';
-import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {readFeaturedProductsRequest} from '@/store/reducer/product/actions';
+import { useAppSelector } from '@/hooks/useSelectorHook';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { readFeaturedProductsRequest } from '@/store/reducer/product/actions';
 
 export const BussinessHighlight = () => {
   const dispatch = useDispatch();
 
-  const {featuredProducts, featuredProductsLoading} = useAppSelector(
+  const { featuredProducts, featuredProductsLoading } = useAppSelector(
     (state) => state.product,
   );
 
   useEffect(() => {
-    featuredProductsLoading && dispatch(readFeaturedProductsRequest());
+    if (featuredProductsLoading) dispatch(readFeaturedProductsRequest());
   }, [featuredProductsLoading]);
 
   return (

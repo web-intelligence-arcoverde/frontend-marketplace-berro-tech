@@ -1,13 +1,14 @@
-import {ICONS} from '@/assets';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ICONS } from '@/assets';
 import Image from 'next/image';
-import React, {useState, useRef} from 'react';
-import {Container, Overlay, Button} from './style';
-import {useAppSelector} from '@/hooks/useSelectorHook';
+import React, { useState, useRef } from 'react';
+import { Container, Overlay, Button } from './style';
+import { useAppSelector } from '@/hooks/useSelectorHook';
 
 export const EditAccountImage = () => {
-  const {avatar_url} = useAppSelector((state) => state.auth.user);
+  const { avatar_url } = useAppSelector((state) => state.auth.user);
 
-  let showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
+  const showAvatarImage = avatar_url ? avatar_url : ICONS.Avatar;
 
   const [imagePreview, setImagePreview] = useState<string | null>(
     showAvatarImage,
@@ -41,12 +42,13 @@ export const EditAccountImage = () => {
       )}
       <Overlay onClick={handleOverlayClick}>
         <input
+          aria-label='ariea'
           name='avatar_url'
           type='file'
           accept='image/*'
           onChange={(event) => handleImageChange(event)}
           ref={inputRef}
-          style={{display: 'none', height: '271px', width: '271px'}}
+          style={{ display: 'none', height: '271px', width: '271px' }}
           onKeyDown={handleKeyDown}
           id='fileInput'
         />

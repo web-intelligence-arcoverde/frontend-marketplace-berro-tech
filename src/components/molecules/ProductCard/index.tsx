@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image';
-import {Card, CattleCard, Flex, CattleInfoContainer} from './style';
-import {CardNameLocation} from '@/components';
-import {useRouter} from 'next/router';
-
+import { Card, CattleCard, Flex, CattleInfoContainer } from './style';
+import { CardNameLocation } from '@/components';
+import { useRouter } from 'next/router';
+import React from 'react';
 export const ProductCard = ({
   name,
   breed,
@@ -22,9 +23,9 @@ export const ProductCard = ({
 
   const handleRedirect = () => {
     if (router.pathname === '/minhas-publicacoes') {
-      router.replace({pathname: `/minhas-publicacoes/produto/${id}`});
+      router.replace({ pathname: `/minhas-publicacoes/produto/${id}` });
     } else {
-      router.replace({pathname: `/negocios/produto/${id}`});
+      router.replace({ pathname: `/negocios/produto/${id}` });
     }
   };
 

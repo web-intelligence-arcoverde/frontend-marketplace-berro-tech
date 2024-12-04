@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { ContainerSearchMobile, CardSearch, LastSearchs } from "./style";
+import React from 'react';
 
 export const SearchMobile = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -34,7 +35,7 @@ export const SearchMobile = () => {
     <ContainerSearchMobile>
       <CardSearch>
         {
-          //@ts-ignore
+          //@ts-expect-error: Error
           <Search isFocused={isFocused} setIsFocused={setIsFocused} />
         }
       </CardSearch>

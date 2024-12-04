@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { setWeightMask } from '@/util';
 import {
   CardDescription,
   ContainerDescriptionProduct,
   ListDescriptionProduct,
 } from './style';
-
+import React from "react";
 interface DescriptionProductProps {
   description: string;
   weight: string;
@@ -18,7 +19,7 @@ export const DescriptionProduct = ({
   birthDate,
   genetics,
 }: DescriptionProductProps) => {
-  
+
   return (
     <ContainerDescriptionProduct>
       <CardDescription>

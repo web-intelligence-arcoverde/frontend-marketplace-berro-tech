@@ -1,13 +1,13 @@
-import {useFormatMoney} from '@/hooks/useFormatMoney';
-import {CardPrice, ContainerPrice, Price} from './style';
-
+import { useFormatMoney } from '@/hooks/useFormatMoney';
+import { CardPrice, ContainerPrice, Price } from './style';
+import React from 'react';
 interface PriceProductProps {
   installments: number;
   price: number;
 }
 
-export const PriceProduct = ({price, installments}: PriceProductProps) => {
-  let totalValue = price / installments;
+export const PriceProduct = ({ price, installments }: PriceProductProps) => {
+  const totalValue = price / installments;
   return (
     <ContainerPrice>
       <CardPrice>

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+import React from "react";
 import { LayoutInit, MiniContainer, SingUpStep1 } from "@/components";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";
@@ -18,7 +20,7 @@ const SignUp = () => {
   const stateStep = useAppSelector((state) => state.product.currentStep);
   const Step = Steps[stateStep];
   const router = useRouter();
-  let currenRoute = router.asPath;
+  const currenRoute = router.asPath;
   const dispatch = useAppDispatch();
 
   useEffect(() => {

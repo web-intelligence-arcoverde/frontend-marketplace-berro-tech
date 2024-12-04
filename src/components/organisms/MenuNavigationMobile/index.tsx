@@ -1,9 +1,10 @@
-import {ButtonLink} from '@/components/atoms';
-import {useAppSelector} from '@/hooks/useSelectorHook';
-import {MockNavigation} from '@/mock';
+import React from 'react';
+import { ButtonLink } from '@/components/atoms';
+import { useAppSelector } from '@/hooks/useSelectorHook';
+import { MockNavigation } from '@/mock';
 import Link from 'next/link';
 import router from 'next/router';
-import {CardButtons, CardNavigation, ContainerMenu} from './style';
+import { CardButtons, CardNavigation, ContainerMenu } from './style';
 
 export const MenuNavigationMobile = () => {
   const token = useAppSelector((state) => state.auth.token);
@@ -20,7 +21,7 @@ export const MenuNavigationMobile = () => {
           </Link>
         ))}
       </CardNavigation>
-      {!!token ? (
+      {token ? (
         <CardButtons>
           <ButtonLink link='#'>Sair</ButtonLink>
         </CardButtons>

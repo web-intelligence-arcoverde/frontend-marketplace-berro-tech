@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import {ICONS} from '@/assets';
-import {Location, Flex} from './style';
-import {CardNameLocationProps} from '@/types';
-import {Avaliation} from '@/components';
+import { ICONS } from '@/assets';
+import { Location, Flex } from './style';
+import { CardNameLocationProps } from '@/types';
+import { Avaliation } from '@/components';
+import React from 'react';
 
 export const CardNameLocation = ({
   name,
