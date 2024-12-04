@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return <></>;
   } else {
     return (
-      <>
+      <html lang="pt-BR">
         <Head>
           <title>Berro Tech</title>
         </Head>
@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
           <ModalGeneric />
         </Provider>
-      </>
+      </html>
     );
   }
 }
