@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
-import { store } from 'src/store';
+import store from 'src/store';
 
 const local = 'http://127.0.0.1:3333/v1';
 

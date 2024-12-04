@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
 import { Provider } from "react-redux";
-import { store } from "../store";
+import store from "../store";
 import { ModalGeneric } from "@/components";
 
 function MyApp({ Component, pageProps }: AppProps) {

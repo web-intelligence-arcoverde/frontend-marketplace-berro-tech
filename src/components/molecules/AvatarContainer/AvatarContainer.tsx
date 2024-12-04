@@ -70,6 +70,7 @@ export const AvatarContainer = () => {
     };
   }, [openDropDown]);
 
+
   return (
     <>
       {token ? (

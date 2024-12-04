@@ -2,7 +2,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '@/service';
-import { store } from '@/store';
+import store from '@/store';
 import { readUserByIdSuccess } from './actions';
 
 function* signUpEmail(): any {

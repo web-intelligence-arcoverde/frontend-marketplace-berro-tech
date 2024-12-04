@@ -20,7 +20,7 @@ import {
   updateProductBasicInformationSuccess,
   updateProductLocationSuccess
 } from './actions';
-import { store } from '@/store';
+import store from '@/store';
 import { userLoggedInformationRequest } from '../auth/actions';
 
 function* getProductById({ payload }: any): any {
