@@ -1,3 +1,5 @@
+
+'use client'
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Accordion, Dropdown, BussinessFilter, ModalFilters } from "@/components"
 import { Container, BadgeContainer, Badge, HeaderFilterMobile, FilterButtonContainer, FiltersHeaderContainer, FiltersIconTitle, FiltersIconTitleHeader, ArrowImage, CleanFilterButton, ApplyFilterButton } from "./style"

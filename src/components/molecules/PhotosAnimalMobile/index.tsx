@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ContainerModalMobile, SlideImage, Video } from "./style";
 //@ts-expect-error: error
@@ -14,7 +15,7 @@ SwiperCore.use([Pagination]);
 export const PhotosAnimalMobile = ({ allPhotos }: any) => {
   return (
     <ContainerModalMobile>
-      <Swiper
+      {/* <Swiper
         slidesPerView={1}
         onSlideChange={() => { }}
         onSwiper={(swiper) => swiper}
@@ -43,7 +44,7 @@ export const PhotosAnimalMobile = ({ allPhotos }: any) => {
             </SwiperSlide>
           );
         })}
-      </Swiper>
+      </Swiper> */}
     </ContainerModalMobile>
   );
 };

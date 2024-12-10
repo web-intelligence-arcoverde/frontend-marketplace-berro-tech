@@ -1,3 +1,5 @@
+'use client';
+
 import { colors } from '@/common';
 import styled from 'styled-components';
 

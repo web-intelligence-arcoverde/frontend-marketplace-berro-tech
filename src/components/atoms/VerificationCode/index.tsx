@@ -1,3 +1,5 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef, ChangeEvent } from 'react';
 import { CardInputs } from './style';

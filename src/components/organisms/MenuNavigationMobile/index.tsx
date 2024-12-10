@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { ButtonLink } from '@/components/atoms';
 import { useAppSelector } from '@/hooks/useSelectorHook';

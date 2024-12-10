@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breadcrumb, SlideProduct } from '@/components';
 import Image, { StaticImageData } from 'next/image';

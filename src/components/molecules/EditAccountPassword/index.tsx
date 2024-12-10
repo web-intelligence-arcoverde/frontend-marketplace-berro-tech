@@ -1,5 +1,6 @@
-import {FloatingLabelInput} from '@/components';
-import React, {useState} from 'react';
+'use client'
+import { FloatingLabelInput } from '@/components';
+import React, { useState } from 'react';
 import {
   Container,
   ContainerInputs,
@@ -7,10 +8,10 @@ import {
   NextButton,
   NextButtonContainer,
 } from './style';
-import {useAppDispatch} from '@/hooks/useSelectorHook';
-import {userEditPasswordInformationRequest} from '@/store/reducer/auth/actions';
-import {IEditUserPasswordProps} from '@/store/reducer/auth/types';
-import {showModalEditUser} from '@/store/reducer/user/actions';
+import { useAppDispatch } from '@/hooks/useSelectorHook';
+import { userEditPasswordInformationRequest } from '@/store/reducer/auth/actions';
+import { IEditUserPasswordProps } from '@/store/reducer/auth/types';
+import { showModalEditUser } from '@/store/reducer/user/actions';
 
 export const EditAccountPassword = () => {
   const dispatch = useAppDispatch();
@@ -25,7 +26,7 @@ export const EditAccountPassword = () => {
     const inputs = form.querySelectorAll<HTMLInputElement>('[name]');
 
     inputs.forEach((input) => {
-      const {name, value} = input;
+      const { name, value } = input;
       formData[name] = value;
     });
 
@@ -36,7 +37,7 @@ export const EditAccountPassword = () => {
       setError(false);
       setMessageError('');
       dispatch(userEditPasswordInformationRequest(formData));
-      dispatch(showModalEditUser({formData, step: 0}));
+      dispatch(showModalEditUser({ formData, step: 0 }));
     }
   };
 

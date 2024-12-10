@@ -1,3 +1,5 @@
+'use client'
+
 import { ICONS } from '@/assets';
 import { useAppSelector } from '@/hooks/useSelectorHook';
 import { DropdownMock } from '@/mock';

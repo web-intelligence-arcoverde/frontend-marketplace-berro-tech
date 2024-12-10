@@ -1,7 +1,8 @@
-import { Button, Modal } from '@/components';
 import { useState } from 'react';
 import { CardButtons, CardRemove } from './style';
 import React from 'react';
+import { Modal } from '@/components/atoms/Modal';
+import { Button } from '@/components/atoms/Button';
 
 export const ModalDeleteUser = () => {
   const [modal] = useState<boolean>(true);

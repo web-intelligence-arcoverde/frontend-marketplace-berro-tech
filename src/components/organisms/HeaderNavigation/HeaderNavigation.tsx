@@ -1,7 +1,12 @@
+'use client'
+
 import { useState } from 'react';
-import { HeaderMenuNavigation, Search, AvatarContainer } from '@/components';
 import { Navigation, CardSearch } from './style';
 import React from 'react';
+import { HeaderMenuNavigation } from '@/components/molecules/HeaderMenuNavigation/HeaderMenuNavigation';
+
+import { Search } from '@/components/atoms/Search';
+import { AvatarContainer } from '@/components/molecules/AvatarContainer/AvatarContainer';
 
 export const HeaderNavigation = () => {
   const [isFocused, setIsFocused] = useState(false);

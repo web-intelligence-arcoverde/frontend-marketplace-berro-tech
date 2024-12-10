@@ -1,3 +1,5 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { setCellphoneMask, setMoneyMask, setWeightMask } from '@/util';
 import { FormField, Input, Label, ErrorMessage, ContainerField } from './style';

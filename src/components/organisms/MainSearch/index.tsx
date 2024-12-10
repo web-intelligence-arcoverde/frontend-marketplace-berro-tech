@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ICONS } from '@/assets';
 import { NotFoundFilter, ProductCard, Tabs } from '@/components';

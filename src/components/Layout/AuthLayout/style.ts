@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import { breakpoints, colors } from '@/common';
-import Image from 'next/image';
 
-export const Main = styled.main`
+import Image from 'next/image';
+import { breakpoints, colors } from '@/common';
+
+export const Container = styled.main`
   display: flex;
   align-items: center;
   height: 100vh;
-  max-width: ${breakpoints.xg};
+  height: 100%;
   margin: 0 auto;
   background-color: ${colors.light._05};
 
@@ -14,27 +15,19 @@ export const Main = styled.main`
     flex-direction: column;
   }
 `;
-export const StyleImage = styled(Image)`
+
+export const Logo = styled(Image)`
   height: 100vh;
-  @media (max-width: ${breakpoints.sm}) {
-    display: none;
-  }
-`;
-export const StyleImageMobile = styled.div`
-  display: none;
+  object-fit: cover;
+
   @media (max-width: ${breakpoints.sm}) {
     display: block;
     width: 100%;
+    height: 140px;
 
     img {
       width: 100%;
       object-fit: cover;
     }
   }
-`;
-
-export const ContainerChildren = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
 `;

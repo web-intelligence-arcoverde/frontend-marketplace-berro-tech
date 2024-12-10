@@ -1,3 +1,4 @@
+'use client'
 import { useAppDispatch } from '@/hooks/useSelectorHook';
 import { renewLimitProduct } from '@/store/reducer/product/actions';
 import { useRouter } from 'next/router';

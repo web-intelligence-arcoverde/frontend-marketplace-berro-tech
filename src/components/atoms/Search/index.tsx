@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+'use client'
+
 import Image from 'next/image';
 import { ICONS } from '@/assets';
 import { ButtonSearchMobile, CardSearch, IconLupa } from './style';
@@ -12,7 +15,6 @@ import {
 } from '@/store/reducer/product/actions';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
 import { KeyboardEvent } from 'react';
-import { useRouter } from 'next/router';
 interface ISearch {
   isFocused: boolean;
   setIsFocused: (state: boolean) => boolean;
@@ -22,16 +24,6 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   const getSearch = useAppSelector((state) => state.product.currentSearch);
   const [search, setSearch] = useState<string>(getSearch);
   const dispath = useAppDispatch();
-  useEffect(() => {
-    if (currentRouter !== '/negocios') {
-      setSearch('');
-    }
-  }, []);
-  useEffect(() => {
-    if (!search) {
-      dispath(getAllProducts());
-    }
-  }, [search, dispath]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -43,9 +35,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     dispath(currentSearch(search));
     dispath(searchMobile(false));
     dispath(filterItems(search));
-    if (currentRouter !== '/negocios') {
-      router.replace('/negocios');
-    }
+
   };
 
   const clearInput = (event: MouseEventHandler<HTMLButtonElement> | any) => {
@@ -58,13 +48,12 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
     setIsFocused(!isFocused);
   };
 
-  const router = useRouter();
-  const currentRouter = router.asPath;
+  const currentRouter = '/'
 
   const searchEnter = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.keyCode === 13) {
-      if (currentRouter !== '/negocios') {
-        router.replace('/negocios');
+      if (currentRouter) {
+
         setTimeout(() => {
           dispath(filterItems(search));
         }, 300);
@@ -78,12 +67,7 @@ export const Search = ({ isFocused, setIsFocused }: ISearch) => {
   return (<CardSearch width={
     isFocused ? '400px' : '250px'
   }
-    borderInput={
-      search ? '8px 0 0 8px' : '8px'
-    }
-    borderRight={
-      search && 'none'
-    }>
+  >
     <IconLupa src={
       ICONS.Search
     }

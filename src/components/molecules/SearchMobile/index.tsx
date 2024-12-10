@@ -1,3 +1,5 @@
+'use client'
+
 import { ICONS } from "@/assets";
 import { Search } from "@/components/atoms";
 import { useAppDispatch, useAppSelector } from "@/hooks/useSelectorHook";

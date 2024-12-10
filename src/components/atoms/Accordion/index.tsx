@@ -1,3 +1,4 @@
+'use client'
 import { ICONS } from "@/assets";
 import Image from "next/image";
 import {

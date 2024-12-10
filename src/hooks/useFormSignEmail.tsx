@@ -1,10 +1,10 @@
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
+'use client'
+
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import {ErrorMessage} from '../locale';
-import {useAppDispatch} from './useSelectorHook';
-import {signInEmailRequest} from '@/store/reducer/auth/actions';
+import { ErrorMessage } from '../locale';
 
 const schema = yup
   .object({
@@ -24,7 +24,7 @@ export const useHookFormSignInEmail = () => {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -33,9 +33,8 @@ export const useHookFormSignInEmail = () => {
     },
   });
 
-  const dispatch = useAppDispatch();
 
-  const onSubmit = handleSubmit((data) => dispatch(signInEmailRequest(data)));
+  const onSubmit = handleSubmit((data) => console.log(data));
 
-  return {onSubmit, control, errors};
+  return { onSubmit, control, errors };
 };

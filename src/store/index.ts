@@ -4,7 +4,7 @@ import { rootSaga } from './reducer/rootSagas';
 import { rootReducer } from './reducer/rootReducer';
 
 import { configureStore } from '@reduxjs/toolkit';
-const makeStore = () => {
+export const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware();
 
   const store = configureStore({
@@ -24,6 +24,10 @@ const makeStore = () => {
 
 const store = makeStore();
 
-export type RootState = ReturnType<typeof store.getState>;
+// Infer the type of makeStore
+export type AppStore = ReturnType<typeof makeStore>;
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];
 
 export default store;

@@ -1,9 +1,10 @@
+'use client'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { ErrorMessage } from "../locale";
-import { addUser} from "@/store/reducer/user/actions";
+import { addUser } from "@/store/reducer/user/actions";
 import { useAppDispatch } from "./useSelectorHook";
 import { IRegisterUserProps } from "@/store/reducer/user/types";
 import { currentStep } from "@/store/reducer/product/actions";
@@ -40,17 +41,17 @@ export const useHookFormSignUp1 = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
- 
+
   });
   const dispatch = useAppDispatch();
   const nextStep = () => {
-    dispatch(currentStep({step:2}));
+    dispatch(currentStep({ step: 2 }));
   };
 
-  const onSubmit = handleSubmit((data:IRegisterUserProps) => {
+  const onSubmit = handleSubmit((data: IRegisterUserProps) => {
     dispatch(addUser(data))
     nextStep();
-  
+
   });
 
   return { onSubmit, control, errors, nextStep };

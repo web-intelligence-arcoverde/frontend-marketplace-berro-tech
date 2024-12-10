@@ -1,18 +1,24 @@
-import { HeaderLogoContainer, HeaderNavigation } from '@/components';
-import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
-import { userLoggedInformationRequest } from '@/store/reducer/auth/actions';
-import React, { useEffect } from 'react';
+'use client'
+
+import React from 'react';
 import { ContainerHeader, MainHeader } from './style';
+import { HeaderLogoContainer } from '@/components/molecules/HeaderLogoContainer/HeaderLogoContainer';
+import { HeaderNavigation } from '../HeaderNavigation/HeaderNavigation';
+import { usePathname } from 'next/navigation'
 
 export const Header = () => {
-  const dispatch = useAppDispatch();
-  const { token } = useAppSelector((state) => state.auth);
 
-  useEffect(() => {
-    if (token) {
-      dispatch(userLoggedInformationRequest())
-    }
-  }, []);
+  const router = usePathname();
+
+  const isSignInPage = router === '/entrar'
+  const isRecoveryAccountPage = router === '/recuperar-senha'
+  const isSignUp = router === '/criar-conta'
+
+  const hiddenHeader = isSignInPage || isRecoveryAccountPage || isSignUp
+
+  if (hiddenHeader) {
+    return
+  }
 
   return (
     <ContainerHeader>

@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, Modal } from '@/components';
 import useModalOverflow from '@/hooks/useModalOverflow';
 import { useState } from 'react';

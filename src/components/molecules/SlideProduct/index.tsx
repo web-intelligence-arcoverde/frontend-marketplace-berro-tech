@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { CardSlide, SlideImage, Video } from './style';
@@ -19,7 +20,7 @@ export const SlideProduct = ({ handleModal, allPhotos }: any) => {
   return (
     <Modal onClick={handleModal}>
       <CardSlide>
-        <Swiper
+        {/* <Swiper
           slidesPerView={1}
           onSlideChange={() => { }}
           onSwiper={(swiper) => swiper}
@@ -49,7 +50,7 @@ export const SlideProduct = ({ handleModal, allPhotos }: any) => {
               </SwiperSlide>
             );
           })}
-        </Swiper>
+        </Swiper> */}
       </CardSlide>
     </Modal>
   );

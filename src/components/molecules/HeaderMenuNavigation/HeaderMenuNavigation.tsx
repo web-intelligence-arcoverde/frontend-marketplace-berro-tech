@@ -1,15 +1,15 @@
+'use client'
+
 import React from 'react';
-import { useRouter } from 'next/router';
 
 import { ContainerNavigation, ItemNavigation, Row } from './style';
 
 import Link from 'next/link';
 
 export const HeaderMenuNavigation = () => {
-  const router = useRouter();
 
-  const optionInit = router.asPath === '/';
-  const optionBussiness = router.asPath === '/negocios';
+  const optionInit = true;
+  const optionBussiness = false;
 
   const styleInit = optionInit ? 'brightness' : '';
   const styleBussiness = optionBussiness ? 'brightness' : '';

@@ -1,6 +1,7 @@
+'use client';
 //********O componente recebe 2 parâmetros o do estado , e uma função pra fechar o modal *************/
 
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 function useModalOverflow(isOpen: boolean, onClose?: () => void) {
   useEffect(() => {

@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ContentStep, Header, Container, StepsContainer } from './style';
 import { useAppSelector } from '@/hooks/useSelectorHook';

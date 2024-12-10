@@ -1,3 +1,5 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRouter } from 'next/router';
 import Image from 'next/image';

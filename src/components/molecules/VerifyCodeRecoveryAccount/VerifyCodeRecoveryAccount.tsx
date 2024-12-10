@@ -1,3 +1,5 @@
+'use client'
+
 import { VerificationCode, Button } from "@/components";
 import { useChronometerHook } from "@/hooks";
 import { useAppSelector } from "@/hooks/useSelectorHook";

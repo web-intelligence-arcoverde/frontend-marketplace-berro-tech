@@ -1,3 +1,5 @@
+'use client';
+
 import styled from 'styled-components';
 import { breakpoints, colors } from '@/common';
 import Image from 'next/image';

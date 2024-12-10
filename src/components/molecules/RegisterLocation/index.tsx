@@ -1,3 +1,5 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FloatingLabelRadio } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';

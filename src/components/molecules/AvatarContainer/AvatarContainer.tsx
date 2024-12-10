@@ -1,13 +1,10 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image';
 import { useAppSelector } from '@/hooks/useSelectorHook';
 import { ICONS } from '@/assets';
-import {
-  ButtonLink,
-  DropDown,
-  MenuNavigationMobile,
-  SearchMobile,
-} from '@/components';
+
 
 import {
   ButtonMenu,
@@ -22,6 +19,10 @@ import {
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchMobile } from '@/store/reducer/product/actions';
+import { DropDown } from '../DropDown';
+import { ButtonLink } from '@/components/atoms/Button/ButtonLink';
+import { MenuNavigationMobile } from '@/components/organisms/MenuNavigationMobile';
+import { SearchMobile } from '../SearchMobile';
 
 export const AvatarContainer = () => {
   const {
