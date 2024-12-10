@@ -1,7 +1,7 @@
 import StoreProvider from "@/components/atoms/StoreProvider";
 import { Header } from "@/components/organisms/Header";
 import type { Metadata } from "next";
-import React, { use } from "react";
+import React from "react";
 
 import '@/style/globals.css'
 

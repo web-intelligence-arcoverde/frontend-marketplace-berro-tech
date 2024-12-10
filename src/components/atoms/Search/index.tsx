@@ -1,20 +1,20 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-'use client'
 
 import Image from 'next/image';
 import { ICONS } from '@/assets';
 import { ButtonSearchMobile, CardSearch, IconLupa } from './style';
-import React, { ChangeEvent, MouseEventHandler, useEffect, useState } from 'react';
+import React, { ChangeEvent, MouseEventHandler, useState, KeyboardEvent } from 'react';
 import {
   addItem,
   currentSearch,
   filterItems,
-  getAllProducts,
+
   searchMobile
 } from '@/store/reducer/product/actions';
 import { useAppDispatch, useAppSelector } from '@/hooks/useSelectorHook';
-import { KeyboardEvent } from 'react';
 interface ISearch {
   isFocused: boolean;
   setIsFocused: (state: boolean) => boolean;
