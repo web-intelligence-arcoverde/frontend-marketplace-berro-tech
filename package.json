@@ -45,7 +45,7 @@
     "redux-saga": "^1.2.2",
     "styled-components": "^6.1.13",
     "swiper": "^11.1.15",
-    "typescript": "5.7.2",
+    "typescript": "5.7.3",
     "yup": "^1.0.2"
   },
   "devDependencies": {
